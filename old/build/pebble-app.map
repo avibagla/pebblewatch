@@ -1,0 +1,2250 @@
+Archive member included because of file (symbol)
+
+/usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                              src/ProjectK.c.13.o (app_event_loop)
+
+Allocating common symbols
+Common symbol       size              file
+
+pif_srt             0x4               src/pinteract_all/pinteract_driver.c.13.o
+
+Discarded input sections
+
+ .text          0x0000000000000000        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crti.o
+ .bss           0x0000000000000000        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crti.o
+ .init          0x0000000000000000        0x4 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crti.o
+ .fini          0x0000000000000000        0x4 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crti.o
+ .text          0x0000000000000000       0xc8 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+ .bss           0x0000000000000000       0x1c /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+ .init_array    0x0000000000000000        0x4 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+ .fini_array    0x0000000000000000        0x4 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+ .eh_frame      0x0000000000000000        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+ .jcr           0x0000000000000000        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+ .tm_clone_table
+                0x0000000000000000        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+ .text          0x0000000000000000        0x0 src/ProjectK.c.13.o
+ .bss           0x0000000000000000        0x0 src/ProjectK.c.13.o
+ .text          0x0000000000000000        0x0 src/config_all/config_personal_goals.c.13.o
+ .bss           0x0000000000000000        0x0 src/config_all/config_personal_goals.c.13.o
+ .text          0x0000000000000000        0x0 src/config_all/config_personal_params.c.13.o
+ .bss           0x0000000000000000        0x0 src/config_all/config_personal_params.c.13.o
+ .text          0x0000000000000000        0x0 src/config_all/config_schedule.c.13.o
+ .bss           0x0000000000000000        0x0 src/config_all/config_schedule.c.13.o
+ .text          0x0000000000000000        0x0 src/config_all/config_settings_menu.c.13.o
+ .bss           0x0000000000000000        0x0 src/config_all/config_settings_menu.c.13.o
+ .text          0x0000000000000000        0x0 src/demo_screens.c.13.o
+ .bss           0x0000000000000000        0x0 src/demo_screens.c.13.o
+ .text.opt4     0x0000000000000000       0x5c src/demo_screens.c.13.o
+ .text.opt3     0x0000000000000000       0x60 src/demo_screens.c.13.o
+ .text.opt2     0x0000000000000000       0x6c src/demo_screens.c.13.o
+ .text.opt1     0x0000000000000000       0x70 src/demo_screens.c.13.o
+ .text.opt0     0x0000000000000000       0x50 src/demo_screens.c.13.o
+ .text.demo_screens_open
+                0x0000000000000000        0xc src/demo_screens.c.13.o
+ .rodata        0x0000000000000000       0x64 src/demo_screens.c.13.o
+ .data.rel.local.survey_params
+                0x0000000000000000       0x6c src/demo_screens.c.13.o
+ .text          0x0000000000000000        0x0 src/display_all/blank_test.c.13.o
+ .bss           0x0000000000000000        0x0 src/display_all/blank_test.c.13.o
+ .text.select_click_handler
+                0x0000000000000000        0x2 src/display_all/blank_test.c.13.o
+ .text.up_click_handler
+                0x0000000000000000        0x2 src/display_all/blank_test.c.13.o
+ .text.click_config_provider
+                0x0000000000000000       0x40 src/display_all/blank_test.c.13.o
+ .text.back_click_handler
+                0x0000000000000000       0x1c src/display_all/blank_test.c.13.o
+ .text.down_click_handler
+                0x0000000000000000       0x1c src/display_all/blank_test.c.13.o
+ .text.window_unload
+                0x0000000000000000       0x38 src/display_all/blank_test.c.13.o
+ .text.window_load
+                0x0000000000000000       0xc0 src/display_all/blank_test.c.13.o
+ .text.blank_test
+                0x0000000000000000       0x8c src/display_all/blank_test.c.13.o
+ .bss.s_blank_test_window
+                0x0000000000000000        0x4 src/display_all/blank_test.c.13.o
+ .rodata.str1.1
+                0x0000000000000000       0xb2 src/display_all/blank_test.c.13.o
+ .bss.s_title_layer
+                0x0000000000000000        0x4 src/display_all/blank_test.c.13.o
+ .text          0x0000000000000000        0x0 src/display_all/display_BT_connect_help.c.13.o
+ .bss           0x0000000000000000        0x0 src/display_all/display_BT_connect_help.c.13.o
+ .text.window_unload
+                0x0000000000000000       0x88 src/display_all/display_BT_connect_help.c.13.o
+ .text.bluetooth_event_handler
+                0x0000000000000000       0x44 src/display_all/display_BT_connect_help.c.13.o
+ .text.window_load
+                0x0000000000000000      0x1f8 src/display_all/display_BT_connect_help.c.13.o
+ .text.display_BT_connect_help
+                0x0000000000000000       0x64 src/display_all/display_BT_connect_help.c.13.o
+ .bss.s_scroll_text_bitmap
+                0x0000000000000000        0x4 src/display_all/display_BT_connect_help.c.13.o
+ .bss.s_BT_status_text_layer
+                0x0000000000000000        0x4 src/display_all/display_BT_connect_help.c.13.o
+ .bss.s_BT_icon_bitmap_layer
+                0x0000000000000000        0x4 src/display_all/display_BT_connect_help.c.13.o
+ .bss.s_help_window
+                0x0000000000000000        0x4 src/display_all/display_BT_connect_help.c.13.o
+ .bss.s_help_scroll_layer
+                0x0000000000000000        0x4 src/display_all/display_BT_connect_help.c.13.o
+ .bss.s_BT_icon_bitmap
+                0x0000000000000000        0x4 src/display_all/display_BT_connect_help.c.13.o
+ .bss.s_BT_status_bitmap_layer
+                0x0000000000000000        0x4 src/display_all/display_BT_connect_help.c.13.o
+ .rodata.str1.1
+                0x0000000000000000       0x26 src/display_all/display_BT_connect_help.c.13.o
+ .bss.s_help_text_layer
+                0x0000000000000000        0x4 src/display_all/display_BT_connect_help.c.13.o
+ .bss.s_BT_status_Xmark_bitmap
+                0x0000000000000000        0x4 src/display_all/display_BT_connect_help.c.13.o
+ .bss.s_scroll_text_bitmap_layer
+                0x0000000000000000        0x4 src/display_all/display_BT_connect_help.c.13.o
+ .bss.s_BT_status_Checkmark_bitmap
+                0x0000000000000000        0x4 src/display_all/display_BT_connect_help.c.13.o
+ .text          0x0000000000000000        0x0 src/display_all/display_acti_bars_history.c.13.o
+ .bss           0x0000000000000000        0x0 src/display_all/display_acti_bars_history.c.13.o
+ .text.up_click_handler
+                0x0000000000000000        0x2 src/display_all/display_acti_bars_history.c.13.o
+ .text.down_click_handler
+                0x0000000000000000        0x2 src/display_all/display_acti_bars_history.c.13.o
+ .text.click_config_provider
+                0x0000000000000000       0x40 src/display_all/display_acti_bars_history.c.13.o
+ .text.back_click_handler
+                0x0000000000000000       0x20 src/display_all/display_acti_bars_history.c.13.o
+ .text.select_click_handler
+                0x0000000000000000       0x38 src/display_all/display_acti_bars_history.c.13.o
+ .text.window_unload
+                0x0000000000000000       0x40 src/display_all/display_acti_bars_history.c.13.o
+ .text.window_load
+                0x0000000000000000      0x2e8 src/display_all/display_acti_bars_history.c.13.o
+ .text.barss_layer_update_proc
+                0x0000000000000000      0x1fc src/display_all/display_acti_bars_history.c.13.o
+ .text.display_acti_bars_history
+                0x0000000000000000       0x88 src/display_all/display_acti_bars_history.c.13.o
+ .rodata        0x0000000000000000        0x8 src/display_all/display_acti_bars_history.c.13.o
+ .bss.history_acti_type
+                0x0000000000000000        0x2 src/display_all/display_acti_bars_history.c.13.o
+ .bss.step_h    0x0000000000000000        0x2 src/display_all/display_acti_bars_history.c.13.o
+ .bss.bar_w     0x0000000000000000        0x2 src/display_all/display_acti_bars_history.c.13.o
+ .bss.num_bars  0x0000000000000000        0x2 src/display_all/display_acti_bars_history.c.13.o
+ .rodata.str1.1
+                0x0000000000000000       0x57 src/display_all/display_acti_bars_history.c.13.o
+ .bss.day_offset
+                0x0000000000000000        0x2 src/display_all/display_acti_bars_history.c.13.o
+ .bss.s_title_layer
+                0x0000000000000000        0x4 src/display_all/display_acti_bars_history.c.13.o
+ .bss.s_bars_layer
+                0x0000000000000000        0x4 src/display_all/display_acti_bars_history.c.13.o
+ .bss.s_day_layer
+                0x0000000000000000        0x4 src/display_all/display_acti_bars_history.c.13.o
+ .bss.mid_y     0x0000000000000000        0x2 src/display_all/display_acti_bars_history.c.13.o
+ .bss.s_acti_history_window
+                0x0000000000000000        0x4 src/display_all/display_acti_bars_history.c.13.o
+ .bss.axis_x    0x0000000000000000        0x2 src/display_all/display_acti_bars_history.c.13.o
+ .bss.s_wday_layers
+                0x0000000000000000       0x1c src/display_all/display_acti_bars_history.c.13.o
+ .text          0x0000000000000000        0x0 src/display_all/display_detail_dash.c.13.o
+ .bss           0x0000000000000000        0x0 src/display_all/display_detail_dash.c.13.o
+ .text          0x0000000000000000        0x0 src/display_all/display_main_dash.c.13.o
+ .bss           0x0000000000000000        0x0 src/display_all/display_main_dash.c.13.o
+ .text          0x0000000000000000        0x0 src/display_all/display_pinteract_dots_history.c.13.o
+ .bss           0x0000000000000000        0x0 src/display_all/display_pinteract_dots_history.c.13.o
+ .text.click_config_provider
+                0x0000000000000000       0x40 src/display_all/display_pinteract_dots_history.c.13.o
+ .text.back_click_handler
+                0x0000000000000000       0x1c src/display_all/display_pinteract_dots_history.c.13.o
+ .text.select_click_handler
+                0x0000000000000000       0x38 src/display_all/display_pinteract_dots_history.c.13.o
+ .text.set_title_dates_y_axis_label
+                0x0000000000000000      0x1f8 src/display_all/display_pinteract_dots_history.c.13.o
+ .text.window_unload
+                0x0000000000000000       0x6c src/display_all/display_pinteract_dots_history.c.13.o
+ .text.window_load
+                0x0000000000000000      0x2ec src/display_all/display_pinteract_dots_history.c.13.o
+ .text.down_click_handler
+                0x0000000000000000       0x40 src/display_all/display_pinteract_dots_history.c.13.o
+ .text.up_click_handler
+                0x0000000000000000       0x40 src/display_all/display_pinteract_dots_history.c.13.o
+ .text.dots_layer_update_proc
+                0x0000000000000000      0x23c src/display_all/display_pinteract_dots_history.c.13.o
+ .text.display_pinteract_dots_history
+                0x0000000000000000       0xa4 src/display_all/display_pinteract_dots_history.c.13.o
+ .bss.s_wday_layers
+                0x0000000000000000       0x1c src/display_all/display_pinteract_dots_history.c.13.o
+ .bss.history_pi_code
+                0x0000000000000000        0x2 src/display_all/display_pinteract_dots_history.c.13.o
+ .bss.day_offset
+                0x0000000000000000        0x2 src/display_all/display_pinteract_dots_history.c.13.o
+ .bss.bar_w     0x0000000000000000        0x2 src/display_all/display_pinteract_dots_history.c.13.o
+ .bss.num_bars  0x0000000000000000        0x2 src/display_all/display_pinteract_dots_history.c.13.o
+ .rodata.str1.1
+                0x0000000000000000      0x135 src/display_all/display_pinteract_dots_history.c.13.o
+ .bss.s_dots_history_window
+                0x0000000000000000        0x4 src/display_all/display_pinteract_dots_history.c.13.o
+ .bss.s_axis_y_label_layer
+                0x0000000000000000        0x4 src/display_all/display_pinteract_dots_history.c.13.o
+ .bss.s_title_layer
+                0x0000000000000000        0x4 src/display_all/display_pinteract_dots_history.c.13.o
+ .bss.s_day_layer
+                0x0000000000000000        0x4 src/display_all/display_pinteract_dots_history.c.13.o
+ .bss.s_dots_layer
+                0x0000000000000000        0x4 src/display_all/display_pinteract_dots_history.c.13.o
+ .bss.mid_y     0x0000000000000000        0x2 src/display_all/display_pinteract_dots_history.c.13.o
+ .bss.steps_goal_line_y
+                0x0000000000000000        0x4 src/display_all/display_pinteract_dots_history.c.13.o
+ .bss.max_steps
+                0x0000000000000000        0x4 src/display_all/display_pinteract_dots_history.c.13.o
+ .bss.axis_x    0x0000000000000000        0x2 src/display_all/display_pinteract_dots_history.c.13.o
+ .bss.step_h    0x0000000000000000        0x2 src/display_all/display_pinteract_dots_history.c.13.o
+ .text          0x0000000000000000        0x0 src/display_all/display_reminder.c.13.o
+ .bss           0x0000000000000000        0x0 src/display_all/display_reminder.c.13.o
+ .text          0x0000000000000000        0x0 src/display_all/display_survey_list.c.13.o
+ .bss           0x0000000000000000        0x0 src/display_all/display_survey_list.c.13.o
+ .text          0x0000000000000000        0x0 src/helper.c.13.o
+ .bss           0x0000000000000000        0x0 src/helper.c.13.o
+ .text.today_ms
+                0x0000000000000000       0x22 src/helper.c.13.o
+ .text.today_s_to_time_t
+                0x0000000000000000       0x12 src/helper.c.13.o
+ .text.time_t_to_today_s
+                0x0000000000000000       0x12 src/helper.c.13.o
+ .text.today_s_to_today_m
+                0x0000000000000000        0xa src/helper.c.13.o
+ .text.cm_to_in
+                0x0000000000000000       0x14 src/helper.c.13.o
+ .text.get_point_on_circle_at_ang
+                0x0000000000000000       0x48 src/helper.c.13.o
+ .text.pow_int  0x0000000000000000       0x20 src/helper.c.13.o
+ .text.isqrt    0x0000000000000000       0x2a src/helper.c.13.o
+ .text          0x0000000000000000        0x0 src/pinteract_all/pinteract_11.c.13.o
+ .bss           0x0000000000000000        0x0 src/pinteract_all/pinteract_11.c.13.o
+ .text          0x0000000000000000        0x0 src/pinteract_all/pinteract_12.c.13.o
+ .bss           0x0000000000000000        0x0 src/pinteract_all/pinteract_12.c.13.o
+ .text.finish_this_interact
+                0x0000000000000000       0x3c src/pinteract_all/pinteract_12.c.13.o
+ .text.opt4     0x0000000000000000       0x50 src/pinteract_all/pinteract_12.c.13.o
+ .text.opt3     0x0000000000000000       0x50 src/pinteract_all/pinteract_12.c.13.o
+ .text.opt2     0x0000000000000000       0x50 src/pinteract_all/pinteract_12.c.13.o
+ .text.opt1     0x0000000000000000       0x50 src/pinteract_all/pinteract_12.c.13.o
+ .text.opt0     0x0000000000000000       0x50 src/pinteract_all/pinteract_12.c.13.o
+ .text.pinteract_12
+                0x0000000000000000       0x1c src/pinteract_all/pinteract_12.c.13.o
+ .data.rel.local.survey_params
+                0x0000000000000000       0x6c src/pinteract_all/pinteract_12.c.13.o
+ .bss.pif_ll_el_lcl
+                0x0000000000000000        0x4 src/pinteract_all/pinteract_12.c.13.o
+ .data.pi_s_res
+                0x0000000000000000        0x7 src/pinteract_all/pinteract_12.c.13.o
+ .text          0x0000000000000000        0x0 src/pinteract_all/pinteract_13.c.13.o
+ .bss           0x0000000000000000        0x0 src/pinteract_all/pinteract_13.c.13.o
+ .text.finish_this_interact
+                0x0000000000000000       0x34 src/pinteract_all/pinteract_13.c.13.o
+ .text.opt2     0x0000000000000000       0x64 src/pinteract_all/pinteract_13.c.13.o
+ .text.opt1     0x0000000000000000       0x64 src/pinteract_all/pinteract_13.c.13.o
+ .text.opt0     0x0000000000000000       0x64 src/pinteract_all/pinteract_13.c.13.o
+ .text.pinteract_13
+                0x0000000000000000       0x1c src/pinteract_all/pinteract_13.c.13.o
+ .rodata        0x0000000000000000       0x3c src/pinteract_all/pinteract_13.c.13.o
+ .data.rel.local.survey_params
+                0x0000000000000000       0x6c src/pinteract_all/pinteract_13.c.13.o
+ .bss.pif_ll_el_lcl
+                0x0000000000000000        0x4 src/pinteract_all/pinteract_13.c.13.o
+ .data.pi_s_res
+                0x0000000000000000        0x7 src/pinteract_all/pinteract_13.c.13.o
+ .text          0x0000000000000000        0x0 src/pinteract_all/pinteract_14.c.13.o
+ .bss           0x0000000000000000        0x0 src/pinteract_all/pinteract_14.c.13.o
+ .text          0x0000000000000000        0x0 src/pinteract_all/pinteract_16.c.13.o
+ .bss           0x0000000000000000        0x0 src/pinteract_all/pinteract_16.c.13.o
+ .text.enter_num_opt0_wakeup
+                0x0000000000000000       0x20 src/pinteract_all/pinteract_16.c.13.o
+ .text.enter_num_opt0_bedtime
+                0x0000000000000000       0x20 src/pinteract_all/pinteract_16.c.13.o
+ .text.enter_num_opt1_bedtime
+                0x0000000000000000       0x7c src/pinteract_all/pinteract_16.c.13.o
+ .text.enter_num_opt1_wakeup
+                0x0000000000000000       0x44 src/pinteract_all/pinteract_16.c.13.o
+ .text.finish_this_interact
+                0x0000000000000000       0x3c src/pinteract_all/pinteract_16.c.13.o
+ .text.opt4     0x0000000000000000       0x50 src/pinteract_all/pinteract_16.c.13.o
+ .text.opt3     0x0000000000000000       0x50 src/pinteract_all/pinteract_16.c.13.o
+ .text.opt2     0x0000000000000000       0x50 src/pinteract_all/pinteract_16.c.13.o
+ .text.opt1     0x0000000000000000       0x50 src/pinteract_all/pinteract_16.c.13.o
+ .text.opt0     0x0000000000000000       0x50 src/pinteract_all/pinteract_16.c.13.o
+ .text.pinteract_16
+                0x0000000000000000       0x54 src/pinteract_all/pinteract_16.c.13.o
+ .rodata        0x0000000000000000       0x38 src/pinteract_all/pinteract_16.c.13.o
+ .data.rel.local.survey_params
+                0x0000000000000000       0x6c src/pinteract_all/pinteract_16.c.13.o
+ .data.enter_num_params_bedtime
+                0x0000000000000000       0x3c src/pinteract_all/pinteract_16.c.13.o
+ .rodata.str1.1
+                0x0000000000000000       0x11 src/pinteract_all/pinteract_16.c.13.o
+ .bss.pif_ll_el_lcl
+                0x0000000000000000        0x4 src/pinteract_all/pinteract_16.c.13.o
+ .data.enter_num_params_wakeup
+                0x0000000000000000       0x3c src/pinteract_all/pinteract_16.c.13.o
+ .data.pi_s_res
+                0x0000000000000000        0xb src/pinteract_all/pinteract_16.c.13.o
+ .text          0x0000000000000000        0x0 src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ .bss           0x0000000000000000        0x0 src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ .text          0x0000000000000000        0x0 src/pinteract_all/pinteract_alert.c.13.o
+ .bss           0x0000000000000000        0x0 src/pinteract_all/pinteract_alert.c.13.o
+ .text          0x0000000000000000        0x0 src/pinteract_all/pinteract_demo.c.13.o
+ .bss           0x0000000000000000        0x0 src/pinteract_all/pinteract_demo.c.13.o
+ .text          0x0000000000000000        0x0 src/pinteract_all/pinteract_driver.c.13.o
+ .bss           0x0000000000000000        0x0 src/pinteract_all/pinteract_driver.c.13.o
+ .text          0x0000000000000000        0x0 src/pinteract_all/pinteract_enter_num.c.13.o
+ .bss           0x0000000000000000        0x0 src/pinteract_all/pinteract_enter_num.c.13.o
+ .text          0x0000000000000000        0x0 src/pinteract_all/pinteract_helper.c.13.o
+ .bss           0x0000000000000000        0x0 src/pinteract_all/pinteract_helper.c.13.o
+ .text          0x0000000000000000        0x0 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .bss           0x0000000000000000        0x0 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .text          0x0000000000000000        0x0 src/pinteract_all/pinteract_res_struct.c.13.o
+ .bss           0x0000000000000000        0x0 src/pinteract_all/pinteract_res_struct.c.13.o
+ .text          0x0000000000000000        0x0 src/splash_screens.c.13.o
+ .bss           0x0000000000000000        0x0 src/splash_screens.c.13.o
+ .text.opt7     0x0000000000000000       0x68 src/splash_screens.c.13.o
+ .text.opt6     0x0000000000000000       0x6c src/splash_screens.c.13.o
+ .text.opt5     0x0000000000000000       0x74 src/splash_screens.c.13.o
+ .text.opt3     0x0000000000000000       0x60 src/splash_screens.c.13.o
+ .text.opt4     0x0000000000000000       0x60 src/splash_screens.c.13.o
+ .text.opt2     0x0000000000000000       0x70 src/splash_screens.c.13.o
+ .text.opt0     0x0000000000000000       0x74 src/splash_screens.c.13.o
+ .text.opt1     0x0000000000000000       0x6c src/splash_screens.c.13.o
+ .text.splash_screens_open
+                0x0000000000000000        0xc src/splash_screens.c.13.o
+ .text.opt8     0x0000000000000000       0x6c src/splash_screens.c.13.o
+ .rodata        0x0000000000000000       0xb4 src/splash_screens.c.13.o
+ .data.rel.local.survey_params
+                0x0000000000000000       0x6c src/splash_screens.c.13.o
+ .text          0x0000000000000000        0x0 src/transmit.c.13.o
+ .bss           0x0000000000000000        0x0 src/transmit.c.13.o
+ .text          0x0000000000000000        0x0 aplite/appinfo.auto.c.13.o
+ .bss           0x0000000000000000        0x0 aplite/appinfo.auto.c.13.o
+ .bss           0x0000000000000000        0x0 /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.accel_data_service_subscribe__deprecated
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.accel_data_service_unsubscribe
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.accel_service_peek
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.accel_service_set_samples_per_update
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.accel_service_set_sampling_rate
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.accel_tap_service_subscribe
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.accel_tap_service_unsubscribe
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.action_bar_layer_add_to_window
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.action_bar_layer_clear_icon
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.action_bar_layer_create
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.action_bar_layer_destroy
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.action_bar_layer_get_layer
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.action_bar_layer_remove_from_window
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.action_bar_layer_set_background_color
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.action_bar_layer_set_click_config_provider
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.action_bar_layer_set_context
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.action_bar_layer_set_icon
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.animation_create
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.animation_destroy
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.animation_get_context
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.animation_is_scheduled
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.animation_schedule
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.animation_set_curve
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.animation_set_delay
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.animation_set_duration
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.animation_set_handlers
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.animation_set_implementation
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.animation_unschedule
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.animation_unschedule_all
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.app_comm_get_sniff_interval
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.app_comm_set_sniff_interval
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.app_sync_deinit
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.app_sync_get
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.app_sync_init
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.app_sync_set
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.app_timer_reschedule
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.atan2_lookup
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.atoi     0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.atol     0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.battery_state_service_peek
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.battery_state_service_subscribe
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.battery_state_service_unsubscribe
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.bitmap_layer_set_alignment
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.bitmap_layer_set_background_color
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.bitmap_layer_set_compositing_mode
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.click_number_of_clicks_counted
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.click_recognizer_get_button_id
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.clock_is_24h_style
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.data_logging_create
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.data_logging_finish
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.data_logging_log
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.dict_calc_buffer_size
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.dict_calc_buffer_size_from_tuplets
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.dict_merge
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.dict_read_begin_from_buffer
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.dict_read_first
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.dict_read_next
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.dict_serialize_tuplets
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.dict_serialize_tuplets_to_buffer__deprecated
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.dict_serialize_tuplets_to_buffer_with_iter
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.dict_write_begin
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.dict_write_cstring
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.dict_write_int16
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.dict_write_int32
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.dict_write_int8
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.dict_write_tuplet
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.dict_write_uint16
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.dict_write_uint32
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.dict_write_uint8
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.fonts_load_custom_font
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.fonts_unload_custom_font
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.free     0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.gbitmap_create_as_sub_bitmap
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.gbitmap_create_with_data
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.gmtime   0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.gpath_create
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.gpath_destroy
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.gpath_draw_filled_legacy
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.gpath_draw_outline
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.gpath_move_to
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.gpath_rotate_to
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.gpoint_equal
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.graphics_context_set_compositing_mode
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.graphics_context_set_text_color
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.graphics_draw_bitmap_in_rect
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.graphics_draw_line
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.graphics_draw_pixel
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.graphics_draw_rect
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.graphics_draw_round_rect
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.graphics_fill_rect
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.graphics_text_layout_get_max_used_size
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.grect_align
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.grect_center_point
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.grect_clip
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.grect_contains_point
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.grect_crop
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.grect_equal
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.grect_is_empty
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.grect_standardize
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.gsize_equal
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.inverter_layer_create
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.inverter_layer_destroy
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.inverter_layer_get_layer
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.layer_create_with_data
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.layer_get_clips
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.layer_get_data
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.layer_get_frame
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.layer_get_hidden
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.layer_get_window
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.layer_insert_above_sibling
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.layer_insert_below_sibling
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.layer_remove_child_layers
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.layer_remove_from_parent
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.layer_set_bounds
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.layer_set_clips
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.layer_set_frame
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.layer_set_hidden
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.light_enable
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.light_enable_interaction
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.malloc   0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.memmove  0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.menu_cell_basic_header_draw
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.menu_cell_title_draw
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.menu_index_compare
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.menu_layer_get_scroll_layer
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.menu_layer_get_selected_index
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.menu_layer_reload_data
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.menu_layer_set_callbacks__deprecated
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.menu_layer_set_selected_next
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.number_window_create
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.number_window_destroy
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.number_window_get_value
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.number_window_set_label
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.number_window_set_max
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.number_window_set_min
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.number_window_set_step_size
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.number_window_set_value
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.persist_get_size
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.persist_read_bool
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.persist_read_data__deprecated
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.persist_read_string__deprecated
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.persist_write_bool
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.persist_write_data__deprecated
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.persist_write_string
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.property_animation_create
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.property_animation_create_layer_frame
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.property_animation_destroy
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.property_animation_update_gpoint
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.property_animation_update_grect
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.property_animation_update_int16
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.resource_get_handle
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.resource_load
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.resource_load_byte_range
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.resource_size
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.rot_bitmap_layer_create
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.rot_bitmap_layer_destroy
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.rot_bitmap_layer_increment_angle
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.rot_bitmap_layer_set_angle
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.rot_bitmap_layer_set_corner_clip_color
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.rot_bitmap_set_compositing_mode
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.rot_bitmap_set_src_ic
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.scroll_layer_add_child
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.scroll_layer_create
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.scroll_layer_destroy
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.scroll_layer_get_content_offset
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.scroll_layer_get_content_size
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.scroll_layer_get_layer
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.scroll_layer_get_shadow_hidden
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.scroll_layer_scroll_down_click_handler
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.scroll_layer_scroll_up_click_handler
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.scroll_layer_set_callbacks
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.scroll_layer_set_click_config_onto_window
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.scroll_layer_set_content_offset
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.scroll_layer_set_content_size
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.scroll_layer_set_context
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.scroll_layer_set_frame
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.scroll_layer_set_shadow_hidden
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.simple_menu_layer_create
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.simple_menu_layer_destroy
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.simple_menu_layer_get_layer
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.simple_menu_layer_get_selected_index
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.simple_menu_layer_set_selected_index
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.strcat   0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.strcmp   0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.strftime
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.strlen   0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.strncat  0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.strncmp  0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.strncpy  0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.text_layer_get_content_size
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.text_layer_get_text
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.text_layer_set_overflow_mode
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.text_layer_set_size
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.time_ms  0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.vibes_cancel
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.vibes_double_pulse
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.vibes_long_pulse
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.vibes_short_pulse
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.window_destroy
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.window_get_click_config_provider
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.window_get_fullscreen
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.window_is_loaded
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.window_set_click_config_provider_with_context
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.window_set_status_bar_icon
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.window_stack_get_top_window
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.window_stack_pop
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.app_focus_service_subscribe
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.app_focus_service_unsubscribe
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.window_get_user_data
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.window_set_user_data
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.app_message_get_context
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.app_message_inbox_size_maximum
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.app_message_outbox_size_maximum
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.app_message_set_context
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.window_long_click_subscribe
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.window_multi_click_subscribe
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.window_raw_click_subscribe
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.window_set_click_context
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.window_single_repeating_click_subscribe
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.graphics_draw_text
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.dict_serialize_tuplets_to_buffer
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.persist_read_string
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.dict_size
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.graphics_text_layout_get_content_size
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.simple_menu_layer_get_menu_layer
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.accel_data_service_subscribe
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.calloc   0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.bitmap_layer_get_bitmap
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.window_get_click_config_context
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.number_window_get_window
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.realloc  0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.__gbitmap_create_blank
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.click_recognizer_is_repeating
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.accel_raw_data_service_subscribe
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.app_worker_kill
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.app_worker_message_subscribe
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.app_worker_message_unsubscribe
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.app_worker_send_message
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.worker_event_loop
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.worker_launch_app
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.compass_service_peek
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.compass_service_set_heading_filter
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.compass_service_subscribe
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.compass_service_unsubscribe
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.uuid_equal
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.uuid_to_string
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.gpath_draw_filled
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.animation_set_custom_curve
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.watch_info_get_color
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.watch_info_get_firmware_version
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.watch_info_get_model
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.graphics_capture_frame_buffer
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.graphics_frame_buffer_is_captured
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.graphics_release_frame_buffer
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.clock_to_timestamp
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.clock_is_timezone_set
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.i18n_get_system_locale
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text._localeconv_r
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.setlocale
+                0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text.mktime   0x0000000000000000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .text          0x0000000000000000        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
+ .bss           0x0000000000000000        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
+ .eh_frame      0x0000000000000000        0x4 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
+ .jcr           0x0000000000000000        0x4 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
+ .tm_clone_table
+                0x0000000000000000        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
+ .text          0x0000000000000000        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtn.o
+ .bss           0x0000000000000000        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtn.o
+ .init          0x0000000000000000        0x8 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtn.o
+ .fini          0x0000000000000000        0x8 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtn.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+APP              0x0000000000000000 0x0000000000006000 xrw
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crti.o
+LOAD /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+LOAD src/ProjectK.c.13.o
+LOAD src/config_all/config_personal_goals.c.13.o
+LOAD src/config_all/config_personal_params.c.13.o
+LOAD src/config_all/config_schedule.c.13.o
+LOAD src/config_all/config_settings_menu.c.13.o
+LOAD src/demo_screens.c.13.o
+LOAD src/display_all/blank_test.c.13.o
+LOAD src/display_all/display_BT_connect_help.c.13.o
+LOAD src/display_all/display_acti_bars_history.c.13.o
+LOAD src/display_all/display_detail_dash.c.13.o
+LOAD src/display_all/display_main_dash.c.13.o
+LOAD src/display_all/display_pinteract_dots_history.c.13.o
+LOAD src/display_all/display_reminder.c.13.o
+LOAD src/display_all/display_survey_list.c.13.o
+LOAD src/helper.c.13.o
+LOAD src/pinteract_all/pinteract_11.c.13.o
+LOAD src/pinteract_all/pinteract_12.c.13.o
+LOAD src/pinteract_all/pinteract_13.c.13.o
+LOAD src/pinteract_all/pinteract_14.c.13.o
+LOAD src/pinteract_all/pinteract_16.c.13.o
+LOAD src/pinteract_all/pinteract_Nitem_survey.c.13.o
+LOAD src/pinteract_all/pinteract_alert.c.13.o
+LOAD src/pinteract_all/pinteract_demo.c.13.o
+LOAD src/pinteract_all/pinteract_driver.c.13.o
+LOAD src/pinteract_all/pinteract_enter_num.c.13.o
+LOAD src/pinteract_all/pinteract_helper.c.13.o
+LOAD src/pinteract_all/pinteract_priv_scrn.c.13.o
+LOAD src/pinteract_all/pinteract_res_struct.c.13.o
+LOAD src/splash_screens.c.13.o
+LOAD src/transmit.c.13.o
+LOAD aplite/appinfo.auto.c.13.o
+LOAD /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a
+START GROUP
+LOAD /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a
+LOAD /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/../../../../arm-none-eabi/lib/thumb2/libc.a
+END GROUP
+LOAD /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
+LOAD /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtn.o
+
+.header         0x0000000000000000       0x82
+ *(.pbl_header)
+ .pbl_header    0x0000000000000000       0x82 aplite/appinfo.auto.c.13.o
+                0x0000000000000000                __pbl_app_info
+
+.note.gnu.build-id
+                0x0000000000000082       0x26
+                0x0000000000000082                PROVIDE (BUILD_ID, .)
+ *(.note.gnu.build-id)
+ *fill*         0x0000000000000082        0x2 
+ .note.gnu.build-id
+                0x0000000000000084       0x24 linker stubs
+
+.text           0x00000000000000a8     0x47a3
+ *(.text)
+ .text          0x00000000000000a8       0x14 /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ *(.text.*)
+ .text.startup.main
+                0x00000000000000bc      0x124 src/ProjectK.c.13.o
+                0x00000000000000bc                main
+ .text.enter_num_opt0
+                0x00000000000001e0       0x60 src/config_all/config_personal_goals.c.13.o
+ .text.config_personal_goals
+                0x0000000000000240       0x44 src/config_all/config_personal_goals.c.13.o
+                0x0000000000000240                config_personal_goals
+ .text.enter_num_opt2
+                0x0000000000000284       0x74 src/config_all/config_personal_params.c.13.o
+ .text.enter_num_opt1
+                0x00000000000002f8       0x40 src/config_all/config_personal_params.c.13.o
+ .text.enter_num_opt0
+                0x0000000000000338       0x3e src/config_all/config_personal_params.c.13.o
+ *fill*         0x0000000000000376        0x2 
+ .text.config_personal_params
+                0x0000000000000378       0x54 src/config_all/config_personal_params.c.13.o
+                0x0000000000000378                config_personal_params
+ .text.zero_out_wakeup_config_ary
+                0x00000000000003cc       0x14 src/config_all/config_schedule.c.13.o
+ .text.write_to_config_wakeup_persistant_storage
+                0x00000000000003e0       0x28 src/config_all/config_schedule.c.13.o
+                0x00000000000003e0                write_to_config_wakeup_persistant_storage
+ .text.read_config_wakeup_index_persistant_storage
+                0x0000000000000408       0x36 src/config_all/config_schedule.c.13.o
+                0x0000000000000408                read_config_wakeup_index_persistant_storage
+ .text.pinteract_code_from_config_wakeup_index
+                0x000000000000043e       0x10 src/config_all/config_schedule.c.13.o
+                0x000000000000043e                pinteract_code_from_config_wakeup_index
+ .text.reset_config_wakeup_schedule
+                0x000000000000044e       0x28 src/config_all/config_schedule.c.13.o
+                0x000000000000044e                reset_config_wakeup_schedule
+ .text.read_wakeup_id_at_config_wakeup_index
+                0x0000000000000476       0x2c src/config_all/config_schedule.c.13.o
+                0x0000000000000476                read_wakeup_id_at_config_wakeup_index
+ .text.write_wakeup_id_at_config_wakeup_index
+                0x00000000000004a2       0x36 src/config_all/config_schedule.c.13.o
+                0x00000000000004a2                write_wakeup_id_at_config_wakeup_index
+ .text.reschedule_config_wakeup_index
+                0x00000000000004d8       0x60 src/config_all/config_schedule.c.13.o
+                0x00000000000004d8                reschedule_config_wakeup_index
+ .text.config_wakeup_schedule
+                0x0000000000000538      0x100 src/config_all/config_schedule.c.13.o
+                0x0000000000000538                config_wakeup_schedule
+ .text.opt1     0x0000000000000638       0x74 src/config_all/config_settings_menu.c.13.o
+ .text.opt0     0x00000000000006ac       0xa4 src/config_all/config_settings_menu.c.13.o
+ .text.config_settings_menu
+                0x0000000000000750        0xc src/config_all/config_settings_menu.c.13.o
+                0x0000000000000750                config_settings_menu
+ .text.opt1     0x000000000000075c       0x50 src/display_all/display_detail_dash.c.13.o
+ .text.opt0     0x00000000000007ac       0x6c src/display_all/display_detail_dash.c.13.o
+ .text.display_detail_dash
+                0x0000000000000818        0xc src/display_all/display_detail_dash.c.13.o
+                0x0000000000000818                display_detail_dash
+ .text.up_click_handler
+                0x0000000000000824        0x2 src/display_all/display_main_dash.c.13.o
+ .text.down_click_handler
+                0x0000000000000826        0x2 src/display_all/display_main_dash.c.13.o
+ .text.tick_handler
+                0x0000000000000828       0xb8 src/display_all/display_main_dash.c.13.o
+ .text.click_config_provider
+                0x00000000000008e0       0x30 src/display_all/display_main_dash.c.13.o
+ .text.select_click_handler
+                0x0000000000000910        0x4 src/display_all/display_main_dash.c.13.o
+ .text.window_unload
+                0x0000000000000914       0x60 src/display_all/display_main_dash.c.13.o
+ .text.window_load
+                0x0000000000000974      0x2a4 src/display_all/display_main_dash.c.13.o
+ .text.points_layer_update_proc
+                0x0000000000000c18       0xd8 src/display_all/display_main_dash.c.13.o
+ .text.display_main_dash
+                0x0000000000000cf0       0x74 src/display_all/display_main_dash.c.13.o
+                0x0000000000000cf0                display_main_dash
+ .text.select_click_handler
+                0x0000000000000d64        0x2 src/display_all/display_reminder.c.13.o
+ .text.up_click_handler
+                0x0000000000000d66        0x2 src/display_all/display_reminder.c.13.o
+ .text.down_click_handler
+                0x0000000000000d68        0x2 src/display_all/display_reminder.c.13.o
+ *fill*         0x0000000000000d6a        0x2 
+ .text.click_config_provider
+                0x0000000000000d6c       0x40 src/display_all/display_reminder.c.13.o
+ .text.back_click_handler
+                0x0000000000000dac       0x1c src/display_all/display_reminder.c.13.o
+ .text.window_unload
+                0x0000000000000dc8       0x44 src/display_all/display_reminder.c.13.o
+ .text.window_load
+                0x0000000000000e0c      0x200 src/display_all/display_reminder.c.13.o
+ .text.bluetooth_event_handler
+                0x000000000000100c       0x20 src/display_all/display_reminder.c.13.o
+ .text.display_reminder
+                0x000000000000102c       0x98 src/display_all/display_reminder.c.13.o
+                0x000000000000102c                display_reminder
+ .text.opt1     0x00000000000010c4       0x58 src/display_all/display_survey_list.c.13.o
+ .text.opt0     0x000000000000111c       0x60 src/display_all/display_survey_list.c.13.o
+ .text.display_survey_list
+                0x000000000000117c        0xc src/display_all/display_survey_list.c.13.o
+                0x000000000000117c                display_survey_list
+ .text.reset_daily_acti_persistent_storage
+                0x0000000000001188       0x2a src/helper.c.13.o
+                0x0000000000001188                reset_daily_acti_persistent_storage
+ .text.reset_config_wakeup_persistent_storage
+                0x00000000000011b2       0x6a src/helper.c.13.o
+                0x00000000000011b2                reset_config_wakeup_persistent_storage
+ .text.worker_start_fore_app_reason_exec
+                0x000000000000121c       0x78 src/helper.c.13.o
+                0x000000000000121c                worker_start_fore_app_reason_exec
+ .text.fore_app_master_tick_timer_handler
+                0x0000000000001294       0x80 src/helper.c.13.o
+                0x0000000000001294                fore_app_master_tick_timer_handler
+ .text.fore_app_master_tick_timer_service_clock_subscribe
+                0x0000000000001314       0x70 src/helper.c.13.o
+                0x0000000000001314                fore_app_master_tick_timer_service_clock_subscribe
+ .text.fore_app_master_tick_timer_service_clock_unsubscribe
+                0x0000000000001384       0x3c src/helper.c.13.o
+                0x0000000000001384                fore_app_master_tick_timer_service_clock_unsubscribe
+ .text.fore_app_master_tick_timer_service_aux_subscribe
+                0x00000000000013c0       0x70 src/helper.c.13.o
+                0x00000000000013c0                fore_app_master_tick_timer_service_aux_subscribe
+ .text.fore_app_master_tick_timer_service_aux_unsubscribe
+                0x0000000000001430       0x3c src/helper.c.13.o
+                0x0000000000001430                fore_app_master_tick_timer_service_aux_unsubscribe
+ .text.get_config_general
+                0x000000000000146c       0x34 src/helper.c.13.o
+                0x000000000000146c                get_config_general
+ .text.get_pinteract_state
+                0x00000000000014a0       0x38 src/helper.c.13.o
+                0x00000000000014a0                get_pinteract_state
+ .text.get_daily_acti
+                0x00000000000014d8       0x30 src/helper.c.13.o
+                0x00000000000014d8                get_daily_acti
+ .text.reset_config_general_persistent_storage
+                0x0000000000001508       0xd0 src/helper.c.13.o
+                0x0000000000001508                reset_config_general_persistent_storage
+ .text.set_pinteract_state
+                0x00000000000015d8       0x5c src/helper.c.13.o
+                0x00000000000015d8                set_pinteract_state
+ .text.reset_state_persistent_storage
+                0x0000000000001634       0x92 src/helper.c.13.o
+                0x0000000000001634                reset_state_persistent_storage
+ .text.write_time_to_array_head
+                0x00000000000016c6       0x10 src/helper.c.13.o
+                0x00000000000016c6                write_time_to_array_head
+ .text.reset_pinteract_persistent_storage
+                0x00000000000016d6       0x46 src/helper.c.13.o
+                0x00000000000016d6                reset_pinteract_persistent_storage
+ .text.init_persistent_storage
+                0x000000000000171c       0x1a src/helper.c.13.o
+                0x000000000000171c                init_persistent_storage
+ .text.read_time_from_array_head
+                0x0000000000001736       0x16 src/helper.c.13.o
+                0x0000000000001736                read_time_from_array_head
+ .text.today_srt_time_t_today_s
+                0x000000000000174c       0x3c src/helper.c.13.o
+                0x000000000000174c                today_srt_time_t_today_s
+ .text.today_m_to_today_s
+                0x0000000000001788        0x6 src/helper.c.13.o
+                0x0000000000001788                today_m_to_today_s
+ *fill*         0x000000000000178e        0x2 
+ .text.wakeup_main_response_handler
+                0x0000000000001790       0x40 src/helper.c.13.o
+                0x0000000000001790                wakeup_main_response_handler
+ .text.rand_lw_up_bounds
+                0x00000000000017d0       0x22 src/helper.c.13.o
+                0x00000000000017d0                rand_lw_up_bounds
+ .text.kg_to_lbs
+                0x00000000000017f2       0x12 src/helper.c.13.o
+                0x00000000000017f2                kg_to_lbs
+ .text.lbs_to_kg
+                0x0000000000001804       0x12 src/helper.c.13.o
+                0x0000000000001804                lbs_to_kg
+ .text.cm_to_ft_in_apart
+                0x0000000000001816       0x28 src/helper.c.13.o
+                0x0000000000001816                cm_to_ft_in_apart
+ .text.ft_in_apart_to_cm
+                0x000000000000183e       0x18 src/helper.c.13.o
+                0x000000000000183e                ft_in_apart_to_cm
+ .text.get_point_on_circle_at_ang_CW_noon
+                0x0000000000001856       0x48 src/helper.c.13.o
+                0x0000000000001856                get_point_on_circle_at_ang_CW_noon
+ *fill*         0x000000000000189e        0x2 
+ .text.finish_this_interact
+                0x00000000000018a0       0x34 src/pinteract_all/pinteract_11.c.13.o
+ .text.opt4     0x00000000000018d4       0x6c src/pinteract_all/pinteract_11.c.13.o
+ .text.opt3     0x0000000000001940       0x5c src/pinteract_all/pinteract_11.c.13.o
+ .text.opt2     0x000000000000199c       0x70 src/pinteract_all/pinteract_11.c.13.o
+ .text.opt1     0x0000000000001a0c       0x6c src/pinteract_all/pinteract_11.c.13.o
+ .text.opt0     0x0000000000001a78       0x6c src/pinteract_all/pinteract_11.c.13.o
+ .text.pinteract_11
+                0x0000000000001ae4       0x40 src/pinteract_all/pinteract_11.c.13.o
+                0x0000000000001ae4                pinteract_11
+ .text.enter_num_opt0
+                0x0000000000001b24       0x4c src/pinteract_all/pinteract_14.c.13.o
+ .text.enter_num_opt1
+                0x0000000000001b70       0x94 src/pinteract_all/pinteract_14.c.13.o
+ .text.finish_this_interact
+                0x0000000000001c04       0x3c src/pinteract_all/pinteract_14.c.13.o
+ .text.opt4     0x0000000000001c40       0x64 src/pinteract_all/pinteract_14.c.13.o
+ .text.opt3     0x0000000000001ca4       0x64 src/pinteract_all/pinteract_14.c.13.o
+ .text.opt2     0x0000000000001d08       0x64 src/pinteract_all/pinteract_14.c.13.o
+ .text.opt1     0x0000000000001d6c       0x64 src/pinteract_all/pinteract_14.c.13.o
+ .text.opt0     0x0000000000001dd0       0x64 src/pinteract_all/pinteract_14.c.13.o
+ .text.pinteract_14
+                0x0000000000001e34       0x54 src/pinteract_all/pinteract_14.c.13.o
+                0x0000000000001e34                pinteract_14
+ .text.get_num_rows_cb
+                0x0000000000001e88        0xc src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ .text.get_cell_height_cb
+                0x0000000000001e94        0xc src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ .text.window_load
+                0x0000000000001ea0      0x360 src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ .text.window_unload
+                0x0000000000002200       0x60 src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ .text.optNfptr_exec
+                0x0000000000002260       0xc8 src/pinteract_all/pinteract_Nitem_survey.c.13.o
+                0x0000000000002260                optNfptr_exec
+ .text.select_click_cb
+                0x0000000000002328       0x2c src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ .text.draw_row_cb
+                0x0000000000002354       0x40 src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ .text.pinteract_Nitem_survey
+                0x0000000000002394       0x6c src/pinteract_all/pinteract_Nitem_survey.c.13.o
+                0x0000000000002394                pinteract_Nitem_survey
+ .text.pinteract_alert
+                0x0000000000002400       0xc8 src/pinteract_all/pinteract_alert.c.13.o
+                0x0000000000002400                pinteract_alert
+ .text.pinteract_code_to_func_ptr
+                0x00000000000024c8       0x2c src/pinteract_all/pinteract_driver.c.13.o
+                0x00000000000024c8                pinteract_code_to_func_ptr
+ .text.pinteract_driver
+                0x00000000000024f4       0x6c src/pinteract_all/pinteract_driver.c.13.o
+                0x00000000000024f4                pinteract_driver
+ .text.click_config_provider
+                0x0000000000002560       0x40 src/pinteract_all/pinteract_enter_num.c.13.o
+ .text.down_click_handler
+                0x00000000000025a0       0xa4 src/pinteract_all/pinteract_enter_num.c.13.o
+ .text.up_click_handler
+                0x0000000000002644       0xa4 src/pinteract_all/pinteract_enter_num.c.13.o
+ .text.back_click_handler
+                0x00000000000026e8       0x68 src/pinteract_all/pinteract_enter_num.c.13.o
+ .text.enter_num_window_unload
+                0x0000000000002750       0x3c src/pinteract_all/pinteract_enter_num.c.13.o
+                0x0000000000002750                enter_num_window_unload
+ .text.enter_num_window_load
+                0x000000000000278c      0x788 src/pinteract_all/pinteract_enter_num.c.13.o
+                0x000000000000278c                enter_num_window_load
+ .text.select_click_handler
+                0x0000000000002f14       0x98 src/pinteract_all/pinteract_enter_num.c.13.o
+ .text.pinteract_enter_num
+                0x0000000000002fac       0x7c src/pinteract_all/pinteract_enter_num.c.13.o
+                0x0000000000002fac                pinteract_enter_num
+ .text.read_res_buf_byte_count
+                0x0000000000003028        0xc src/pinteract_all/pinteract_helper.c.13.o
+                0x0000000000003028                read_res_buf_byte_count
+ .text.write_res_buf_byte_count
+                0x0000000000003034       0x14 src/pinteract_all/pinteract_helper.c.13.o
+                0x0000000000003034                write_res_buf_byte_count
+ .text.write_data_to_res_buf
+                0x0000000000003048       0x4c src/pinteract_all/pinteract_helper.c.13.o
+                0x0000000000003048                write_data_to_res_buf
+ .text.pinteract_write_res_buf_to_pesistant_storage
+                0x0000000000003094       0xac src/pinteract_all/pinteract_helper.c.13.o
+                0x0000000000003094                pinteract_write_res_buf_to_pesistant_storage
+ .text.back_click_handler
+                0x0000000000003140        0x2 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ *fill*         0x0000000000003142        0x2 
+ .text.click_config_provider
+                0x0000000000003144       0x40 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .text.close_priv_scrn_window
+                0x0000000000003184       0x1c src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .text.down_click_handler
+                0x00000000000031a0       0x2e src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .text.up_click_handler
+                0x00000000000031ce       0x2c src/pinteract_all/pinteract_priv_scrn.c.13.o
+ *fill*         0x00000000000031fa        0x2 
+ .text.select_click_handler
+                0x00000000000031fc       0x44 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .text.main_window_unload
+                0x0000000000003240       0x70 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .text.tick_handler
+                0x00000000000032b0       0x54 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .text.main_window_load
+                0x0000000000003304      0x25c src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .text.pinteract_priv_scrn
+                0x0000000000003560       0xf0 src/pinteract_all/pinteract_priv_scrn.c.13.o
+                0x0000000000003560                pinteract_priv_scrn
+ .text.outbox_sent_data_to_phone_cb
+                0x0000000000003650        0x2 src/transmit.c.13.o
+ .text.select_click_handler
+                0x0000000000003652        0x2 src/transmit.c.13.o
+ .text.back_click_handler
+                0x0000000000003654        0x2 src/transmit.c.13.o
+ .text.up_click_handler
+                0x0000000000003656        0x2 src/transmit.c.13.o
+ .text.down_click_handler
+                0x0000000000003658        0x2 src/transmit.c.13.o
+ .text.data_to_send
+                0x000000000000365a       0x32 src/transmit.c.13.o
+ .text.log_codes_transmit
+                0x000000000000368c       0x20 src/transmit.c.13.o
+ .text.inbox_dropped_phone_status_cb
+                0x00000000000036ac        0x6 src/transmit.c.13.o
+ *fill*         0x00000000000036b2        0x2 
+ .text.outbox_sent_push_to_server_cb
+                0x00000000000036b4       0x18 src/transmit.c.13.o
+ .text.click_config_provider
+                0x00000000000036cc       0x40 src/transmit.c.13.o
+ .text.transmit_phone_window_unload
+                0x000000000000370c       0x40 src/transmit.c.13.o
+ .text.close_transmit_window
+                0x000000000000374c       0x10 src/transmit.c.13.o
+ .text.countdown_timer_handler
+                0x000000000000375c       0x70 src/transmit.c.13.o
+ .text.transmit_phone_window_load
+                0x00000000000037cc      0x118 src/transmit.c.13.o
+ .text.setup_attempt_to_transmit_push_to_server
+                0x00000000000038e4       0x3c src/transmit.c.13.o
+ .text.attempt_transmit_data_to_phone
+                0x0000000000003920       0x94 src/transmit.c.13.o
+ .text.attempt_to_transmit_push_to_server
+                0x00000000000039b4       0x38 src/transmit.c.13.o
+ .text.outbox_failed_push_to_server_cb
+                0x00000000000039ec       0x38 src/transmit.c.13.o
+ .text.retry_transmit_data_to_phone
+                0x0000000000003a24       0x40 src/transmit.c.13.o
+ .text.outbox_failed_data_to_phone_cb
+                0x0000000000003a64       0x2c src/transmit.c.13.o
+ .text.inbox_received_phone_status_cb
+                0x0000000000003a90      0x11c src/transmit.c.13.o
+ .text.init_transmit_to_phone
+                0x0000000000003bac       0xc4 src/transmit.c.13.o
+                0x0000000000003bac                init_transmit_to_phone
+ .text.app_event_loop
+                0x0000000000003c70        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003c70                app_event_loop
+ .text.app_log  0x0000000000003c7c        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003c7c                app_log
+ .text.app_message_deregister_callbacks
+                0x0000000000003c88        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003c88                app_message_deregister_callbacks
+ .text.app_message_open
+                0x0000000000003c94        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003c94                app_message_open
+ .text.app_timer_cancel
+                0x0000000000003ca0        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003ca0                app_timer_cancel
+ .text.app_timer_register
+                0x0000000000003cac        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003cac                app_timer_register
+ .text.bitmap_layer_create
+                0x0000000000003cb8        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003cb8                bitmap_layer_create
+ .text.bitmap_layer_destroy
+                0x0000000000003cc4        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003cc4                bitmap_layer_destroy
+ .text.bitmap_layer_get_layer
+                0x0000000000003cd0        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003cd0                bitmap_layer_get_layer
+ .text.bitmap_layer_set_bitmap
+                0x0000000000003cdc        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003cdc                bitmap_layer_set_bitmap
+ .text.bluetooth_connection_service_peek
+                0x0000000000003ce8        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003ce8                bluetooth_connection_service_peek
+ .text.bluetooth_connection_service_subscribe
+                0x0000000000003cf4        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003cf4                bluetooth_connection_service_subscribe
+ .text.bluetooth_connection_service_unsubscribe
+                0x0000000000003d00        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003d00                bluetooth_connection_service_unsubscribe
+ .text.clock_copy_time_string
+                0x0000000000003d0c        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003d0c                clock_copy_time_string
+ .text.cos_lookup
+                0x0000000000003d18        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003d18                cos_lookup
+ .text.dict_find
+                0x0000000000003d24        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003d24                dict_find
+ .text.dict_write_data
+                0x0000000000003d30        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003d30                dict_write_data
+ .text.dict_write_end
+                0x0000000000003d3c        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003d3c                dict_write_end
+ .text.dict_write_int
+                0x0000000000003d48        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003d48                dict_write_int
+ .text.fonts_get_system_font
+                0x0000000000003d54        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003d54                fonts_get_system_font
+ .text.gbitmap_create_with_resource
+                0x0000000000003d60        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003d60                gbitmap_create_with_resource
+ .text.gbitmap_destroy
+                0x0000000000003d6c        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003d6c                gbitmap_destroy
+ .text.graphics_context_set_fill_color
+                0x0000000000003d78        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003d78                graphics_context_set_fill_color
+ .text.graphics_context_set_stroke_color
+                0x0000000000003d84        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003d84                graphics_context_set_stroke_color
+ .text.graphics_draw_circle
+                0x0000000000003d90        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003d90                graphics_draw_circle
+ .text.graphics_fill_circle
+                0x0000000000003d9c        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003d9c                graphics_fill_circle
+ .text.layer_add_child
+                0x0000000000003da8        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003da8                layer_add_child
+ .text.layer_create
+                0x0000000000003db4        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003db4                layer_create
+ .text.layer_destroy
+                0x0000000000003dc0        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003dc0                layer_destroy
+ .text.layer_get_bounds
+                0x0000000000003dcc        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003dcc                layer_get_bounds
+ .text.layer_mark_dirty
+                0x0000000000003dd8        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003dd8                layer_mark_dirty
+ .text.layer_set_update_proc
+                0x0000000000003de4        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003de4                layer_set_update_proc
+ .text.localtime
+                0x0000000000003df0        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003df0                localtime
+ .text.memcpy   0x0000000000003dfc        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003dfc                memcpy
+ .text.memset   0x0000000000003e08        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003e08                memset
+ .text.menu_cell_basic_draw
+                0x0000000000003e14        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003e14                menu_cell_basic_draw
+ .text.menu_layer_create
+                0x0000000000003e20        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003e20                menu_layer_create
+ .text.menu_layer_destroy
+                0x0000000000003e2c        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003e2c                menu_layer_destroy
+ .text.menu_layer_get_layer
+                0x0000000000003e38        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003e38                menu_layer_get_layer
+ .text.menu_layer_set_click_config_onto_window
+                0x0000000000003e44        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003e44                menu_layer_set_click_config_onto_window
+ .text.menu_layer_set_selected_index
+                0x0000000000003e50        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003e50                menu_layer_set_selected_index
+ .text.persist_delete
+                0x0000000000003e5c        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003e5c                persist_delete
+ .text.persist_exists
+                0x0000000000003e68        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003e68                persist_exists
+ .text.persist_read_int
+                0x0000000000003e74        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003e74                persist_read_int
+ .text.persist_write_int
+                0x0000000000003e80        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003e80                persist_write_int
+ .text.psleep   0x0000000000003e8c        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003e8c                psleep
+ .text.rand     0x0000000000003e98        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003e98                rand
+ .text.sin_lookup
+                0x0000000000003ea4        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003ea4                sin_lookup
+ .text.snprintf
+                0x0000000000003eb0        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003eb0                snprintf
+ .text.srand    0x0000000000003ebc        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003ebc                srand
+ .text.strcpy   0x0000000000003ec8        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003ec8                strcpy
+ .text.text_layer_create
+                0x0000000000003ed4        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003ed4                text_layer_create
+ .text.text_layer_destroy
+                0x0000000000003ee0        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003ee0                text_layer_destroy
+ .text.text_layer_get_layer
+                0x0000000000003eec        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003eec                text_layer_get_layer
+ .text.text_layer_set_background_color
+                0x0000000000003ef8        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003ef8                text_layer_set_background_color
+ .text.text_layer_set_font
+                0x0000000000003f04        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003f04                text_layer_set_font
+ .text.text_layer_set_text
+                0x0000000000003f10        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003f10                text_layer_set_text
+ .text.text_layer_set_text_alignment
+                0x0000000000003f1c        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003f1c                text_layer_set_text_alignment
+ .text.text_layer_set_text_color
+                0x0000000000003f28        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003f28                text_layer_set_text_color
+ .text.tick_timer_service_subscribe
+                0x0000000000003f34        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003f34                tick_timer_service_subscribe
+ .text.tick_timer_service_unsubscribe
+                0x0000000000003f40        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003f40                tick_timer_service_unsubscribe
+ .text.time     0x0000000000003f4c        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003f4c                time
+ .text.vibes_enqueue_custom_pattern
+                0x0000000000003f58        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003f58                vibes_enqueue_custom_pattern
+ .text.window_create
+                0x0000000000003f64        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003f64                window_create
+ .text.window_get_root_layer
+                0x0000000000003f70        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003f70                window_get_root_layer
+ .text.window_set_background_color
+                0x0000000000003f7c        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003f7c                window_set_background_color
+ .text.window_set_click_config_provider
+                0x0000000000003f88        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003f88                window_set_click_config_provider
+ .text.window_set_fullscreen
+                0x0000000000003f94        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003f94                window_set_fullscreen
+ .text.window_set_window_handlers
+                0x0000000000003fa0        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003fa0                window_set_window_handlers
+ .text.window_stack_contains_window
+                0x0000000000003fac        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003fac                window_stack_contains_window
+ .text.window_stack_pop_all
+                0x0000000000003fb8        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003fb8                window_stack_pop_all
+ .text.window_stack_push
+                0x0000000000003fc4        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003fc4                window_stack_push
+ .text.window_stack_remove
+                0x0000000000003fd0        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003fd0                window_stack_remove
+ .text.app_message_outbox_begin
+                0x0000000000003fdc        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003fdc                app_message_outbox_begin
+ .text.app_message_outbox_send
+                0x0000000000003fe8        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003fe8                app_message_outbox_send
+ .text.app_message_register_inbox_dropped
+                0x0000000000003ff4        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000003ff4                app_message_register_inbox_dropped
+ .text.app_message_register_inbox_received
+                0x0000000000004000        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000004000                app_message_register_inbox_received
+ .text.app_message_register_outbox_failed
+                0x000000000000400c        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x000000000000400c                app_message_register_outbox_failed
+ .text.app_message_register_outbox_sent
+                0x0000000000004018        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000004018                app_message_register_outbox_sent
+ .text.window_single_click_subscribe
+                0x0000000000004024        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000004024                window_single_click_subscribe
+ .text.persist_read_data
+                0x0000000000004030        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000004030                persist_read_data
+ .text.persist_write_data
+                0x000000000000403c        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x000000000000403c                persist_write_data
+ .text.menu_layer_set_callbacks
+                0x0000000000004048        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000004048                menu_layer_set_callbacks
+ .text.app_worker_is_running
+                0x0000000000004054        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000004054                app_worker_is_running
+ .text.app_worker_launch
+                0x0000000000004060        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000004060                app_worker_launch
+ .text.heap_bytes_free
+                0x000000000000406c        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x000000000000406c                heap_bytes_free
+ .text.heap_bytes_used
+                0x0000000000004078        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000004078                heap_bytes_used
+ .text.launch_reason
+                0x0000000000004084        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000004084                launch_reason
+ .text.wakeup_cancel
+                0x0000000000004090        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x0000000000004090                wakeup_cancel
+ .text.wakeup_cancel_all
+                0x000000000000409c        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x000000000000409c                wakeup_cancel_all
+ .text.wakeup_get_launch_event
+                0x00000000000040a8        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x00000000000040a8                wakeup_get_launch_event
+ .text.wakeup_query
+                0x00000000000040b4        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x00000000000040b4                wakeup_query
+ .text.wakeup_schedule
+                0x00000000000040c0        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x00000000000040c0                wakeup_schedule
+ .text.wakeup_service_subscribe
+                0x00000000000040cc        0xc /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+                0x00000000000040cc                wakeup_service_subscribe
+ *(.rodata)
+ .rodata        0x00000000000040d8        0x8 src/config_all/config_personal_goals.c.13.o
+ .rodata        0x00000000000040e0       0x28 src/config_all/config_settings_menu.c.13.o
+ .rodata        0x0000000000004108       0x28 src/display_all/display_detail_dash.c.13.o
+ .rodata        0x0000000000004130        0x4 src/display_all/display_main_dash.c.13.o
+ .rodata        0x0000000000004134       0x28 src/display_all/display_survey_list.c.13.o
+ .rodata        0x000000000000415c       0x50 src/pinteract_all/pinteract_11.c.13.o
+ .rodata        0x00000000000041ac       0x18 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .rodata        0x00000000000041c4        0x8 src/transmit.c.13.o
+ *(.rodata*)
+ .rodata.str1.1
+                0x00000000000041cc       0x7a src/ProjectK.c.13.o
+ .rodata.str1.1
+                0x0000000000004246       0x11 src/config_all/config_personal_goals.c.13.o
+ .rodata.str1.1
+                0x0000000000004257       0x1a src/config_all/config_personal_params.c.13.o
+ .rodata.str1.1
+                0x0000000000004271       0x9f src/config_all/config_schedule.c.13.o
+ .rodata.str1.1
+                0x0000000000004310       0x1c src/config_all/config_settings_menu.c.13.o
+ .rodata.str1.1
+                0x000000000000432c       0x84 src/display_all/display_main_dash.c.13.o
+                                         0x87 (size before relaxing)
+ .rodata.str1.1
+                0x00000000000043b0       0x93 src/display_all/display_reminder.c.13.o
+                                         0xc9 (size before relaxing)
+ *fill*         0x0000000000004443        0x1 
+ .rodata.pinteract_vibe_seg
+                0x0000000000004444       0x1c src/display_all/display_reminder.c.13.o
+ .rodata.pinteract_vibe_seg
+                0x0000000000004460       0x1c src/helper.c.13.o
+ .rodata.str1.1
+                0x000000000000447c       0x50 src/helper.c.13.o
+                                         0x59 (size before relaxing)
+ .rodata.str1.1
+                0x00000000000044cc       0x19 src/pinteract_all/pinteract_14.c.13.o
+ .rodata.str1.1
+                0x00000000000044e5       0x36 src/pinteract_all/pinteract_Nitem_survey.c.13.o
+                                         0x89 (size before relaxing)
+ .rodata.str1.1
+                0x000000000000451b       0x8b src/pinteract_all/pinteract_alert.c.13.o
+ .rodata.str1.1
+                0x00000000000045a6       0x4d src/pinteract_all/pinteract_driver.c.13.o
+ .rodata.str1.1
+                0x00000000000045f3       0x2c src/pinteract_all/pinteract_enter_num.c.13.o
+                                         0x65 (size before relaxing)
+ .rodata.str1.1
+                0x000000000000461f       0xc5 src/pinteract_all/pinteract_helper.c.13.o
+ .rodata.str1.1
+                0x00000000000046e4       0xb6 src/pinteract_all/pinteract_priv_scrn.c.13.o
+                                         0xe7 (size before relaxing)
+ *fill*         0x000000000000479a        0x2 
+ .rodata.pinteract_vibe_seg
+                0x000000000000479c       0x1c src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .rodata.str1.1
+                0x00000000000047b8       0x93 src/transmit.c.13.o
+                                         0xac (size before relaxing)
+
+.glue_7         0x000000000000484c        0x0
+ .glue_7        0x0000000000000000        0x0 linker stubs
+
+.glue_7t        0x000000000000484c        0x0
+ .glue_7t       0x0000000000000000        0x0 linker stubs
+
+.vfp11_veneer   0x000000000000484c        0x0
+ .vfp11_veneer  0x0000000000000000        0x0 linker stubs
+
+.v4_bx          0x000000000000484c        0x0
+ .v4_bx         0x0000000000000000        0x0 linker stubs
+
+.iplt           0x000000000000484c        0x0
+ .iplt          0x0000000000000000        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+
+.rel.dyn        0x000000000000484c        0x0
+ .rel.iplt      0x0000000000000000        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+ .rel.got       0x0000000000000000        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+
+.data           0x000000000000484c      0x328
+ *(.data)
+ .data          0x000000000000484c        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crti.o
+ .data          0x000000000000484c        0x4 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+                0x000000000000484c                __dso_handle
+ .data          0x0000000000004850        0x0 src/ProjectK.c.13.o
+ .data          0x0000000000004850        0x0 src/config_all/config_personal_goals.c.13.o
+ .data          0x0000000000004850        0x0 src/config_all/config_personal_params.c.13.o
+ .data          0x0000000000004850        0x0 src/config_all/config_schedule.c.13.o
+ .data          0x0000000000004850        0x0 src/config_all/config_settings_menu.c.13.o
+ .data          0x0000000000004850        0x0 src/demo_screens.c.13.o
+ .data          0x0000000000004850        0x0 src/display_all/blank_test.c.13.o
+ .data          0x0000000000004850        0x0 src/display_all/display_BT_connect_help.c.13.o
+ .data          0x0000000000004850        0x0 src/display_all/display_acti_bars_history.c.13.o
+ .data          0x0000000000004850        0x0 src/display_all/display_detail_dash.c.13.o
+ .data          0x0000000000004850        0x0 src/display_all/display_main_dash.c.13.o
+ .data          0x0000000000004850        0x0 src/display_all/display_pinteract_dots_history.c.13.o
+ .data          0x0000000000004850        0x0 src/display_all/display_reminder.c.13.o
+ .data          0x0000000000004850        0x0 src/display_all/display_survey_list.c.13.o
+ .data          0x0000000000004850        0x0 src/helper.c.13.o
+ .data          0x0000000000004850        0x0 src/pinteract_all/pinteract_11.c.13.o
+ .data          0x0000000000004850        0x0 src/pinteract_all/pinteract_12.c.13.o
+ .data          0x0000000000004850        0x0 src/pinteract_all/pinteract_13.c.13.o
+ .data          0x0000000000004850        0x0 src/pinteract_all/pinteract_14.c.13.o
+ .data          0x0000000000004850        0x0 src/pinteract_all/pinteract_16.c.13.o
+ .data          0x0000000000004850        0x0 src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ .data          0x0000000000004850        0x0 src/pinteract_all/pinteract_alert.c.13.o
+ .data          0x0000000000004850        0x0 src/pinteract_all/pinteract_demo.c.13.o
+ .data          0x0000000000004850        0x0 src/pinteract_all/pinteract_driver.c.13.o
+ .data          0x0000000000004850        0x0 src/pinteract_all/pinteract_enter_num.c.13.o
+ .data          0x0000000000004850        0x0 src/pinteract_all/pinteract_helper.c.13.o
+ .data          0x0000000000004850        0x0 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .data          0x0000000000004850        0x0 src/pinteract_all/pinteract_res_struct.c.13.o
+ .data          0x0000000000004850        0x0 src/splash_screens.c.13.o
+ .data          0x0000000000004850        0x0 src/transmit.c.13.o
+ .data          0x0000000000004850        0x0 aplite/appinfo.auto.c.13.o
+ .data          0x0000000000004850        0x0 /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .data          0x0000000000004850        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
+ .data          0x0000000000004850        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtn.o
+ *(.data.*)
+ .data.enter_num_params
+                0x0000000000004850       0x3c src/config_all/config_personal_goals.c.13.o
+ .data.enter_num_params
+                0x000000000000488c       0x3c src/config_all/config_personal_params.c.13.o
+ .data.rel.local.survey_params
+                0x00000000000048c8       0x6c src/config_all/config_settings_menu.c.13.o
+ .data.rel.local.survey_params
+                0x0000000000004934       0x6c src/display_all/display_detail_dash.c.13.o
+ .data.rel.ro.local.pinteract_vibe_pat
+                0x00000000000049a0        0x8 src/display_all/display_reminder.c.13.o
+ .data.rel.local.survey_params
+                0x00000000000049a8       0x6c src/display_all/display_survey_list.c.13.o
+ .data.cur_sec.7077
+                0x0000000000004a14        0x1 src/helper.c.13.o
+ .data.cur_min.7078
+                0x0000000000004a15        0x1 src/helper.c.13.o
+ *fill*         0x0000000000004a16        0x2 
+ .data.rel.ro.local.pinteract_vibe_pat
+                0x0000000000004a18        0x8 src/helper.c.13.o
+ .data.rel.local.survey_params
+                0x0000000000004a20       0x6c src/pinteract_all/pinteract_11.c.13.o
+ .data.pi_s_res
+                0x0000000000004a8c        0x7 src/pinteract_all/pinteract_11.c.13.o
+ *fill*         0x0000000000004a93        0x1 
+ .data.rel.local.survey_params
+                0x0000000000004a94       0x6c src/pinteract_all/pinteract_14.c.13.o
+ .data.enter_num_params
+                0x0000000000004b00       0x3c src/pinteract_all/pinteract_14.c.13.o
+ .data.pi_s_res
+                0x0000000000004b3c        0x9 src/pinteract_all/pinteract_14.c.13.o
+ *fill*         0x0000000000004b45        0x3 
+ .data.rel.local.res_buf_end
+                0x0000000000004b48       0x10 src/pinteract_all/pinteract_driver.c.13.o
+ .data.rel.write_to_ps
+                0x0000000000004b58       0x10 src/pinteract_all/pinteract_driver.c.13.o
+ .data.rel.ro.local.pinteract_vibe_pat
+                0x0000000000004b68        0x8 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .data.s_tr_buf.7123
+                0x0000000000004b70        0x4 src/transmit.c.13.o
+
+.igot.plt       0x0000000000004b74        0x0
+ .igot.plt      0x0000000000000000        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+
+.got            0x0000000000004b74       0x18
+ .got           0x0000000000004b74       0x18 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+
+.got.plt        0x0000000000004b8c        0xc
+ .got.plt       0x0000000000004b8c        0xc /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+                0x0000000000004b8c                _GLOBAL_OFFSET_TABLE_
+
+.bss            0x0000000000004b98      0x2b0
+ *(.bss)
+ *(.bss.*)
+ .bss.time_buf.7067
+                0x0000000000004b98        0xc src/display_all/display_main_dash.c.13.o
+ .bss.s_kcal_label_layer
+                0x0000000000004ba4        0x4 src/display_all/display_main_dash.c.13.o
+ .bss.points    0x0000000000004ba8        0x4 src/display_all/display_main_dash.c.13.o
+ .bss.points_goal
+                0x0000000000004bac        0x4 src/display_all/display_main_dash.c.13.o
+ .bss.s_time_layer
+                0x0000000000004bb0        0x4 src/display_all/display_main_dash.c.13.o
+ .bss.s_stepc_layer
+                0x0000000000004bb4        0x4 src/display_all/display_main_dash.c.13.o
+ .bss.stepc_buf.7068
+                0x0000000000004bb8        0xa src/display_all/display_main_dash.c.13.o
+ *fill*         0x0000000000004bc2        0x2 
+ .bss.s_kcal_layer
+                0x0000000000004bc4        0x4 src/display_all/display_main_dash.c.13.o
+ .bss.s_stepc_label_layer
+                0x0000000000004bc8        0x4 src/display_all/display_main_dash.c.13.o
+ .bss.s_dash_window
+                0x0000000000004bcc        0x4 src/display_all/display_main_dash.c.13.o
+ .bss.s_points_layer
+                0x0000000000004bd0        0x4 src/display_all/display_main_dash.c.13.o
+ .bss.kcal_buf.7069
+                0x0000000000004bd4        0xa src/display_all/display_main_dash.c.13.o
+ .bss.remind_code_lcl
+                0x0000000000004bde        0x2 src/display_all/display_reminder.c.13.o
+ .bss.s_title_text_layer
+                0x0000000000004be0        0x4 src/display_all/display_reminder.c.13.o
+ .bss.s_detail_text_layer
+                0x0000000000004be4        0x4 src/display_all/display_reminder.c.13.o
+ .bss.s_reminder_window
+                0x0000000000004be8        0x4 src/display_all/display_reminder.c.13.o
+ .bss.s_detail_comment_text_layer
+                0x0000000000004bec        0x4 src/display_all/display_reminder.c.13.o
+ .bss.s_reminder_text_layer
+                0x0000000000004bf0        0x4 src/display_all/display_reminder.c.13.o
+ .bss.tick_timer_clock_minute_handler
+                0x0000000000004bf4        0x4 src/helper.c.13.o
+ .bss.tick_timer_aux_minute_handler
+                0x0000000000004bf8        0x4 src/helper.c.13.o
+ .bss.tick_timer_clock_second_handler
+                0x0000000000004bfc        0x4 src/helper.c.13.o
+ .bss.tick_timer_aux_second_handler
+                0x0000000000004c00        0x4 src/helper.c.13.o
+ .bss.pif_ll_el_lcl
+                0x0000000000004c04        0x4 src/pinteract_all/pinteract_11.c.13.o
+ .bss.pif_ll_el_lcl
+                0x0000000000004c08        0x4 src/pinteract_all/pinteract_14.c.13.o
+ .bss.s_survey_window
+                0x0000000000004c0c        0x4 src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ .bss.s_title_text_layer
+                0x0000000000004c10        0x4 src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ .bss.ROW_HEIGHT
+                0x0000000000004c14        0x2 src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ *fill*         0x0000000000004c16        0x2 
+ .bss.s_down_text_text_layer
+                0x0000000000004c18        0x4 src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ .bss.pif_srvy_prm_lcl
+                0x0000000000004c1c        0x4 src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ .bss.s_up_text_text_layer
+                0x0000000000004c20        0x4 src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ .bss.NUM_ROWS  0x0000000000004c24        0x2 src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ *fill*         0x0000000000004c26        0x2 
+ .bss.s_menu_layer
+                0x0000000000004c28        0x4 src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ .bss.pinteract_seq_srt
+                0x0000000000004c2c       0x10 src/pinteract_all/pinteract_driver.c.13.o
+ .bss.res_buf   0x0000000000004c3c      0x100 src/pinteract_all/pinteract_driver.c.13.o
+ .bss.num_buf   0x0000000000004d3c       0x20 src/pinteract_all/pinteract_enter_num.c.13.o
+ .bss.s_row_title_text_layer_ary
+                0x0000000000004d5c        0x8 src/pinteract_all/pinteract_enter_num.c.13.o
+ .bss.cur_num   0x0000000000004d64       0x10 src/pinteract_all/pinteract_enter_num.c.13.o
+ .bss.s_enter_num_window
+                0x0000000000004d74        0x4 src/pinteract_all/pinteract_enter_num.c.13.o
+ .bss.s_label_text_layer_ary
+                0x0000000000004d78       0x10 src/pinteract_all/pinteract_enter_num.c.13.o
+ .bss.label_buf
+                0x0000000000004d88       0x20 src/pinteract_all/pinteract_enter_num.c.13.o
+ .bss.cur_opt   0x0000000000004da8        0x1 src/pinteract_all/pinteract_enter_num.c.13.o
+ *fill*         0x0000000000004da9        0x3 
+ .bss.s_num_text_layer_ary
+                0x0000000000004dac       0x10 src/pinteract_all/pinteract_enter_num.c.13.o
+ .bss.prm_lcl   0x0000000000004dbc        0x4 src/pinteract_all/pinteract_enter_num.c.13.o
+ .bss.s_select_arrow_bitmap
+                0x0000000000004dc0        0x4 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .bss.s_up_delay_layer
+                0x0000000000004dc4        0x4 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .bss.s_time_buffer.7075
+                0x0000000000004dc8        0xa src/pinteract_all/pinteract_priv_scrn.c.13.o
+ *fill*         0x0000000000004dd2        0x2 
+ .bss.s_time_layer
+                0x0000000000004dd4        0x4 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .bss.s_down_delay_layer
+                0x0000000000004dd8        0x4 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .bss.s_question_bitmap
+                0x0000000000004ddc        0x4 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .bss.reminder_buzz_time_t
+                0x0000000000004de0        0x4 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .bss.time_t_srt_priv_scrn_lcl
+                0x0000000000004de4        0x4 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .bss.pif_ll_el_lcl
+                0x0000000000004de8        0x4 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .bss.s_select_arrow_bitmap_layer
+                0x0000000000004dec        0x4 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .bss.s_down_delay_buf.7086
+                0x0000000000004df0       0x11 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ *fill*         0x0000000000004e01        0x3 
+ .bss.s_privacy_window
+                0x0000000000004e04        0x4 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .bss.s_up_delay_buf.7084
+                0x0000000000004e08       0x11 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ *fill*         0x0000000000004e19        0x3 
+ .bss.s_question_bitmap_layer
+                0x0000000000004e1c        0x4 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .bss.s_transmit_countdown_text_layer
+                0x0000000000004e20        0x4 src/transmit.c.13.o
+ .bss.window_layer
+                0x0000000000004e24        0x4 src/transmit.c.13.o
+ .bss.countdown_active
+                0x0000000000004e28        0x1 src/transmit.c.13.o
+ *fill*         0x0000000000004e29        0x1 
+ .bss.retry_count
+                0x0000000000004e2a        0x2 src/transmit.c.13.o
+ .bss.s_transmit_text_layer
+                0x0000000000004e2c        0x4 src/transmit.c.13.o
+ .bss.outbox_iter
+                0x0000000000004e30        0x4 src/transmit.c.13.o
+ .bss.app_timer_push_to_server
+                0x0000000000004e34        0x4 src/transmit.c.13.o
+ .bss.trans_code_lcl
+                0x0000000000004e38        0x2 src/transmit.c.13.o
+ *fill*         0x0000000000004e3a        0x2 
+ .bss.s_transmit_phone_window
+                0x0000000000004e3c        0x4 src/transmit.c.13.o
+ .bss.cur_countdown
+                0x0000000000004e40        0x2 src/transmit.c.13.o
+ *fill*         0x0000000000004e42        0x2 
+ COMMON         0x0000000000004e44        0x4 src/pinteract_all/pinteract_driver.c.13.o
+                0x0000000000004e44                pif_srt
+
+DISCARD
+ libc.a(*)
+ libm.a(*)
+ libgcc.a(*)
+ *(.eh_frame)
+OUTPUT(/Users/Nate/Documents/pk-priv/pebblewatch-priv/ProjectK/pc_ProjectK/build/aplite/pebble-app.elf elf32-littlearm)
+
+.ARM.attributes
+                0x0000000000000000       0x27
+ .ARM.attributes
+                0x0000000000000000       0x19 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crti.o
+ .ARM.attributes
+                0x0000000000000019       0x29 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+ .ARM.attributes
+                0x0000000000000042       0x33 src/ProjectK.c.13.o
+ .ARM.attributes
+                0x0000000000000075       0x33 src/config_all/config_personal_goals.c.13.o
+ .ARM.attributes
+                0x00000000000000a8       0x33 src/config_all/config_personal_params.c.13.o
+ .ARM.attributes
+                0x00000000000000db       0x33 src/config_all/config_schedule.c.13.o
+ .ARM.attributes
+                0x000000000000010e       0x33 src/config_all/config_settings_menu.c.13.o
+ .ARM.attributes
+                0x0000000000000141       0x33 src/demo_screens.c.13.o
+ .ARM.attributes
+                0x0000000000000174       0x33 src/display_all/blank_test.c.13.o
+ .ARM.attributes
+                0x00000000000001a7       0x33 src/display_all/display_BT_connect_help.c.13.o
+ .ARM.attributes
+                0x00000000000001da       0x33 src/display_all/display_acti_bars_history.c.13.o
+ .ARM.attributes
+                0x000000000000020d       0x33 src/display_all/display_detail_dash.c.13.o
+ .ARM.attributes
+                0x0000000000000240       0x33 src/display_all/display_main_dash.c.13.o
+ .ARM.attributes
+                0x0000000000000273       0x33 src/display_all/display_pinteract_dots_history.c.13.o
+ .ARM.attributes
+                0x00000000000002a6       0x33 src/display_all/display_reminder.c.13.o
+ .ARM.attributes
+                0x00000000000002d9       0x33 src/display_all/display_survey_list.c.13.o
+ .ARM.attributes
+                0x000000000000030c       0x33 src/helper.c.13.o
+ .ARM.attributes
+                0x000000000000033f       0x33 src/pinteract_all/pinteract_11.c.13.o
+ .ARM.attributes
+                0x0000000000000372       0x33 src/pinteract_all/pinteract_12.c.13.o
+ .ARM.attributes
+                0x00000000000003a5       0x33 src/pinteract_all/pinteract_13.c.13.o
+ .ARM.attributes
+                0x00000000000003d8       0x33 src/pinteract_all/pinteract_14.c.13.o
+ .ARM.attributes
+                0x000000000000040b       0x33 src/pinteract_all/pinteract_16.c.13.o
+ .ARM.attributes
+                0x000000000000043e       0x33 src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ .ARM.attributes
+                0x0000000000000471       0x33 src/pinteract_all/pinteract_alert.c.13.o
+ .ARM.attributes
+                0x00000000000004a4       0x33 src/pinteract_all/pinteract_demo.c.13.o
+ .ARM.attributes
+                0x00000000000004d7       0x33 src/pinteract_all/pinteract_driver.c.13.o
+ .ARM.attributes
+                0x000000000000050a       0x33 src/pinteract_all/pinteract_enter_num.c.13.o
+ .ARM.attributes
+                0x000000000000053d       0x33 src/pinteract_all/pinteract_helper.c.13.o
+ .ARM.attributes
+                0x0000000000000570       0x33 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .ARM.attributes
+                0x00000000000005a3       0x33 src/pinteract_all/pinteract_res_struct.c.13.o
+ .ARM.attributes
+                0x00000000000005d6       0x33 src/splash_screens.c.13.o
+ .ARM.attributes
+                0x0000000000000609       0x33 src/transmit.c.13.o
+ .ARM.attributes
+                0x000000000000063c       0x33 aplite/appinfo.auto.c.13.o
+ .ARM.attributes
+                0x000000000000066f       0x21 /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite/lib/libpebble.a(tmpH6yGJgpebble.o)
+ .ARM.attributes
+                0x0000000000000690       0x29 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
+ .ARM.attributes
+                0x00000000000006b9       0x19 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtn.o
+
+.comment        0x0000000000000000       0x4e
+ .comment       0x0000000000000000       0x4e /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+                                         0x4f (size before relaxing)
+ .comment       0x0000000000000000       0x4f src/ProjectK.c.13.o
+ .comment       0x0000000000000000       0x4f src/config_all/config_personal_goals.c.13.o
+ .comment       0x0000000000000000       0x4f src/config_all/config_personal_params.c.13.o
+ .comment       0x0000000000000000       0x4f src/config_all/config_schedule.c.13.o
+ .comment       0x0000000000000000       0x4f src/config_all/config_settings_menu.c.13.o
+ .comment       0x0000000000000000       0x4f src/demo_screens.c.13.o
+ .comment       0x0000000000000000       0x4f src/display_all/blank_test.c.13.o
+ .comment       0x0000000000000000       0x4f src/display_all/display_BT_connect_help.c.13.o
+ .comment       0x0000000000000000       0x4f src/display_all/display_acti_bars_history.c.13.o
+ .comment       0x0000000000000000       0x4f src/display_all/display_detail_dash.c.13.o
+ .comment       0x0000000000000000       0x4f src/display_all/display_main_dash.c.13.o
+ .comment       0x0000000000000000       0x4f src/display_all/display_pinteract_dots_history.c.13.o
+ .comment       0x0000000000000000       0x4f src/display_all/display_reminder.c.13.o
+ .comment       0x0000000000000000       0x4f src/display_all/display_survey_list.c.13.o
+ .comment       0x0000000000000000       0x4f src/helper.c.13.o
+ .comment       0x0000000000000000       0x4f src/pinteract_all/pinteract_11.c.13.o
+ .comment       0x0000000000000000       0x4f src/pinteract_all/pinteract_12.c.13.o
+ .comment       0x0000000000000000       0x4f src/pinteract_all/pinteract_13.c.13.o
+ .comment       0x0000000000000000       0x4f src/pinteract_all/pinteract_14.c.13.o
+ .comment       0x0000000000000000       0x4f src/pinteract_all/pinteract_16.c.13.o
+ .comment       0x0000000000000000       0x4f src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ .comment       0x0000000000000000       0x4f src/pinteract_all/pinteract_alert.c.13.o
+ .comment       0x0000000000000000       0x4f src/pinteract_all/pinteract_demo.c.13.o
+ .comment       0x0000000000000000       0x4f src/pinteract_all/pinteract_driver.c.13.o
+ .comment       0x0000000000000000       0x4f src/pinteract_all/pinteract_enter_num.c.13.o
+ .comment       0x0000000000000000       0x4f src/pinteract_all/pinteract_helper.c.13.o
+ .comment       0x0000000000000000       0x4f src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .comment       0x0000000000000000       0x4f src/pinteract_all/pinteract_res_struct.c.13.o
+ .comment       0x0000000000000000       0x4f src/splash_screens.c.13.o
+ .comment       0x0000000000000000       0x4f src/transmit.c.13.o
+ .comment       0x0000000000000000       0x4f aplite/appinfo.auto.c.13.o
+ .comment       0x0000000000000000       0x4f /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
+
+.debug_info     0x0000000000000000    0x16e29
+ .debug_info    0x0000000000000000      0x87a src/ProjectK.c.13.o
+ .debug_info    0x000000000000087a      0x64e src/config_all/config_personal_goals.c.13.o
+ .debug_info    0x0000000000000ec8      0x7fa src/config_all/config_personal_params.c.13.o
+ .debug_info    0x00000000000016c2      0xb31 src/config_all/config_schedule.c.13.o
+ .debug_info    0x00000000000021f3      0x7c5 src/config_all/config_settings_menu.c.13.o
+ .debug_info    0x00000000000029b8      0x7ce src/demo_screens.c.13.o
+ .debug_info    0x0000000000003186      0xbf3 src/display_all/blank_test.c.13.o
+ .debug_info    0x0000000000003d79      0xd5e src/display_all/display_BT_connect_help.c.13.o
+ .debug_info    0x0000000000004ad7     0x11f8 src/display_all/display_acti_bars_history.c.13.o
+ .debug_info    0x0000000000005ccf      0x5f4 src/display_all/display_detail_dash.c.13.o
+ .debug_info    0x00000000000062c3     0x1540 src/display_all/display_main_dash.c.13.o
+ .debug_info    0x0000000000007803     0x1694 src/display_all/display_pinteract_dots_history.c.13.o
+ .debug_info    0x0000000000008e97      0xe5c src/display_all/display_reminder.c.13.o
+ .debug_info    0x0000000000009cf3      0x5fe src/display_all/display_survey_list.c.13.o
+ .debug_info    0x000000000000a2f1     0x19ee src/helper.c.13.o
+ .debug_info    0x000000000000bcdf      0xa1d src/pinteract_all/pinteract_11.c.13.o
+ .debug_info    0x000000000000c6fc      0x8c5 src/pinteract_all/pinteract_12.c.13.o
+ .debug_info    0x000000000000cfc1      0x7cb src/pinteract_all/pinteract_13.c.13.o
+ .debug_info    0x000000000000d78c      0xd16 src/pinteract_all/pinteract_14.c.13.o
+ .debug_info    0x000000000000e4a2      0xbca src/pinteract_all/pinteract_16.c.13.o
+ .debug_info    0x000000000000f06c     0x145f src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ .debug_info    0x00000000000104cb      0x4e1 src/pinteract_all/pinteract_alert.c.13.o
+ .debug_info    0x00000000000109ac      0x51a src/pinteract_all/pinteract_driver.c.13.o
+ .debug_info    0x0000000000010ec6     0x1542 src/pinteract_all/pinteract_enter_num.c.13.o
+ .debug_info    0x0000000000012408      0x7a0 src/pinteract_all/pinteract_helper.c.13.o
+ .debug_info    0x0000000000012ba8     0x1768 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .debug_info    0x0000000000014310      0x2df src/pinteract_all/pinteract_res_struct.c.13.o
+ .debug_info    0x00000000000145ef      0x9e1 src/splash_screens.c.13.o
+ .debug_info    0x0000000000014fd0     0x1b10 src/transmit.c.13.o
+ .debug_info    0x0000000000016ae0      0x349 aplite/appinfo.auto.c.13.o
+
+.debug_abbrev   0x0000000000000000     0x483c
+ .debug_abbrev  0x0000000000000000      0x219 src/ProjectK.c.13.o
+ .debug_abbrev  0x0000000000000219      0x1e0 src/config_all/config_personal_goals.c.13.o
+ .debug_abbrev  0x00000000000003f9      0x1fe src/config_all/config_personal_params.c.13.o
+ .debug_abbrev  0x00000000000005f7      0x2a7 src/config_all/config_schedule.c.13.o
+ .debug_abbrev  0x000000000000089e      0x20a src/config_all/config_settings_menu.c.13.o
+ .debug_abbrev  0x0000000000000aa8      0x1fa src/demo_screens.c.13.o
+ .debug_abbrev  0x0000000000000ca2      0x272 src/display_all/blank_test.c.13.o
+ .debug_abbrev  0x0000000000000f14      0x27a src/display_all/display_BT_connect_help.c.13.o
+ .debug_abbrev  0x000000000000118e      0x2f7 src/display_all/display_acti_bars_history.c.13.o
+ .debug_abbrev  0x0000000000001485      0x1cf src/display_all/display_detail_dash.c.13.o
+ .debug_abbrev  0x0000000000001654      0x34a src/display_all/display_main_dash.c.13.o
+ .debug_abbrev  0x000000000000199e      0x3e4 src/display_all/display_pinteract_dots_history.c.13.o
+ .debug_abbrev  0x0000000000001d82      0x2cc src/display_all/display_reminder.c.13.o
+ .debug_abbrev  0x000000000000204e      0x1c1 src/display_all/display_survey_list.c.13.o
+ .debug_abbrev  0x000000000000220f      0x47a src/helper.c.13.o
+ .debug_abbrev  0x0000000000002689      0x1ff src/pinteract_all/pinteract_11.c.13.o
+ .debug_abbrev  0x0000000000002888      0x1d4 src/pinteract_all/pinteract_12.c.13.o
+ .debug_abbrev  0x0000000000002a5c      0x1d4 src/pinteract_all/pinteract_13.c.13.o
+ .debug_abbrev  0x0000000000002c30      0x21d src/pinteract_all/pinteract_14.c.13.o
+ .debug_abbrev  0x0000000000002e4d      0x1f0 src/pinteract_all/pinteract_16.c.13.o
+ .debug_abbrev  0x000000000000303d      0x32f src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ .debug_abbrev  0x000000000000336c      0x1b8 src/pinteract_all/pinteract_alert.c.13.o
+ .debug_abbrev  0x0000000000003524      0x1ee src/pinteract_all/pinteract_driver.c.13.o
+ .debug_abbrev  0x0000000000003712      0x368 src/pinteract_all/pinteract_enter_num.c.13.o
+ .debug_abbrev  0x0000000000003a7a      0x247 src/pinteract_all/pinteract_helper.c.13.o
+ .debug_abbrev  0x0000000000003cc1      0x3cb src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .debug_abbrev  0x000000000000408c       0xb8 src/pinteract_all/pinteract_res_struct.c.13.o
+ .debug_abbrev  0x0000000000004144      0x20f src/splash_screens.c.13.o
+ .debug_abbrev  0x0000000000004353      0x44b src/transmit.c.13.o
+ .debug_abbrev  0x000000000000479e       0x9e aplite/appinfo.auto.c.13.o
+
+.debug_loc      0x0000000000000000     0x48c0
+ .debug_loc     0x0000000000000000       0x2c src/ProjectK.c.13.o
+ .debug_loc     0x000000000000002c       0x8a src/config_all/config_personal_goals.c.13.o
+ .debug_loc     0x00000000000000b6      0x164 src/config_all/config_personal_params.c.13.o
+ .debug_loc     0x000000000000021a      0x53f src/config_all/config_schedule.c.13.o
+ .debug_loc     0x0000000000000759       0x9c src/config_all/config_settings_menu.c.13.o
+ .debug_loc     0x00000000000007f5      0x181 src/demo_screens.c.13.o
+ .debug_loc     0x0000000000000976      0x1f3 src/display_all/blank_test.c.13.o
+ .debug_loc     0x0000000000000b69      0x13d src/display_all/display_BT_connect_help.c.13.o
+ .debug_loc     0x0000000000000ca6      0x386 src/display_all/display_acti_bars_history.c.13.o
+ .debug_loc     0x000000000000102c       0x9a src/display_all/display_detail_dash.c.13.o
+ .debug_loc     0x00000000000010c6      0x2d9 src/display_all/display_main_dash.c.13.o
+ .debug_loc     0x000000000000139f      0x583 src/display_all/display_pinteract_dots_history.c.13.o
+ .debug_loc     0x0000000000001922      0x1f4 src/display_all/display_reminder.c.13.o
+ .debug_loc     0x0000000000001b16       0x9a src/display_all/display_survey_list.c.13.o
+ .debug_loc     0x0000000000001bb0      0xb22 src/helper.c.13.o
+ .debug_loc     0x00000000000026d2      0x1fe src/pinteract_all/pinteract_11.c.13.o
+ .debug_loc     0x00000000000028d0      0x1f1 src/pinteract_all/pinteract_12.c.13.o
+ .debug_loc     0x0000000000002ac1      0x157 src/pinteract_all/pinteract_13.c.13.o
+ .debug_loc     0x0000000000002c18      0x2cd src/pinteract_all/pinteract_14.c.13.o
+ .debug_loc     0x0000000000002ee5      0x38d src/pinteract_all/pinteract_16.c.13.o
+ .debug_loc     0x0000000000003272      0x3b7 src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ .debug_loc     0x0000000000003629       0x4e src/pinteract_all/pinteract_alert.c.13.o
+ .debug_loc     0x0000000000003677       0x8e src/pinteract_all/pinteract_driver.c.13.o
+ .debug_loc     0x0000000000003705      0x3ea src/pinteract_all/pinteract_enter_num.c.13.o
+ .debug_loc     0x0000000000003aef      0x263 src/pinteract_all/pinteract_helper.c.13.o
+ .debug_loc     0x0000000000003d52      0x373 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .debug_loc     0x00000000000040c5      0x2b5 src/splash_screens.c.13.o
+ .debug_loc     0x000000000000437a      0x546 src/transmit.c.13.o
+
+.debug_aranges  0x0000000000000000      0x9a8
+ .debug_aranges
+                0x0000000000000000       0x20 src/ProjectK.c.13.o
+ .debug_aranges
+                0x0000000000000020       0x28 src/config_all/config_personal_goals.c.13.o
+ .debug_aranges
+                0x0000000000000048       0x38 src/config_all/config_personal_params.c.13.o
+ .debug_aranges
+                0x0000000000000080       0x60 src/config_all/config_schedule.c.13.o
+ .debug_aranges
+                0x00000000000000e0       0x30 src/config_all/config_settings_menu.c.13.o
+ .debug_aranges
+                0x0000000000000110       0x48 src/demo_screens.c.13.o
+ .debug_aranges
+                0x0000000000000158       0x58 src/display_all/blank_test.c.13.o
+ .debug_aranges
+                0x00000000000001b0       0x38 src/display_all/display_BT_connect_help.c.13.o
+ .debug_aranges
+                0x00000000000001e8       0x60 src/display_all/display_acti_bars_history.c.13.o
+ .debug_aranges
+                0x0000000000000248       0x30 src/display_all/display_detail_dash.c.13.o
+ .debug_aranges
+                0x0000000000000278       0x60 src/display_all/display_main_dash.c.13.o
+ .debug_aranges
+                0x00000000000002d8       0x68 src/display_all/display_pinteract_dots_history.c.13.o
+ .debug_aranges
+                0x0000000000000340       0x60 src/display_all/display_reminder.c.13.o
+ .debug_aranges
+                0x00000000000003a0       0x30 src/display_all/display_survey_list.c.13.o
+ .debug_aranges
+                0x00000000000003d0      0x130 src/helper.c.13.o
+ .debug_aranges
+                0x0000000000000500       0x50 src/pinteract_all/pinteract_11.c.13.o
+ .debug_aranges
+                0x0000000000000550       0x50 src/pinteract_all/pinteract_12.c.13.o
+ .debug_aranges
+                0x00000000000005a0       0x40 src/pinteract_all/pinteract_13.c.13.o
+ .debug_aranges
+                0x00000000000005e0       0x60 src/pinteract_all/pinteract_14.c.13.o
+ .debug_aranges
+                0x0000000000000640       0x70 src/pinteract_all/pinteract_16.c.13.o
+ .debug_aranges
+                0x00000000000006b0       0x58 src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ .debug_aranges
+                0x0000000000000708       0x20 src/pinteract_all/pinteract_alert.c.13.o
+ .debug_aranges
+                0x0000000000000728       0x28 src/pinteract_all/pinteract_driver.c.13.o
+ .debug_aranges
+                0x0000000000000750       0x58 src/pinteract_all/pinteract_enter_num.c.13.o
+ .debug_aranges
+                0x00000000000007a8       0x38 src/pinteract_all/pinteract_helper.c.13.o
+ .debug_aranges
+                0x00000000000007e0       0x68 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .debug_aranges
+                0x0000000000000848       0x18 src/pinteract_all/pinteract_res_struct.c.13.o
+ .debug_aranges
+                0x0000000000000860       0x68 src/splash_screens.c.13.o
+ .debug_aranges
+                0x00000000000008c8       0xc8 src/transmit.c.13.o
+ .debug_aranges
+                0x0000000000000990       0x18 aplite/appinfo.auto.c.13.o
+
+.debug_ranges   0x0000000000000000      0xbe0
+ .debug_ranges  0x0000000000000000       0x28 src/ProjectK.c.13.o
+ .debug_ranges  0x0000000000000028       0x18 src/config_all/config_personal_goals.c.13.o
+ .debug_ranges  0x0000000000000040       0x28 src/config_all/config_personal_params.c.13.o
+ .debug_ranges  0x0000000000000068       0x88 src/config_all/config_schedule.c.13.o
+ .debug_ranges  0x00000000000000f0       0x20 src/config_all/config_settings_menu.c.13.o
+ .debug_ranges  0x0000000000000110       0x38 src/demo_screens.c.13.o
+ .debug_ranges  0x0000000000000148       0x48 src/display_all/blank_test.c.13.o
+ .debug_ranges  0x0000000000000190       0x28 src/display_all/display_BT_connect_help.c.13.o
+ .debug_ranges  0x00000000000001b8       0xf0 src/display_all/display_acti_bars_history.c.13.o
+ .debug_ranges  0x00000000000002a8       0x20 src/display_all/display_detail_dash.c.13.o
+ .debug_ranges  0x00000000000002c8       0x98 src/display_all/display_main_dash.c.13.o
+ .debug_ranges  0x0000000000000360      0x170 src/display_all/display_pinteract_dots_history.c.13.o
+ .debug_ranges  0x00000000000004d0       0x80 src/display_all/display_reminder.c.13.o
+ .debug_ranges  0x0000000000000550       0x20 src/display_all/display_survey_list.c.13.o
+ .debug_ranges  0x0000000000000570      0x180 src/helper.c.13.o
+ .debug_ranges  0x00000000000006f0       0x40 src/pinteract_all/pinteract_11.c.13.o
+ .debug_ranges  0x0000000000000730       0x40 src/pinteract_all/pinteract_12.c.13.o
+ .debug_ranges  0x0000000000000770       0x30 src/pinteract_all/pinteract_13.c.13.o
+ .debug_ranges  0x00000000000007a0       0x50 src/pinteract_all/pinteract_14.c.13.o
+ .debug_ranges  0x00000000000007f0       0x60 src/pinteract_all/pinteract_16.c.13.o
+ .debug_ranges  0x0000000000000850       0x78 src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ .debug_ranges  0x00000000000008c8       0x10 src/pinteract_all/pinteract_alert.c.13.o
+ .debug_ranges  0x00000000000008d8       0x18 src/pinteract_all/pinteract_driver.c.13.o
+ .debug_ranges  0x00000000000008f0       0xd8 src/pinteract_all/pinteract_enter_num.c.13.o
+ .debug_ranges  0x00000000000009c8       0x28 src/pinteract_all/pinteract_helper.c.13.o
+ .debug_ranges  0x00000000000009f0       0x98 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .debug_ranges  0x0000000000000a88       0x58 src/splash_screens.c.13.o
+ .debug_ranges  0x0000000000000ae0      0x100 src/transmit.c.13.o
+
+.debug_line     0x0000000000000000     0x6254
+ .debug_line    0x0000000000000000      0x21e src/ProjectK.c.13.o
+ .debug_line    0x000000000000021e      0x2bb src/config_all/config_personal_goals.c.13.o
+ .debug_line    0x00000000000004d9      0x2eb src/config_all/config_personal_params.c.13.o
+ .debug_line    0x00000000000007c4      0x3bf src/config_all/config_schedule.c.13.o
+ .debug_line    0x0000000000000b83      0x2bf src/config_all/config_settings_menu.c.13.o
+ .debug_line    0x0000000000000e42      0x21a src/demo_screens.c.13.o
+ .debug_line    0x000000000000105c      0x303 src/display_all/blank_test.c.13.o
+ .debug_line    0x000000000000135f      0x2fd src/display_all/display_BT_connect_help.c.13.o
+ .debug_line    0x000000000000165c      0x417 src/display_all/display_acti_bars_history.c.13.o
+ .debug_line    0x0000000000001a73      0x29d src/display_all/display_detail_dash.c.13.o
+ .debug_line    0x0000000000001d10      0x480 src/display_all/display_main_dash.c.13.o
+ .debug_line    0x0000000000002190      0x4ec src/display_all/display_pinteract_dots_history.c.13.o
+ .debug_line    0x000000000000267c      0x333 src/display_all/display_reminder.c.13.o
+ .debug_line    0x00000000000029af      0x290 src/display_all/display_survey_list.c.13.o
+ .debug_line    0x0000000000002c3f      0x67b src/helper.c.13.o
+ .debug_line    0x00000000000032ba      0x35c src/pinteract_all/pinteract_11.c.13.o
+ .debug_line    0x0000000000003616      0x344 src/pinteract_all/pinteract_12.c.13.o
+ .debug_line    0x000000000000395a      0x312 src/pinteract_all/pinteract_13.c.13.o
+ .debug_line    0x0000000000003c6c      0x3bf src/pinteract_all/pinteract_14.c.13.o
+ .debug_line    0x000000000000402b      0x3c7 src/pinteract_all/pinteract_16.c.13.o
+ .debug_line    0x00000000000043f2      0x38b src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ .debug_line    0x000000000000477d      0x29a src/pinteract_all/pinteract_alert.c.13.o
+ .debug_line    0x0000000000004a17        0x0 src/pinteract_all/pinteract_demo.c.13.o
+ .debug_line    0x0000000000004a17      0x237 src/pinteract_all/pinteract_driver.c.13.o
+ .debug_line    0x0000000000004c4e      0x4d8 src/pinteract_all/pinteract_enter_num.c.13.o
+ .debug_line    0x0000000000005126      0x2d1 src/pinteract_all/pinteract_helper.c.13.o
+ .debug_line    0x00000000000053f7      0x4c5 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .debug_line    0x00000000000058bc      0x1bc src/pinteract_all/pinteract_res_struct.c.13.o
+ .debug_line    0x0000000000005a78      0x26e src/splash_screens.c.13.o
+ .debug_line    0x0000000000005ce6      0x43f src/transmit.c.13.o
+ .debug_line    0x0000000000006125      0x12f aplite/appinfo.auto.c.13.o
+
+.debug_str      0x0000000000000000     0x3a29
+ .debug_str     0x0000000000000000      0x8a0 src/ProjectK.c.13.o
+                                        0x921 (size before relaxing)
+ .debug_str     0x00000000000008a0      0x1c9 src/config_all/config_personal_goals.c.13.o
+                                        0x6be (size before relaxing)
+ .debug_str     0x0000000000000a69       0xa0 src/config_all/config_personal_params.c.13.o
+                                        0x71e (size before relaxing)
+ .debug_str     0x0000000000000b09      0x251 src/config_all/config_schedule.c.13.o
+                                        0x7fe (size before relaxing)
+ .debug_str     0x0000000000000d5a      0x14e src/config_all/config_settings_menu.c.13.o
+                                        0x74d (size before relaxing)
+ .debug_str     0x0000000000000ea8       0xf7 src/demo_screens.c.13.o
+                                        0x704 (size before relaxing)
+ .debug_str     0x0000000000000f9f      0x3c9 src/display_all/blank_test.c.13.o
+                                        0x9ac (size before relaxing)
+ .debug_str     0x0000000000001368      0x547 src/display_all/display_BT_connect_help.c.13.o
+                                        0xc45 (size before relaxing)
+ .debug_str     0x00000000000018af      0x1f9 src/display_all/display_acti_bars_history.c.13.o
+                                        0xb81 (size before relaxing)
+ .debug_str     0x0000000000001aa8       0x51 src/display_all/display_detail_dash.c.13.o
+                                        0x65c (size before relaxing)
+ .debug_str     0x0000000000001af9      0x20f src/display_all/display_main_dash.c.13.o
+                                        0xda2 (size before relaxing)
+ .debug_str     0x0000000000001d08      0x16e src/display_all/display_pinteract_dots_history.c.13.o
+                                        0xd62 (size before relaxing)
+ .debug_str     0x0000000000001e76       0xe7 src/display_all/display_reminder.c.13.o
+                                        0xaf1 (size before relaxing)
+ .debug_str     0x0000000000001f5d       0x29 src/display_all/display_survey_list.c.13.o
+                                        0x644 (size before relaxing)
+ .debug_str     0x0000000000001f86      0x431 src/helper.c.13.o
+                                        0xf73 (size before relaxing)
+ .debug_str     0x00000000000023b7       0xd6 src/pinteract_all/pinteract_11.c.13.o
+                                        0x763 (size before relaxing)
+ .debug_str     0x000000000000248d       0x50 src/pinteract_all/pinteract_12.c.13.o
+                                        0x6f7 (size before relaxing)
+ .debug_str     0x00000000000024dd       0x4e src/pinteract_all/pinteract_13.c.13.o
+                                        0x6eb (size before relaxing)
+ .debug_str     0x000000000000252b       0x61 src/pinteract_all/pinteract_14.c.13.o
+                                        0x875 (size before relaxing)
+ .debug_str     0x000000000000258c       0xe4 src/pinteract_all/pinteract_16.c.13.o
+                                        0x864 (size before relaxing)
+ .debug_str     0x0000000000002670      0x493 src/pinteract_all/pinteract_Nitem_survey.c.13.o
+                                        0xe42 (size before relaxing)
+ .debug_str     0x0000000000002b03       0x4f src/pinteract_all/pinteract_alert.c.13.o
+                                        0x5d8 (size before relaxing)
+ .debug_str     0x0000000000002b52       0x89 src/pinteract_all/pinteract_driver.c.13.o
+                                        0x628 (size before relaxing)
+ .debug_str     0x0000000000002bdb      0x25f src/pinteract_all/pinteract_enter_num.c.13.o
+                                        0xbd2 (size before relaxing)
+ .debug_str     0x0000000000002e3a       0x8f src/pinteract_all/pinteract_helper.c.13.o
+                                        0x6de (size before relaxing)
+ .debug_str     0x0000000000002ec9      0x1e2 src/pinteract_all/pinteract_priv_scrn.c.13.o
+                                       0x106c (size before relaxing)
+ .debug_str     0x00000000000030ab       0x2c src/pinteract_all/pinteract_res_struct.c.13.o
+                                        0x4e5 (size before relaxing)
+ .debug_str     0x00000000000030d7       0x40 src/splash_screens.c.13.o
+                                        0x71f (size before relaxing)
+ .debug_str     0x0000000000003117      0x7bb src/transmit.c.13.o
+                                       0x125c (size before relaxing)
+ .debug_str     0x00000000000038d2      0x157 aplite/appinfo.auto.c.13.o
+                                        0x41c (size before relaxing)
+
+.debug_frame    0x0000000000000000     0x18f0
+ .debug_frame   0x0000000000000000       0x2c src/ProjectK.c.13.o
+ .debug_frame   0x000000000000002c       0x44 src/config_all/config_personal_goals.c.13.o
+ .debug_frame   0x0000000000000070       0x7c src/config_all/config_personal_params.c.13.o
+ .debug_frame   0x00000000000000ec      0x120 src/config_all/config_schedule.c.13.o
+ .debug_frame   0x000000000000020c       0x60 src/config_all/config_settings_menu.c.13.o
+ .debug_frame   0x000000000000026c       0xc0 src/demo_screens.c.13.o
+ .debug_frame   0x000000000000032c       0xd4 src/display_all/blank_test.c.13.o
+ .debug_frame   0x0000000000000400       0x88 src/display_all/display_BT_connect_help.c.13.o
+ .debug_frame   0x0000000000000488      0x108 src/display_all/display_acti_bars_history.c.13.o
+ .debug_frame   0x0000000000000590       0x60 src/display_all/display_detail_dash.c.13.o
+ .debug_frame   0x00000000000005f0       0xfc src/display_all/display_main_dash.c.13.o
+ .debug_frame   0x00000000000006ec      0x144 src/display_all/display_pinteract_dots_history.c.13.o
+ .debug_frame   0x0000000000000830       0xe8 src/display_all/display_reminder.c.13.o
+ .debug_frame   0x0000000000000918       0x60 src/display_all/display_survey_list.c.13.o
+ .debug_frame   0x0000000000000978      0x354 src/helper.c.13.o
+ .debug_frame   0x0000000000000ccc       0xe4 src/pinteract_all/pinteract_11.c.13.o
+ .debug_frame   0x0000000000000db0       0xe4 src/pinteract_all/pinteract_12.c.13.o
+ .debug_frame   0x0000000000000e94       0xa4 src/pinteract_all/pinteract_13.c.13.o
+ .debug_frame   0x0000000000000f38      0x11c src/pinteract_all/pinteract_14.c.13.o
+ .debug_frame   0x0000000000001054      0x154 src/pinteract_all/pinteract_16.c.13.o
+ .debug_frame   0x00000000000011a8       0xec src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ .debug_frame   0x0000000000001294       0x30 src/pinteract_all/pinteract_alert.c.13.o
+ .debug_frame   0x00000000000012c4       0x3c src/pinteract_all/pinteract_driver.c.13.o
+ .debug_frame   0x0000000000001300      0x10c src/pinteract_all/pinteract_enter_num.c.13.o
+ .debug_frame   0x000000000000140c       0x7c src/pinteract_all/pinteract_helper.c.13.o
+ .debug_frame   0x0000000000001488      0x114 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .debug_frame   0x000000000000159c      0x140 src/splash_screens.c.13.o
+ .debug_frame   0x00000000000016dc      0x214 src/transmit.c.13.o

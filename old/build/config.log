@@ -1,0 +1,32 @@
+# project  configured on Sat Nov  7 18:53:10 2015 by
+# waf 1.7.11 (abi 98, python 2070af0 on darwin)
+# using /usr/local/Cellar/pebble-sdk/3.6.2/Pebble/waf configure
+#
+----------------------------------------
+Setting top to
+/Users/Nate/Documents/pk-priv/pebblewatch-priv/ProjectK/pc_ProjectK
+----------------------------------------
+Setting out to
+/Users/Nate/Documents/pk-priv/pebblewatch-priv/ProjectK/pc_ProjectK/build
+----------------------------------------
+Found Pebble SDK for basalt in:
+/usr/local/Cellar/pebble-sdk/3.6.2/Pebble/basalt
+----------------------------------------
+Checking for program gcc,cc
+arm-none-eabi-gcc
+find program=['gcc', 'cc'] paths='' var='CC' -> 'arm-none-eabi-gcc'
+----------------------------------------
+Checking for program ar
+arm-none-eabi-gcc-ar
+find program=['ar'] paths='' var='AR' -> 'arm-none-eabi-gcc-ar'
+----------------------------------------
+Found Pebble SDK for aplite in:
+/usr/local/Cellar/pebble-sdk/3.6.2/Pebble/aplite
+----------------------------------------
+Checking for program gcc,cc
+arm-none-eabi-gcc
+find program=['gcc', 'cc'] paths='' var='CC' -> 'arm-none-eabi-gcc'
+----------------------------------------
+Checking for program ar
+arm-none-eabi-gcc-ar
+find program=['ar'] paths='' var='AR' -> 'arm-none-eabi-gcc-ar'
