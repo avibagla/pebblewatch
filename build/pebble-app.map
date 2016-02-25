@@ -1,7 +1,7 @@
 Archive member included because of file (symbol)
 
 /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                              src/ProjectK.c.13.o (app_event_loop)
+                              src/main.c.13.o (app_event_loop)
 
 Allocating common symbols
 Common symbol       size              file
@@ -22,8 +22,6 @@ Discarded input sections
  .jcr           0x0000000000000000        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
  .tm_clone_table
                 0x0000000000000000        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
- .text          0x0000000000000000        0x0 src/ProjectK.c.13.o
- .bss           0x0000000000000000        0x0 src/ProjectK.c.13.o
  .text          0x0000000000000000        0x0 src/config_all/config_personal_goals.c.13.o
  .bss           0x0000000000000000        0x0 src/config_all/config_personal_goals.c.13.o
  .text          0x0000000000000000        0x0 src/config_all/config_personal_params.c.13.o
@@ -217,6 +215,8 @@ Discarded input sections
                 0x0000000000000000       0x48 src/helper.c.13.o
  .text.pow_int  0x0000000000000000       0x20 src/helper.c.13.o
  .text.isqrt    0x0000000000000000       0x2a src/helper.c.13.o
+ .text          0x0000000000000000        0x0 src/main.c.13.o
+ .bss           0x0000000000000000        0x0 src/main.c.13.o
  .text          0x0000000000000000        0x0 src/pinteract_all/pinteract_11.c.13.o
  .bss           0x0000000000000000        0x0 src/pinteract_all/pinteract_11.c.13.o
  .text          0x0000000000000000        0x0 src/pinteract_all/pinteract_12.c.13.o
@@ -1332,7 +1332,6 @@ Linker script and memory map
 
 LOAD /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crti.o
 LOAD /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
-LOAD src/ProjectK.c.13.o
 LOAD src/config_all/config_personal_goals.c.13.o
 LOAD src/config_all/config_personal_params.c.13.o
 LOAD src/config_all/config_schedule.c.13.o
@@ -1347,6 +1346,7 @@ LOAD src/display_all/display_pinteract_dots_history.c.13.o
 LOAD src/display_all/display_reminder.c.13.o
 LOAD src/display_all/display_survey_list.c.13.o
 LOAD src/helper.c.13.o
+LOAD src/main.c.13.o
 LOAD src/pinteract_all/pinteract_11.c.13.o
 LOAD src/pinteract_all/pinteract_12.c.13.o
 LOAD src/pinteract_all/pinteract_13.c.13.o
@@ -1384,191 +1384,191 @@ LOAD /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none
  .note.gnu.build-id
                 0x0000000000000084       0x24 linker stubs
 
-.text           0x00000000000000a8     0x47bf
+.text           0x00000000000000a8     0x47c3
  *(.text)
  .text          0x00000000000000a8       0x14 /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
  *(.text.*)
- .text.startup.main
-                0x00000000000000bc      0x124 src/ProjectK.c.13.o
-                0x00000000000000bc                main
  .text.enter_num_opt0
-                0x00000000000001e0       0x60 src/config_all/config_personal_goals.c.13.o
+                0x00000000000000bc       0x60 src/config_all/config_personal_goals.c.13.o
  .text.config_personal_goals
-                0x0000000000000240       0x44 src/config_all/config_personal_goals.c.13.o
-                0x0000000000000240                config_personal_goals
+                0x000000000000011c       0x44 src/config_all/config_personal_goals.c.13.o
+                0x000000000000011c                config_personal_goals
  .text.enter_num_opt2
-                0x0000000000000284       0x74 src/config_all/config_personal_params.c.13.o
+                0x0000000000000160       0x74 src/config_all/config_personal_params.c.13.o
  .text.enter_num_opt1
-                0x00000000000002f8       0x40 src/config_all/config_personal_params.c.13.o
+                0x00000000000001d4       0x40 src/config_all/config_personal_params.c.13.o
  .text.enter_num_opt0
-                0x0000000000000338       0x3e src/config_all/config_personal_params.c.13.o
- *fill*         0x0000000000000376        0x2 
+                0x0000000000000214       0x3e src/config_all/config_personal_params.c.13.o
+ *fill*         0x0000000000000252        0x2 
  .text.config_personal_params
-                0x0000000000000378       0x54 src/config_all/config_personal_params.c.13.o
-                0x0000000000000378                config_personal_params
+                0x0000000000000254       0x54 src/config_all/config_personal_params.c.13.o
+                0x0000000000000254                config_personal_params
  .text.zero_out_wakeup_config_ary
-                0x00000000000003cc       0x14 src/config_all/config_schedule.c.13.o
+                0x00000000000002a8       0x14 src/config_all/config_schedule.c.13.o
  .text.write_to_config_wakeup_persistant_storage
-                0x00000000000003e0       0x28 src/config_all/config_schedule.c.13.o
-                0x00000000000003e0                write_to_config_wakeup_persistant_storage
+                0x00000000000002bc       0x28 src/config_all/config_schedule.c.13.o
+                0x00000000000002bc                write_to_config_wakeup_persistant_storage
  .text.read_config_wakeup_index_persistant_storage
-                0x0000000000000408       0x36 src/config_all/config_schedule.c.13.o
-                0x0000000000000408                read_config_wakeup_index_persistant_storage
+                0x00000000000002e4       0x36 src/config_all/config_schedule.c.13.o
+                0x00000000000002e4                read_config_wakeup_index_persistant_storage
  .text.pinteract_code_from_config_wakeup_index
-                0x000000000000043e       0x10 src/config_all/config_schedule.c.13.o
-                0x000000000000043e                pinteract_code_from_config_wakeup_index
+                0x000000000000031a       0x10 src/config_all/config_schedule.c.13.o
+                0x000000000000031a                pinteract_code_from_config_wakeup_index
  .text.reset_config_wakeup_schedule
-                0x000000000000044e       0x28 src/config_all/config_schedule.c.13.o
-                0x000000000000044e                reset_config_wakeup_schedule
+                0x000000000000032a       0x28 src/config_all/config_schedule.c.13.o
+                0x000000000000032a                reset_config_wakeup_schedule
  .text.read_wakeup_id_at_config_wakeup_index
-                0x0000000000000476       0x2c src/config_all/config_schedule.c.13.o
-                0x0000000000000476                read_wakeup_id_at_config_wakeup_index
+                0x0000000000000352       0x2c src/config_all/config_schedule.c.13.o
+                0x0000000000000352                read_wakeup_id_at_config_wakeup_index
  .text.write_wakeup_id_at_config_wakeup_index
-                0x00000000000004a2       0x36 src/config_all/config_schedule.c.13.o
-                0x00000000000004a2                write_wakeup_id_at_config_wakeup_index
+                0x000000000000037e       0x36 src/config_all/config_schedule.c.13.o
+                0x000000000000037e                write_wakeup_id_at_config_wakeup_index
  .text.reschedule_config_wakeup_index
-                0x00000000000004d8       0x60 src/config_all/config_schedule.c.13.o
-                0x00000000000004d8                reschedule_config_wakeup_index
+                0x00000000000003b4       0x60 src/config_all/config_schedule.c.13.o
+                0x00000000000003b4                reschedule_config_wakeup_index
  .text.config_wakeup_schedule
-                0x0000000000000538      0x100 src/config_all/config_schedule.c.13.o
-                0x0000000000000538                config_wakeup_schedule
- .text.opt1     0x0000000000000638       0x74 src/config_all/config_settings_menu.c.13.o
- .text.opt0     0x00000000000006ac       0xa4 src/config_all/config_settings_menu.c.13.o
+                0x0000000000000414      0x100 src/config_all/config_schedule.c.13.o
+                0x0000000000000414                config_wakeup_schedule
+ .text.opt1     0x0000000000000514       0x74 src/config_all/config_settings_menu.c.13.o
+ .text.opt0     0x0000000000000588       0xa4 src/config_all/config_settings_menu.c.13.o
  .text.config_settings_menu
-                0x0000000000000750        0xc src/config_all/config_settings_menu.c.13.o
-                0x0000000000000750                config_settings_menu
- .text.opt1     0x000000000000075c       0x50 src/display_all/display_detail_dash.c.13.o
- .text.opt0     0x00000000000007ac       0x6c src/display_all/display_detail_dash.c.13.o
+                0x000000000000062c        0xc src/config_all/config_settings_menu.c.13.o
+                0x000000000000062c                config_settings_menu
+ .text.opt1     0x0000000000000638       0x50 src/display_all/display_detail_dash.c.13.o
+ .text.opt0     0x0000000000000688       0x6c src/display_all/display_detail_dash.c.13.o
  .text.display_detail_dash
-                0x0000000000000818        0xc src/display_all/display_detail_dash.c.13.o
-                0x0000000000000818                display_detail_dash
+                0x00000000000006f4        0xc src/display_all/display_detail_dash.c.13.o
+                0x00000000000006f4                display_detail_dash
  .text.up_click_handler
-                0x0000000000000824        0x2 src/display_all/display_main_dash.c.13.o
+                0x0000000000000700        0x2 src/display_all/display_main_dash.c.13.o
  .text.down_click_handler
-                0x0000000000000826        0x2 src/display_all/display_main_dash.c.13.o
+                0x0000000000000702        0x2 src/display_all/display_main_dash.c.13.o
  .text.tick_handler
-                0x0000000000000828       0xb8 src/display_all/display_main_dash.c.13.o
+                0x0000000000000704       0xb8 src/display_all/display_main_dash.c.13.o
  .text.click_config_provider
-                0x00000000000008e0       0x30 src/display_all/display_main_dash.c.13.o
+                0x00000000000007bc       0x30 src/display_all/display_main_dash.c.13.o
  .text.select_click_handler
-                0x0000000000000910        0x4 src/display_all/display_main_dash.c.13.o
+                0x00000000000007ec        0x4 src/display_all/display_main_dash.c.13.o
  .text.window_unload
-                0x0000000000000914       0x60 src/display_all/display_main_dash.c.13.o
+                0x00000000000007f0       0x60 src/display_all/display_main_dash.c.13.o
  .text.window_load
-                0x0000000000000974      0x2b4 src/display_all/display_main_dash.c.13.o
+                0x0000000000000850      0x2b4 src/display_all/display_main_dash.c.13.o
  .text.points_layer_update_proc
-                0x0000000000000c28       0xdc src/display_all/display_main_dash.c.13.o
+                0x0000000000000b04       0xdc src/display_all/display_main_dash.c.13.o
  .text.display_main_dash
-                0x0000000000000d04       0x6c src/display_all/display_main_dash.c.13.o
-                0x0000000000000d04                display_main_dash
+                0x0000000000000be0       0x6c src/display_all/display_main_dash.c.13.o
+                0x0000000000000be0                display_main_dash
  .text.select_click_handler
-                0x0000000000000d70        0x2 src/display_all/display_reminder.c.13.o
+                0x0000000000000c4c        0x2 src/display_all/display_reminder.c.13.o
  .text.up_click_handler
-                0x0000000000000d72        0x2 src/display_all/display_reminder.c.13.o
+                0x0000000000000c4e        0x2 src/display_all/display_reminder.c.13.o
  .text.down_click_handler
-                0x0000000000000d74        0x2 src/display_all/display_reminder.c.13.o
- *fill*         0x0000000000000d76        0x2 
+                0x0000000000000c50        0x2 src/display_all/display_reminder.c.13.o
+ *fill*         0x0000000000000c52        0x2 
  .text.click_config_provider
-                0x0000000000000d78       0x40 src/display_all/display_reminder.c.13.o
+                0x0000000000000c54       0x40 src/display_all/display_reminder.c.13.o
  .text.back_click_handler
-                0x0000000000000db8       0x1c src/display_all/display_reminder.c.13.o
+                0x0000000000000c94       0x1c src/display_all/display_reminder.c.13.o
  .text.window_unload
-                0x0000000000000dd4       0x44 src/display_all/display_reminder.c.13.o
+                0x0000000000000cb0       0x44 src/display_all/display_reminder.c.13.o
  .text.window_load
-                0x0000000000000e18      0x1fc src/display_all/display_reminder.c.13.o
+                0x0000000000000cf4      0x1fc src/display_all/display_reminder.c.13.o
  .text.bluetooth_event_handler
-                0x0000000000001014       0x20 src/display_all/display_reminder.c.13.o
+                0x0000000000000ef0       0x20 src/display_all/display_reminder.c.13.o
  .text.display_reminder
-                0x0000000000001034       0x90 src/display_all/display_reminder.c.13.o
-                0x0000000000001034                display_reminder
- .text.opt1     0x00000000000010c4       0x58 src/display_all/display_survey_list.c.13.o
- .text.opt0     0x000000000000111c       0x60 src/display_all/display_survey_list.c.13.o
+                0x0000000000000f10       0x90 src/display_all/display_reminder.c.13.o
+                0x0000000000000f10                display_reminder
+ .text.opt1     0x0000000000000fa0       0x58 src/display_all/display_survey_list.c.13.o
+ .text.opt0     0x0000000000000ff8       0x60 src/display_all/display_survey_list.c.13.o
  .text.display_survey_list
-                0x000000000000117c        0xc src/display_all/display_survey_list.c.13.o
-                0x000000000000117c                display_survey_list
+                0x0000000000001058        0xc src/display_all/display_survey_list.c.13.o
+                0x0000000000001058                display_survey_list
  .text.reset_daily_acti_persistent_storage
-                0x0000000000001188       0x2a src/helper.c.13.o
-                0x0000000000001188                reset_daily_acti_persistent_storage
+                0x0000000000001064       0x2a src/helper.c.13.o
+                0x0000000000001064                reset_daily_acti_persistent_storage
  .text.reset_config_wakeup_persistent_storage
-                0x00000000000011b2       0x6a src/helper.c.13.o
-                0x00000000000011b2                reset_config_wakeup_persistent_storage
+                0x000000000000108e       0x6a src/helper.c.13.o
+                0x000000000000108e                reset_config_wakeup_persistent_storage
  .text.worker_start_fore_app_reason_exec
-                0x000000000000121c       0x78 src/helper.c.13.o
-                0x000000000000121c                worker_start_fore_app_reason_exec
+                0x00000000000010f8       0x78 src/helper.c.13.o
+                0x00000000000010f8                worker_start_fore_app_reason_exec
  .text.fore_app_master_tick_timer_handler
-                0x0000000000001294       0x80 src/helper.c.13.o
-                0x0000000000001294                fore_app_master_tick_timer_handler
+                0x0000000000001170       0x80 src/helper.c.13.o
+                0x0000000000001170                fore_app_master_tick_timer_handler
  .text.fore_app_master_tick_timer_service_clock_subscribe
-                0x0000000000001314       0x70 src/helper.c.13.o
-                0x0000000000001314                fore_app_master_tick_timer_service_clock_subscribe
+                0x00000000000011f0       0x70 src/helper.c.13.o
+                0x00000000000011f0                fore_app_master_tick_timer_service_clock_subscribe
  .text.fore_app_master_tick_timer_service_clock_unsubscribe
-                0x0000000000001384       0x3c src/helper.c.13.o
-                0x0000000000001384                fore_app_master_tick_timer_service_clock_unsubscribe
+                0x0000000000001260       0x3c src/helper.c.13.o
+                0x0000000000001260                fore_app_master_tick_timer_service_clock_unsubscribe
  .text.fore_app_master_tick_timer_service_aux_subscribe
-                0x00000000000013c0       0x70 src/helper.c.13.o
-                0x00000000000013c0                fore_app_master_tick_timer_service_aux_subscribe
+                0x000000000000129c       0x70 src/helper.c.13.o
+                0x000000000000129c                fore_app_master_tick_timer_service_aux_subscribe
  .text.fore_app_master_tick_timer_service_aux_unsubscribe
-                0x0000000000001430       0x3c src/helper.c.13.o
-                0x0000000000001430                fore_app_master_tick_timer_service_aux_unsubscribe
+                0x000000000000130c       0x3c src/helper.c.13.o
+                0x000000000000130c                fore_app_master_tick_timer_service_aux_unsubscribe
  .text.get_config_general
-                0x000000000000146c       0x34 src/helper.c.13.o
-                0x000000000000146c                get_config_general
+                0x0000000000001348       0x34 src/helper.c.13.o
+                0x0000000000001348                get_config_general
  .text.get_pinteract_state
-                0x00000000000014a0       0x38 src/helper.c.13.o
-                0x00000000000014a0                get_pinteract_state
+                0x000000000000137c       0x38 src/helper.c.13.o
+                0x000000000000137c                get_pinteract_state
  .text.get_daily_acti
-                0x00000000000014d8       0x30 src/helper.c.13.o
-                0x00000000000014d8                get_daily_acti
+                0x00000000000013b4       0x30 src/helper.c.13.o
+                0x00000000000013b4                get_daily_acti
  .text.reset_config_general_persistent_storage
-                0x0000000000001508       0xd0 src/helper.c.13.o
-                0x0000000000001508                reset_config_general_persistent_storage
+                0x00000000000013e4       0xd0 src/helper.c.13.o
+                0x00000000000013e4                reset_config_general_persistent_storage
  .text.set_pinteract_state
-                0x00000000000015d8       0x5c src/helper.c.13.o
-                0x00000000000015d8                set_pinteract_state
+                0x00000000000014b4       0x5c src/helper.c.13.o
+                0x00000000000014b4                set_pinteract_state
  .text.reset_state_persistent_storage
-                0x0000000000001634       0x92 src/helper.c.13.o
-                0x0000000000001634                reset_state_persistent_storage
+                0x0000000000001510       0x92 src/helper.c.13.o
+                0x0000000000001510                reset_state_persistent_storage
  .text.write_time_to_array_head
-                0x00000000000016c6       0x10 src/helper.c.13.o
-                0x00000000000016c6                write_time_to_array_head
+                0x00000000000015a2       0x10 src/helper.c.13.o
+                0x00000000000015a2                write_time_to_array_head
  .text.reset_pinteract_persistent_storage
-                0x00000000000016d6       0x46 src/helper.c.13.o
-                0x00000000000016d6                reset_pinteract_persistent_storage
+                0x00000000000015b2       0x46 src/helper.c.13.o
+                0x00000000000015b2                reset_pinteract_persistent_storage
  .text.init_persistent_storage
-                0x000000000000171c       0x1a src/helper.c.13.o
-                0x000000000000171c                init_persistent_storage
+                0x00000000000015f8       0x1a src/helper.c.13.o
+                0x00000000000015f8                init_persistent_storage
  .text.read_time_from_array_head
-                0x0000000000001736       0x16 src/helper.c.13.o
-                0x0000000000001736                read_time_from_array_head
+                0x0000000000001612       0x16 src/helper.c.13.o
+                0x0000000000001612                read_time_from_array_head
  .text.today_srt_time_t_today_s
-                0x000000000000174c       0x3c src/helper.c.13.o
-                0x000000000000174c                today_srt_time_t_today_s
+                0x0000000000001628       0x3c src/helper.c.13.o
+                0x0000000000001628                today_srt_time_t_today_s
  .text.today_m_to_today_s
-                0x0000000000001788        0x6 src/helper.c.13.o
-                0x0000000000001788                today_m_to_today_s
- *fill*         0x000000000000178e        0x2 
+                0x0000000000001664        0x6 src/helper.c.13.o
+                0x0000000000001664                today_m_to_today_s
+ *fill*         0x000000000000166a        0x2 
  .text.wakeup_main_response_handler
-                0x0000000000001790       0x40 src/helper.c.13.o
-                0x0000000000001790                wakeup_main_response_handler
+                0x000000000000166c       0x40 src/helper.c.13.o
+                0x000000000000166c                wakeup_main_response_handler
  .text.rand_lw_up_bounds
-                0x00000000000017d0       0x22 src/helper.c.13.o
-                0x00000000000017d0                rand_lw_up_bounds
+                0x00000000000016ac       0x22 src/helper.c.13.o
+                0x00000000000016ac                rand_lw_up_bounds
  .text.kg_to_lbs
-                0x00000000000017f2       0x12 src/helper.c.13.o
-                0x00000000000017f2                kg_to_lbs
+                0x00000000000016ce       0x12 src/helper.c.13.o
+                0x00000000000016ce                kg_to_lbs
  .text.lbs_to_kg
-                0x0000000000001804       0x12 src/helper.c.13.o
-                0x0000000000001804                lbs_to_kg
+                0x00000000000016e0       0x12 src/helper.c.13.o
+                0x00000000000016e0                lbs_to_kg
  .text.cm_to_ft_in_apart
-                0x0000000000001816       0x28 src/helper.c.13.o
-                0x0000000000001816                cm_to_ft_in_apart
+                0x00000000000016f2       0x28 src/helper.c.13.o
+                0x00000000000016f2                cm_to_ft_in_apart
  .text.ft_in_apart_to_cm
-                0x000000000000183e       0x18 src/helper.c.13.o
-                0x000000000000183e                ft_in_apart_to_cm
+                0x000000000000171a       0x18 src/helper.c.13.o
+                0x000000000000171a                ft_in_apart_to_cm
  .text.get_point_on_circle_at_ang_CW_noon
-                0x0000000000001856       0x48 src/helper.c.13.o
-                0x0000000000001856                get_point_on_circle_at_ang_CW_noon
- *fill*         0x000000000000189e        0x2 
+                0x0000000000001732       0x48 src/helper.c.13.o
+                0x0000000000001732                get_point_on_circle_at_ang_CW_noon
+ *fill*         0x000000000000177a        0x2 
+ .text.startup.main
+                0x000000000000177c      0x124 src/main.c.13.o
+                0x000000000000177c                main
  .text.finish_this_interact
                 0x00000000000018a0       0x34 src/pinteract_all/pinteract_11.c.13.o
  .text.opt4     0x00000000000018d4       0x6c src/pinteract_all/pinteract_11.c.13.o
@@ -1712,594 +1712,593 @@ LOAD /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none
  .text.outbox_failed_push_to_server_cb
                 0x0000000000003a1c       0x38 src/transmit.c.13.o
  .text.retry_transmit_data_to_phone
-                0x0000000000003a54       0x40 src/transmit.c.13.o
+                0x0000000000003a54       0x4c src/transmit.c.13.o
  .text.outbox_failed_data_to_phone_cb
-                0x0000000000003a94       0x2c src/transmit.c.13.o
+                0x0000000000003aa0       0x2c src/transmit.c.13.o
  .text.inbox_received_phone_status_cb
-                0x0000000000003ac0      0x11c src/transmit.c.13.o
+                0x0000000000003acc      0x118 src/transmit.c.13.o
  .text.init_transmit_to_phone
-                0x0000000000003bdc       0xbc src/transmit.c.13.o
-                0x0000000000003bdc                init_transmit_to_phone
+                0x0000000000003be4       0xbc src/transmit.c.13.o
+                0x0000000000003be4                init_transmit_to_phone
  .text.app_event_loop
-                0x0000000000003c98        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003c98                app_event_loop
- .text.app_log  0x0000000000003ca4        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003ca4                app_log
+                0x0000000000003ca0        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003ca0                app_event_loop
+ .text.app_log  0x0000000000003cac        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003cac                app_log
  .text.app_message_deregister_callbacks
-                0x0000000000003cb0        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003cb0                app_message_deregister_callbacks
+                0x0000000000003cb8        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003cb8                app_message_deregister_callbacks
  .text.app_message_open
-                0x0000000000003cbc        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003cbc                app_message_open
+                0x0000000000003cc4        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003cc4                app_message_open
  .text.app_timer_cancel
-                0x0000000000003cc8        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003cc8                app_timer_cancel
+                0x0000000000003cd0        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003cd0                app_timer_cancel
  .text.app_timer_register
-                0x0000000000003cd4        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003cd4                app_timer_register
+                0x0000000000003cdc        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003cdc                app_timer_register
  .text.bitmap_layer_create
-                0x0000000000003ce0        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003ce0                bitmap_layer_create
+                0x0000000000003ce8        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003ce8                bitmap_layer_create
  .text.bitmap_layer_destroy
-                0x0000000000003cec        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003cec                bitmap_layer_destroy
+                0x0000000000003cf4        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003cf4                bitmap_layer_destroy
  .text.bitmap_layer_get_layer
-                0x0000000000003cf8        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003cf8                bitmap_layer_get_layer
+                0x0000000000003d00        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003d00                bitmap_layer_get_layer
  .text.bitmap_layer_set_bitmap
-                0x0000000000003d04        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003d04                bitmap_layer_set_bitmap
+                0x0000000000003d0c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003d0c                bitmap_layer_set_bitmap
  .text.bluetooth_connection_service_peek
-                0x0000000000003d10        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003d10                bluetooth_connection_service_peek
+                0x0000000000003d18        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003d18                bluetooth_connection_service_peek
  .text.bluetooth_connection_service_subscribe
-                0x0000000000003d1c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003d1c                bluetooth_connection_service_subscribe
+                0x0000000000003d24        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003d24                bluetooth_connection_service_subscribe
  .text.bluetooth_connection_service_unsubscribe
-                0x0000000000003d28        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003d28                bluetooth_connection_service_unsubscribe
+                0x0000000000003d30        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003d30                bluetooth_connection_service_unsubscribe
  .text.clock_copy_time_string
-                0x0000000000003d34        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003d34                clock_copy_time_string
+                0x0000000000003d3c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003d3c                clock_copy_time_string
  .text.cos_lookup
-                0x0000000000003d40        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003d40                cos_lookup
+                0x0000000000003d48        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003d48                cos_lookup
  .text.dict_find
-                0x0000000000003d4c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003d4c                dict_find
+                0x0000000000003d54        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003d54                dict_find
  .text.dict_write_data
-                0x0000000000003d58        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003d58                dict_write_data
+                0x0000000000003d60        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003d60                dict_write_data
  .text.dict_write_end
-                0x0000000000003d64        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003d64                dict_write_end
+                0x0000000000003d6c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003d6c                dict_write_end
  .text.dict_write_int
-                0x0000000000003d70        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003d70                dict_write_int
+                0x0000000000003d78        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003d78                dict_write_int
  .text.fonts_get_system_font
-                0x0000000000003d7c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003d7c                fonts_get_system_font
+                0x0000000000003d84        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003d84                fonts_get_system_font
  .text.gbitmap_create_with_resource
-                0x0000000000003d88        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003d88                gbitmap_create_with_resource
+                0x0000000000003d90        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003d90                gbitmap_create_with_resource
  .text.gbitmap_destroy
-                0x0000000000003d94        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003d94                gbitmap_destroy
+                0x0000000000003d9c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003d9c                gbitmap_destroy
  .text.graphics_draw_circle
-                0x0000000000003da0        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003da0                graphics_draw_circle
+                0x0000000000003da8        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003da8                graphics_draw_circle
  .text.graphics_fill_circle
-                0x0000000000003dac        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003dac                graphics_fill_circle
+                0x0000000000003db4        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003db4                graphics_fill_circle
  .text.layer_add_child
-                0x0000000000003db8        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003db8                layer_add_child
+                0x0000000000003dc0        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003dc0                layer_add_child
  .text.layer_create
-                0x0000000000003dc4        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003dc4                layer_create
+                0x0000000000003dcc        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003dcc                layer_create
  .text.layer_destroy
-                0x0000000000003dd0        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003dd0                layer_destroy
+                0x0000000000003dd8        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003dd8                layer_destroy
  .text.layer_get_bounds
-                0x0000000000003ddc        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003ddc                layer_get_bounds
+                0x0000000000003de4        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003de4                layer_get_bounds
  .text.layer_mark_dirty
-                0x0000000000003de8        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003de8                layer_mark_dirty
+                0x0000000000003df0        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003df0                layer_mark_dirty
  .text.layer_set_update_proc
-                0x0000000000003df4        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003df4                layer_set_update_proc
- .text.memcpy   0x0000000000003e00        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003e00                memcpy
- .text.memset   0x0000000000003e0c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003e0c                memset
+                0x0000000000003dfc        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003dfc                layer_set_update_proc
+ .text.memcpy   0x0000000000003e08        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003e08                memcpy
+ .text.memset   0x0000000000003e14        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003e14                memset
  .text.menu_cell_basic_draw
-                0x0000000000003e18        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003e18                menu_cell_basic_draw
+                0x0000000000003e20        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003e20                menu_cell_basic_draw
  .text.menu_layer_destroy
-                0x0000000000003e24        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003e24                menu_layer_destroy
+                0x0000000000003e2c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003e2c                menu_layer_destroy
  .text.menu_layer_get_layer
-                0x0000000000003e30        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003e30                menu_layer_get_layer
+                0x0000000000003e38        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003e38                menu_layer_get_layer
  .text.menu_layer_set_click_config_onto_window
-                0x0000000000003e3c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003e3c                menu_layer_set_click_config_onto_window
+                0x0000000000003e44        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003e44                menu_layer_set_click_config_onto_window
  .text.menu_layer_set_selected_index
-                0x0000000000003e48        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003e48                menu_layer_set_selected_index
+                0x0000000000003e50        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003e50                menu_layer_set_selected_index
  .text.persist_delete
-                0x0000000000003e54        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003e54                persist_delete
+                0x0000000000003e5c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003e5c                persist_delete
  .text.persist_exists
-                0x0000000000003e60        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003e60                persist_exists
+                0x0000000000003e68        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003e68                persist_exists
  .text.persist_read_int
-                0x0000000000003e6c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003e6c                persist_read_int
+                0x0000000000003e74        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003e74                persist_read_int
  .text.persist_write_int
-                0x0000000000003e78        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003e78                persist_write_int
- .text.psleep   0x0000000000003e84        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003e84                psleep
- .text.rand     0x0000000000003e90        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003e90                rand
+                0x0000000000003e80        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003e80                persist_write_int
+ .text.psleep   0x0000000000003e8c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003e8c                psleep
+ .text.rand     0x0000000000003e98        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003e98                rand
  .text.sin_lookup
-                0x0000000000003e9c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003e9c                sin_lookup
+                0x0000000000003ea4        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003ea4                sin_lookup
  .text.snprintf
-                0x0000000000003ea8        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003ea8                snprintf
- .text.srand    0x0000000000003eb4        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003eb4                srand
- .text.strcpy   0x0000000000003ec0        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003ec0                strcpy
+                0x0000000000003eb0        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003eb0                snprintf
+ .text.srand    0x0000000000003ebc        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003ebc                srand
+ .text.strcpy   0x0000000000003ec8        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003ec8                strcpy
  .text.tick_timer_service_subscribe
-                0x0000000000003ecc        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003ecc                tick_timer_service_subscribe
+                0x0000000000003ed4        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003ed4                tick_timer_service_subscribe
  .text.tick_timer_service_unsubscribe
-                0x0000000000003ed8        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003ed8                tick_timer_service_unsubscribe
+                0x0000000000003ee0        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003ee0                tick_timer_service_unsubscribe
  .text.vibes_enqueue_custom_pattern
-                0x0000000000003ee4        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003ee4                vibes_enqueue_custom_pattern
+                0x0000000000003eec        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003eec                vibes_enqueue_custom_pattern
  .text.window_create
-                0x0000000000003ef0        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003ef0                window_create
+                0x0000000000003ef8        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003ef8                window_create
  .text.window_get_root_layer
-                0x0000000000003efc        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003efc                window_get_root_layer
+                0x0000000000003f04        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003f04                window_get_root_layer
  .text.window_set_click_config_provider
-                0x0000000000003f08        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003f08                window_set_click_config_provider
+                0x0000000000003f10        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003f10                window_set_click_config_provider
  .text.window_set_window_handlers
-                0x0000000000003f14        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003f14                window_set_window_handlers
+                0x0000000000003f1c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003f1c                window_set_window_handlers
  .text.window_stack_contains_window
-                0x0000000000003f20        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003f20                window_stack_contains_window
+                0x0000000000003f28        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003f28                window_stack_contains_window
  .text.window_stack_pop_all
-                0x0000000000003f2c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003f2c                window_stack_pop_all
+                0x0000000000003f34        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003f34                window_stack_pop_all
  .text.window_stack_push
-                0x0000000000003f38        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003f38                window_stack_push
+                0x0000000000003f40        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003f40                window_stack_push
  .text.window_stack_remove
-                0x0000000000003f44        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003f44                window_stack_remove
+                0x0000000000003f4c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003f4c                window_stack_remove
  .text.app_message_outbox_begin
-                0x0000000000003f50        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003f50                app_message_outbox_begin
+                0x0000000000003f58        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003f58                app_message_outbox_begin
  .text.app_message_outbox_send
-                0x0000000000003f5c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003f5c                app_message_outbox_send
+                0x0000000000003f64        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003f64                app_message_outbox_send
  .text.app_message_register_inbox_dropped
-                0x0000000000003f68        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003f68                app_message_register_inbox_dropped
+                0x0000000000003f70        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003f70                app_message_register_inbox_dropped
  .text.app_message_register_inbox_received
-                0x0000000000003f74        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003f74                app_message_register_inbox_received
+                0x0000000000003f7c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003f7c                app_message_register_inbox_received
  .text.app_message_register_outbox_failed
-                0x0000000000003f80        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003f80                app_message_register_outbox_failed
+                0x0000000000003f88        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003f88                app_message_register_outbox_failed
  .text.app_message_register_outbox_sent
-                0x0000000000003f8c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003f8c                app_message_register_outbox_sent
+                0x0000000000003f94        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003f94                app_message_register_outbox_sent
  .text.window_single_click_subscribe
-                0x0000000000003f98        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003f98                window_single_click_subscribe
+                0x0000000000003fa0        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003fa0                window_single_click_subscribe
  .text.persist_read_data
-                0x0000000000003fa4        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003fa4                persist_read_data
+                0x0000000000003fac        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003fac                persist_read_data
  .text.persist_write_data
-                0x0000000000003fb0        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003fb0                persist_write_data
+                0x0000000000003fb8        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003fb8                persist_write_data
  .text.app_worker_is_running
-                0x0000000000003fbc        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003fbc                app_worker_is_running
+                0x0000000000003fc4        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003fc4                app_worker_is_running
  .text.app_worker_launch
-                0x0000000000003fc8        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003fc8                app_worker_launch
+                0x0000000000003fd0        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003fd0                app_worker_launch
  .text.heap_bytes_free
-                0x0000000000003fd4        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003fd4                heap_bytes_free
+                0x0000000000003fdc        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003fdc                heap_bytes_free
  .text.heap_bytes_used
-                0x0000000000003fe0        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003fe0                heap_bytes_used
+                0x0000000000003fe8        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003fe8                heap_bytes_used
  .text.launch_reason
-                0x0000000000003fec        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003fec                launch_reason
+                0x0000000000003ff4        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000003ff4                launch_reason
  .text.wakeup_cancel
-                0x0000000000003ff8        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000003ff8                wakeup_cancel
+                0x0000000000004000        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000004000                wakeup_cancel
  .text.wakeup_cancel_all
-                0x0000000000004004        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000004004                wakeup_cancel_all
+                0x000000000000400c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x000000000000400c                wakeup_cancel_all
  .text.wakeup_get_launch_event
-                0x0000000000004010        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000004010                wakeup_get_launch_event
+                0x0000000000004018        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000004018                wakeup_get_launch_event
  .text.wakeup_query
-                0x000000000000401c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x000000000000401c                wakeup_query
+                0x0000000000004024        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000004024                wakeup_query
  .text.wakeup_schedule
-                0x0000000000004028        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000004028                wakeup_schedule
+                0x0000000000004030        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000004030                wakeup_schedule
  .text.wakeup_service_subscribe
-                0x0000000000004034        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000004034                wakeup_service_subscribe
+                0x000000000000403c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x000000000000403c                wakeup_service_subscribe
  .text.graphics_context_set_fill_color
-                0x0000000000004040        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000004040                graphics_context_set_fill_color
+                0x0000000000004048        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000004048                graphics_context_set_fill_color
  .text.graphics_context_set_stroke_color
-                0x000000000000404c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x000000000000404c                graphics_context_set_stroke_color
+                0x0000000000004054        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000004054                graphics_context_set_stroke_color
  .text.window_set_background_color
-                0x0000000000004058        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000004058                window_set_background_color
+                0x0000000000004060        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000004060                window_set_background_color
  .text.localtime
-                0x0000000000004064        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000004064                localtime
+                0x000000000000406c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x000000000000406c                localtime
  .text.menu_layer_create
-                0x0000000000004070        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000004070                menu_layer_create
+                0x0000000000004078        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000004078                menu_layer_create
  .text.text_layer_create
-                0x000000000000407c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x000000000000407c                text_layer_create
+                0x0000000000004084        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000004084                text_layer_create
  .text.text_layer_destroy
-                0x0000000000004088        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000004088                text_layer_destroy
+                0x0000000000004090        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x0000000000004090                text_layer_destroy
  .text.text_layer_get_layer
-                0x0000000000004094        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x0000000000004094                text_layer_get_layer
+                0x000000000000409c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x000000000000409c                text_layer_get_layer
  .text.text_layer_set_background_color
-                0x00000000000040a0        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x00000000000040a0                text_layer_set_background_color
+                0x00000000000040a8        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x00000000000040a8                text_layer_set_background_color
  .text.text_layer_set_font
-                0x00000000000040ac        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x00000000000040ac                text_layer_set_font
+                0x00000000000040b4        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x00000000000040b4                text_layer_set_font
  .text.text_layer_set_text
-                0x00000000000040b8        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x00000000000040b8                text_layer_set_text
+                0x00000000000040c0        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x00000000000040c0                text_layer_set_text
  .text.text_layer_set_text_alignment
-                0x00000000000040c4        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x00000000000040c4                text_layer_set_text_alignment
+                0x00000000000040cc        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x00000000000040cc                text_layer_set_text_alignment
  .text.text_layer_set_text_color
-                0x00000000000040d0        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x00000000000040d0                text_layer_set_text_color
- .text.time     0x00000000000040dc        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x00000000000040dc                time
+                0x00000000000040d8        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x00000000000040d8                text_layer_set_text_color
+ .text.time     0x00000000000040e4        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x00000000000040e4                time
  .text.menu_layer_set_callbacks
-                0x00000000000040e8        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
-                0x00000000000040e8                menu_layer_set_callbacks
+                0x00000000000040f0        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+                0x00000000000040f0                menu_layer_set_callbacks
  *(.rodata)
- .rodata        0x00000000000040f4        0x8 src/config_all/config_personal_goals.c.13.o
- .rodata        0x00000000000040fc       0x28 src/config_all/config_settings_menu.c.13.o
- .rodata        0x0000000000004124       0x28 src/display_all/display_detail_dash.c.13.o
- .rodata        0x000000000000414c        0x4 src/display_all/display_main_dash.c.13.o
- .rodata        0x0000000000004150       0x28 src/display_all/display_survey_list.c.13.o
- .rodata        0x0000000000004178       0x50 src/pinteract_all/pinteract_11.c.13.o
- .rodata        0x00000000000041c8       0x18 src/pinteract_all/pinteract_priv_scrn.c.13.o
- .rodata        0x00000000000041e0        0x8 src/transmit.c.13.o
+ .rodata        0x00000000000040fc        0x8 src/config_all/config_personal_goals.c.13.o
+ .rodata        0x0000000000004104       0x28 src/config_all/config_settings_menu.c.13.o
+ .rodata        0x000000000000412c       0x28 src/display_all/display_detail_dash.c.13.o
+ .rodata        0x0000000000004154        0x4 src/display_all/display_main_dash.c.13.o
+ .rodata        0x0000000000004158       0x28 src/display_all/display_survey_list.c.13.o
+ .rodata        0x0000000000004180       0x50 src/pinteract_all/pinteract_11.c.13.o
+ .rodata        0x00000000000041d0       0x18 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .rodata        0x00000000000041e8        0x8 src/transmit.c.13.o
  *(.rodata*)
  .rodata.str1.1
-                0x00000000000041e8       0x7a src/ProjectK.c.13.o
+                0x00000000000041f0       0x11 src/config_all/config_personal_goals.c.13.o
  .rodata.str1.1
-                0x0000000000004262       0x11 src/config_all/config_personal_goals.c.13.o
+                0x0000000000004201       0x1a src/config_all/config_personal_params.c.13.o
  .rodata.str1.1
-                0x0000000000004273       0x1a src/config_all/config_personal_params.c.13.o
+                0x000000000000421b       0x9f src/config_all/config_schedule.c.13.o
  .rodata.str1.1
-                0x000000000000428d       0x9f src/config_all/config_schedule.c.13.o
+                0x00000000000042ba       0x1c src/config_all/config_settings_menu.c.13.o
  .rodata.str1.1
-                0x000000000000432c       0x1c src/config_all/config_settings_menu.c.13.o
- .rodata.str1.1
-                0x0000000000004348       0x84 src/display_all/display_main_dash.c.13.o
+                0x00000000000042d6       0x84 src/display_all/display_main_dash.c.13.o
                                          0x87 (size before relaxing)
  .rodata.str1.1
-                0x00000000000043cc       0x93 src/display_all/display_reminder.c.13.o
+                0x000000000000435a       0x93 src/display_all/display_reminder.c.13.o
                                          0xc9 (size before relaxing)
- *fill*         0x000000000000445f        0x1 
+ *fill*         0x00000000000043ed        0x3 
  .rodata.pinteract_vibe_seg
-                0x0000000000004460       0x1c src/display_all/display_reminder.c.13.o
+                0x00000000000043f0       0x1c src/display_all/display_reminder.c.13.o
  .rodata.pinteract_vibe_seg
-                0x000000000000447c       0x1c src/helper.c.13.o
+                0x000000000000440c       0x1c src/helper.c.13.o
  .rodata.str1.1
-                0x0000000000004498       0x50 src/helper.c.13.o
+                0x0000000000004428       0x50 src/helper.c.13.o
                                          0x59 (size before relaxing)
  .rodata.str1.1
-                0x00000000000044e8       0x19 src/pinteract_all/pinteract_14.c.13.o
+                0x0000000000004478       0x76 src/main.c.13.o
  .rodata.str1.1
-                0x0000000000004501       0x36 src/pinteract_all/pinteract_Nitem_survey.c.13.o
+                0x00000000000044ee       0x19 src/pinteract_all/pinteract_14.c.13.o
+ .rodata.str1.1
+                0x0000000000004507       0x36 src/pinteract_all/pinteract_Nitem_survey.c.13.o
                                          0x89 (size before relaxing)
  .rodata.str1.1
-                0x0000000000004537       0x8b src/pinteract_all/pinteract_alert.c.13.o
+                0x000000000000453d       0x8b src/pinteract_all/pinteract_alert.c.13.o
  .rodata.str1.1
-                0x00000000000045c2       0x4d src/pinteract_all/pinteract_driver.c.13.o
+                0x00000000000045c8       0x4d src/pinteract_all/pinteract_driver.c.13.o
  .rodata.str1.1
-                0x000000000000460f       0x2c src/pinteract_all/pinteract_enter_num.c.13.o
+                0x0000000000004615       0x2c src/pinteract_all/pinteract_enter_num.c.13.o
                                          0x65 (size before relaxing)
  .rodata.str1.1
-                0x000000000000463b       0xc5 src/pinteract_all/pinteract_helper.c.13.o
+                0x0000000000004641       0xc5 src/pinteract_all/pinteract_helper.c.13.o
  .rodata.str1.1
-                0x0000000000004700       0xb6 src/pinteract_all/pinteract_priv_scrn.c.13.o
+                0x0000000000004706       0xb6 src/pinteract_all/pinteract_priv_scrn.c.13.o
                                          0xe7 (size before relaxing)
- *fill*         0x00000000000047b6        0x2 
  .rodata.pinteract_vibe_seg
-                0x00000000000047b8       0x1c src/pinteract_all/pinteract_priv_scrn.c.13.o
+                0x00000000000047bc       0x1c src/pinteract_all/pinteract_priv_scrn.c.13.o
  .rodata.str1.1
-                0x00000000000047d4       0x93 src/transmit.c.13.o
+                0x00000000000047d8       0x93 src/transmit.c.13.o
                                          0xac (size before relaxing)
 
-.glue_7         0x0000000000004868        0x0
+.glue_7         0x000000000000486c        0x0
  .glue_7        0x0000000000000000        0x0 linker stubs
 
-.glue_7t        0x0000000000004868        0x0
+.glue_7t        0x000000000000486c        0x0
  .glue_7t       0x0000000000000000        0x0 linker stubs
 
-.vfp11_veneer   0x0000000000004868        0x0
+.vfp11_veneer   0x000000000000486c        0x0
  .vfp11_veneer  0x0000000000000000        0x0 linker stubs
 
-.v4_bx          0x0000000000004868        0x0
+.v4_bx          0x000000000000486c        0x0
  .v4_bx         0x0000000000000000        0x0 linker stubs
 
-.iplt           0x0000000000004868        0x0
+.iplt           0x000000000000486c        0x0
  .iplt          0x0000000000000000        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
 
-.rel.dyn        0x0000000000004868        0x0
+.rel.dyn        0x000000000000486c        0x0
  .rel.iplt      0x0000000000000000        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
  .rel.got       0x0000000000000000        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
 
-.data           0x0000000000004868      0x328
+.data           0x000000000000486c      0x328
  *(.data)
- .data          0x0000000000004868        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crti.o
- .data          0x0000000000004868        0x4 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
-                0x0000000000004868                __dso_handle
- .data          0x000000000000486c        0x0 src/ProjectK.c.13.o
- .data          0x000000000000486c        0x0 src/config_all/config_personal_goals.c.13.o
- .data          0x000000000000486c        0x0 src/config_all/config_personal_params.c.13.o
- .data          0x000000000000486c        0x0 src/config_all/config_schedule.c.13.o
- .data          0x000000000000486c        0x0 src/config_all/config_settings_menu.c.13.o
- .data          0x000000000000486c        0x0 src/demo_screens.c.13.o
- .data          0x000000000000486c        0x0 src/display_all/blank_test.c.13.o
- .data          0x000000000000486c        0x0 src/display_all/display_BT_connect_help.c.13.o
- .data          0x000000000000486c        0x0 src/display_all/display_acti_bars_history.c.13.o
- .data          0x000000000000486c        0x0 src/display_all/display_detail_dash.c.13.o
- .data          0x000000000000486c        0x0 src/display_all/display_main_dash.c.13.o
- .data          0x000000000000486c        0x0 src/display_all/display_pinteract_dots_history.c.13.o
- .data          0x000000000000486c        0x0 src/display_all/display_reminder.c.13.o
- .data          0x000000000000486c        0x0 src/display_all/display_survey_list.c.13.o
- .data          0x000000000000486c        0x0 src/helper.c.13.o
- .data          0x000000000000486c        0x0 src/pinteract_all/pinteract_11.c.13.o
- .data          0x000000000000486c        0x0 src/pinteract_all/pinteract_12.c.13.o
- .data          0x000000000000486c        0x0 src/pinteract_all/pinteract_13.c.13.o
- .data          0x000000000000486c        0x0 src/pinteract_all/pinteract_14.c.13.o
- .data          0x000000000000486c        0x0 src/pinteract_all/pinteract_16.c.13.o
- .data          0x000000000000486c        0x0 src/pinteract_all/pinteract_Nitem_survey.c.13.o
- .data          0x000000000000486c        0x0 src/pinteract_all/pinteract_alert.c.13.o
- .data          0x000000000000486c        0x0 src/pinteract_all/pinteract_demo.c.13.o
- .data          0x000000000000486c        0x0 src/pinteract_all/pinteract_driver.c.13.o
- .data          0x000000000000486c        0x0 src/pinteract_all/pinteract_enter_num.c.13.o
- .data          0x000000000000486c        0x0 src/pinteract_all/pinteract_helper.c.13.o
- .data          0x000000000000486c        0x0 src/pinteract_all/pinteract_priv_scrn.c.13.o
- .data          0x000000000000486c        0x0 src/pinteract_all/pinteract_res_struct.c.13.o
- .data          0x000000000000486c        0x0 src/splash_screens.c.13.o
- .data          0x000000000000486c        0x0 src/transmit.c.13.o
- .data          0x000000000000486c        0x0 aplite/appinfo.auto.c.13.o
- .data          0x000000000000486c        0x0 /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
- .data          0x000000000000486c        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
- .data          0x000000000000486c        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtn.o
+ .data          0x000000000000486c        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crti.o
+ .data          0x000000000000486c        0x4 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+                0x000000000000486c                __dso_handle
+ .data          0x0000000000004870        0x0 src/config_all/config_personal_goals.c.13.o
+ .data          0x0000000000004870        0x0 src/config_all/config_personal_params.c.13.o
+ .data          0x0000000000004870        0x0 src/config_all/config_schedule.c.13.o
+ .data          0x0000000000004870        0x0 src/config_all/config_settings_menu.c.13.o
+ .data          0x0000000000004870        0x0 src/demo_screens.c.13.o
+ .data          0x0000000000004870        0x0 src/display_all/blank_test.c.13.o
+ .data          0x0000000000004870        0x0 src/display_all/display_BT_connect_help.c.13.o
+ .data          0x0000000000004870        0x0 src/display_all/display_acti_bars_history.c.13.o
+ .data          0x0000000000004870        0x0 src/display_all/display_detail_dash.c.13.o
+ .data          0x0000000000004870        0x0 src/display_all/display_main_dash.c.13.o
+ .data          0x0000000000004870        0x0 src/display_all/display_pinteract_dots_history.c.13.o
+ .data          0x0000000000004870        0x0 src/display_all/display_reminder.c.13.o
+ .data          0x0000000000004870        0x0 src/display_all/display_survey_list.c.13.o
+ .data          0x0000000000004870        0x0 src/helper.c.13.o
+ .data          0x0000000000004870        0x0 src/main.c.13.o
+ .data          0x0000000000004870        0x0 src/pinteract_all/pinteract_11.c.13.o
+ .data          0x0000000000004870        0x0 src/pinteract_all/pinteract_12.c.13.o
+ .data          0x0000000000004870        0x0 src/pinteract_all/pinteract_13.c.13.o
+ .data          0x0000000000004870        0x0 src/pinteract_all/pinteract_14.c.13.o
+ .data          0x0000000000004870        0x0 src/pinteract_all/pinteract_16.c.13.o
+ .data          0x0000000000004870        0x0 src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ .data          0x0000000000004870        0x0 src/pinteract_all/pinteract_alert.c.13.o
+ .data          0x0000000000004870        0x0 src/pinteract_all/pinteract_demo.c.13.o
+ .data          0x0000000000004870        0x0 src/pinteract_all/pinteract_driver.c.13.o
+ .data          0x0000000000004870        0x0 src/pinteract_all/pinteract_enter_num.c.13.o
+ .data          0x0000000000004870        0x0 src/pinteract_all/pinteract_helper.c.13.o
+ .data          0x0000000000004870        0x0 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .data          0x0000000000004870        0x0 src/pinteract_all/pinteract_res_struct.c.13.o
+ .data          0x0000000000004870        0x0 src/splash_screens.c.13.o
+ .data          0x0000000000004870        0x0 src/transmit.c.13.o
+ .data          0x0000000000004870        0x0 aplite/appinfo.auto.c.13.o
+ .data          0x0000000000004870        0x0 /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmpeWFBzLpebble.o)
+ .data          0x0000000000004870        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
+ .data          0x0000000000004870        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtn.o
  *(.data.*)
  .data.enter_num_params
-                0x000000000000486c       0x3c src/config_all/config_personal_goals.c.13.o
+                0x0000000000004870       0x3c src/config_all/config_personal_goals.c.13.o
  .data.enter_num_params
-                0x00000000000048a8       0x3c src/config_all/config_personal_params.c.13.o
+                0x00000000000048ac       0x3c src/config_all/config_personal_params.c.13.o
  .data.rel.local.survey_params
-                0x00000000000048e4       0x6c src/config_all/config_settings_menu.c.13.o
+                0x00000000000048e8       0x6c src/config_all/config_settings_menu.c.13.o
  .data.rel.local.survey_params
-                0x0000000000004950       0x6c src/display_all/display_detail_dash.c.13.o
+                0x0000000000004954       0x6c src/display_all/display_detail_dash.c.13.o
  .data.rel.ro.local.pinteract_vibe_pat
-                0x00000000000049bc        0x8 src/display_all/display_reminder.c.13.o
+                0x00000000000049c0        0x8 src/display_all/display_reminder.c.13.o
  .data.rel.local.survey_params
-                0x00000000000049c4       0x6c src/display_all/display_survey_list.c.13.o
+                0x00000000000049c8       0x6c src/display_all/display_survey_list.c.13.o
  .data.rel.ro.local.pinteract_vibe_pat
-                0x0000000000004a30        0x8 src/helper.c.13.o
+                0x0000000000004a34        0x8 src/helper.c.13.o
  .data.cur_sec.7768
-                0x0000000000004a38        0x1 src/helper.c.13.o
+                0x0000000000004a3c        0x1 src/helper.c.13.o
  .data.cur_min.7769
-                0x0000000000004a39        0x1 src/helper.c.13.o
- *fill*         0x0000000000004a3a        0x2 
+                0x0000000000004a3d        0x1 src/helper.c.13.o
+ *fill*         0x0000000000004a3e        0x2 
  .data.rel.local.survey_params
-                0x0000000000004a3c       0x6c src/pinteract_all/pinteract_11.c.13.o
+                0x0000000000004a40       0x6c src/pinteract_all/pinteract_11.c.13.o
  .data.pi_s_res
-                0x0000000000004aa8        0x7 src/pinteract_all/pinteract_11.c.13.o
- *fill*         0x0000000000004aaf        0x1 
+                0x0000000000004aac        0x7 src/pinteract_all/pinteract_11.c.13.o
+ *fill*         0x0000000000004ab3        0x1 
  .data.rel.local.survey_params
-                0x0000000000004ab0       0x6c src/pinteract_all/pinteract_14.c.13.o
+                0x0000000000004ab4       0x6c src/pinteract_all/pinteract_14.c.13.o
  .data.enter_num_params
-                0x0000000000004b1c       0x3c src/pinteract_all/pinteract_14.c.13.o
+                0x0000000000004b20       0x3c src/pinteract_all/pinteract_14.c.13.o
  .data.pi_s_res
-                0x0000000000004b58        0x9 src/pinteract_all/pinteract_14.c.13.o
- *fill*         0x0000000000004b61        0x3 
+                0x0000000000004b5c        0x9 src/pinteract_all/pinteract_14.c.13.o
+ *fill*         0x0000000000004b65        0x3 
  .data.rel.local.res_buf_end
-                0x0000000000004b64       0x10 src/pinteract_all/pinteract_driver.c.13.o
+                0x0000000000004b68       0x10 src/pinteract_all/pinteract_driver.c.13.o
  .data.rel.write_to_ps
-                0x0000000000004b74       0x10 src/pinteract_all/pinteract_driver.c.13.o
+                0x0000000000004b78       0x10 src/pinteract_all/pinteract_driver.c.13.o
  .data.rel.ro.local.pinteract_vibe_pat
-                0x0000000000004b84        0x8 src/pinteract_all/pinteract_priv_scrn.c.13.o
+                0x0000000000004b88        0x8 src/pinteract_all/pinteract_priv_scrn.c.13.o
  .data.s_tr_buf.7814
-                0x0000000000004b8c        0x4 src/transmit.c.13.o
+                0x0000000000004b90        0x4 src/transmit.c.13.o
 
-.igot.plt       0x0000000000004b90        0x0
+.igot.plt       0x0000000000004b94        0x0
  .igot.plt      0x0000000000000000        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
 
-.got            0x0000000000004b90       0x18
- .got           0x0000000000004b90       0x18 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+.got            0x0000000000004b94       0x18
+ .got           0x0000000000004b94       0x18 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
 
-.got.plt        0x0000000000004ba8        0xc
- .got.plt       0x0000000000004ba8        0xc /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
-                0x0000000000004ba8                _GLOBAL_OFFSET_TABLE_
+.got.plt        0x0000000000004bac        0xc
+ .got.plt       0x0000000000004bac        0xc /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+                0x0000000000004bac                _GLOBAL_OFFSET_TABLE_
 
-.bss            0x0000000000004bb4      0x2b0
+.bss            0x0000000000004bb8      0x2b0
  *(.bss)
  *(.bss.*)
  .bss.stepc_buf.7759
-                0x0000000000004bb4        0xa src/display_all/display_main_dash.c.13.o
- *fill*         0x0000000000004bbe        0x2 
+                0x0000000000004bb8        0xa src/display_all/display_main_dash.c.13.o
+ *fill*         0x0000000000004bc2        0x2 
  .bss.s_kcal_label_layer
-                0x0000000000004bc0        0x4 src/display_all/display_main_dash.c.13.o
- .bss.points    0x0000000000004bc4        0x4 src/display_all/display_main_dash.c.13.o
+                0x0000000000004bc4        0x4 src/display_all/display_main_dash.c.13.o
+ .bss.points    0x0000000000004bc8        0x4 src/display_all/display_main_dash.c.13.o
  .bss.points_goal
-                0x0000000000004bc8        0x4 src/display_all/display_main_dash.c.13.o
- .bss.s_time_layer
                 0x0000000000004bcc        0x4 src/display_all/display_main_dash.c.13.o
- .bss.s_stepc_layer
-                0x0000000000004bd0        0x4 src/display_all/display_main_dash.c.13.o
- .bss.s_kcal_layer
-                0x0000000000004bd4        0x4 src/display_all/display_main_dash.c.13.o
- .bss.time_buf.7758
-                0x0000000000004bd8        0xc src/display_all/display_main_dash.c.13.o
- .bss.s_stepc_label_layer
-                0x0000000000004be4        0x4 src/display_all/display_main_dash.c.13.o
- .bss.s_dash_window
-                0x0000000000004be8        0x4 src/display_all/display_main_dash.c.13.o
- .bss.s_points_layer
-                0x0000000000004bec        0x4 src/display_all/display_main_dash.c.13.o
- .bss.kcal_buf.7760
-                0x0000000000004bf0        0xa src/display_all/display_main_dash.c.13.o
- .bss.remind_code_lcl
-                0x0000000000004bfa        0x2 src/display_all/display_reminder.c.13.o
- .bss.s_title_text_layer
-                0x0000000000004bfc        0x4 src/display_all/display_reminder.c.13.o
- .bss.s_detail_text_layer
-                0x0000000000004c00        0x4 src/display_all/display_reminder.c.13.o
- .bss.s_reminder_window
-                0x0000000000004c04        0x4 src/display_all/display_reminder.c.13.o
- .bss.s_detail_comment_text_layer
-                0x0000000000004c08        0x4 src/display_all/display_reminder.c.13.o
- .bss.s_reminder_text_layer
-                0x0000000000004c0c        0x4 src/display_all/display_reminder.c.13.o
- .bss.tick_timer_clock_minute_handler
-                0x0000000000004c10        0x4 src/helper.c.13.o
- .bss.tick_timer_aux_minute_handler
-                0x0000000000004c14        0x4 src/helper.c.13.o
- .bss.tick_timer_clock_second_handler
-                0x0000000000004c18        0x4 src/helper.c.13.o
- .bss.tick_timer_aux_second_handler
-                0x0000000000004c1c        0x4 src/helper.c.13.o
- .bss.pif_ll_el_lcl
-                0x0000000000004c20        0x4 src/pinteract_all/pinteract_11.c.13.o
- .bss.pif_ll_el_lcl
-                0x0000000000004c24        0x4 src/pinteract_all/pinteract_14.c.13.o
- .bss.s_survey_window
-                0x0000000000004c28        0x4 src/pinteract_all/pinteract_Nitem_survey.c.13.o
- .bss.s_title_text_layer
-                0x0000000000004c2c        0x4 src/pinteract_all/pinteract_Nitem_survey.c.13.o
- .bss.ROW_HEIGHT
-                0x0000000000004c30        0x2 src/pinteract_all/pinteract_Nitem_survey.c.13.o
- *fill*         0x0000000000004c32        0x2 
- .bss.s_down_text_text_layer
-                0x0000000000004c34        0x4 src/pinteract_all/pinteract_Nitem_survey.c.13.o
- .bss.pif_srvy_prm_lcl
-                0x0000000000004c38        0x4 src/pinteract_all/pinteract_Nitem_survey.c.13.o
- .bss.s_up_text_text_layer
-                0x0000000000004c3c        0x4 src/pinteract_all/pinteract_Nitem_survey.c.13.o
- .bss.NUM_ROWS  0x0000000000004c40        0x2 src/pinteract_all/pinteract_Nitem_survey.c.13.o
- *fill*         0x0000000000004c42        0x2 
- .bss.s_menu_layer
-                0x0000000000004c44        0x4 src/pinteract_all/pinteract_Nitem_survey.c.13.o
- .bss.pinteract_seq_srt
-                0x0000000000004c48       0x10 src/pinteract_all/pinteract_driver.c.13.o
- .bss.res_buf   0x0000000000004c58      0x100 src/pinteract_all/pinteract_driver.c.13.o
- .bss.num_buf   0x0000000000004d58       0x20 src/pinteract_all/pinteract_enter_num.c.13.o
- .bss.s_row_title_text_layer_ary
-                0x0000000000004d78        0x8 src/pinteract_all/pinteract_enter_num.c.13.o
- .bss.cur_num   0x0000000000004d80       0x10 src/pinteract_all/pinteract_enter_num.c.13.o
- .bss.s_enter_num_window
-                0x0000000000004d90        0x4 src/pinteract_all/pinteract_enter_num.c.13.o
- .bss.s_label_text_layer_ary
-                0x0000000000004d94       0x10 src/pinteract_all/pinteract_enter_num.c.13.o
- .bss.label_buf
-                0x0000000000004da4       0x20 src/pinteract_all/pinteract_enter_num.c.13.o
- .bss.cur_opt   0x0000000000004dc4        0x1 src/pinteract_all/pinteract_enter_num.c.13.o
- *fill*         0x0000000000004dc5        0x3 
- .bss.s_num_text_layer_ary
-                0x0000000000004dc8       0x10 src/pinteract_all/pinteract_enter_num.c.13.o
- .bss.prm_lcl   0x0000000000004dd8        0x4 src/pinteract_all/pinteract_enter_num.c.13.o
- .bss.s_select_arrow_bitmap
-                0x0000000000004ddc        0x4 src/pinteract_all/pinteract_priv_scrn.c.13.o
- .bss.s_up_delay_layer
-                0x0000000000004de0        0x4 src/pinteract_all/pinteract_priv_scrn.c.13.o
- .bss.reminder_buzz_time_t
-                0x0000000000004de4        0x4 src/pinteract_all/pinteract_priv_scrn.c.13.o
  .bss.s_time_layer
-                0x0000000000004de8        0x4 src/pinteract_all/pinteract_priv_scrn.c.13.o
- .bss.s_down_delay_layer
-                0x0000000000004dec        0x4 src/pinteract_all/pinteract_priv_scrn.c.13.o
- .bss.s_question_bitmap
-                0x0000000000004df0        0x4 src/pinteract_all/pinteract_priv_scrn.c.13.o
- .bss.time_t_srt_priv_scrn_lcl
-                0x0000000000004df4        0x4 src/pinteract_all/pinteract_priv_scrn.c.13.o
- .bss.s_down_delay_buf.7780
-                0x0000000000004df8       0x11 src/pinteract_all/pinteract_priv_scrn.c.13.o
- *fill*         0x0000000000004e09        0x3 
+                0x0000000000004bd0        0x4 src/display_all/display_main_dash.c.13.o
+ .bss.s_stepc_layer
+                0x0000000000004bd4        0x4 src/display_all/display_main_dash.c.13.o
+ .bss.s_kcal_layer
+                0x0000000000004bd8        0x4 src/display_all/display_main_dash.c.13.o
+ .bss.time_buf.7758
+                0x0000000000004bdc        0xc src/display_all/display_main_dash.c.13.o
+ .bss.s_stepc_label_layer
+                0x0000000000004be8        0x4 src/display_all/display_main_dash.c.13.o
+ .bss.s_dash_window
+                0x0000000000004bec        0x4 src/display_all/display_main_dash.c.13.o
+ .bss.s_points_layer
+                0x0000000000004bf0        0x4 src/display_all/display_main_dash.c.13.o
+ .bss.kcal_buf.7760
+                0x0000000000004bf4        0xa src/display_all/display_main_dash.c.13.o
+ .bss.remind_code_lcl
+                0x0000000000004bfe        0x2 src/display_all/display_reminder.c.13.o
+ .bss.s_title_text_layer
+                0x0000000000004c00        0x4 src/display_all/display_reminder.c.13.o
+ .bss.s_detail_text_layer
+                0x0000000000004c04        0x4 src/display_all/display_reminder.c.13.o
+ .bss.s_reminder_window
+                0x0000000000004c08        0x4 src/display_all/display_reminder.c.13.o
+ .bss.s_detail_comment_text_layer
+                0x0000000000004c0c        0x4 src/display_all/display_reminder.c.13.o
+ .bss.s_reminder_text_layer
+                0x0000000000004c10        0x4 src/display_all/display_reminder.c.13.o
+ .bss.tick_timer_clock_minute_handler
+                0x0000000000004c14        0x4 src/helper.c.13.o
+ .bss.tick_timer_aux_minute_handler
+                0x0000000000004c18        0x4 src/helper.c.13.o
+ .bss.tick_timer_clock_second_handler
+                0x0000000000004c1c        0x4 src/helper.c.13.o
+ .bss.tick_timer_aux_second_handler
+                0x0000000000004c20        0x4 src/helper.c.13.o
  .bss.pif_ll_el_lcl
-                0x0000000000004e0c        0x4 src/pinteract_all/pinteract_priv_scrn.c.13.o
+                0x0000000000004c24        0x4 src/pinteract_all/pinteract_11.c.13.o
+ .bss.pif_ll_el_lcl
+                0x0000000000004c28        0x4 src/pinteract_all/pinteract_14.c.13.o
+ .bss.s_survey_window
+                0x0000000000004c2c        0x4 src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ .bss.s_title_text_layer
+                0x0000000000004c30        0x4 src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ .bss.ROW_HEIGHT
+                0x0000000000004c34        0x2 src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ *fill*         0x0000000000004c36        0x2 
+ .bss.s_down_text_text_layer
+                0x0000000000004c38        0x4 src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ .bss.pif_srvy_prm_lcl
+                0x0000000000004c3c        0x4 src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ .bss.s_up_text_text_layer
+                0x0000000000004c40        0x4 src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ .bss.NUM_ROWS  0x0000000000004c44        0x2 src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ *fill*         0x0000000000004c46        0x2 
+ .bss.s_menu_layer
+                0x0000000000004c48        0x4 src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ .bss.pinteract_seq_srt
+                0x0000000000004c4c       0x10 src/pinteract_all/pinteract_driver.c.13.o
+ .bss.res_buf   0x0000000000004c5c      0x100 src/pinteract_all/pinteract_driver.c.13.o
+ .bss.num_buf   0x0000000000004d5c       0x20 src/pinteract_all/pinteract_enter_num.c.13.o
+ .bss.s_row_title_text_layer_ary
+                0x0000000000004d7c        0x8 src/pinteract_all/pinteract_enter_num.c.13.o
+ .bss.cur_num   0x0000000000004d84       0x10 src/pinteract_all/pinteract_enter_num.c.13.o
+ .bss.s_enter_num_window
+                0x0000000000004d94        0x4 src/pinteract_all/pinteract_enter_num.c.13.o
+ .bss.s_label_text_layer_ary
+                0x0000000000004d98       0x10 src/pinteract_all/pinteract_enter_num.c.13.o
+ .bss.label_buf
+                0x0000000000004da8       0x20 src/pinteract_all/pinteract_enter_num.c.13.o
+ .bss.cur_opt   0x0000000000004dc8        0x1 src/pinteract_all/pinteract_enter_num.c.13.o
+ *fill*         0x0000000000004dc9        0x3 
+ .bss.s_num_text_layer_ary
+                0x0000000000004dcc       0x10 src/pinteract_all/pinteract_enter_num.c.13.o
+ .bss.prm_lcl   0x0000000000004ddc        0x4 src/pinteract_all/pinteract_enter_num.c.13.o
+ .bss.s_select_arrow_bitmap
+                0x0000000000004de0        0x4 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .bss.s_up_delay_layer
+                0x0000000000004de4        0x4 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .bss.reminder_buzz_time_t
+                0x0000000000004de8        0x4 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .bss.s_time_layer
+                0x0000000000004dec        0x4 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .bss.s_down_delay_layer
+                0x0000000000004df0        0x4 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .bss.s_question_bitmap
+                0x0000000000004df4        0x4 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .bss.time_t_srt_priv_scrn_lcl
+                0x0000000000004df8        0x4 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .bss.s_down_delay_buf.7780
+                0x0000000000004dfc       0x11 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ *fill*         0x0000000000004e0d        0x3 
+ .bss.pif_ll_el_lcl
+                0x0000000000004e10        0x4 src/pinteract_all/pinteract_priv_scrn.c.13.o
  .bss.s_time_buffer.7766
-                0x0000000000004e10        0xa src/pinteract_all/pinteract_priv_scrn.c.13.o
- *fill*         0x0000000000004e1a        0x2 
+                0x0000000000004e14        0xa src/pinteract_all/pinteract_priv_scrn.c.13.o
+ *fill*         0x0000000000004e1e        0x2 
  .bss.s_select_arrow_bitmap_layer
-                0x0000000000004e1c        0x4 src/pinteract_all/pinteract_priv_scrn.c.13.o
+                0x0000000000004e20        0x4 src/pinteract_all/pinteract_priv_scrn.c.13.o
  .bss.s_up_delay_buf.7776
-                0x0000000000004e20       0x11 src/pinteract_all/pinteract_priv_scrn.c.13.o
- *fill*         0x0000000000004e31        0x3 
+                0x0000000000004e24       0x11 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ *fill*         0x0000000000004e35        0x3 
  .bss.s_privacy_window
-                0x0000000000004e34        0x4 src/pinteract_all/pinteract_priv_scrn.c.13.o
- .bss.s_question_bitmap_layer
                 0x0000000000004e38        0x4 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .bss.s_question_bitmap_layer
+                0x0000000000004e3c        0x4 src/pinteract_all/pinteract_priv_scrn.c.13.o
  .bss.s_transmit_countdown_text_layer
-                0x0000000000004e3c        0x4 src/transmit.c.13.o
- .bss.window_layer
                 0x0000000000004e40        0x4 src/transmit.c.13.o
+ .bss.window_layer
+                0x0000000000004e44        0x4 src/transmit.c.13.o
  .bss.countdown_active
-                0x0000000000004e44        0x1 src/transmit.c.13.o
- *fill*         0x0000000000004e45        0x1 
+                0x0000000000004e48        0x1 src/transmit.c.13.o
+ *fill*         0x0000000000004e49        0x1 
  .bss.retry_count
-                0x0000000000004e46        0x2 src/transmit.c.13.o
+                0x0000000000004e4a        0x2 src/transmit.c.13.o
  .bss.s_transmit_text_layer
-                0x0000000000004e48        0x4 src/transmit.c.13.o
- .bss.outbox_iter
                 0x0000000000004e4c        0x4 src/transmit.c.13.o
- .bss.app_timer_push_to_server
+ .bss.outbox_iter
                 0x0000000000004e50        0x4 src/transmit.c.13.o
+ .bss.app_timer_push_to_server
+                0x0000000000004e54        0x4 src/transmit.c.13.o
  .bss.trans_code_lcl
-                0x0000000000004e54        0x2 src/transmit.c.13.o
- *fill*         0x0000000000004e56        0x2 
+                0x0000000000004e58        0x2 src/transmit.c.13.o
+ *fill*         0x0000000000004e5a        0x2 
  .bss.s_transmit_phone_window
-                0x0000000000004e58        0x4 src/transmit.c.13.o
+                0x0000000000004e5c        0x4 src/transmit.c.13.o
  .bss.cur_countdown
-                0x0000000000004e5c        0x2 src/transmit.c.13.o
- *fill*         0x0000000000004e5e        0x2 
- COMMON         0x0000000000004e60        0x4 src/pinteract_all/pinteract_driver.c.13.o
-                0x0000000000004e60                pif_srt
+                0x0000000000004e60        0x2 src/transmit.c.13.o
+ *fill*         0x0000000000004e62        0x2 
+ COMMON         0x0000000000004e64        0x4 src/pinteract_all/pinteract_driver.c.13.o
+                0x0000000000004e64                pif_srt
 
 DISCARD
  libc.a(*)
@@ -2315,35 +2314,35 @@ OUTPUT(/Users/Nate/Documents/pk-priv/pebblewatch-pub/build/aplite/pebble-app.elf
  .ARM.attributes
                 0x0000000000000019       0x29 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
  .ARM.attributes
-                0x0000000000000042       0x33 src/ProjectK.c.13.o
+                0x0000000000000042       0x33 src/config_all/config_personal_goals.c.13.o
  .ARM.attributes
-                0x0000000000000075       0x33 src/config_all/config_personal_goals.c.13.o
+                0x0000000000000075       0x33 src/config_all/config_personal_params.c.13.o
  .ARM.attributes
-                0x00000000000000a8       0x33 src/config_all/config_personal_params.c.13.o
+                0x00000000000000a8       0x33 src/config_all/config_schedule.c.13.o
  .ARM.attributes
-                0x00000000000000db       0x33 src/config_all/config_schedule.c.13.o
+                0x00000000000000db       0x33 src/config_all/config_settings_menu.c.13.o
  .ARM.attributes
-                0x000000000000010e       0x33 src/config_all/config_settings_menu.c.13.o
+                0x000000000000010e       0x33 src/demo_screens.c.13.o
  .ARM.attributes
-                0x0000000000000141       0x33 src/demo_screens.c.13.o
+                0x0000000000000141       0x33 src/display_all/blank_test.c.13.o
  .ARM.attributes
-                0x0000000000000174       0x33 src/display_all/blank_test.c.13.o
+                0x0000000000000174       0x33 src/display_all/display_BT_connect_help.c.13.o
  .ARM.attributes
-                0x00000000000001a7       0x33 src/display_all/display_BT_connect_help.c.13.o
+                0x00000000000001a7       0x33 src/display_all/display_acti_bars_history.c.13.o
  .ARM.attributes
-                0x00000000000001da       0x33 src/display_all/display_acti_bars_history.c.13.o
+                0x00000000000001da       0x33 src/display_all/display_detail_dash.c.13.o
  .ARM.attributes
-                0x000000000000020d       0x33 src/display_all/display_detail_dash.c.13.o
+                0x000000000000020d       0x33 src/display_all/display_main_dash.c.13.o
  .ARM.attributes
-                0x0000000000000240       0x33 src/display_all/display_main_dash.c.13.o
+                0x0000000000000240       0x33 src/display_all/display_pinteract_dots_history.c.13.o
  .ARM.attributes
-                0x0000000000000273       0x33 src/display_all/display_pinteract_dots_history.c.13.o
+                0x0000000000000273       0x33 src/display_all/display_reminder.c.13.o
  .ARM.attributes
-                0x00000000000002a6       0x33 src/display_all/display_reminder.c.13.o
+                0x00000000000002a6       0x33 src/display_all/display_survey_list.c.13.o
  .ARM.attributes
-                0x00000000000002d9       0x33 src/display_all/display_survey_list.c.13.o
+                0x00000000000002d9       0x33 src/helper.c.13.o
  .ARM.attributes
-                0x000000000000030c       0x33 src/helper.c.13.o
+                0x000000000000030c       0x33 src/main.c.13.o
  .ARM.attributes
                 0x000000000000033f       0x33 src/pinteract_all/pinteract_11.c.13.o
  .ARM.attributes
@@ -2386,7 +2385,6 @@ OUTPUT(/Users/Nate/Documents/pk-priv/pebblewatch-pub/build/aplite/pebble-app.elf
 .comment        0x0000000000000000       0x4e
  .comment       0x0000000000000000       0x4e /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
                                          0x4f (size before relaxing)
- .comment       0x0000000000000000       0x4f src/ProjectK.c.13.o
  .comment       0x0000000000000000       0x4f src/config_all/config_personal_goals.c.13.o
  .comment       0x0000000000000000       0x4f src/config_all/config_personal_params.c.13.o
  .comment       0x0000000000000000       0x4f src/config_all/config_schedule.c.13.o
@@ -2401,6 +2399,7 @@ OUTPUT(/Users/Nate/Documents/pk-priv/pebblewatch-pub/build/aplite/pebble-app.elf
  .comment       0x0000000000000000       0x4f src/display_all/display_reminder.c.13.o
  .comment       0x0000000000000000       0x4f src/display_all/display_survey_list.c.13.o
  .comment       0x0000000000000000       0x4f src/helper.c.13.o
+ .comment       0x0000000000000000       0x4f src/main.c.13.o
  .comment       0x0000000000000000       0x4f src/pinteract_all/pinteract_11.c.13.o
  .comment       0x0000000000000000       0x4f src/pinteract_all/pinteract_12.c.13.o
  .comment       0x0000000000000000       0x4f src/pinteract_all/pinteract_13.c.13.o
@@ -2419,22 +2418,22 @@ OUTPUT(/Users/Nate/Documents/pk-priv/pebblewatch-pub/build/aplite/pebble-app.elf
  .comment       0x0000000000000000       0x4f aplite/appinfo.auto.c.13.o
  .comment       0x0000000000000000       0x4f /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
 
-.debug_info     0x0000000000000000    0x16ff2
- .debug_info    0x0000000000000000      0x896 src/ProjectK.c.13.o
- .debug_info    0x0000000000000896      0x64e src/config_all/config_personal_goals.c.13.o
- .debug_info    0x0000000000000ee4      0x7fa src/config_all/config_personal_params.c.13.o
- .debug_info    0x00000000000016de      0xb32 src/config_all/config_schedule.c.13.o
- .debug_info    0x0000000000002210      0x7c5 src/config_all/config_settings_menu.c.13.o
- .debug_info    0x00000000000029d5      0x7ce src/demo_screens.c.13.o
- .debug_info    0x00000000000031a3      0xc36 src/display_all/blank_test.c.13.o
- .debug_info    0x0000000000003dd9      0xca6 src/display_all/display_BT_connect_help.c.13.o
- .debug_info    0x0000000000004a7f     0x129c src/display_all/display_acti_bars_history.c.13.o
- .debug_info    0x0000000000005d1b      0x5f4 src/display_all/display_detail_dash.c.13.o
- .debug_info    0x000000000000630f     0x15a2 src/display_all/display_main_dash.c.13.o
- .debug_info    0x00000000000078b1     0x172b src/display_all/display_pinteract_dots_history.c.13.o
- .debug_info    0x0000000000008fdc      0xe93 src/display_all/display_reminder.c.13.o
- .debug_info    0x0000000000009e6f      0x5fe src/display_all/display_survey_list.c.13.o
- .debug_info    0x000000000000a46d     0x1a0c src/helper.c.13.o
+.debug_info     0x0000000000000000    0x17011
+ .debug_info    0x0000000000000000      0x64e src/config_all/config_personal_goals.c.13.o
+ .debug_info    0x000000000000064e      0x7fa src/config_all/config_personal_params.c.13.o
+ .debug_info    0x0000000000000e48      0xb32 src/config_all/config_schedule.c.13.o
+ .debug_info    0x000000000000197a      0x7c5 src/config_all/config_settings_menu.c.13.o
+ .debug_info    0x000000000000213f      0x7ce src/demo_screens.c.13.o
+ .debug_info    0x000000000000290d      0xc36 src/display_all/blank_test.c.13.o
+ .debug_info    0x0000000000003543      0xca6 src/display_all/display_BT_connect_help.c.13.o
+ .debug_info    0x00000000000041e9     0x129c src/display_all/display_acti_bars_history.c.13.o
+ .debug_info    0x0000000000005485      0x5f4 src/display_all/display_detail_dash.c.13.o
+ .debug_info    0x0000000000005a79     0x15a2 src/display_all/display_main_dash.c.13.o
+ .debug_info    0x000000000000701b     0x172b src/display_all/display_pinteract_dots_history.c.13.o
+ .debug_info    0x0000000000008746      0xe93 src/display_all/display_reminder.c.13.o
+ .debug_info    0x00000000000095d9      0x5fe src/display_all/display_survey_list.c.13.o
+ .debug_info    0x0000000000009bd7     0x1a0c src/helper.c.13.o
+ .debug_info    0x000000000000b5e3      0x896 src/main.c.13.o
  .debug_info    0x000000000000be79      0xa1e src/pinteract_all/pinteract_11.c.13.o
  .debug_info    0x000000000000c897      0x8c6 src/pinteract_all/pinteract_12.c.13.o
  .debug_info    0x000000000000d15d      0x7cc src/pinteract_all/pinteract_13.c.13.o
@@ -2448,25 +2447,25 @@ OUTPUT(/Users/Nate/Documents/pk-priv/pebblewatch-pub/build/aplite/pebble-app.elf
  .debug_info    0x0000000000012d76     0x1716 src/pinteract_all/pinteract_priv_scrn.c.13.o
  .debug_info    0x000000000001448c      0x2df src/pinteract_all/pinteract_res_struct.c.13.o
  .debug_info    0x000000000001476b      0x9e1 src/splash_screens.c.13.o
- .debug_info    0x000000000001514c     0x1b5d src/transmit.c.13.o
- .debug_info    0x0000000000016ca9      0x349 aplite/appinfo.auto.c.13.o
+ .debug_info    0x000000000001514c     0x1b7c src/transmit.c.13.o
+ .debug_info    0x0000000000016cc8      0x349 aplite/appinfo.auto.c.13.o
 
 .debug_abbrev   0x0000000000000000     0x48b0
- .debug_abbrev  0x0000000000000000      0x20a src/ProjectK.c.13.o
- .debug_abbrev  0x000000000000020a      0x1e0 src/config_all/config_personal_goals.c.13.o
- .debug_abbrev  0x00000000000003ea      0x1fe src/config_all/config_personal_params.c.13.o
- .debug_abbrev  0x00000000000005e8      0x2a7 src/config_all/config_schedule.c.13.o
- .debug_abbrev  0x000000000000088f      0x20a src/config_all/config_settings_menu.c.13.o
- .debug_abbrev  0x0000000000000a99      0x1fa src/demo_screens.c.13.o
- .debug_abbrev  0x0000000000000c93      0x29b src/display_all/blank_test.c.13.o
- .debug_abbrev  0x0000000000000f2e      0x23b src/display_all/display_BT_connect_help.c.13.o
- .debug_abbrev  0x0000000000001169      0x30b src/display_all/display_acti_bars_history.c.13.o
- .debug_abbrev  0x0000000000001474      0x1cf src/display_all/display_detail_dash.c.13.o
- .debug_abbrev  0x0000000000001643      0x373 src/display_all/display_main_dash.c.13.o
- .debug_abbrev  0x00000000000019b6      0x3f8 src/display_all/display_pinteract_dots_history.c.13.o
- .debug_abbrev  0x0000000000001dae      0x2f5 src/display_all/display_reminder.c.13.o
- .debug_abbrev  0x00000000000020a3      0x1c1 src/display_all/display_survey_list.c.13.o
- .debug_abbrev  0x0000000000002264      0x47a src/helper.c.13.o
+ .debug_abbrev  0x0000000000000000      0x1e0 src/config_all/config_personal_goals.c.13.o
+ .debug_abbrev  0x00000000000001e0      0x1fe src/config_all/config_personal_params.c.13.o
+ .debug_abbrev  0x00000000000003de      0x2a7 src/config_all/config_schedule.c.13.o
+ .debug_abbrev  0x0000000000000685      0x20a src/config_all/config_settings_menu.c.13.o
+ .debug_abbrev  0x000000000000088f      0x1fa src/demo_screens.c.13.o
+ .debug_abbrev  0x0000000000000a89      0x29b src/display_all/blank_test.c.13.o
+ .debug_abbrev  0x0000000000000d24      0x23b src/display_all/display_BT_connect_help.c.13.o
+ .debug_abbrev  0x0000000000000f5f      0x30b src/display_all/display_acti_bars_history.c.13.o
+ .debug_abbrev  0x000000000000126a      0x1cf src/display_all/display_detail_dash.c.13.o
+ .debug_abbrev  0x0000000000001439      0x373 src/display_all/display_main_dash.c.13.o
+ .debug_abbrev  0x00000000000017ac      0x3f8 src/display_all/display_pinteract_dots_history.c.13.o
+ .debug_abbrev  0x0000000000001ba4      0x2f5 src/display_all/display_reminder.c.13.o
+ .debug_abbrev  0x0000000000001e99      0x1c1 src/display_all/display_survey_list.c.13.o
+ .debug_abbrev  0x000000000000205a      0x47a src/helper.c.13.o
+ .debug_abbrev  0x00000000000024d4      0x20a src/main.c.13.o
  .debug_abbrev  0x00000000000026de      0x214 src/pinteract_all/pinteract_11.c.13.o
  .debug_abbrev  0x00000000000028f2      0x1e9 src/pinteract_all/pinteract_12.c.13.o
  .debug_abbrev  0x0000000000002adb      0x1e9 src/pinteract_all/pinteract_13.c.13.o
@@ -2484,21 +2483,21 @@ OUTPUT(/Users/Nate/Documents/pk-priv/pebblewatch-pub/build/aplite/pebble-app.elf
  .debug_abbrev  0x0000000000004812       0x9e aplite/appinfo.auto.c.13.o
 
 .debug_loc      0x0000000000000000     0x48bf
- .debug_loc     0x0000000000000000       0x2c src/ProjectK.c.13.o
- .debug_loc     0x000000000000002c       0x8a src/config_all/config_personal_goals.c.13.o
- .debug_loc     0x00000000000000b6      0x164 src/config_all/config_personal_params.c.13.o
- .debug_loc     0x000000000000021a      0x53f src/config_all/config_schedule.c.13.o
- .debug_loc     0x0000000000000759       0x9c src/config_all/config_settings_menu.c.13.o
- .debug_loc     0x00000000000007f5      0x181 src/demo_screens.c.13.o
- .debug_loc     0x0000000000000976      0x1f3 src/display_all/blank_test.c.13.o
- .debug_loc     0x0000000000000b69      0x13d src/display_all/display_BT_connect_help.c.13.o
- .debug_loc     0x0000000000000ca6      0x386 src/display_all/display_acti_bars_history.c.13.o
- .debug_loc     0x000000000000102c       0x9a src/display_all/display_detail_dash.c.13.o
- .debug_loc     0x00000000000010c6      0x2d8 src/display_all/display_main_dash.c.13.o
- .debug_loc     0x000000000000139e      0x583 src/display_all/display_pinteract_dots_history.c.13.o
- .debug_loc     0x0000000000001921      0x1f4 src/display_all/display_reminder.c.13.o
- .debug_loc     0x0000000000001b15       0x9a src/display_all/display_survey_list.c.13.o
- .debug_loc     0x0000000000001baf      0xb22 src/helper.c.13.o
+ .debug_loc     0x0000000000000000       0x8a src/config_all/config_personal_goals.c.13.o
+ .debug_loc     0x000000000000008a      0x164 src/config_all/config_personal_params.c.13.o
+ .debug_loc     0x00000000000001ee      0x53f src/config_all/config_schedule.c.13.o
+ .debug_loc     0x000000000000072d       0x9c src/config_all/config_settings_menu.c.13.o
+ .debug_loc     0x00000000000007c9      0x181 src/demo_screens.c.13.o
+ .debug_loc     0x000000000000094a      0x1f3 src/display_all/blank_test.c.13.o
+ .debug_loc     0x0000000000000b3d      0x13d src/display_all/display_BT_connect_help.c.13.o
+ .debug_loc     0x0000000000000c7a      0x386 src/display_all/display_acti_bars_history.c.13.o
+ .debug_loc     0x0000000000001000       0x9a src/display_all/display_detail_dash.c.13.o
+ .debug_loc     0x000000000000109a      0x2d8 src/display_all/display_main_dash.c.13.o
+ .debug_loc     0x0000000000001372      0x583 src/display_all/display_pinteract_dots_history.c.13.o
+ .debug_loc     0x00000000000018f5      0x1f4 src/display_all/display_reminder.c.13.o
+ .debug_loc     0x0000000000001ae9       0x9a src/display_all/display_survey_list.c.13.o
+ .debug_loc     0x0000000000001b83      0xb22 src/helper.c.13.o
+ .debug_loc     0x00000000000026a5       0x2c src/main.c.13.o
  .debug_loc     0x00000000000026d1      0x1fe src/pinteract_all/pinteract_11.c.13.o
  .debug_loc     0x00000000000028cf      0x1f1 src/pinteract_all/pinteract_12.c.13.o
  .debug_loc     0x0000000000002ac0      0x157 src/pinteract_all/pinteract_13.c.13.o
@@ -2515,35 +2514,35 @@ OUTPUT(/Users/Nate/Documents/pk-priv/pebblewatch-pub/build/aplite/pebble-app.elf
 
 .debug_aranges  0x0000000000000000      0x9a8
  .debug_aranges
-                0x0000000000000000       0x20 src/ProjectK.c.13.o
+                0x0000000000000000       0x28 src/config_all/config_personal_goals.c.13.o
  .debug_aranges
-                0x0000000000000020       0x28 src/config_all/config_personal_goals.c.13.o
+                0x0000000000000028       0x38 src/config_all/config_personal_params.c.13.o
  .debug_aranges
-                0x0000000000000048       0x38 src/config_all/config_personal_params.c.13.o
+                0x0000000000000060       0x60 src/config_all/config_schedule.c.13.o
  .debug_aranges
-                0x0000000000000080       0x60 src/config_all/config_schedule.c.13.o
+                0x00000000000000c0       0x30 src/config_all/config_settings_menu.c.13.o
  .debug_aranges
-                0x00000000000000e0       0x30 src/config_all/config_settings_menu.c.13.o
+                0x00000000000000f0       0x48 src/demo_screens.c.13.o
  .debug_aranges
-                0x0000000000000110       0x48 src/demo_screens.c.13.o
+                0x0000000000000138       0x58 src/display_all/blank_test.c.13.o
  .debug_aranges
-                0x0000000000000158       0x58 src/display_all/blank_test.c.13.o
+                0x0000000000000190       0x38 src/display_all/display_BT_connect_help.c.13.o
  .debug_aranges
-                0x00000000000001b0       0x38 src/display_all/display_BT_connect_help.c.13.o
+                0x00000000000001c8       0x60 src/display_all/display_acti_bars_history.c.13.o
  .debug_aranges
-                0x00000000000001e8       0x60 src/display_all/display_acti_bars_history.c.13.o
+                0x0000000000000228       0x30 src/display_all/display_detail_dash.c.13.o
  .debug_aranges
-                0x0000000000000248       0x30 src/display_all/display_detail_dash.c.13.o
+                0x0000000000000258       0x60 src/display_all/display_main_dash.c.13.o
  .debug_aranges
-                0x0000000000000278       0x60 src/display_all/display_main_dash.c.13.o
+                0x00000000000002b8       0x68 src/display_all/display_pinteract_dots_history.c.13.o
  .debug_aranges
-                0x00000000000002d8       0x68 src/display_all/display_pinteract_dots_history.c.13.o
+                0x0000000000000320       0x60 src/display_all/display_reminder.c.13.o
  .debug_aranges
-                0x0000000000000340       0x60 src/display_all/display_reminder.c.13.o
+                0x0000000000000380       0x30 src/display_all/display_survey_list.c.13.o
  .debug_aranges
-                0x00000000000003a0       0x30 src/display_all/display_survey_list.c.13.o
+                0x00000000000003b0      0x130 src/helper.c.13.o
  .debug_aranges
-                0x00000000000003d0      0x130 src/helper.c.13.o
+                0x00000000000004e0       0x20 src/main.c.13.o
  .debug_aranges
                 0x0000000000000500       0x50 src/pinteract_all/pinteract_11.c.13.o
  .debug_aranges
@@ -2576,21 +2575,21 @@ OUTPUT(/Users/Nate/Documents/pk-priv/pebblewatch-pub/build/aplite/pebble-app.elf
                 0x0000000000000990       0x18 aplite/appinfo.auto.c.13.o
 
 .debug_ranges   0x0000000000000000      0xbe0
- .debug_ranges  0x0000000000000000       0x28 src/ProjectK.c.13.o
- .debug_ranges  0x0000000000000028       0x18 src/config_all/config_personal_goals.c.13.o
- .debug_ranges  0x0000000000000040       0x28 src/config_all/config_personal_params.c.13.o
- .debug_ranges  0x0000000000000068       0x88 src/config_all/config_schedule.c.13.o
- .debug_ranges  0x00000000000000f0       0x20 src/config_all/config_settings_menu.c.13.o
- .debug_ranges  0x0000000000000110       0x38 src/demo_screens.c.13.o
- .debug_ranges  0x0000000000000148       0x48 src/display_all/blank_test.c.13.o
- .debug_ranges  0x0000000000000190       0x28 src/display_all/display_BT_connect_help.c.13.o
- .debug_ranges  0x00000000000001b8       0xf0 src/display_all/display_acti_bars_history.c.13.o
- .debug_ranges  0x00000000000002a8       0x20 src/display_all/display_detail_dash.c.13.o
- .debug_ranges  0x00000000000002c8       0x98 src/display_all/display_main_dash.c.13.o
- .debug_ranges  0x0000000000000360      0x170 src/display_all/display_pinteract_dots_history.c.13.o
- .debug_ranges  0x00000000000004d0       0x80 src/display_all/display_reminder.c.13.o
- .debug_ranges  0x0000000000000550       0x20 src/display_all/display_survey_list.c.13.o
- .debug_ranges  0x0000000000000570      0x180 src/helper.c.13.o
+ .debug_ranges  0x0000000000000000       0x18 src/config_all/config_personal_goals.c.13.o
+ .debug_ranges  0x0000000000000018       0x28 src/config_all/config_personal_params.c.13.o
+ .debug_ranges  0x0000000000000040       0x88 src/config_all/config_schedule.c.13.o
+ .debug_ranges  0x00000000000000c8       0x20 src/config_all/config_settings_menu.c.13.o
+ .debug_ranges  0x00000000000000e8       0x38 src/demo_screens.c.13.o
+ .debug_ranges  0x0000000000000120       0x48 src/display_all/blank_test.c.13.o
+ .debug_ranges  0x0000000000000168       0x28 src/display_all/display_BT_connect_help.c.13.o
+ .debug_ranges  0x0000000000000190       0xf0 src/display_all/display_acti_bars_history.c.13.o
+ .debug_ranges  0x0000000000000280       0x20 src/display_all/display_detail_dash.c.13.o
+ .debug_ranges  0x00000000000002a0       0x98 src/display_all/display_main_dash.c.13.o
+ .debug_ranges  0x0000000000000338      0x170 src/display_all/display_pinteract_dots_history.c.13.o
+ .debug_ranges  0x00000000000004a8       0x80 src/display_all/display_reminder.c.13.o
+ .debug_ranges  0x0000000000000528       0x20 src/display_all/display_survey_list.c.13.o
+ .debug_ranges  0x0000000000000548      0x180 src/helper.c.13.o
+ .debug_ranges  0x00000000000006c8       0x28 src/main.c.13.o
  .debug_ranges  0x00000000000006f0       0x40 src/pinteract_all/pinteract_11.c.13.o
  .debug_ranges  0x0000000000000730       0x40 src/pinteract_all/pinteract_12.c.13.o
  .debug_ranges  0x0000000000000770       0x30 src/pinteract_all/pinteract_13.c.13.o
@@ -2606,116 +2605,116 @@ OUTPUT(/Users/Nate/Documents/pk-priv/pebblewatch-pub/build/aplite/pebble-app.elf
  .debug_ranges  0x0000000000000ae0      0x100 src/transmit.c.13.o
 
 .debug_line     0x0000000000000000     0x61fb
- .debug_line    0x0000000000000000      0x23a src/ProjectK.c.13.o
- .debug_line    0x000000000000023a      0x2b5 src/config_all/config_personal_goals.c.13.o
- .debug_line    0x00000000000004ef      0x2e5 src/config_all/config_personal_params.c.13.o
- .debug_line    0x00000000000007d4      0x3c5 src/config_all/config_schedule.c.13.o
- .debug_line    0x0000000000000b99      0x2b9 src/config_all/config_settings_menu.c.13.o
- .debug_line    0x0000000000000e52      0x240 src/demo_screens.c.13.o
- .debug_line    0x0000000000001092      0x300 src/display_all/blank_test.c.13.o
- .debug_line    0x0000000000001392      0x2e2 src/display_all/display_BT_connect_help.c.13.o
- .debug_line    0x0000000000001674      0x40b src/display_all/display_acti_bars_history.c.13.o
- .debug_line    0x0000000000001a7f      0x281 src/display_all/display_detail_dash.c.13.o
- .debug_line    0x0000000000001d00      0x471 src/display_all/display_main_dash.c.13.o
- .debug_line    0x0000000000002171      0x4de src/display_all/display_pinteract_dots_history.c.13.o
- .debug_line    0x000000000000264f      0x331 src/display_all/display_reminder.c.13.o
- .debug_line    0x0000000000002980      0x274 src/display_all/display_survey_list.c.13.o
- .debug_line    0x0000000000002bf4      0x697 src/helper.c.13.o
- .debug_line    0x000000000000328b      0x34c src/pinteract_all/pinteract_11.c.13.o
- .debug_line    0x00000000000035d7      0x334 src/pinteract_all/pinteract_12.c.13.o
- .debug_line    0x000000000000390b      0x302 src/pinteract_all/pinteract_13.c.13.o
- .debug_line    0x0000000000003c0d      0x3af src/pinteract_all/pinteract_14.c.13.o
- .debug_line    0x0000000000003fbc      0x3b7 src/pinteract_all/pinteract_16.c.13.o
- .debug_line    0x0000000000004373      0x386 src/pinteract_all/pinteract_Nitem_survey.c.13.o
- .debug_line    0x00000000000046f9      0x294 src/pinteract_all/pinteract_alert.c.13.o
- .debug_line    0x000000000000498d        0x0 src/pinteract_all/pinteract_demo.c.13.o
- .debug_line    0x000000000000498d      0x231 src/pinteract_all/pinteract_driver.c.13.o
- .debug_line    0x0000000000004bbe      0x4ce src/pinteract_all/pinteract_enter_num.c.13.o
- .debug_line    0x000000000000508c      0x2cb src/pinteract_all/pinteract_helper.c.13.o
- .debug_line    0x0000000000005357      0x49e src/pinteract_all/pinteract_priv_scrn.c.13.o
- .debug_line    0x00000000000057f5      0x1b6 src/pinteract_all/pinteract_res_struct.c.13.o
- .debug_line    0x00000000000059ab      0x294 src/splash_screens.c.13.o
- .debug_line    0x0000000000005c3f      0x467 src/transmit.c.13.o
+ .debug_line    0x0000000000000000      0x2b5 src/config_all/config_personal_goals.c.13.o
+ .debug_line    0x00000000000002b5      0x2e5 src/config_all/config_personal_params.c.13.o
+ .debug_line    0x000000000000059a      0x3c5 src/config_all/config_schedule.c.13.o
+ .debug_line    0x000000000000095f      0x2b9 src/config_all/config_settings_menu.c.13.o
+ .debug_line    0x0000000000000c18      0x240 src/demo_screens.c.13.o
+ .debug_line    0x0000000000000e58      0x300 src/display_all/blank_test.c.13.o
+ .debug_line    0x0000000000001158      0x2e2 src/display_all/display_BT_connect_help.c.13.o
+ .debug_line    0x000000000000143a      0x40b src/display_all/display_acti_bars_history.c.13.o
+ .debug_line    0x0000000000001845      0x281 src/display_all/display_detail_dash.c.13.o
+ .debug_line    0x0000000000001ac6      0x471 src/display_all/display_main_dash.c.13.o
+ .debug_line    0x0000000000001f37      0x4de src/display_all/display_pinteract_dots_history.c.13.o
+ .debug_line    0x0000000000002415      0x331 src/display_all/display_reminder.c.13.o
+ .debug_line    0x0000000000002746      0x274 src/display_all/display_survey_list.c.13.o
+ .debug_line    0x00000000000029ba      0x697 src/helper.c.13.o
+ .debug_line    0x0000000000003051      0x236 src/main.c.13.o
+ .debug_line    0x0000000000003287      0x34c src/pinteract_all/pinteract_11.c.13.o
+ .debug_line    0x00000000000035d3      0x334 src/pinteract_all/pinteract_12.c.13.o
+ .debug_line    0x0000000000003907      0x302 src/pinteract_all/pinteract_13.c.13.o
+ .debug_line    0x0000000000003c09      0x3af src/pinteract_all/pinteract_14.c.13.o
+ .debug_line    0x0000000000003fb8      0x3b7 src/pinteract_all/pinteract_16.c.13.o
+ .debug_line    0x000000000000436f      0x386 src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ .debug_line    0x00000000000046f5      0x294 src/pinteract_all/pinteract_alert.c.13.o
+ .debug_line    0x0000000000004989        0x0 src/pinteract_all/pinteract_demo.c.13.o
+ .debug_line    0x0000000000004989      0x231 src/pinteract_all/pinteract_driver.c.13.o
+ .debug_line    0x0000000000004bba      0x4ce src/pinteract_all/pinteract_enter_num.c.13.o
+ .debug_line    0x0000000000005088      0x2cb src/pinteract_all/pinteract_helper.c.13.o
+ .debug_line    0x0000000000005353      0x49e src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .debug_line    0x00000000000057f1      0x1b6 src/pinteract_all/pinteract_res_struct.c.13.o
+ .debug_line    0x00000000000059a7      0x294 src/splash_screens.c.13.o
+ .debug_line    0x0000000000005c3b      0x46b src/transmit.c.13.o
  .debug_line    0x00000000000060a6      0x155 aplite/appinfo.auto.c.13.o
 
-.debug_str      0x0000000000000000     0x3a58
- .debug_str     0x0000000000000000      0x888 src/ProjectK.c.13.o
-                                        0x909 (size before relaxing)
- .debug_str     0x0000000000000888      0x1c9 src/config_all/config_personal_goals.c.13.o
+.debug_str      0x0000000000000000     0x3a54
+ .debug_str     0x0000000000000000      0x620 src/config_all/config_personal_goals.c.13.o
                                         0x6a8 (size before relaxing)
- .debug_str     0x0000000000000a51       0xa0 src/config_all/config_personal_params.c.13.o
+ .debug_str     0x0000000000000620       0xa0 src/config_all/config_personal_params.c.13.o
                                         0x708 (size before relaxing)
- .debug_str     0x0000000000000af1      0x251 src/config_all/config_schedule.c.13.o
+ .debug_str     0x00000000000006c0      0x2cf src/config_all/config_schedule.c.13.o
                                         0x7e8 (size before relaxing)
- .debug_str     0x0000000000000d42      0x14e src/config_all/config_settings_menu.c.13.o
+ .debug_str     0x000000000000098f      0x14e src/config_all/config_settings_menu.c.13.o
                                         0x737 (size before relaxing)
- .debug_str     0x0000000000000e90       0xf7 src/demo_screens.c.13.o
+ .debug_str     0x0000000000000add      0x109 src/demo_screens.c.13.o
                                         0x6ee (size before relaxing)
- .debug_str     0x0000000000000f87      0x3a5 src/display_all/blank_test.c.13.o
+ .debug_str     0x0000000000000be6      0x3c5 src/display_all/blank_test.c.13.o
                                         0x972 (size before relaxing)
- .debug_str     0x000000000000132c      0x509 src/display_all/display_BT_connect_help.c.13.o
+ .debug_str     0x0000000000000fab      0x509 src/display_all/display_BT_connect_help.c.13.o
                                         0xbc8 (size before relaxing)
- .debug_str     0x0000000000001835      0x21b src/display_all/display_acti_bars_history.c.13.o
+ .debug_str     0x00000000000014b4      0x273 src/display_all/display_acti_bars_history.c.13.o
                                         0xb6f (size before relaxing)
- .debug_str     0x0000000000001a50       0x51 src/display_all/display_detail_dash.c.13.o
+ .debug_str     0x0000000000001727       0x51 src/display_all/display_detail_dash.c.13.o
                                         0x646 (size before relaxing)
- .debug_str     0x0000000000001aa1      0x20f src/display_all/display_main_dash.c.13.o
+ .debug_str     0x0000000000001778      0x265 src/display_all/display_main_dash.c.13.o
                                         0xd66 (size before relaxing)
- .debug_str     0x0000000000001cb0      0x16e src/display_all/display_pinteract_dots_history.c.13.o
+ .debug_str     0x00000000000019dd      0x16e src/display_all/display_pinteract_dots_history.c.13.o
                                         0xd48 (size before relaxing)
- .debug_str     0x0000000000001e1e       0xe7 src/display_all/display_reminder.c.13.o
+ .debug_str     0x0000000000001b4b       0xe7 src/display_all/display_reminder.c.13.o
                                         0xaae (size before relaxing)
- .debug_str     0x0000000000001f05       0x29 src/display_all/display_survey_list.c.13.o
+ .debug_str     0x0000000000001c32       0x29 src/display_all/display_survey_list.c.13.o
                                         0x62e (size before relaxing)
- .debug_str     0x0000000000001f2e      0x431 src/helper.c.13.o
+ .debug_str     0x0000000000001c5b      0x4c0 src/helper.c.13.o
                                         0xf5b (size before relaxing)
- .debug_str     0x000000000000235f       0xd6 src/pinteract_all/pinteract_11.c.13.o
+ .debug_str     0x000000000000211b      0x240 src/main.c.13.o
+                                        0x905 (size before relaxing)
+ .debug_str     0x000000000000235b       0xd6 src/pinteract_all/pinteract_11.c.13.o
                                         0x74d (size before relaxing)
- .debug_str     0x0000000000002435       0x50 src/pinteract_all/pinteract_12.c.13.o
+ .debug_str     0x0000000000002431       0x50 src/pinteract_all/pinteract_12.c.13.o
                                         0x6e1 (size before relaxing)
- .debug_str     0x0000000000002485       0x4e src/pinteract_all/pinteract_13.c.13.o
+ .debug_str     0x0000000000002481       0x4e src/pinteract_all/pinteract_13.c.13.o
                                         0x6d5 (size before relaxing)
- .debug_str     0x00000000000024d3       0x61 src/pinteract_all/pinteract_14.c.13.o
+ .debug_str     0x00000000000024cf       0x61 src/pinteract_all/pinteract_14.c.13.o
                                         0x85f (size before relaxing)
- .debug_str     0x0000000000002534       0xe4 src/pinteract_all/pinteract_16.c.13.o
+ .debug_str     0x0000000000002530       0xe4 src/pinteract_all/pinteract_16.c.13.o
                                         0x84e (size before relaxing)
- .debug_str     0x0000000000002618      0x4fe src/pinteract_all/pinteract_Nitem_survey.c.13.o
+ .debug_str     0x0000000000002614      0x4fe src/pinteract_all/pinteract_Nitem_survey.c.13.o
                                         0xe2a (size before relaxing)
- .debug_str     0x0000000000002b16       0x4f src/pinteract_all/pinteract_alert.c.13.o
+ .debug_str     0x0000000000002b12       0x4f src/pinteract_all/pinteract_alert.c.13.o
                                         0x5c2 (size before relaxing)
- .debug_str     0x0000000000002b65       0x89 src/pinteract_all/pinteract_driver.c.13.o
+ .debug_str     0x0000000000002b61       0x89 src/pinteract_all/pinteract_driver.c.13.o
                                         0x612 (size before relaxing)
- .debug_str     0x0000000000002bee      0x25f src/pinteract_all/pinteract_enter_num.c.13.o
+ .debug_str     0x0000000000002bea      0x25f src/pinteract_all/pinteract_enter_num.c.13.o
                                         0xb98 (size before relaxing)
- .debug_str     0x0000000000002e4d       0x8f src/pinteract_all/pinteract_helper.c.13.o
+ .debug_str     0x0000000000002e49       0x8f src/pinteract_all/pinteract_helper.c.13.o
                                         0x6c8 (size before relaxing)
- .debug_str     0x0000000000002edc      0x1e2 src/pinteract_all/pinteract_priv_scrn.c.13.o
+ .debug_str     0x0000000000002ed8      0x1e2 src/pinteract_all/pinteract_priv_scrn.c.13.o
                                         0xfe7 (size before relaxing)
- .debug_str     0x00000000000030be       0x2c src/pinteract_all/pinteract_res_struct.c.13.o
+ .debug_str     0x00000000000030ba       0x2c src/pinteract_all/pinteract_res_struct.c.13.o
                                         0x4cf (size before relaxing)
- .debug_str     0x00000000000030ea       0x40 src/splash_screens.c.13.o
+ .debug_str     0x00000000000030e6       0x40 src/splash_screens.c.13.o
                                         0x709 (size before relaxing)
- .debug_str     0x000000000000312a      0x7d1 src/transmit.c.13.o
+ .debug_str     0x0000000000003126      0x7d1 src/transmit.c.13.o
                                        0x1238 (size before relaxing)
- .debug_str     0x00000000000038fb      0x15d aplite/appinfo.auto.c.13.o
+ .debug_str     0x00000000000038f7      0x15d aplite/appinfo.auto.c.13.o
                                         0x406 (size before relaxing)
 
 .debug_frame    0x0000000000000000     0x18f8
- .debug_frame   0x0000000000000000       0x2c src/ProjectK.c.13.o
- .debug_frame   0x000000000000002c       0x44 src/config_all/config_personal_goals.c.13.o
- .debug_frame   0x0000000000000070       0x7c src/config_all/config_personal_params.c.13.o
- .debug_frame   0x00000000000000ec      0x120 src/config_all/config_schedule.c.13.o
- .debug_frame   0x000000000000020c       0x60 src/config_all/config_settings_menu.c.13.o
- .debug_frame   0x000000000000026c       0xc0 src/demo_screens.c.13.o
- .debug_frame   0x000000000000032c       0xd4 src/display_all/blank_test.c.13.o
- .debug_frame   0x0000000000000400       0x88 src/display_all/display_BT_connect_help.c.13.o
- .debug_frame   0x0000000000000488      0x108 src/display_all/display_acti_bars_history.c.13.o
- .debug_frame   0x0000000000000590       0x60 src/display_all/display_detail_dash.c.13.o
- .debug_frame   0x00000000000005f0       0xfc src/display_all/display_main_dash.c.13.o
- .debug_frame   0x00000000000006ec      0x144 src/display_all/display_pinteract_dots_history.c.13.o
- .debug_frame   0x0000000000000830       0xe8 src/display_all/display_reminder.c.13.o
- .debug_frame   0x0000000000000918       0x60 src/display_all/display_survey_list.c.13.o
- .debug_frame   0x0000000000000978      0x354 src/helper.c.13.o
+ .debug_frame   0x0000000000000000       0x44 src/config_all/config_personal_goals.c.13.o
+ .debug_frame   0x0000000000000044       0x7c src/config_all/config_personal_params.c.13.o
+ .debug_frame   0x00000000000000c0      0x120 src/config_all/config_schedule.c.13.o
+ .debug_frame   0x00000000000001e0       0x60 src/config_all/config_settings_menu.c.13.o
+ .debug_frame   0x0000000000000240       0xc0 src/demo_screens.c.13.o
+ .debug_frame   0x0000000000000300       0xd4 src/display_all/blank_test.c.13.o
+ .debug_frame   0x00000000000003d4       0x88 src/display_all/display_BT_connect_help.c.13.o
+ .debug_frame   0x000000000000045c      0x108 src/display_all/display_acti_bars_history.c.13.o
+ .debug_frame   0x0000000000000564       0x60 src/display_all/display_detail_dash.c.13.o
+ .debug_frame   0x00000000000005c4       0xfc src/display_all/display_main_dash.c.13.o
+ .debug_frame   0x00000000000006c0      0x144 src/display_all/display_pinteract_dots_history.c.13.o
+ .debug_frame   0x0000000000000804       0xe8 src/display_all/display_reminder.c.13.o
+ .debug_frame   0x00000000000008ec       0x60 src/display_all/display_survey_list.c.13.o
+ .debug_frame   0x000000000000094c      0x354 src/helper.c.13.o
+ .debug_frame   0x0000000000000ca0       0x2c src/main.c.13.o
  .debug_frame   0x0000000000000ccc       0xe4 src/pinteract_all/pinteract_11.c.13.o
  .debug_frame   0x0000000000000db0       0xe4 src/pinteract_all/pinteract_12.c.13.o
  .debug_frame   0x0000000000000e94       0xa4 src/pinteract_all/pinteract_13.c.13.o

@@ -190,10 +190,12 @@ static void attempt_transmit_data_to_phone(){
 static void retry_transmit_data_to_phone(){
   log_codes_transmit(13);
   if(bluetooth_connection_service_peek() && data_to_send()){
+    log_codes_transmit(131);
     // if there is still data to send, keep doing that
     attempt_transmit_data_to_phone();
   }else if( bluetooth_connection_service_peek()
     && (trans_code_lcl == TR_PUSH_ALL_DATA_TO_SERVER) ){
+      log_codes_transmit(132);
     // if there is no more data to send, we have bluetooth, and it is a push to
     // server, THEN we attempt to push to server.
     setup_attempt_to_transmit_push_to_server();
@@ -261,7 +263,7 @@ static void inbox_received_phone_status_cb(DictionaryIterator *iterator, void *c
         break;
       case 2:
         // if there is data to send, then we continue to do that until
-        if(data_to_send()){
+        // if(data_to_send()){
           log_codes_transmit(7);
           // log_codes_transmit(1);
           // we reset the retry counter, because we succeeded in sending a message
@@ -276,17 +278,19 @@ static void inbox_received_phone_status_cb(DictionaryIterator *iterator, void *c
                   (int16_t) persist_read_int(I_BLK_PERSIST_KEY));
           // send the next actigraphy message.
           retry_transmit_data_to_phone();
-        }
+        // }
 
         // that if there is NO data to send, and that we are NOT pushing to server,
         // then we close out. If we are not pushing to server, AND there is data
-        // then we continue on. If there is NO data And we are pushing to server
+        // then we let the screen stay on. If there is NO data And we are pushing to server
         // then we wait for the timer to run out. If we have data AND we are pushing
         // to server (which shouldn't happen), then we close out
         if(!data_to_send() && (!(trans_code_lcl == TR_PUSH_ALL_DATA_TO_SERVER))){
           log_codes_transmit(17);
           close_transmit_window();
         }
+
+
         // NOTE : if there is no more data to send, then do nothing
         break;
       case 3:

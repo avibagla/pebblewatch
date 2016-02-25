@@ -171,26 +171,9 @@ struct config_general{
 
 #define NUM_DAYS_HISTORY 8
 
-struct daily_acti{
-  uint16_t steps[NUM_DAYS_HISTORY]; // total daily steps
-  uint16_t kcal[NUM_DAYS_HISTORY]; // daily calories estimated expended only through motion
-}__attribute__((__packed__));
-
 struct pinteract_state{
   int8_t pi_11[NUM_DAYS_HISTORY]; // can make this a uint8_t array for last 10 days
-  int16_t pi_12;
-  int16_t pi_13;
-  int16_t pi_140[NUM_DAYS_HISTORY];
-  int8_t pi_141[NUM_DAYS_HISTORY];
-  int16_t pi_15;;
 }__attribute__((__packed__));
-
-struct acticlass_learn_alg_state{
-  bool init_alg;
-  uint16_t f_mean[NUM_ACTICLASS][NUM_ACLF];
-  uint16_t f_std[NUM_ACTICLASS][NUM_ACLF];
-}__attribute__((__packed__));
-
 
 
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */

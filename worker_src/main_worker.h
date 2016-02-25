@@ -2,10 +2,6 @@
 #include <pebble_worker.h>
 
 #include "constants_worker.h"
-#include "helper_worker.h"
-#include "fourier.h"
-#include "raw_stats.h"
-#include "acticlass_learn_alg.h"
 
 
 static void write_blk_buf_to_persist();

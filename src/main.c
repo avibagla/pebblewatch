@@ -26,7 +26,7 @@ Pebble App roject.
 */
 
 
-#include "ProjectK.h"
+#include "main.h"
 
 
 

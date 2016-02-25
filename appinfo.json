@@ -1,23 +1,21 @@
 {
   "uuid": "3a91370b-ab7f-42fb-b447-5cc94527a329",
-  "shortName": "Project K",
-  "longName": "Project Kraepelin",
+  "shortName": "Wearable Psych",
+  "longName": "Wearable Psychiatry",
   "capabilities": [
     "configurable"
   ],
-  "companyName": "Project Kraepelin",
-  "versionCode": 0.14,
-  "versionLabel": "0.14",
+  "companyName": "Wearable Psych",
+  "versionCode": 0.15,
+  "versionLabel": "0.15",
   "watchapp": {
     "watchface": false
   },
   "appKeys": {
-    "pushtoserver" : 1,
-    "acti": 2,
-    "pinteract" : 3,
-    "config_general" : 4,
-    "config_wakeup" : 5,
-    "js_status" : 6
+    "AppKeyJSReady" : 0,
+    "AppKeyActiData" : 1,
+    "AppKeyPinteractData" : 2,
+    "AppKeyPushToServer" : 3
   },
   "resources": {
     "media": [
@@ -88,5 +86,5 @@
     "aplite",
     "basalt"
   ],
-  "sdkVersion": "3"
+  "sdkVersion": "4"
 }

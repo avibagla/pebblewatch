@@ -31,7 +31,7 @@ var keyGenArray = [];
 
 /* >>>>>>>>> DEFINE SYSTEM CALLBACKS  <<<<<< */
 Pebble.addEventListener("ready", function(e) {
-  console.log('Starting Project Kraepelin, send ready message to pebble');
+  console.log('Starting Wearable Psych, send ready message to pebble');
   Pebble.sendAppMessage( { 'js_status': 1});
 
   // // check version
@@ -70,8 +70,16 @@ Pebble.addEventListener('appmessage', function(e) {
   if(e.payload.pushtoserver != undefined ){
     attemptToTransmitAllKeysLS();
   }
+  // attemptToTransmitAllKeysLS();
   // we notify the pebble that we have stored the message
-  Pebble.sendAppMessage( { 'js_status': 2});
+  Pebble.sendAppMessage( { 'js_status': 2},
+    function(e){
+      console.log('delievered ack message');
+    },
+    function(e){
+      console.log('failed ack message');
+        Pebble.sendAppMessage( { 'js_status': 2});
+    });
 });
 
 Pebble.addEventListener('showConfiguration', function(e){
@@ -202,8 +210,11 @@ function attemptToTransmitAllKeysLS(){
       // when want to change to a numerical array
       // var dataArray = new Uint8Array( (localStorage.getItem(key)).split(',').map(Number));
 
-      var postUrl = hostUrl + '/' + baseRoute + '?' + encodeURIComponent(dataJSONString);
-      // console.log('postUrl: ' + postUrl); // COMMENT OUT
+      // var postUrl = hostUrl + '/' + baseRoute + '?' + encodeURIComponent(dataJSONString);
+      var postUrl = hostUrl + '/' + baseRoute;
+      console.log('postUrl: ' + postUrl); // COMMENT OUT
+
+      // ++++++++++++++++++++
 
       reqS3Array[i] = new XMLHttpRequest();
       /* >>> DECLARE MAJOR VARS AS LOCAL : REQUIRED : DO NOT TOUCH <<< */
@@ -223,7 +234,7 @@ function attemptToTransmitAllKeysLS(){
             // remove the key that was successfully stored
             localStorage.removeItem(key);
             // --> When completed should be 3 left (patientCode,trialCode,trialPassword)
-            console.log('Successful transmission');
+            console.log('Successful transmission ' + reqS3Array[i].statusText + ' & ' + reqS3Array[i].responseText);
             requestPending = requestPending -1; // decrement pending request count
           }else{
             // log errors
@@ -239,7 +250,12 @@ function attemptToTransmitAllKeysLS(){
       }
       requestPending = requestPending+ 1;
       // send the formatted XMLHttpRequest
-      reqS3Array[i].send();
+      // reqS3Array[i].send();
+      reqS3Array[i].setRequestHeader("Content-Type", "application/json");
+      reqS3Array[i].send( dataJSONString );
+
+      // ++++++++++++++++++++
+
       console.log('request ' + i + ' sent');
     })(i); // we make this a self executing function
   }
