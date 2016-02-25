@@ -164,28 +164,17 @@ void config_wakeup_schedule(){
     }
   }
 
-  // REMEMEBER, every time the worker launches the app, we reset the
-  // config. SO, we don't have to do it at midnight. So, the worker will
-  // launch the scheduling config in the early morning, AT LEAST by 2am
-  // with each data block being 2 hours @ 1 min intervals
-  // These wakeups are just backup incase the worker dies.
-
-  // NOTE For midnight and 7day fallbacks, we can just cancel and rewrite
-
-  int32_t sec_1am = 60;
-  // 2.
-  // wakeup tomorrow @ 12:00am, for possible time zone changes
-  if(!wakeup_query(read_wakeup_id_at_config_wakeup_index(6),NULL)){
-    reschedule_config_wakeup_index(6, today_srt_time_t + NUM_SEC_IN_DAY + sec_1am);
+  // 1. wakeup 1 hour from now, only if the 1 hour timer hasn't expired yet
+  if(!wakeup_query(read_wakeup_id_at_config_wakeup_index(4),NULL)){
+    reschedule_config_wakeup_index(4, time() + 1*60*60);
   }
-  //3.
-  // fallback wakeup, +7 days from now @ 12:00 am,
-  // just always cancel and then rewrite
-  reschedule_config_wakeup_index(7, today_srt_time_t + NUM_SEC_IN_WEEK + sec_1am);
-
-
-  //   APP_LOG(APP_LOG_LEVEL_ERROR,"n_wakeup_config : %d",n_wakeup_config);
-  //   APP_LOG(APP_LOG_LEVEL_ERROR,"sizeof(cs_ary) : %d",sizeof(cs_ary));
-  //   APP_LOG(APP_LOG_LEVEL_ERROR,"sizeof(cs_ary) : %d",sizeof(cs_ary[0]));
-
+  // NOTE : Fallback timer, just always cancel and then rewrite
+  // 2. wakeup 12 hours from now
+  reschedule_config_wakeup_index(5, time() + 12*60*60);
+  // 3.
+  // wakeup tomorrow @ 12:01am, for possible time zone changes
+  reschedule_config_wakeup_index(6, today_srt_time_t + NUM_SEC_IN_DAY + 60);
+  // 4.
+  // fallback wakeup, +7 days from now @ 12:01 am,
+  reschedule_config_wakeup_index(7, today_srt_time_t + NUM_SEC_IN_WEEK + 60);
 }

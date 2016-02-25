@@ -18,7 +18,9 @@ static const int16_t NUM_SEC_TRANSMIT_SERVER = 15;
 
 static void countdown_timer_handler(void *data);
 
-time_t prev_acti_upload_time;
+
+AppKey cur_app_key;
+time_t prev_acti_upload_time_plus1sec;
 time_t attempt_acti_upload_time;
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -128,22 +130,32 @@ static void send_data_item(AppKey app_key){
   if(app_message_outbox_begin(&out) == APP_MSG_OK){
     // if AppKeyActiData
     if(app_key == AppKeyActiData){
-      attempt_acti_upload_time = prev_acti_upload_time + (MAX_ENTRIES*60);
+      attempt_acti_upload_time = prev_acti_upload_time_plus1sec + (MAX_ENTRIES*60);
       // malloc the data
       int data_size = (sizeof(time_t)*2) + (sizeof(HealthMinuteData)*MAX_ENTRIES);
       uint8_t *data = (uint8_t*) malloc(data_size );
 
       // add the prev upload and new attempted upload time to the head.
-      write_time_to_array_head(prev_acti_upload_time, data+0);
-      write_time_to_array_head(attempt_acti_upload_time, data+4);
+
 
       // add the period data to the remainder of the block
-      // get the data from  prev_acti_upload_time to attempt_acti_upload_time
-      //  where attempt_acti_upload_time is prev_acti_upload_time * INTERVAL*60
+      // get the data from  prev_acti_upload_time_plus1sec to attempt_acti_upload_time
+      //  where attempt_acti_upload_time is prev_acti_upload_time_plus1sec * INTERVAL*60
       // write the data block to the block to be sent over
       int num_entries =  health_service_get_minute_history(
         (HealthMinuteData*) (data+(sizeof(time_t)*2)),
-        MAX_ENTRIES, &prev_acti_upload_time, &attempt_acti_upload_time);
+        MAX_ENTRIES, &prev_acti_upload_time_plus1sec, &attempt_acti_upload_time);
+
+      // NOTE: if prev_acti_upload_time_plus1sec on entry to health_service_get_minute_history.
+      // is somewhere in the middle of a minute interval, then the function behaves
+      // as if the caller passed in the start of that minute.
+      write_time_to_array_head(prev_acti_upload_time_plus1sec, data+0);
+      // NOTE: if attempt_acti_upload_time on entry to health_service_get_minute_history.
+      // is somewhere in the middle of a minute interval, then the function behaves
+      // as if the caller passed in the end of that minute.
+      // HENCE, when we record the previous last upload time in order to
+      // setup for the next upload, we have to add one second to get the next minute
+      write_time_to_array_head(attempt_acti_upload_time, data+4);
 
       // write data to outbox iterator
       dict_write_data(out, AppKeyActiData, data, data_size);
@@ -155,6 +167,9 @@ static void send_data_item(AppKey app_key){
       }else{
         if(app_message_outbox_send() != APP_MSG_OK){
           APP_LOG(APP_LOG_LEVEL_ERROR, "Error sending message");
+        }else{
+          // that if we sent the data, we mark it as the current key
+          cur_app_key == app_key;
         }
       }
       // free the malloced data
@@ -181,6 +196,9 @@ static void send_data_item(AppKey app_key){
       dict_write_end(out);
       if(app_message_outbox_send() != APP_MSG_OK){
         APP_LOG(APP_LOG_LEVEL_ERROR, "Error sending message");
+      }else{
+        // that if we sent the data, we mark it as the current key
+        cur_app_key == app_key;
       }
     }
   }else{
@@ -189,13 +207,23 @@ static void send_data_item(AppKey app_key){
 }
 
 static void outbox_sent_handler(DictionaryIterator *iter, void *context){
+  // modify the data counts based on the message that was just sent
+  if(cur_app_key == AppKeyActiData){
+    // add one second to move it into the next minute
+    prev_acti_upload_time_plus1sec = attempt_acti_upload_time + 1;
+    persist_write_int(ACTI_LAST_UPLOAD_TIME_PERSIST_KEY ,prev_acti_upload_time_plus1sec);
+  }else if(cur_app_key == AppKeyPinteractData){
+    persist_read_write(PINTERACT_KEY_COUNT_PERSIST_KEY,
+      persist_read_int(PINTERACT_KEY_COUNT_PERSIST_KEY) - 1);
+  }
+
   // attempt to send the data in order of importance
-  if(data_to_send_acti() && (retry_count < MAX_RETRY) ){
+  if(data_to_send_acti() ){
     send_data_item(AppKeyActiData);
-  }else if(data_to_send_pinteract() && (retry_count < MAX_RETRY )){
+  }else if(data_to_send_pinteract()){
     send_data_item(AppKeyPinteractData);
   // test if the connection is active to see if we can infact push to the server
-  }else if( connection_service_peek_pebble_app_connection() && (retry_count < MAX_RETRY) ){
+  }else if( connection_service_peek_pebble_app_connection() ){
     send_data_item(AppKeyPushToServer);
   }else{
     countdown_active = false;

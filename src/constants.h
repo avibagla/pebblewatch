@@ -1,6 +1,6 @@
 #pragma once
 
-// Number of data items to obtain from the HealthService API
+// Number of data items to obtain from the HealthService API, ie: minutes
 #define MAX_ENTRIES 1
 
 // Number of minutes between uploads, and the number of items read from
@@ -21,7 +21,9 @@
 
 
 // +++++++ App State
-static const int16_t PINTERACT_STATE_PERSIST_KEY = 130;
+static const int16_t ACTI_LAST_UPLOAD_TIME_PERSIST_KEY = 128;
+static const int16_t PINTERACT_KEY_COUNT_PERSIST_KEY = 129;
+static const int16_t PINTERACT_KEY_LIST_PERSIST_KEY = 130;
 static const int16_t CONFIG_WAKEUP_IDS_PERSIST_KEY = 131;
 static const int16_t ACTIVE_WAKEUP_CONFIG_I_PERSIST_KEY = 132;
 
@@ -44,6 +46,7 @@ static const int16_t DAILY_SUMMARY_WEEKS_PERSIST_KEY = 220;
 static const uint32_t NUM_SEC_IN_DAY = 24*60*60;
 static const uint32_t NUM_SEC_IN_WEEK = 7*24*60*60;
 static const int32_t CUR_WP_VERSION = 15;
+
 
 // +++++++ Memory Constraints
 
