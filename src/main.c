@@ -32,60 +32,25 @@ Pebble App roject.
 
 static void init() {
   /* ++++++ CHECK IF FIRST TIME APP INSTALLED +++++ */
-  if((!persist_exists(I_BLK_PERSIST_KEY))
-    || (!persist_exists(PK_VERSION_PERSIST_KEY))
-    // || ( (persist_read_int(PK_VERSION_PERSIST_KEY) != CUR_PK_VERSION))
-  ){
 
-      // || (persist_read_int(PK_VERSION_PERSIST_KEY)< CUR_PK_VERSION)
-    APP_LOG(APP_LOG_LEVEL_ERROR, "init PS");
 
-    persist_write_int(PK_VERSION_PERSIST_KEY,CUR_PK_VERSION);
-    init_persistent_storage();
-  }
   /* ++++++ EVERY TIME THE APP STARTS  +++++ */
   // ALWAYS register the wakeup handler each time the app is opened so that,
   // when the app is closed again, that the wakeup handler will take place.
   wakeup_service_subscribe(wakeup_main_response_handler);
 
+  // CURRENTLY UNUSED AS OF VERSION 0.15
   // !! Register the global tick timer function. ALL elements will use this
   // and this tick timer alone!
-  tick_timer_service_subscribe(SECOND_UNIT, fore_app_master_tick_timer_handler);
+  // tick_timer_service_subscribe(SECOND_UNIT, fore_app_master_tick_timer_handler);
 
-  /* ++++++ LAUNCH WORKER +++++ */
-  // launch only if the app worker is not already running.
-  // we use this section to do any initialization work
-  // This is assuming that if the app background stopped due to
-  // interference like the patient or being updated, that it is better to
-  // start fresh.
-  if(!app_worker_is_running()){
-    // if the worker is NOT running,
-    // TEMPORARY !!
-    init_persistent_storage();
-
-    APP_LOG(APP_LOG_LEVEL_ERROR, "launch worker");
-    app_worker_launch();
-  }
 
   /* ++++++ LAUNCH REASONS ++++++ */
-  // APP_LOG(APP_LOG_LEVEL_ERROR, "made it to launch reason");
-
-  // if the launch reason was due to the worker, then only send the messages and exit
-  if(launch_reason() == APP_LAUNCH_WORKER){
-    APP_LOG(APP_LOG_LEVEL_ERROR, "launched by worker");
-    // since it doesn't hurt to call the config_wakeup_schedule()
-    // over and over,
-    config_wakeup_schedule();
-    // EXECUTE logic based on foreground app wakeup reasons from worker
-    worker_start_fore_app_reason_exec();
-  }
-
-  // if the launch was due to the user, then show the mood rating
+  // if the launch was due to the user, then show main dash
   if(launch_reason() == APP_LAUNCH_USER){
-
     APP_LOG(APP_LOG_LEVEL_ERROR, "app start: heap size: used %d , free %d",
         heap_bytes_used(), heap_bytes_free());
-    display_main_dash();
+    // display_main_dash();
   }
 
 

@@ -2,20 +2,24 @@
 
 /* >>>>> GLOBAL NOTES <<<<<<
 * 1. If change server file structure, then must change the localStorage naming
-*   conventions as they directly rflect the S3 server filename heirarchy
 * 2. For local variables that will NOT be transmitted to the server, they MUST
-*   NOT have a prefix of 'pk-pebble' or else the transmit server code will send
+*   NOT have a prefix of 'wp-pebble' or else the transmit server code will send
 *   those keys along, which would just pollute the name space, *very* annoying
-*
 */
 
+// NOTE : DEBUGGING
+// 1. change the comm signals from acti, pinteract, and send_to_server
+//
+// 2.  changed all local storage key prefixs from 'pk' to 'wp'
+
 /* >>>>> GLOBAL CONSTANTS <<<<<< */
-var pkURL = 'http://projectkraepelin.org';
+var wpURL = 'http://projectkraepelin.org';
 var baseRoute = 'dataflow/upload';
 var servicePlatform = 'pebble';
 var deviceType = 'pebblewatch';
 var jsDataFormat = 2;
-var jsVersion = 3;
+var jsVersion = 4;
+var DEBUG_RESET_LOCAL_STORAGE = false;
 
 
 /* >>>>> GLOBAL VARIABLES <<<<<< */
@@ -26,86 +30,66 @@ var keyS3Array = [];
 
 // TRANSMIT General
 // we create these so they can persist through calls to the general web
+// Currently unused
 var reqGenArray = [];
 var keyGenArray = [];
 
 /* >>>>>>>>> DEFINE SYSTEM CALLBACKS  <<<<<< */
 Pebble.addEventListener("ready", function(e) {
   console.log('Starting Wearable Psych, send ready message to pebble');
-  Pebble.sendAppMessage( { 'js_status': 1});
+  Pebble.sendAppMessage( { 'AppKeyJSReady': 0});
 
   // // check version
-  // if(localStorage.getItem(PKKeyToLSKey('jsVersion')) != jsVersion.toString()){
+  // if(localStorage.getItem(WPKeyToLSKey('jsVersion')) != jsVersion.toString()){
   //   // if version changes, then delete everything and start over?
   //   // re-init
   //
   //   // finally, write the current version
-  //   localStorage.setItem(PKKeyToLSKey('jsVersion'), jsVersion);
+  //   localStorage.setItem(WPKeyToLSKey('jsVersion'), jsVersion);
   // }
   // // if version changes, then delete everything and start over?
 });
 
 
 Pebble.addEventListener('appmessage', function(e) {
-  // console.log('made it to appmessage listener');
-  // console.log('localStorage.length: ' + localStorage.length);
+  // NOTE : Assume that all data is segregated into distinct types
+  // 1. acti -> actigraphy
+  // 2. pinteract -> patient interactions, ie: survey results
+  // 3. push to server -> signal to push all data to the server
 
-  // assume that pinteract and acti might come across on the
-  // same message
-  touchAllKeys(); // voodoo, see if this works
+  touchAllKeys(); // VOODOO, no idea why this is needed, a bug in JS code?
+  // ONLY USED FOR DEBUGGING
+  if(DEBUG_RESET_LOCAL_STORAGE){
+    removeAllKeys();
+    listAllKeys();
+  }
 
-  if(e.payload.acti != undefined){
+  if(e.payload.AppKeyActiData != undefined){
+    // if actigraphy data, then save to local storage
     saveNewToLocalStorage(e.payload.acti,'acti');
-  }
-  if(e.payload.pinteract != undefined){
+  }else if(e.payload.AppKeyPinteractData != undefined){
+    // if pinteract data, then save to local storage
     saveNewToLocalStorage(e.payload.pinteract,'pinteract');
-  }
-  if(e.payload.config != undefined){
-    saveNewToLocalStorage(e.payload.config,'config');
-  }
-
-  // console.log('got closer to transmit all');
-  //   removeAllKeys(); // MUST COMMENT OUT
-  // listAllKeys(); // MUST COMMENT OUT
-  if(e.payload.pushtoserver != undefined ){
+  }else if(e.payload.AppKeyPushToServer != undefined ){
+    // If we want to push to server.
     attemptToTransmitAllKeysLS();
   }
-  // attemptToTransmitAllKeysLS();
-  // we notify the pebble that we have stored the message
-  Pebble.sendAppMessage( { 'js_status': 2},
-    function(e){
-      console.log('delievered ack message');
-    },
-    function(e){
-      console.log('failed ack message');
-        Pebble.sendAppMessage( { 'js_status': 2});
-    });
+
 });
 
+// OPEN THE PATIENT REGISTRATION PAGE
 Pebble.addEventListener('showConfiguration', function(e){
-  Pebble.openURL(pkURL + '/' + 'pebble' + '/' + 'account'
+  Pebble.openURL(wpURL + '/' + 'pebble' + '/' + 'account'
   + '/' + 'main' + '?' + 'pebble_account_id' + '='
   + Pebble.getAccountToken());
   console.log('open the web config page');
 })
 
+// note, this is used if we need to save any data on the device
 Pebble.addEventListener('webviewclosed', function(e) {
   // var config = JSON.parse(decodeURIComponent(e.response));
   // console.log(JSON.stringify(config));
-  // // the parameters ONLY return IF they are valid
-  // // MAJOR BUG. that if return the page, since we are not checking the password
-  // // the results will just overwrite these will null or blanks. Moreover,
-  // // unless we make some control, the removeAllKeys() will delete everything
-  // // even if we hit the back button
-  //
-  // // remove all keys to clear way for new patient
-  // // However, I need a way to ensure that this is not triggered accidentially
-  // //   removeAllKeys();
-  // attemptToTransmitAllKeysLS();
-  // console.log('add trial parameters to keys');
-  // localStorage.setItem('trialCode', config.trialCode );
-  // localStorage.setItem('trialPassword', config.trialPassword );
-  // localStorage.setItem('patientCode', config.patientCode );
+  // // the parameters ONLY return IF they are validated by server
 });
 
 
@@ -134,12 +118,13 @@ function saveNewToLocalStorage(data,dataType){
   //console.log('made it to saveNewToLocalStorage: dataType: ' + dataType );
   var dataByteArray = new Uint8Array(data)
   var timestamp = lEndianByteToTimestamp(dataByteArray);
-
-  // NOTE!! ALL keys for this app start with 'pk-', and we split using the '-'
-  // var S3Key = 'pebble' + '/' + Pebble.getAccountToken() + '/' + 'pebblewatch'
-  //   + '/' + dataType + '/' + timestamp.toString() + '-raw-'+dataType+'.dat';
-  // var LSKey = PKKeyToLSKey(S3Key);
-  var LSKey = 'pk-pebble-' + dataType + '-' + timestamp.toString();
+  // NOTE :
+  //  LSKey -> the name of the key as stored in Local Storage on this device
+  // NOTE: ALL keys for this app start with 'wp-', and we split using the '-'
+  // !! HOWEVER, there are two types of keys,
+  // PREFIX = 'wp-*' is a local storage key for pebble
+  // PREFIX = 'wp-pebble' is a key for an item meant to be sent to S3 server
+  var LSKey = 'wp-pebble-' + dataType + '-' + timestamp.toString();
   // get the watch info
   if(Pebble.getActiveWatchInfo) {
     var watch = Pebble.getActiveWatchInfo();
@@ -177,7 +162,7 @@ function attemptToTransmitAllKeysLS(){
 
   // initialize all global variables
   var nKeys = localStorage.length;
-  var hostUrl = pkURL;
+  var hostUrl = wpURL;
 
   // reinitialize the arrays to zero
   reqS3Array = [];
@@ -187,10 +172,10 @@ function attemptToTransmitAllKeysLS(){
   /* CREATE THE KEY ARRAY TO BE SENT*/
   // NOTE : Must create keyArray because
   //   1. when remove keys, cause the length of localStorage to shrink
-  //   2. certain keys need to be excluded (ie: trialCode)
+  //   2. certain keys may need to be excluded (ie: a unique patient password)
 
-  keyS3Array = arrayOfAllS3PKKeys();
-  // Key the initial number of keys that need to be transmitted
+  keyS3Array = arrayOfAllS3WPKeys();
+  // report the initial number of keys that need to be transmitted
   //console.log('keyArray.length : ' +  keyS3Array.length);
 
   /* ASYNC DATA POST REQUESTS, USING CLOSURES */
@@ -207,44 +192,48 @@ function attemptToTransmitAllKeysLS(){
       // Could use 'key' as arg to closure function, but use i for illustration
       var key = keyS3Array[i];
       var dataJSONString = localStorage.getItem(key);
-      // when want to change to a numerical array
-      // var dataArray = new Uint8Array( (localStorage.getItem(key)).split(',').map(Number));
 
-      // var postUrl = hostUrl + '/' + baseRoute + '?' + encodeURIComponent(dataJSONString);
+      // NOTE : These lines are from the old method of sending data in the url,
+      // unusable now due to the size of the data being sent up exceeds the
+      // 2048 character limit of url request strings
+        // var dataArray = new Uint8Array( (localStorage.getItem(key)).split(',').map(Number));
+        // var postUrl = hostUrl + '/' + baseRoute + '?' + encodeURIComponent(dataJSONString);
+
       var postUrl = hostUrl + '/' + baseRoute;
       console.log('postUrl: ' + postUrl); // COMMENT OUT
 
       // ++++++++++++++++++++
 
       reqS3Array[i] = new XMLHttpRequest();
+
       /* >>> DECLARE MAJOR VARS AS LOCAL : REQUIRED : DO NOT TOUCH <<< */
-      /* POST DATA IN THE URL THROUGH QUERYSTRING */
       reqS3Array[i].open("POST", postUrl, true);
       // log the post that is sent
-
       // console.log('posted Url: ' + postUrl);  // >> commented out to prevent data compromise
       reqS3Array[i].onreadystatechange = function(oEvent){
         // AND, since the lexical scope is within the overall function,
         //  'key' and 'req' is constant
-        // gate that the request is finished and returned --> ==4
+        // gate that the request is finished and returned --> == 4
         if(reqS3Array[i].readyState == 4){
           // console.log('key :' + key); // >> commented out to prevent data compromise
           // if request finished (readyState==4), check if successful
           if( reqS3Array[i].status == 200 ){
-            // remove the key that was successfully stored
+            // remove the key that was successfully pushed to server
             localStorage.removeItem(key);
-            // --> When completed should be 3 left (patientCode,trialCode,trialPassword)
-            console.log('Successful transmission ' + reqS3Array[i].statusText + ' & ' + reqS3Array[i].responseText);
-            requestPending = requestPending -1; // decrement pending request count
+
+            console.log('Successful transmission '
+              + reqS3Array[i].statusText + ' & ' + reqS3Array[i].responseText);
+            requestPending = requestPending - 1; // decrement pending request count
           }else{
             // log errors
-            console.log('Error: ' + reqS3Array[i].statusText + ' & ' + reqS3Array[i].responseText);
+            console.log('Error: ' + reqS3Array[i].statusText + ' & '
+              + reqS3Array[i].responseText);
           }
-          // --> When completed should be 1 left (pk-jsVersion)
+          // --> When completed should be 1 left (wp-jsVersion)
           console.log(' # of keys remain : ' + localStorage.length);
           // once all the requests have returned, signal the pebble to close
           if(requestPending == 0){
-            Pebble.sendAppMessage( { 'js_status': 3});
+            Pebble.sendAppMessage( { 'AppKeySentToServer': 0});
           }
         }
       }
@@ -253,81 +242,42 @@ function attemptToTransmitAllKeysLS(){
       // reqS3Array[i].send();
       reqS3Array[i].setRequestHeader("Content-Type", "application/json");
       reqS3Array[i].send( dataJSONString );
-
       // ++++++++++++++++++++
-
       console.log('request ' + i + ' sent');
     })(i); // we make this a self executing function
   }
 }
 
-
-function sendDataInUrlToServer(postUrl){
-  // this is a super basic function for sending just string data to the server
-  // console.log('sendDataInUrlToServer , postUrl: ' + postUrl); // COMMENT OUT
-
-  var req = new XMLHttpRequest();
-  /* >>> DECLARE MAJOR VARS AS LOCAL : REQUIRED : DO NOT TOUCH <<< */
-
-  /* POST DATA IN THE URL THROUGH QUERYSTRING */
-  req.open("POST", postUrl, true);
-  // log the post that is sent
-
-  // console.log('posted Url: ' + postUrl);  // >> commented out to prevent data compromise
-  req.onreadystatechange = function(oEvent){
-    // AND, since the lexical scope is within the overall function,
-    //  'key' and 'req' is constant
-
-    // gate that the request is finished and returned --> ==4
-    if(req.readyState == 4){
-      // console.log('key :' + key); // >> commented out to prevent data compromise
-
-      // if request finished (readyState==4), check if successful
-      if( req.status == 200 ){
-        // --> When completed should be 3 left (patientCode,trialCode,trialPassword)
-        console.log('Successful transmission');
-      }else{
-        // log errors
-        console.log('Error: ' + req.statusText + ' & ' + req.responseText);
-      }
-      // --> When completed should be 3 left (patientCode,trialCode,trialPassword)
-      console.log('Success : # of keys remain : ' + localStorage.length);
-    }
-  }
-  // send the formatted XMLHttpRequest
-  req.send();
-}
-
 // CONVIENENCE FUNCTIONS
 
-function LSKeyToPKKey(key){
-  return key.replace(/pk-/i,''); // remove the leading 'pk-' ONLY
+function LSKeyToWPKey(key){
+  return key.replace(/wp-/i,''); // remove the leading 'wp-' ONLY
 }
 
-function PKKeyToLSKey(key){
-  return ('pk-' + key); // append 'pk-' tag to beginning
+function WPKeyToLSKey(key){
+  return ('wp-' + key); // append 'wp-' tag to beginning
 }
 
-function isPKKey(key){
-  return /pk-.*/g.test(key); // find if key has a leading 'pk-' tag
+function isWPKey(key){
+  return /wp-.*/g.test(key); // find if key has a leading 'wp-' tag
 }
 
-function isPKS3Key(key){
-  // determine if a PK S3 key, by finding if a PK key, then testing
+function isWPS3Key(key){
+  // determine if a wp S3 key, by finding if a wp key, then testing
   // if it is S3
-  return /pk-pebble.*/g.test(key);
+  return /wp-pebble.*/g.test(key);
 }
 
 
-function arrayOfAllPKKeys(){
-  console.log('made it to arrayOfAllPkKeys');
+function arrayOfAllWPKeys(){
+  console.log('made it to arrayOfAllWPKeys');
   var key;
   var tmpKeyArray= [];
   var nKeys = localStorage.length;
 
   for(var i = 0; i < nKeys; i++){
     key = localStorage.key(i);
-    if(isPKKey(key)){
+    if(isWPKey(key)){
       tmpKeyArray.push(key);
     }
   }
@@ -336,15 +286,15 @@ function arrayOfAllPKKeys(){
 }
 
 
-function arrayOfAllS3PKKeys(){
-  console.log('made it to arrayOfAllS3PKKeys');
+function arrayOfAllS3WPKeys(){
+  console.log('made it to arrayOfAllS3WPKeys');
   var key;
   var tmpKeyArray= [];
   var nKeys = localStorage.length;
 
   for(var i = 0; i < nKeys; i++){
     key = localStorage.key(i);
-    if(isPKS3Key(key)){
+    if(isWPS3Key(key)){
       tmpKeyArray.push(key);
     }
   }
@@ -390,17 +340,15 @@ function touchAllKeys(){
 }
 
 
-
-//
+// EXTRA CODE
 // function Uint8ToInt8(a) {
 //  // http://blog.vjeux.com/2013/javascript/conversion-from-uint8-to-int8-x-24.html
 //  return a << 24 >> 24;
 // }
 
-/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/*  */
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 /* ++++++++++++++++++ NOTES FOR PEBBLE JS : START ++++++++++++++++++ */
-/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
 
@@ -438,22 +386,26 @@ function touchAllKeys(){
 
 
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 /* ++++++++++++++++++ NOTES FOR PEBBLE JS :  END  ++++++++++++++++++ */
-/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 /* +++++++++++++++ EXTRA SOURCESFOR PEBBLE JS : START ++++++++++++++ */
-/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
 // Good for ACK/NACK sending of messages
 // => https://github.com/pebble-examples/pebble-faces/blob/master/src/js/pebble-js-app.js
 
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 /* +++++++++++++++ EXTRA SOURCESFOR PEBBLE JS:  END  +++++++++++++++ */
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* +++++++++++++++ DEPRECIATED CODE FOR PEBBLE JS: START +++++++++++++++ */
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+/
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* +++++++++++++++ DEPRECIATED CODE FOR PEBBLE JS: END +++++++++++++++ */
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */

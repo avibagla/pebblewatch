@@ -3,4 +3,4 @@ DEFINES = ['RELEASE']
 LIBDIR = '/usr/local/lib'
 PEBBLE_SDK_COMMON = '/Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/common'
 PREFIX = '/usr/local'
-TARGET_PLATFORMS = [u'basalt', u'aplite']
+TARGET_PLATFORMS = [u'chalk', u'basalt', u'aplite']

@@ -12,7 +12,7 @@
 // NOTE, we use the size of the configuration file to determine
 
 
-static void zero_out_wakeup_config_ary(struct wakeup_config *cs_ary_ps){
+static void zero_out_wakeup_config_ary(WakeupConfig *cs_ary_ps){
   for(int16_t i = 0; i < NUM_CONFIG_WAKEUP; i++){
     cs_ary_ps[i].pinteract_code = 0;
     cs_ary_ps[i].srt = 0;
@@ -20,8 +20,7 @@ static void zero_out_wakeup_config_ary(struct wakeup_config *cs_ary_ps){
   }
 }
 
-void write_to_config_wakeup_persistant_storage(
-  struct wakeup_config * cs_ary_in, int16_t n_cs_ary_el_in ){
+void write_to_config_wakeup_persistant_storage(WakeupConfig * cs_ary_in, int16_t n_cs_ary_el_in ){
   // we know that the maximum numbe of wake wakeup_configs is 6, so we
   // initialize the arrary to be written to all zeros, as pinteract = 0 is our NULL
   // to NOT schedule. BUT, we are trying to make this an easy setup, ie, we
@@ -29,20 +28,15 @@ void write_to_config_wakeup_persistant_storage(
   // a few of the config. so, we pass in wakeup_config arry, cs_ary_in, that
   // has c_cs_el_in elements, which MAY be less than 6.
 
-  struct wakeup_config cs_ary_ps[NUM_CONFIG_WAKEUP];
+  WakeupConfig cs_ary_ps[NUM_CONFIG_WAKEUP];
   // // initialize all elements of the cs_ary_ps to have 0
-  // for(int16_t i = 0; i < NUM_CONFIG_WAKEUP; i++){
-  //   cs_ary_ps[i].pinteract_code = 0;
-  //   cs_ary_ps[i].srt = 0;
-  //   cs_ary_ps[i].end = 0;
-  // }
   zero_out_wakeup_config_ary(cs_ary_ps);
-  memcpy(cs_ary_ps, cs_ary_in, n_cs_ary_el_in*sizeof(struct wakeup_config));
+  memcpy(cs_ary_ps, cs_ary_in, n_cs_ary_el_in*sizeof(WakeupConfig));
   persist_write_data(CONFIG_WAKEUP_PERSIST_KEY,cs_ary_ps, sizeof(cs_ary_ps));
 }
 
 
-struct wakeup_config read_config_wakeup_index_persistant_storage( int16_t config_wakeup_i ){
+WakeupConfig read_config_wakeup_index_persistant_storage( int16_t config_wakeup_i ){
   // we know that the maximum numbe of wake wakeup_configs is 6, so we
   // initialize the arrary to be written to all zeros, as pinteract = 0 is our NULL
   // to NOT schedule. BUT, we are trying to make this an easy setup, ie, we
@@ -50,13 +44,8 @@ struct wakeup_config read_config_wakeup_index_persistant_storage( int16_t config
   // a few of the config. so, we pass in wakeup_config arry, cs_ary_in, that
   // has c_cs_el_in elements, which MAY be less than 6.
   // guard against improper inputs
-  struct wakeup_config cs_ary_ps[NUM_CONFIG_WAKEUP];
-  // set all elements to zero
-  // for(int16_t i =0; i < NUM_CONFIG_WAKEUP; i++){
-  //   cs_ary_ps[i].pinteract_code = 0;
-  //   cs_ary_ps[i].srt = 0;
-  //   cs_ary_ps[i].end = 0;
-  // }
+  WakeupConfig cs_ary_ps[NUM_CONFIG_WAKEUP];
+
   zero_out_wakeup_config_ary(cs_ary_ps);
   // guard against improper inputs
   if((config_wakeup_i >= 0) && (config_wakeup_i < NUM_CONFIG_WAKEUP)){
@@ -70,8 +59,6 @@ struct wakeup_config read_config_wakeup_index_persistant_storage( int16_t config
 int16_t pinteract_code_from_config_wakeup_index(int16_t config_wakeup_i){
   return read_config_wakeup_index_persistant_storage(config_wakeup_i).pinteract_code;
 }
-
-
 
 
 void reset_config_wakeup_schedule(){
@@ -137,7 +124,7 @@ WakeupId reschedule_config_wakeup_index(int16_t config_wakeup_i, time_t wakeup_t
 void config_wakeup_schedule(){
   // we have a persist buffer that consists of EXACTLY 6
 
-  struct wakeup_config cs_ary[NUM_CONFIG_WAKEUP];
+  WakeupConfig cs_ary[NUM_CONFIG_WAKEUP];
   persist_read_data(CONFIG_WAKEUP_PERSIST_KEY, cs_ary, sizeof(cs_ary));
 
   // need to
@@ -153,13 +140,10 @@ void config_wakeup_schedule(){
   today_srt_time_t_today_s(&today_srt_time_t, &today_s);
   // IF the wakeups havent been scheduled yet to day, THEN we schedule
   for(int16_t i = 0; i < NUM_CONFIG_WAKEUP; i++){
-    // only schedule valid pinteracts
+    // only schedule valid pinteracts, ie, with pinteract codes greater than 0
     if( cs_ary[i].pinteract_code > 0 ){
       wakeup_time_t = today_srt_time_t
-        + today_m_to_today_s(cs_ary[i].srt)
-        + rand_lw_up_bounds(
-        today_m_to_today_s(cs_ary[i].srt),
-        today_m_to_today_s(cs_ary[i].end));
+        + cs_ary[i].srt + rand_lw_up_bounds(cs_ary[i].srt, cs_ary[i].end);
 
       // ONLY reschedule IF the current i's wakeup has expired (ie, it doesn't
       // have a wakeup event scheduled later today) AND the current time is NOT
@@ -171,7 +155,7 @@ void config_wakeup_schedule(){
       APP_LOG(APP_LOG_LEVEL_ERROR, "config wakeup index %d",i); // for debuggin only
 
       if(!wakeup_query(read_wakeup_id_at_config_wakeup_index(i),NULL)
-            && (today_s < today_m_to_today_s(cs_ary[i].srt) )){
+            && (today_s < cs_ary[i].srt )){
 
         cw_wakeup_id = reschedule_config_wakeup_index(i, wakeup_time_t);
         APP_LOG(APP_LOG_LEVEL_ERROR, "dealing with index %d for time_t %d with wakeup_id %d",
@@ -190,12 +174,12 @@ void config_wakeup_schedule(){
 
   int32_t sec_1am = 60;
   // 2.
-  // wakeup tomorrow @ 7:00am, for possible time zone changes
+  // wakeup tomorrow @ 12:00am, for possible time zone changes
   if(!wakeup_query(read_wakeup_id_at_config_wakeup_index(6),NULL)){
     reschedule_config_wakeup_index(6, today_srt_time_t + NUM_SEC_IN_DAY + sec_1am);
   }
   //3.
-  // fallback wakeup, +7 days from now @ 7:00 am, for possible timezone changes
+  // fallback wakeup, +7 days from now @ 12:00 am,
   // just always cancel and then rewrite
   reschedule_config_wakeup_index(7, today_srt_time_t + NUM_SEC_IN_WEEK + sec_1am);
 
@@ -205,116 +189,3 @@ void config_wakeup_schedule(){
   //   APP_LOG(APP_LOG_LEVEL_ERROR,"sizeof(cs_ary) : %d",sizeof(cs_ary[0]));
 
 }
-
-
-
-
-// void config_wakeup_schedule(){
-
-//   // get config structure and read into
-//   int16_t n_wakeup_config = persist_get_size(CONFIG_PERSIST_KEY)/sizeof(struct wakeup_config);
-//   // declare the wakeup_config array
-//   struct wakeup_config cs_ary[n_wakeup_config];
-//   // read data into the wakeup_config array
-//   persist_read_data(CONFIG_PERSIST_KEY, cs_ary, sizeof(cs_ary));
-
-// //   APP_LOG(APP_LOG_LEVEL_ERROR,"n_wakeup_config : %d",n_wakeup_config);
-// //   APP_LOG(APP_LOG_LEVEL_ERROR,"sizeof(cs_ary) : %d",sizeof(cs_ary));
-// //   APP_LOG(APP_LOG_LEVEL_ERROR,"sizeof(cs_ary) : %d",sizeof(cs_ary[0]));
-
-
-//   //initialize vars for the today time
-//   int32_t today_srt_time_t, cur_today_s;
-//   // set the start of day time and the today sec time
-//   today_srt_time_t_today_s(&today_srt_time_t,&cur_today_s);
-//   // initialize the config comparison
-//   int32_t min_config_today_s_srt = 84599; // can only decrease from here
-//   int16_t config_s_srt = -1;
-//   int16_t i_min_config_today_s_srt = -1; // in case no config left today
-
-//   // find the minimal config time and index that is greater than
-//   // the current time
-// //   config_s_srt = config_t_to_today_s( (cs_ary[0]).srt);
-// //   APP_LOG(APP_LOG_LEVEL_ERROR,"config_s_srt : %d",config_s_srt);
-
-//   for(int16_t i =0; i< n_wakeup_config; i++){
-//     config_s_srt = config_t_to_today_s(cs_ary[i].srt);
-//     // we only accept as valid the start times that are between now
-//     // and *at most* midnight*
-//     if( (config_s_srt > cur_today_s) && (config_s_srt < min_config_today_s_srt)){
-//       min_config_today_s_srt = config_s_srt;
-//       i_min_config_today_s_srt = i;
-//     }
-//   }
-
-//   APP_LOG(APP_LOG_LEVEL_ERROR,"min_config_today_s_srt : %d", (int)min_config_today_s_srt);
-//   APP_LOG(APP_LOG_LEVEL_ERROR,"i_min_config_today_s_srt : %d",i_min_config_today_s_srt);
-
-// //   i_min_config_today_s_srt = i_min_config_today_s_srt;
-
-//   time_t wakeup_time_t;
-
-//   wakeup_time_t = today_srt_time_t
-//       + min_config_today_s_srt
-//       + rand_lw_up_bounds(
-//     config_t_to_today_s(cs_ary[i_min_config_today_s_srt].srt),
-//     config_t_to_today_s(cs_ary[i_min_config_today_s_srt].end));
-
-//   APP_LOG(APP_LOG_LEVEL_ERROR,"wakeup_time_t : %d", (int)wakeup_time_t);
-
-
-//   // try to schedule the wake up event
-//   // 1. IF the current wakeup id scheduled by a config event is still
-//   // valid, then that means we have NOT reached that pinteract yet,
-//   // so we dont do anything. REMEMBER, a wakeid is valid ONLY
-//   // 2. if there are NO config events whose start times begin after now
-//   // at before midnight, we do nothing, because the app worker will make
-//   // a call to this function at midnight to schedule the first pinteract
-//   // for the day
-//   // NOTE!: WakeupId is simply a int32_t
-//   if( ( !wakeup_query( ((WakeupId) persist_read_int(CONFIG_WAKEUPID_KEY)), NULL))
-//       && (i_min_config_today_s_srt != -1) ){
-//     // set the wakeup time
-//     wakeup_time_t = today_srt_time_t
-//       + min_config_today_s_srt
-//       + rand_lw_up_bounds(
-//       config_t_to_today_s(cs_ary[i_min_config_today_s_srt].srt),
-//       config_t_to_today_s(cs_ary[i_min_config_today_s_srt].end));
-
-//     // schedule the config wakeup handler
-
-//     // schedule the wakeup
-//     WakeupId wakeup_id = wakeup_schedule(wakeup_time_t, CONFIG_WAKEUP_COOKIE, false);
-// //     wakeup_service_subscribe(config_wakeup_handler);
-
-//     // save the wakeupid that is the next current config wakeup
-//     persist_write_int(CONFIG_WAKEUPID_KEY, wakeup_id);
-//     // save which config has been scheduled
-//     persist_write_int(CONFIG_I_WAKEUP_KEY,i_min_config_today_s_srt);
-//     // save what interaction we want to perform when we wakeup
-//     persist_write_int(CONFIG_WAKEUP_PINTERACT_CODE_KEY,
-//                      cs_ary[i_min_config_today_s_srt].pinteract_code);
-
-//     APP_LOG(APP_LOG_LEVEL_ERROR, "wakeup_query : %d", (int) wakeup_query( wakeup_id,NULL ) );
-//     APP_LOG(APP_LOG_LEVEL_ERROR,"wakeup_time_t : %d", (int) wakeup_time_t);
-//     APP_LOG(APP_LOG_LEVEL_ERROR, "pinteract_code : %d",
-//             (int) persist_read_int(CONFIG_WAKEUP_PINTERACT_CODE_KEY));
-
-
-//   }
-
-
-// }
-
-// void config_wakeup_handler(WakeupId wakeup_id, int32_t cookie){
-
-//   APP_LOG(APP_LOG_LEVEL_ERROR, "config_wakeup_handler : %d", (int) wakeup_id );
-//   // get the patient code that is supposed to be executed
-//   uint16_t pinteract_code = persist_read_int(CONFIG_WAKEUP_PINTERACT_CODE_KEY);
-//   APP_LOG(APP_LOG_LEVEL_ERROR, "config_wakeup_handler, pinteract_code : %d", (int) pinteract_code );
-
-//   // get the state of the interaction (ie, if we want to execute it or not)
-
-//   pinteract_driver(pinteract_code);
-
-// }

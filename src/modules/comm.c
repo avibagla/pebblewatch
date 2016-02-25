@@ -2,7 +2,6 @@
 
 // ADD A TRANSMIT WINDOW
 static int16_t retry_count = 0;
-static DictionaryIterator *outbox_iter;
 
 static Window *s_transmit_phone_window;
 static Layer *window_layer;
@@ -10,12 +9,12 @@ static Layer *window_layer;
 static TextLayer *s_transmit_text_layer;
 static TextLayer *s_transmit_countdown_text_layer;
 
-static int16_t trans_code_lcl;
 static AppTimer *app_timer_push_to_server;
 
 static uint16_t cur_countdown;
 static int16_t MAX_RETRY = 5;
 static bool countdown_active = false;
+static const int16_t NUM_SEC_TRANSMIT_SERVER = 15;
 
 static void countdown_timer_handler(void *data);
 
@@ -29,6 +28,19 @@ time_t attempt_acti_upload_time;
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
+// NOTE ! We don't want to give them any options to get out of this.
+// WE have to assume that this is going to be alright, and that
+// the tick handlers will kill the window when it is time.
+
+static void close_transmit_window(){
+  window_stack_remove(s_transmit_phone_window,false);
+}
+
+static void select_click_handler(ClickRecognizerRef recognizer, void *context){}
+static void back_click_handler(ClickRecognizerRef recognizer, void *context){}
+static void up_click_handler(ClickRecognizerRef recognizer, void *context){}
+static void down_click_handler(ClickRecognizerRef recognizer, void *context){}
+
 static void click_config_provider(void *context){
   // single clicks, keep it simple
   window_single_click_subscribe(BUTTON_ID_SELECT, select_click_handler);
@@ -36,6 +48,7 @@ static void click_config_provider(void *context){
   window_single_click_subscribe(BUTTON_ID_UP, up_click_handler);
   window_single_click_subscribe(BUTTON_ID_DOWN, down_click_handler);
 }
+
 
 static void countdown_timer_handler(void *data){
   // Use a long-lived buffer, so declare static
@@ -112,12 +125,12 @@ static void send_data_item(AppKey app_key){
 
 
   // if app message begin is OK
-  if(app_message_outbox_being(&out) == APP_MSG_OK){
+  if(app_message_outbox_begin(&out) == APP_MSG_OK){
     // if AppKeyActiData
-    if(app_key = AppKeyActiData){
-      attempt_acti_upload_time = prev_acti_upload_time + (MAX_ENTRIES*60)
+    if(app_key == AppKeyActiData){
+      attempt_acti_upload_time = prev_acti_upload_time + (MAX_ENTRIES*60);
       // malloc the data
-      int data_size = sizeof(time_t)*2) + sizeof(HealthMinuteData)*MAX_ENTRIES
+      int data_size = (sizeof(time_t)*2) + (sizeof(HealthMinuteData)*MAX_ENTRIES);
       uint8_t *data = (uint8_t*) malloc(data_size );
 
       // add the prev upload and new attempted upload time to the head.
@@ -129,8 +142,8 @@ static void send_data_item(AppKey app_key){
       //  where attempt_acti_upload_time is prev_acti_upload_time * INTERVAL*60
       // write the data block to the block to be sent over
       int num_entries =  health_service_get_minute_history(
-        (HealthMinuteData*) data+(sizeof(time_t)*2),
-        MAX_ENTRIES, prev_acti_upload_time, attempt_acti_upload_time);
+        (HealthMinuteData*) (data+(sizeof(time_t)*2)),
+        MAX_ENTRIES, &prev_acti_upload_time, &attempt_acti_upload_time);
 
       // write data to outbox iterator
       dict_write_data(out, AppKeyActiData, data, data_size);
@@ -162,8 +175,9 @@ static void send_data_item(AppKey app_key){
       }
       free(data);
     // if AppKeyPushToServer
-    }else if(app_key = AppKeyPinteractData){
-      dict_write_int(out, AppKeyPushToServer, 4, true);
+    }else if(app_key == AppKeyPushToServer){
+      int msg_to_server = 0;
+      dict_write_int(out, AppKeyPushToServer,&msg_to_server, 4, true);
       dict_write_end(out);
       if(app_message_outbox_send() != APP_MSG_OK){
         APP_LOG(APP_LOG_LEVEL_ERROR, "Error sending message");
@@ -176,7 +190,7 @@ static void send_data_item(AppKey app_key){
 
 static void outbox_sent_handler(DictionaryIterator *iter, void *context){
   // attempt to send the data in order of importance
-  if(data_to_send_acti() && retry_count < MAX_RETRY )){
+  if(data_to_send_acti() && (retry_count < MAX_RETRY) ){
     send_data_item(AppKeyActiData);
   }else if(data_to_send_pinteract() && (retry_count < MAX_RETRY )){
     send_data_item(AppKeyPinteractData);
@@ -190,7 +204,7 @@ static void outbox_sent_handler(DictionaryIterator *iter, void *context){
   }
 }
 
-static void outbox_dropped_handler(AppMessageResult reason, void *context){
+static void outbox_dropped_handler(DictionaryIterator *iterator, AppMessageResult reason, void *context){
   // if the phone is active, and
   retry_count++;
   APP_LOG(APP_LOG_LEVEL_ERROR, "OUTBOUND MESSAGE DROPPED");
@@ -223,12 +237,12 @@ static void inbox_received_handler(DictionaryIterator *iter, void *context) {
   }
 }
 
-static void comm_begin_upload(){
+void comm_begin_upload(){
   // test if BT connection is up at all. If it is NOT, don't even try
   if(bluetooth_connection_service_peek()){
     app_message_register_inbox_received(inbox_received_handler);
     app_message_register_outbox_sent(outbox_sent_handler);
-    app_message_register_outbox_dropped(outbox_dropped_handler);
+    app_message_register_outbox_failed(outbox_dropped_handler);
     app_message_open(100, 1000);
 
     s_transmit_phone_window = window_create();

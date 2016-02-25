@@ -12,79 +12,81 @@
     "watchface": false
   },
   "appKeys": {
-    "AppKeyJSReady" : 0,
-    "AppKeyActiData" : 1,
-    "AppKeyPinteractData" : 2,
-    "AppKeyPushToServer" : 3
+    "AppKeyJSReady": 0,
+    "AppKeyActiData": 1,
+    "AppKeyPinteractData": 2,
+    "AppKeyPushToServer": 3,
+    "AppKeySentToServer": 4
   },
   "resources": {
     "media": [
       {
-        "menuIcon" : true,
+        "menuIcon": true,
         "type": "png",
-        "name" : "WATCHTOWER_MENU_ICON_28",
-        "file" : "images/light_watchtower_28_bw.png"
+        "name": "WATCHTOWER_MENU_ICON_28",
+        "file": "images/light_watchtower_28_bw.png"
       },
       {
         "type": "png",
-        "name" : "QUESTION_MARK_64",
-        "file" : "images/question_mark_64.png"
+        "name": "QUESTION_MARK_64",
+        "file": "images/question_mark_64.png"
       },
       {
-        "type" : "png",
-        "name" : "DOUBLE_ARROW_RIGHT_24",
-        "file" : "images/double_arrow_right_24.png"
+        "type": "png",
+        "name": "DOUBLE_ARROW_RIGHT_24",
+        "file": "images/double_arrow_right_24.png"
       },
       {
-        "type" : "png",
-        "name" : "DOUBLE_ARROW_UP_24",
-        "file" : "images/double_arrow_up_24.png"
+        "type": "png",
+        "name": "DOUBLE_ARROW_UP_24",
+        "file": "images/double_arrow_up_24.png"
       },
       {
-        "type" : "png",
-        "name" : "DOUBLE_ARROW_DOWN_24",
-        "file" : "images/double_arrow_down_24.png"
+        "type": "png",
+        "name": "DOUBLE_ARROW_DOWN_24",
+        "file": "images/double_arrow_down_24.png"
       },
       {
-        "type" : "png",
-        "name" : "DOUBLE_ARROW_UP_32",
-        "file" : "images/double_arrow_up_32.png"
+        "type": "png",
+        "name": "DOUBLE_ARROW_UP_32",
+        "file": "images/double_arrow_up_32.png"
       },
       {
-        "type" : "png",
-        "name" : "DOUBLE_ARROW_DOWN_32",
-        "file" : "images/double_arrow_down_32.png"
+        "type": "png",
+        "name": "DOUBLE_ARROW_DOWN_32",
+        "file": "images/double_arrow_down_32.png"
       },
       {
-        "type" : "png",
-        "name" : "BLUETOOTH_ICON_24",
-        "file" : "images/bluetooth_icon_24.png"
+        "type": "png",
+        "name": "BLUETOOTH_ICON_24",
+        "file": "images/bluetooth_icon_24.png"
       },
       {
-        "type" : "png",
-        "name" : "BLUETOOTH_ICON_48",
-        "file" : "images/bluetooth_icon_48.png"
+        "type": "png",
+        "name": "BLUETOOTH_ICON_48",
+        "file": "images/bluetooth_icon_48.png"
       },
       {
-        "type" : "png",
-        "name" : "X_MARK_24",
-        "file" : "images/x_mark_24.png"
+        "type": "png",
+        "name": "X_MARK_24",
+        "file": "images/x_mark_24.png"
       },
       {
-        "type" : "png",
-        "name" : "CHECK_MARK_24",
-        "file" : "images/check_mark_24.png"
+        "type": "png",
+        "name": "CHECK_MARK_24",
+        "file": "images/check_mark_24.png"
       },
       {
-        "type" : "png",
-        "name" : "BT_CONNECT_HELP_TEXT_144_750",
-        "file" : "images/PK_BT_connect_help_text_144_750.png"
+        "type": "png",
+        "name": "BT_CONNECT_HELP_TEXT_144_750",
+        "file": "images/PK_BT_connect_help_text_144_750.png"
       }
     ]
   },
   "targetPlatforms": [
     "aplite",
-    "basalt"
+    "basalt",
+    "chalk"
   ],
-  "sdkVersion": "4"
+  "sdkVersion": "3"
 }

@@ -5,6 +5,7 @@
 #include <pebble.h>
 #include "helper.h"
 #include "data.h"
+#include "../constants.h"
 
 // this sends the specified data items, of three types.
 // 1. send all hourly data
@@ -20,7 +21,7 @@ typedef enum{
 } AppKey;
 
 
-static void send_data_item(AppKey app_key);
+// static void send_data_item(AppKey app_key);
 
 
-static void comm_begin_upload();
+void comm_begin_upload();

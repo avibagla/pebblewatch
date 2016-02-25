@@ -1,7 +1,11 @@
 #pragma once
 #include <pebble.h>
-#include "transmit.h"
 #include "constants.h"
+#include "modules/data.h"
+#include "modules/helper.h"
+#include "modules/scheduler.h"
+#include "modules/comm.h"
+
 // #include "config_all/config_func.h"
 // #include "display_all/display_func.h"
 // #include "splash_screens.h"
