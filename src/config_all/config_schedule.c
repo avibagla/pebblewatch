@@ -166,11 +166,11 @@ void config_wakeup_schedule(){
 
   // 1. wakeup 1 hour from now, only if the 1 hour timer hasn't expired yet
   if(!wakeup_query(read_wakeup_id_at_config_wakeup_index(4),NULL)){
-    reschedule_config_wakeup_index(4, time() + 1*60*60);
+    reschedule_config_wakeup_index(4, time(NULL) + 1*60*60);
   }
   // NOTE : Fallback timer, just always cancel and then rewrite
   // 2. wakeup 12 hours from now
-  reschedule_config_wakeup_index(5, time() + 12*60*60);
+  reschedule_config_wakeup_index(5, time(NULL) + 12*60*60);
   // 3.
   // wakeup tomorrow @ 12:01am, for possible time zone changes
   reschedule_config_wakeup_index(6, today_srt_time_t + NUM_SEC_IN_DAY + 60);

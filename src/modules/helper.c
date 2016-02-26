@@ -37,7 +37,7 @@ void reset_config_wakeup_persistent_storage(){
   }
 
   // write the current day of the month
-  time_t cur_time = time(NULL);
+  // time_t cur_time = time(NULL);
   // struct tm *cur_time_tm =  localtime(&cur_time);
   // persist_write_int(CUR_MDAY_PERSIST_KEY,cur_time_tm->tm_mday);
 

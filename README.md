@@ -7,7 +7,11 @@ among the different functionalities it needs to have
   a. minute level data sent up in 1 hour blocks
 2. Patient interaction ("pinteract")
   a. display specific surveys/tests at same time of day, each day
-  b. push the surveys up to the server when push the acti data
+  b. pinteracts to implement
+    - mood survey 
+    - sleep diary entry (quality, sleep duration)
+    - sleep marker (press the button when going to sleep and waking up)  
+  c. push the surveys up to the server when push the acti data
 3.
   a. show recordings of previous surveys for limited set of surveys for past several days
 

@@ -169,7 +169,7 @@ static void send_data_item(AppKey app_key){
           APP_LOG(APP_LOG_LEVEL_ERROR, "Error sending message");
         }else{
           // that if we sent the data, we mark it as the current key
-          cur_app_key == app_key;
+          cur_app_key = app_key;
         }
       }
       // free the malloced data
@@ -182,6 +182,8 @@ static void send_data_item(AppKey app_key){
       int pstorage_key = get_next_pinteract_element_key();
       int data_size = get_size_of_pinteract_element_data(pstorage_key);
       uint8_t *data = (uint8_t*) malloc(data_size);
+      // write the data from the pinteract into the data buffer
+      persist_write_data(pstorage_key, data, data_size);
 
       dict_write_data(out, AppKeyPinteractData, data, data_size);
       dict_write_end(out);
@@ -198,7 +200,7 @@ static void send_data_item(AppKey app_key){
         APP_LOG(APP_LOG_LEVEL_ERROR, "Error sending message");
       }else{
         // that if we sent the data, we mark it as the current key
-        cur_app_key == app_key;
+        cur_app_key = app_key;
       }
     }
   }else{
@@ -207,17 +209,25 @@ static void send_data_item(AppKey app_key){
 }
 
 static void outbox_sent_handler(DictionaryIterator *iter, void *context){
+  // reset the retry counter once we have a successful transmisstion
+  retry_count = 0;
   // modify the data counts based on the message that was just sent
   if(cur_app_key == AppKeyActiData){
     // add one second to move it into the next minute
     prev_acti_upload_time_plus1sec = attempt_acti_upload_time + 1;
     persist_write_int(ACTI_LAST_UPLOAD_TIME_PERSIST_KEY ,prev_acti_upload_time_plus1sec);
   }else if(cur_app_key == AppKeyPinteractData){
-    persist_read_write(PINTERACT_KEY_COUNT_PERSIST_KEY,
+    persist_write_int(PINTERACT_KEY_COUNT_PERSIST_KEY,
       persist_read_int(PINTERACT_KEY_COUNT_PERSIST_KEY) - 1);
   }
 
-  // attempt to send the data in order of importance
+  // attempt to send the data in order of importance, keep sending the respective
+  // data until we don't have anymore of that datatype to send, where the datatype
+  // data types are
+  // 1. acti -> motion
+  // 2. pinteract -> patient interactino
+  // 3. push to server flag
+  // NOTE : once we have no more data, we close by default
   if(data_to_send_acti() ){
     send_data_item(AppKeyActiData);
   }else if(data_to_send_pinteract()){
@@ -233,10 +243,25 @@ static void outbox_sent_handler(DictionaryIterator *iter, void *context){
 }
 
 static void outbox_dropped_handler(DictionaryIterator *iterator, AppMessageResult reason, void *context){
-  // if the phone is active, and
+  // if we failed to send, we increment the retry count
   retry_count++;
   APP_LOG(APP_LOG_LEVEL_ERROR, "OUTBOUND MESSAGE DROPPED");
   // close_transmit_window();
+
+  // attempt based on what type of data was attempting to be sent when failed
+  // NOTE : once we have no more data, we close by default
+  if((cur_app_key == AppKeyActiData) && (retry_count < MAX_RETRY)){
+    send_data_item(AppKeyActiData);
+  }else if((cur_app_key == AppKeyPinteractData) && (retry_count < MAX_RETRY) ){
+    send_data_item(AppKeyPinteractData);
+  // test if the connection is active to see if we can infact push to the server
+  }else if( connection_service_peek_pebble_app_connection() ){
+    send_data_item(AppKeyPushToServer);
+  }else{
+    countdown_active = false;
+    // once reach the end of the countdown, remove the window no matter what
+    close_transmit_window();
+  }
 }
 
 static void inbox_received_handler(DictionaryIterator *iter, void *context) {
