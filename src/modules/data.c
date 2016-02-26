@@ -10,14 +10,28 @@ bool data_to_send_pinteract(){
   return (persist_read_int(PINTERACT_KEY_COUNT_PERSIST_KEY) > 0);
 }
 
-
 int get_next_pinteract_element_key(){
   // a stub
-  return 1;
+  uint8_t *data = (uint8_t*) malloc(PINTERACT_LIST_PS_B_SIZE);
+  persist_read_data(PINTERACT_KEY_LIST_PERSIST_KEY, data, PINTERACT_LIST_PS_B_SIZE);
+  // offset because PINTERACT_KEY_COUNT_PERSIST_KEY is a *count* not an index
+  return data[persist_read_int(PINTERACT_KEY_COUNT_PERSIST_KEY)-1];
 }
 
-int get_size_of_pinteract_element_data(int pstorage_key){
+int get_data_size_of_pinteract_element(int pstorage_key){
   // get the head of the pinteract block, which will contain the size of the
-  // whole block
-  return 1;
+  // whole block, so we just write the first two bytes into the
+  uint16_t pinteract_size[2];
+  persist_read_data(pstorage_key, pinteract_size, 4);
+  //get the second first number element of the array, whcih
+  return pinteract_size[1];
+}
+
+int get_pinteract_code_of_pinteract_element(int pstorage_key){
+  // get the head of the pinteract block, which will contain the size of the
+  // whole block, so we just write the first two bytes into the
+  uint16_t pinteract_size[2];
+  persist_read_data(pstorage_key, pinteract_size, 4);
+  //get the second first number element of the array, whcih
+  return pinteract_size[0];
 }

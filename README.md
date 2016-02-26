@@ -8,7 +8,7 @@ among the different functionalities it needs to have
 2. Patient interaction ("pinteract")
   a. display specific surveys/tests at same time of day, each day
   b. pinteracts to implement
-    - mood survey 
+    - mood survey
     - sleep diary entry (quality, sleep duration)
     - sleep marker (press the button when going to sleep and waking up)  
   c. push the surveys up to the server when push the acti data
@@ -36,3 +36,22 @@ Scheduling
     2. The second array contains the wakeup ids themselves, with the index of the array corresponding one-to-one with the index of the WakeupConfig array, so that when a timer with a given wakeup id goes off we know which pinteract to start. This is made easier because we can specify a cookie to be stored with the wakeup id, so what when the wakeup timer goes off we get an integer associated with that wakeup. We simply set that integer to be the index corresponding to that wakeup id in the wakeup id array, and hence the same index corresponds to the pinteract that should be triggered in the WakeupConfig array.
     - NOTE, everytime a timer goes off all the events are rescheduled incase the watch was off for some period of time.
   3. The 1 hour timer transmission timer and 3 fallback timers are reset when any non-pinteract timer goes off.
+
+
+
+NEED TO DO
+  1. rewrite the pinteract section to allow for less complex survey data structure so easier to implement new surveys and pinteracts and simplier to interpret data returns.
+    - pinteracts to re-write
+      - privacy screen
+      - mood survey
+      - sleep quality and duration survery
+      - -> to do, a sleep marker that the user can press to tell when going to bed and waking up, very useful though unsure if patient will comply
+  2. double check the transmission code and troubleshoot differences betwen android and iphone uploading of data.
+  3. add code to initialize persistent storage, write pinteract data to storage. 
+
+
+  Pinteract design flow
+    - a privacy screen to popup before any surveys or tests, allow patient to dismiss the interaction for 30 minutes or 3 hours or to begin it.
+    - a data structure corresponding to each survey/test type, custom
+      - note, each data structure must have the pinteract code and size of the data struct at as the top 4 bytes (0:1 for pinteract code, 2:3 for data structure size). See /pinteract/pinteract_struct.h for an example. Note, we want a start time for when the privacy screen is presented, when the interaction is started, and when the interaction finishes.
+    -

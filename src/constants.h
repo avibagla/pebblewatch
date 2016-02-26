@@ -67,7 +67,7 @@ static const int32_t CUR_WP_VERSION = 15;
 /* +++++++++++++++ VARIABLES +++++++++++++++ */
 
 // +++++++ pinteract variables/parameters
-static const uint16_t MAX_PINTERACT_PS_B_SIZE = PERSIST_DATA_MAX_LENGTH ;// assume it is uint16
+static const uint16_t PINTERACT_LIST_PS_B_SIZE = PERSIST_DATA_MAX_LENGTH ;// assume it is uint16
 static const uint16_t PINTERACT_PS_HEAD_B_SIZE = 6; // timestamp + counter
 static const uint16_t PINTERACT_RES_BUF_COUNTER_B_SIZE = 2;
 static const uint16_t PINTERACT_PS_B_COUNT_IND = 4; // byte counter

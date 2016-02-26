@@ -180,10 +180,10 @@ static void send_data_item(AppKey app_key){
 
       // get the size of the next pinteract element in pstorage
       int pstorage_key = get_next_pinteract_element_key();
-      int data_size = get_size_of_pinteract_element_data(pstorage_key);
+      int data_size = get_data_size_of_pinteract_element(pstorage_key);
       uint8_t *data = (uint8_t*) malloc(data_size);
       // write the data from the pinteract into the data buffer
-      persist_write_data(pstorage_key, data, data_size);
+      persist_read_data(pstorage_key, data, data_size);
 
       dict_write_data(out, AppKeyPinteractData, data, data_size);
       dict_write_end(out);
