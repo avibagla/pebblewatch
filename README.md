@@ -53,5 +53,4 @@ NEED TO DO
 Pinteract design flow
 - a privacy screen to popup before any surveys or tests, allow patient to dismiss the interaction for 30 minutes or 3 hours or to begin it.
 - a data structure corresponding to each survey/test type, custom
-  - note, each data structure must have the pinteract code and size of the data struct at as the top 4 bytes (0:1 for pinteract code, 2:3 for data structure size). See /pinteract/pinteract_struct.h for an example. Note, we want a start time for when the privacy screen is presented, when the interaction is started, and when the interaction finishes.
--
+- note, each data structure must have the pinteract code and size of the data struct at as the top 4 bytes (0:1 for pinteract code, 2:3 for data structure size). See /pinteract/pinteract_struct.h for an example. Note, we want a start time for when the privacy screen is presented, when the interaction is started, and when the interaction finishes.
