@@ -32,17 +32,19 @@ Pebble App roject.
 
 static void init() {
   /* ++++++ CHECK IF FIRST TIME APP INSTALLED +++++ */
-
+  // if first time installed or a new version is put out, then
+  // reset everything
+  if(!persist_exists(CUR_WP_VERSION_PERSIST_KEY)
+    || (persist_read_int(CUR_WP_VERSION_PERSIST_KEY) != CUR_WP_VERSION )){
+    // write the current version of the app into persist storage
+    persist_write_int(CUR_WP_VERSION_PERSIST_KEY, CUR_WP_VERSION);
+    reset_config_wakeup_persistent_storage();
+  }
 
   /* ++++++ EVERY TIME THE APP STARTS  +++++ */
   // ALWAYS register the wakeup handler each time the app is opened so that,
   // when the app is closed again, that the wakeup handler will take place.
   wakeup_service_subscribe(wakeup_main_response_handler);
-
-  // CURRENTLY UNUSED AS OF VERSION 0.15
-  // !! Register the global tick timer function. ALL elements will use this
-  // and this tick timer alone!
-  // tick_timer_service_subscribe(SECOND_UNIT, fore_app_master_tick_timer_handler);
 
 
   /* ++++++ LAUNCH REASONS ++++++ */

@@ -30,6 +30,7 @@ static const int16_t ACTIVE_WAKEUP_CONFIG_I_PERSIST_KEY = 132;
 // +++++++ Configuration Data
 static const int16_t CONFIG_GENERAL_PERSIST_KEY = 180;
 static const int16_t CONFIG_WAKEUP_PERSIST_KEY = 181;
+static const int32_t CUR_WP_VERSION_PERSIST_KEY = 182;
 
 
 // +++++++ Interaction Data
