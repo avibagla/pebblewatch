@@ -1,11 +1,11 @@
 #pragma once
 
 // Number of data items to obtain from the HealthService API, ie: minutes
-#define MAX_ENTRIES 60
+#define MAX_ENTRIES 2
 
 // Number of minutes between uploads, and the number of items read from
 // the HealthService minute data API.
-#define INTERVAL_MINUTES 1
+#define INTERVAL_MINUTES 2
 
 // Send squares test data instead of data from the HealthService minute
 // minute data API
