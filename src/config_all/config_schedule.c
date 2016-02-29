@@ -1,4 +1,5 @@
 #include "config_func.h"
+#include "../constants.h"
 // a function that follows the time_ms example and will write it to two
 // variables, a timestamp for start of day and number of seconds since
 // start of the day, which is also directly returned
@@ -106,7 +107,7 @@ WakeupId reschedule_config_wakeup_index(int16_t config_wakeup_i, time_t wakeup_t
 
   WakeupId cw_wakeup_id = -1; // signal that reschedule was unsuccessful
   // guard against improper inputs
-  if((config_wakeup_i >= 0) && (config_wakeup_i < NUM_CONFIG_WAKEUP)
+  if((config_wakeup_i >= 0) && (config_wakeup_i < NUM_TOTAL_WAKEUP)
     && (wakeup_time_t > time(NULL))){
       cw_wakeup_id = read_wakeup_id_at_config_wakeup_index(config_wakeup_i);
       wakeup_cancel(cw_wakeup_id);
@@ -166,7 +167,7 @@ void config_wakeup_schedule(){
 
   // 1. wakeup 1 hour from now, only if the 1 hour timer hasn't expired yet
   if(!wakeup_query(read_wakeup_id_at_config_wakeup_index(4),NULL)){
-    reschedule_config_wakeup_index(4, time(NULL) + 1*60*60);
+    reschedule_config_wakeup_index(4, time(NULL) + INTERVAL_MINUTES*60);
   }
   // NOTE : Fallback timer, just always cancel and then rewrite
   // 2. wakeup 12 hours from now
@@ -177,4 +178,6 @@ void config_wakeup_schedule(){
   // 4.
   // fallback wakeup, +7 days from now @ 12:01 am,
   reschedule_config_wakeup_index(7, today_srt_time_t + NUM_SEC_IN_WEEK + 60);
+
+  APP_LOG(APP_LOG_LEVEL_ERROR, "rescheduled all timers"); // for debuggin only
 }

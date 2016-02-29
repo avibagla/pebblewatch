@@ -48,6 +48,7 @@ NEED TO DO
       - -> to do, a sleep marker that the user can press to tell when going to bed and waking up, very useful though unsure if patient will comply
   2. double check the transmission code and troubleshoot differences betwen android and iphone uploading of data.
   3. add code to initialize persistent storage, write pinteract data to storage.
+  4. design pinteracts so that can be remotely configurable
 
 
 Pinteract design flow

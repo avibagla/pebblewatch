@@ -239,6 +239,9 @@ void wakeup_main_response_handler(WakeupId wakeup_id, int32_t wakeup_cookie){
     //   window_stack_pop_all(false);
     // }
 
+  }else if(( wakeup_cookie < NUM_TOTAL_WAKEUP) && ( wakeup_cookie >= NUM_CONFIG_WAKEUP) ){
+    APP_LOG(APP_LOG_LEVEL_ERROR,"attempt to transmit from wakeup");
+    comm_begin_upload();
   }
 }
 

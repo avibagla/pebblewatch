@@ -123,29 +123,49 @@ static void transmit_phone_window_unload(Window *window) {
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 static void send_data_item(AppKey app_key){
+
   DictionaryIterator *out;
+  if(app_key == AppKeyActiData){
+    prev_acti_upload_time_plus1sec = persist_read_int(ACTI_LAST_UPLOAD_TIME_PERSIST_KEY);
+    attempt_acti_upload_time = time(NULL); // This is okay because the
+    // health_service_get_minute_history rewrites the time to be at the end of
+    // the health period
+    // prev_acti_upload_time_plus1sec = 1456591323;
+    // attempt_acti_upload_time = 1456591623; // This is okay because the
 
 
-  // if app message begin is OK
-  if(app_message_outbox_begin(&out) == APP_MSG_OK){
-    // if AppKeyActiData
-    if(app_key == AppKeyActiData){
-      attempt_acti_upload_time = prev_acti_upload_time_plus1sec + (MAX_ENTRIES*60);
-      // malloc the data
-      int data_size = (sizeof(time_t)*2) + (sizeof(HealthMinuteData)*MAX_ENTRIES);
-      uint8_t *data = (uint8_t*) malloc(data_size );
+    // malloc the data
+    int data_size = (sizeof(time_t)*2) + (sizeof(HealthMinuteData)*MAX_ENTRIES);
+    uint8_t *data = (uint8_t*) malloc(data_size );
 
-      // add the prev upload and new attempted upload time to the head.
+    // add the prev upload and new attempted upload time to the head.
 
 
-      // add the period data to the remainder of the block
-      // get the data from  prev_acti_upload_time_plus1sec to attempt_acti_upload_time
-      //  where attempt_acti_upload_time is prev_acti_upload_time_plus1sec * INTERVAL*60
-      // write the data block to the block to be sent over
-      int num_entries =  health_service_get_minute_history(
-        (HealthMinuteData*) (data+(sizeof(time_t)*2)),
-        MAX_ENTRIES, &prev_acti_upload_time_plus1sec, &attempt_acti_upload_time);
+    // add the period data to the remainder of the block
+    // get the data from  prev_acti_upload_time_plus1sec to attempt_acti_upload_time
+    //  where attempt_acti_upload_time is prev_acti_upload_time_plus1sec * INTERVAL*60
+    // write the data block to the block to be sent over
+    APP_LOG(APP_LOG_LEVEL_ERROR,"try times prev %d :: attempt %d",
+      (int)prev_acti_upload_time_plus1sec, (int)attempt_acti_upload_time);
 
+
+    HealthServiceAccessibilityMask result = health_service_metric_accessible(
+      HealthMetricStepCount, prev_acti_upload_time_plus1sec, attempt_acti_upload_time);
+
+    if(result != HealthServiceAccessibilityMaskAvailable){
+      APP_LOG(APP_LOG_LEVEL_ERROR,"mask no available");
+    }
+
+    int num_entries =  health_service_get_minute_history(
+      (HealthMinuteData*) (data+(sizeof(time_t)*2)),
+      MAX_ENTRIES, &prev_acti_upload_time_plus1sec, &attempt_acti_upload_time);
+    // if the number of retrieved records matched what is expected, send it
+    APP_LOG(APP_LOG_LEVEL_ERROR,"num_entries %d :: prev %d :: attempt %d",
+      (int) num_entries, (int)prev_acti_upload_time_plus1sec, (int)attempt_acti_upload_time);
+
+
+    // ONLY TRANSMIT IF BLOCK PROPER SIZE
+    if(num_entries == MAX_ENTRIES){
       // NOTE: if prev_acti_upload_time_plus1sec on entry to health_service_get_minute_history.
       // is somewhere in the middle of a minute interval, then the function behaves
       // as if the caller passed in the start of that minute.
@@ -156,56 +176,77 @@ static void send_data_item(AppKey app_key){
       // HENCE, when we record the previous last upload time in order to
       // setup for the next upload, we have to add one second to get the next minute
       write_time_to_array_head(attempt_acti_upload_time, data+4);
-
-      // write data to outbox iterator
-      dict_write_data(out, AppKeyActiData, data, data_size);
-      dict_write_end(out);
-      // if the number of retrieved records matched what is expected, send it
-      if(num_entries != MAX_ENTRIES){
-        APP_LOG(APP_LOG_LEVEL_ERROR,
-          "num_entries returned does not match MAX_ENTRIES, not sending");
-      }else{
-        if(app_message_outbox_send() != APP_MSG_OK){
-          APP_LOG(APP_LOG_LEVEL_ERROR, "Error sending message");
-        }else{
+      if(app_message_outbox_begin(&out) == APP_MSG_OK){
+        // write data to outbox iterator
+        dict_write_data(out, AppKeyActiData, data, data_size);
+        dict_write_end(out);
+        if(app_message_outbox_send() == APP_MSG_OK){
           // that if we sent the data, we mark it as the current key
           cur_app_key = app_key;
+        }else{
+          APP_LOG(APP_LOG_LEVEL_ERROR, "Error sending message");
         }
-      }
-      // free the malloced data
-      free(data);
-      // AppKeyPinteractData
-    }else if(app_key == AppKeyPinteractData){
-      // get the address of the next element of the pinteract in pstorage
-
-      // get the size of the next pinteract element in pstorage
-      int pstorage_key = get_next_pinteract_element_key();
-      int data_size = get_data_size_of_pinteract_element(pstorage_key);
-      uint8_t *data = (uint8_t*) malloc(data_size);
-      // write the data from the pinteract into the data buffer
-      persist_read_data(pstorage_key, data, data_size);
-
-      dict_write_data(out, AppKeyPinteractData, data, data_size);
-      dict_write_end(out);
-      if(app_message_outbox_send() != APP_MSG_OK){
-        APP_LOG(APP_LOG_LEVEL_ERROR, "Error sending message");
-      }
-      free(data);
-    // if AppKeyPushToServer
-    }else if(app_key == AppKeyPushToServer){
-      int msg_to_server = 0;
-      dict_write_int(out, AppKeyPushToServer,&msg_to_server, 4, true);
-      dict_write_end(out);
-      if(app_message_outbox_send() != APP_MSG_OK){
-        APP_LOG(APP_LOG_LEVEL_ERROR, "Error sending message");
       }else{
-        // that if we sent the data, we mark it as the current key
-        cur_app_key = app_key;
+        APP_LOG(APP_LOG_LEVEL_ERROR, "Error beginning message");
+      }
+      // free malloced data
+      free(data);
+    }else{
+      APP_LOG(APP_LOG_LEVEL_ERROR,
+        "num_entries returned does not match MAX_ENTRIES, not sending");
+      // if fewer than expected entries, then we must skip down to the next
+      // level of data to send, the pinteracts. This shouldn't happen because
+      // the gate of data to send on the sent handler, but just in case
+      // free the malloced data first
+      free(data);
+      if(data_to_send_pinteract()){
+        send_data_item(AppKeyPinteractData);
+      }else if(connection_service_peek_pebble_app_connection()){
+        send_data_item(AppKeyPushToServer);
       }
     }
-  }else{
-    APP_LOG(APP_LOG_LEVEL_ERROR, "Error beginning message");
+    // AppKeyPinteractData
+  }else if(app_key == AppKeyPinteractData){
+    // get the address of the next element of the pinteract in pstorage
+
+    // get the size of the next pinteract element in pstorage
+    int pstorage_key = get_next_pinteract_element_key();
+    int data_size = get_data_size_of_pinteract_element(pstorage_key);
+    uint8_t *data = (uint8_t*) malloc(data_size);
+    // write the data from the pinteract into the data buffer
+    persist_read_data(pstorage_key, data, data_size);
+
+    if(app_message_outbox_begin(&out) == APP_MSG_OK){
+      dict_write_data(out, AppKeyPinteractData, data, data_size);
+      dict_write_end(out);
+
+      if(app_message_outbox_send() == APP_MSG_OK){
+        // that if we sent the data, we mark it as the current key
+        cur_app_key = app_key;
+      }else{
+        APP_LOG(APP_LOG_LEVEL_ERROR, "Error sending message");
+      }
+    }else{
+      APP_LOG(APP_LOG_LEVEL_ERROR, "Error beginning message");
+    }
+    free(data);
+  // if AppKeyPushToServer
+  }else if(app_key == AppKeyPushToServer){
+    int msg_to_server = 0;
+    if(app_message_outbox_begin(&out) == APP_MSG_OK){
+      dict_write_int(out, AppKeyPushToServer,&msg_to_server, 4, true);
+      dict_write_end(out);
+      if(app_message_outbox_send() == APP_MSG_OK){
+        // that if we sent the data, we mark it as the current key
+        cur_app_key = app_key;
+      }else{
+        APP_LOG(APP_LOG_LEVEL_ERROR, "Error sending message");
+      }
+    }else{
+      APP_LOG(APP_LOG_LEVEL_ERROR, "Error beginning message");
+    }
   }
+
 }
 
 static void outbox_sent_handler(DictionaryIterator *iter, void *context){
@@ -214,11 +255,12 @@ static void outbox_sent_handler(DictionaryIterator *iter, void *context){
   // modify the data counts based on the message that was just sent
   if(cur_app_key == AppKeyActiData){
     // add one second to move it into the next minute
-    prev_acti_upload_time_plus1sec = attempt_acti_upload_time + 1;
-    persist_write_int(ACTI_LAST_UPLOAD_TIME_PERSIST_KEY ,prev_acti_upload_time_plus1sec);
+    persist_write_int(ACTI_LAST_UPLOAD_TIME_PERSIST_KEY ,attempt_acti_upload_time + 1);
   }else if(cur_app_key == AppKeyPinteractData){
     persist_write_int(PINTERACT_KEY_COUNT_PERSIST_KEY,
       persist_read_int(PINTERACT_KEY_COUNT_PERSIST_KEY) - 1);
+  }else if(cur_app_key == AppKeyPushToServer){
+    return;
   }
 
   // attempt to send the data in order of importance, keep sending the respective
@@ -233,7 +275,7 @@ static void outbox_sent_handler(DictionaryIterator *iter, void *context){
   }else if(data_to_send_pinteract()){
     send_data_item(AppKeyPinteractData);
   // test if the connection is active to see if we can infact push to the server
-  }else if( connection_service_peek_pebble_app_connection() ){
+  }else if( connection_service_peek_pebble_app_connection() && (cur_app_key != AppKeyPushToServer)){
     send_data_item(AppKeyPushToServer);
   }else{
     countdown_active = false;
@@ -277,7 +319,7 @@ static void inbox_received_handler(DictionaryIterator *iter, void *context) {
       send_data_item(AppKeyActiData);
     }else if(data_to_send_pinteract()){
       send_data_item(AppKeyPinteractData);
-    }else{
+    }else if (connection_service_peek_pebble_app_connection() ){
       send_data_item(AppKeyPushToServer);
     }
   }

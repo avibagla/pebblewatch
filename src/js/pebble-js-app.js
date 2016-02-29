@@ -13,7 +13,7 @@
 // 2.  changed all local storage key prefixs from 'pk' to 'wp'
 
 /* >>>>> GLOBAL CONSTANTS <<<<<< */
-var wpURL = 'http://projectkraepelin.org';
+var wpURL = 'http://wearpsych-test-dev.us-west-1.elasticbeanstalk.com';
 var baseRoute = 'dataflow/upload';
 var servicePlatform = 'pebble';
 var deviceType = 'pebblewatch';
@@ -37,6 +37,10 @@ var keyGenArray = [];
 /* >>>>>>>>> DEFINE SYSTEM CALLBACKS  <<<<<< */
 Pebble.addEventListener("ready", function(e) {
   console.log('Starting Wearable Psych, send ready message to pebble');
+  if(DEBUG_RESET_LOCAL_STORAGE){
+    removeAllKeys();
+    listAllKeys();
+  }
   Pebble.sendAppMessage( { 'AppKeyJSReady': 0});
 
   // // check version
@@ -58,18 +62,13 @@ Pebble.addEventListener('appmessage', function(e) {
   // 3. push to server -> signal to push all data to the server
 
   touchAllKeys(); // VOODOO, no idea why this is needed, a bug in JS code?
-  // ONLY USED FOR DEBUGGING
-  if(DEBUG_RESET_LOCAL_STORAGE){
-    removeAllKeys();
-    listAllKeys();
-  }
 
   if(e.payload.AppKeyActiData != undefined){
     // if actigraphy data, then save to local storage
-    saveNewToLocalStorage(e.payload.acti,'acti');
+    saveNewToLocalStorage(e.payload.AppKeyActiData,'acti');
   }else if(e.payload.AppKeyPinteractData != undefined){
     // if pinteract data, then save to local storage
-    saveNewToLocalStorage(e.payload.pinteract,'pinteract');
+    saveNewToLocalStorage(e.payload.AppKeyPinteractData,'pinteract');
   }else if(e.payload.AppKeyPushToServer != undefined ){
     // If we want to push to server.
     attemptToTransmitAllKeysLS();
@@ -405,7 +404,7 @@ function touchAllKeys(){
 /* +++++++++++++++ DEPRECIATED CODE FOR PEBBLE JS: START +++++++++++++++ */
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
-/
+
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 /* +++++++++++++++ DEPRECIATED CODE FOR PEBBLE JS: END +++++++++++++++ */
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */

@@ -1,7 +1,7 @@
 #pragma once
 
 // Number of data items to obtain from the HealthService API, ie: minutes
-#define MAX_ENTRIES 1
+#define MAX_ENTRIES 60
 
 // Number of minutes between uploads, and the number of items read from
 // the HealthService minute data API.
@@ -23,7 +23,6 @@
 // +++++++ App State
 static const int16_t ACTI_LAST_UPLOAD_TIME_PERSIST_KEY = 128;
 static const int16_t PINTERACT_KEY_COUNT_PERSIST_KEY = 129;
-static const int16_t PINTERACT_KEY_LIST_PERSIST_KEY = 130;
 static const int16_t CONFIG_WAKEUP_IDS_PERSIST_KEY = 131;
 static const int16_t ACTIVE_WAKEUP_CONFIG_I_PERSIST_KEY = 132;
 
