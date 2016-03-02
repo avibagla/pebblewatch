@@ -97,11 +97,12 @@ static void transmit_phone_window_load(Window *window) {
 
   // since updating time, subscribe to tick timer service
   cur_countdown = NUM_SEC_TRANSMIT_SERVER;
+  // NOTE : we can't rewrite this as a second tick tock handler because might
+  //  conflict with other tick tock handlers we want to use
   countdown_timer_handler(NULL);
 }
 
 static void transmit_phone_window_unload(Window *window) {
-  retry_count = 0;
   // get rid of text layer
   text_layer_destroy(s_transmit_text_layer);
   // IF we get to the transmit count down timer, then we destroy those elements
@@ -111,7 +112,7 @@ static void transmit_phone_window_unload(Window *window) {
   text_layer_destroy(s_transmit_countdown_text_layer);
   // Destroy the banner layer
 
-  // desregister the callbacks LAST
+  // desregister the callbacks LAST. Why?
   app_message_deregister_callbacks();
 }
 
@@ -135,8 +136,8 @@ static void send_data_item(AppKey app_key){
 
 
     // malloc the data
-    int data_size = (sizeof(time_t)*2) + (sizeof(HealthMinuteData)*MAX_ENTRIES);
-    uint8_t *data = (uint8_t*) malloc(data_size );
+    int data_hmd_size = (sizeof(time_t)*2) + (sizeof(HealthMinuteData)*MAX_ENTRIES);
+    HealthMinuteData* data_hmd = (HealthMinuteData*) malloc(data_hmd_size );
 
     // add the prev upload and new attempted upload time to the head.
 
@@ -156,16 +157,33 @@ static void send_data_item(AppKey app_key){
       APP_LOG(APP_LOG_LEVEL_ERROR,"mask no available");
     }
 
+
     int num_entries =  health_service_get_minute_history(
-      (HealthMinuteData*) (data+(sizeof(time_t)*2)),
+      (HealthMinuteData*) data_hmd,
       MAX_ENTRIES, &prev_acti_upload_time_plus1sec, &attempt_acti_upload_time);
+
+
+
     // if the number of retrieved records matched what is expected, send it
     APP_LOG(APP_LOG_LEVEL_ERROR,"num_entries %d :: prev %d :: attempt %d",
       (int) num_entries, (int)prev_acti_upload_time_plus1sec, (int)attempt_acti_upload_time);
 
 
     // ONLY TRANSMIT IF BLOCK PROPER SIZE
-    if(num_entries == MAX_ENTRIES){
+    if(num_entries >= 1){
+      // re-write the data so that we know the structure of the data exactly
+      int trun_hmd_size = 1+1+2+1+1;
+      int ofs = sizeof(time_t)*2;
+      uint8_t *data = (uint8_t*) malloc((sizeof(time_t)*2) + num_entries*trun_hmd_size );
+      for(int i = 0; i < num_entries; i++){
+        data[trun_hmd_size*i + 0 + ofs] = data_hmd[i].steps;
+        data[trun_hmd_size*i + 1+ ofs] = data_hmd[i].orientation;
+        data[trun_hmd_size*i + 2+ ofs] = (uint8_t) data_hmd[i].vmc;
+        data[trun_hmd_size*i + 3+ ofs] = (uint8_t) (data_hmd[i].vmc >> 8);
+        data[trun_hmd_size*i + 4+ ofs] = data_hmd[i].is_invalid;
+        data[trun_hmd_size*i + 5+ ofs] = data_hmd[i].light;
+      }
+      free(data_hmd);
       // NOTE: if prev_acti_upload_time_plus1sec on entry to health_service_get_minute_history.
       // is somewhere in the middle of a minute interval, then the function behaves
       // as if the caller passed in the start of that minute.
@@ -178,7 +196,10 @@ static void send_data_item(AppKey app_key){
       write_time_to_array_head(attempt_acti_upload_time, data+4);
       if(app_message_outbox_begin(&out) == APP_MSG_OK){
         // write data to outbox iterator
-        dict_write_data(out, AppKeyActiData, data, data_size);
+        dict_write_data(out, AppKeyActiData, data,
+          (sizeof(time_t)*2) + (trun_hmd_size*num_entries));
+        // free malloced data
+        free(data);
         dict_write_end(out);
         if(app_message_outbox_send() == APP_MSG_OK){
           // that if we sent the data, we mark it as the current key
@@ -188,17 +209,17 @@ static void send_data_item(AppKey app_key){
         }
       }else{
         APP_LOG(APP_LOG_LEVEL_ERROR, "Error beginning message");
+        // free malloced data
+        free(data);
       }
-      // free malloced data
-      free(data);
     }else{
       APP_LOG(APP_LOG_LEVEL_ERROR,
-        "num_entries returned does not match MAX_ENTRIES, not sending");
+        "num_entries not at least one, not sending");
       // if fewer than expected entries, then we must skip down to the next
       // level of data to send, the pinteracts. This shouldn't happen because
       // the gate of data to send on the sent handler, but just in case
       // free the malloced data first
-      free(data);
+      free(data_hmd);
       if(data_to_send_pinteract()){
         send_data_item(AppKeyPinteractData);
       }else if(connection_service_peek_pebble_app_connection()){
@@ -218,6 +239,7 @@ static void send_data_item(AppKey app_key){
 
     if(app_message_outbox_begin(&out) == APP_MSG_OK){
       dict_write_data(out, AppKeyPinteractData, data, data_size);
+      free(data);
       dict_write_end(out);
 
       if(app_message_outbox_send() == APP_MSG_OK){
@@ -228,8 +250,8 @@ static void send_data_item(AppKey app_key){
       }
     }else{
       APP_LOG(APP_LOG_LEVEL_ERROR, "Error beginning message");
+      free(data);
     }
-    free(data);
   // if AppKeyPushToServer
   }else if(app_key == AppKeyPushToServer){
     int msg_to_server = 0;
@@ -255,7 +277,7 @@ static void outbox_sent_handler(DictionaryIterator *iter, void *context){
   // modify the data counts based on the message that was just sent
   if(cur_app_key == AppKeyActiData){
     // add one second to move it into the next minute
-    persist_write_int(ACTI_LAST_UPLOAD_TIME_PERSIST_KEY ,attempt_acti_upload_time + 1);
+    persist_write_int(ACTI_LAST_UPLOAD_TIME_PERSIST_KEY ,attempt_acti_upload_time);
   }else if(cur_app_key == AppKeyPinteractData){
     persist_write_int(PINTERACT_KEY_COUNT_PERSIST_KEY,
       persist_read_int(PINTERACT_KEY_COUNT_PERSIST_KEY) - 1);
@@ -338,7 +360,9 @@ void comm_begin_upload(){
     app_message_register_inbox_received(inbox_received_handler);
     app_message_register_outbox_sent(outbox_sent_handler);
     app_message_register_outbox_failed(outbox_dropped_handler);
-    app_message_open(100, 1000);
+    // NOTE : incoming data for configuration must match the size of the config
+    app_message_open(INCOMING_DATA_SIZE, (sizeof(time_t)*2)
+      + (sizeof(HealthMinuteData)*MAX_ENTRIES));
 
     s_transmit_phone_window = window_create();
     // app_message_open(app_message_inbox_size_maximum(),app_message_outbox_size_maximum());

@@ -2,7 +2,7 @@
 
 bool data_to_send_acti(){
   // compares the current time to the end of the previous block of data sent up
-  return ( (time(NULL) - persist_read_int(ACTI_LAST_UPLOAD_TIME_PERSIST_KEY)) >= (MAX_ENTRIES*60));
+  return ( (time(NULL) - persist_read_int(ACTI_LAST_UPLOAD_TIME_PERSIST_KEY)) >= (INTERVAL_MINUTES*60));
 }
 
 bool data_to_send_pinteract(){

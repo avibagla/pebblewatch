@@ -54,6 +54,7 @@ static void init() {
   if(launch_reason() == APP_LAUNCH_USER){
     APP_LOG(APP_LOG_LEVEL_ERROR, "app start: heap size: used %d , free %d",
         heap_bytes_used(), heap_bytes_free());
+    APP_LOG(APP_LOG_LEVEL_ERROR, "HealthMinuteData size %d ",(int) sizeof(HealthMinuteData));
     // display_main_dash();
 
     // TEMPORARY!!!

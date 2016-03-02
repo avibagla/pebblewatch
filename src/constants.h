@@ -1,11 +1,14 @@
 #pragma once
 
 // Number of data items to obtain from the HealthService API, ie: minutes
-#define MAX_ENTRIES 2
+#define MAX_ENTRIES 60
 
 // Number of minutes between uploads, and the number of items read from
 // the HealthService minute data API.
-#define INTERVAL_MINUTES 2
+#define INTERVAL_MINUTES 15
+
+// Size of the incoming information for configuration, for example
+#define INCOMING_DATA_SIZE 10
 
 // Send squares test data instead of data from the HealthService minute
 // minute data API
@@ -87,6 +90,14 @@ static const int16_t CONFIG_WAKEUP_COOKIE = 1;
 /* +++++++++++++++ T +++++++++++++++ */
 /* +++++++++++++++ T +++++++++++++++ */
 /* +++++++++++++++ T +++++++++++++++ */
+
+// typedef struct {
+//   uint8_t steps;
+//   uint8_t orientation;
+//   uint16_t vmc;
+//   uint8_t is_invalid;
+//   uint8_t light;
+// } TrunHealthMinuteData;
 
 /* +++++++++++++++ VIBE PATTERNS +++++++++++++++ */
 

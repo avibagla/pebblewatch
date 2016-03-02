@@ -1183,7 +1183,7 @@ LOAD /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none
  .note.gnu.build-id
                 0x0000000000000084       0x24 linker stubs
 
-.text           0x00000000000000a8     0x10fd
+.text           0x00000000000000a8     0x1169
  *(.text)
  .text          0x00000000000000a8       0x14 /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
  *(.text.*)
@@ -1214,341 +1214,340 @@ LOAD /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none
                 0x0000000000000228      0x114 src/config_all/config_schedule.c.12.o
                 0x0000000000000228                config_wakeup_schedule
  .text.startup.main
-                0x000000000000033c       0xc8 src/main.c.12.o
+                0x000000000000033c       0xdc src/main.c.12.o
                 0x000000000000033c                main
  .text.select_click_handler
-                0x0000000000000404        0x2 src/modules/comm.c.12.o
+                0x0000000000000418        0x2 src/modules/comm.c.12.o
  .text.back_click_handler
-                0x0000000000000406        0x2 src/modules/comm.c.12.o
+                0x000000000000041a        0x2 src/modules/comm.c.12.o
  .text.up_click_handler
-                0x0000000000000408        0x2 src/modules/comm.c.12.o
+                0x000000000000041c        0x2 src/modules/comm.c.12.o
  .text.down_click_handler
-                0x000000000000040a        0x2 src/modules/comm.c.12.o
+                0x000000000000041e        0x2 src/modules/comm.c.12.o
  .text.click_config_provider
-                0x000000000000040c       0x40 src/modules/comm.c.12.o
+                0x0000000000000420       0x40 src/modules/comm.c.12.o
  .text.transmit_phone_window_unload
-                0x000000000000044c       0x4c src/modules/comm.c.12.o
+                0x0000000000000460       0x40 src/modules/comm.c.12.o
  .text.close_transmit_window
-                0x0000000000000498       0x10 src/modules/comm.c.12.o
+                0x00000000000004a0       0x10 src/modules/comm.c.12.o
  .text.countdown_timer_handler
-                0x00000000000004a8       0x70 src/modules/comm.c.12.o
+                0x00000000000004b0       0x70 src/modules/comm.c.12.o
  .text.transmit_phone_window_load
-                0x0000000000000518      0x120 src/modules/comm.c.12.o
+                0x0000000000000520      0x120 src/modules/comm.c.12.o
  .text.send_data_item
-                0x0000000000000638      0x248 src/modules/comm.c.12.o
+                0x0000000000000640      0x2ac src/modules/comm.c.12.o
  .text.outbox_dropped_handler
-                0x0000000000000880       0x74 src/modules/comm.c.12.o
+                0x00000000000008ec       0x74 src/modules/comm.c.12.o
  .text.inbox_received_handler
-                0x00000000000008f4       0x4c src/modules/comm.c.12.o
+                0x0000000000000960       0x4c src/modules/comm.c.12.o
  .text.outbox_sent_handler
-                0x0000000000000940       0x90 src/modules/comm.c.12.o
+                0x00000000000009ac       0x8c src/modules/comm.c.12.o
  .text.comm_begin_upload
-                0x00000000000009d0       0x98 src/modules/comm.c.12.o
-                0x00000000000009d0                comm_begin_upload
+                0x0000000000000a38       0x98 src/modules/comm.c.12.o
+                0x0000000000000a38                comm_begin_upload
  .text.data_to_send_acti
-                0x0000000000000a68       0x1e src/modules/data.c.12.o
-                0x0000000000000a68                data_to_send_acti
+                0x0000000000000ad0       0x1e src/modules/data.c.12.o
+                0x0000000000000ad0                data_to_send_acti
  .text.data_to_send_pinteract
-                0x0000000000000a86       0x12 src/modules/data.c.12.o
-                0x0000000000000a86                data_to_send_pinteract
+                0x0000000000000aee       0x12 src/modules/data.c.12.o
+                0x0000000000000aee                data_to_send_pinteract
  .text.get_next_pinteract_element_key
-                0x0000000000000a98        0x6 src/modules/data.c.12.o
-                0x0000000000000a98                get_next_pinteract_element_key
+                0x0000000000000b00        0x6 src/modules/data.c.12.o
+                0x0000000000000b00                get_next_pinteract_element_key
  .text.get_data_size_of_pinteract_element
-                0x0000000000000a9e       0x10 src/modules/data.c.12.o
-                0x0000000000000a9e                get_data_size_of_pinteract_element
+                0x0000000000000b06       0x10 src/modules/data.c.12.o
+                0x0000000000000b06                get_data_size_of_pinteract_element
  .text.reset_config_wakeup_persistent_storage
-                0x0000000000000aae       0x46 src/modules/helper.c.12.o
-                0x0000000000000aae                reset_config_wakeup_persistent_storage
+                0x0000000000000b16       0x46 src/modules/helper.c.12.o
+                0x0000000000000b16                reset_config_wakeup_persistent_storage
  .text.wakeup_main_response_handler
-                0x0000000000000af4       0x5c src/modules/helper.c.12.o
-                0x0000000000000af4                wakeup_main_response_handler
+                0x0000000000000b5c       0x5c src/modules/helper.c.12.o
+                0x0000000000000b5c                wakeup_main_response_handler
  .text.rand_lw_up_bounds
-                0x0000000000000b50       0x22 src/modules/helper.c.12.o
-                0x0000000000000b50                rand_lw_up_bounds
+                0x0000000000000bb8       0x22 src/modules/helper.c.12.o
+                0x0000000000000bb8                rand_lw_up_bounds
  .text.write_time_to_array_head
-                0x0000000000000b72       0x10 src/modules/helper.c.12.o
-                0x0000000000000b72                write_time_to_array_head
+                0x0000000000000bda       0x10 src/modules/helper.c.12.o
+                0x0000000000000bda                write_time_to_array_head
  .text.today_srt_time_t_today_s
-                0x0000000000000b82       0x3c src/modules/helper.c.12.o
-                0x0000000000000b82                today_srt_time_t_today_s
- *fill*         0x0000000000000bbe        0x2 
+                0x0000000000000bea       0x3c src/modules/helper.c.12.o
+                0x0000000000000bea                today_srt_time_t_today_s
+ *fill*         0x0000000000000c26        0x2 
  .text.app_event_loop
-                0x0000000000000bc0        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000bc0                app_event_loop
- .text.app_log  0x0000000000000bcc        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000bcc                app_log
+                0x0000000000000c28        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000c28                app_event_loop
+ .text.app_log  0x0000000000000c34        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000c34                app_log
  .text.app_message_deregister_callbacks
-                0x0000000000000bd8        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000bd8                app_message_deregister_callbacks
+                0x0000000000000c40        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000c40                app_message_deregister_callbacks
  .text.app_message_open
-                0x0000000000000be4        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000be4                app_message_open
+                0x0000000000000c4c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000c4c                app_message_open
  .text.app_timer_cancel
-                0x0000000000000bf0        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000bf0                app_timer_cancel
+                0x0000000000000c58        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000c58                app_timer_cancel
  .text.app_timer_register
-                0x0000000000000bfc        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000bfc                app_timer_register
+                0x0000000000000c64        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000c64                app_timer_register
  .text.bluetooth_connection_service_peek
-                0x0000000000000c08        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000c08                bluetooth_connection_service_peek
+                0x0000000000000c70        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000c70                bluetooth_connection_service_peek
  .text.dict_find
-                0x0000000000000c14        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000c14                dict_find
+                0x0000000000000c7c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000c7c                dict_find
  .text.dict_write_data
-                0x0000000000000c20        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000c20                dict_write_data
+                0x0000000000000c88        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000c88                dict_write_data
  .text.dict_write_end
-                0x0000000000000c2c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000c2c                dict_write_end
+                0x0000000000000c94        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000c94                dict_write_end
  .text.dict_write_int
-                0x0000000000000c38        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000c38                dict_write_int
+                0x0000000000000ca0        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000ca0                dict_write_int
  .text.fonts_get_system_font
-                0x0000000000000c44        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000c44                fonts_get_system_font
- .text.free     0x0000000000000c50        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000c50                free
+                0x0000000000000cac        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000cac                fonts_get_system_font
+ .text.free     0x0000000000000cb8        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000cb8                free
  .text.layer_add_child
-                0x0000000000000c5c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000c5c                layer_add_child
+                0x0000000000000cc4        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000cc4                layer_add_child
  .text.layer_get_bounds
-                0x0000000000000c68        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000c68                layer_get_bounds
- .text.malloc   0x0000000000000c74        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000c74                malloc
- .text.memcpy   0x0000000000000c80        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000c80                memcpy
- .text.memset   0x0000000000000c8c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000c8c                memset
+                0x0000000000000cd0        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000cd0                layer_get_bounds
+ .text.malloc   0x0000000000000cdc        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000cdc                malloc
+ .text.memcpy   0x0000000000000ce8        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000ce8                memcpy
+ .text.memset   0x0000000000000cf4        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000cf4                memset
  .text.persist_delete
-                0x0000000000000c98        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000c98                persist_delete
+                0x0000000000000d00        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000d00                persist_delete
  .text.persist_exists
-                0x0000000000000ca4        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000ca4                persist_exists
+                0x0000000000000d0c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000d0c                persist_exists
  .text.persist_read_int
-                0x0000000000000cb0        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000cb0                persist_read_int
+                0x0000000000000d18        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000d18                persist_read_int
  .text.persist_write_int
-                0x0000000000000cbc        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000cbc                persist_write_int
- .text.rand     0x0000000000000cc8        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000cc8                rand
+                0x0000000000000d24        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000d24                persist_write_int
+ .text.rand     0x0000000000000d30        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000d30                rand
  .text.snprintf
-                0x0000000000000cd4        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000cd4                snprintf
- .text.srand    0x0000000000000ce0        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000ce0                srand
+                0x0000000000000d3c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000d3c                snprintf
+ .text.srand    0x0000000000000d48        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000d48                srand
  .text.vibes_enqueue_custom_pattern
-                0x0000000000000cec        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000cec                vibes_enqueue_custom_pattern
+                0x0000000000000d54        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000d54                vibes_enqueue_custom_pattern
  .text.window_create
-                0x0000000000000cf8        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000cf8                window_create
+                0x0000000000000d60        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000d60                window_create
  .text.window_get_root_layer
-                0x0000000000000d04        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000d04                window_get_root_layer
+                0x0000000000000d6c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000d6c                window_get_root_layer
  .text.window_set_click_config_provider
-                0x0000000000000d10        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000d10                window_set_click_config_provider
+                0x0000000000000d78        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000d78                window_set_click_config_provider
  .text.window_set_window_handlers
-                0x0000000000000d1c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000d1c                window_set_window_handlers
+                0x0000000000000d84        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000d84                window_set_window_handlers
  .text.window_stack_pop_all
-                0x0000000000000d28        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000d28                window_stack_pop_all
+                0x0000000000000d90        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000d90                window_stack_pop_all
  .text.window_stack_push
-                0x0000000000000d34        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000d34                window_stack_push
+                0x0000000000000d9c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000d9c                window_stack_push
  .text.window_stack_remove
-                0x0000000000000d40        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000d40                window_stack_remove
+                0x0000000000000da8        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000da8                window_stack_remove
  .text.app_message_outbox_begin
-                0x0000000000000d4c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000d4c                app_message_outbox_begin
+                0x0000000000000db4        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000db4                app_message_outbox_begin
  .text.app_message_outbox_send
-                0x0000000000000d58        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000d58                app_message_outbox_send
+                0x0000000000000dc0        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000dc0                app_message_outbox_send
  .text.app_message_register_inbox_received
-                0x0000000000000d64        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000d64                app_message_register_inbox_received
+                0x0000000000000dcc        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000dcc                app_message_register_inbox_received
  .text.app_message_register_outbox_failed
-                0x0000000000000d70        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000d70                app_message_register_outbox_failed
+                0x0000000000000dd8        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000dd8                app_message_register_outbox_failed
  .text.app_message_register_outbox_sent
-                0x0000000000000d7c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000d7c                app_message_register_outbox_sent
+                0x0000000000000de4        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000de4                app_message_register_outbox_sent
  .text.window_single_click_subscribe
-                0x0000000000000d88        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000d88                window_single_click_subscribe
+                0x0000000000000df0        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000df0                window_single_click_subscribe
  .text.persist_read_data
-                0x0000000000000d94        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000d94                persist_read_data
+                0x0000000000000dfc        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000dfc                persist_read_data
  .text.persist_write_data
-                0x0000000000000da0        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000da0                persist_write_data
+                0x0000000000000e08        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000e08                persist_write_data
  .text.heap_bytes_free
-                0x0000000000000dac        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000dac                heap_bytes_free
+                0x0000000000000e14        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000e14                heap_bytes_free
  .text.heap_bytes_used
-                0x0000000000000db8        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000db8                heap_bytes_used
+                0x0000000000000e20        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000e20                heap_bytes_used
  .text.launch_reason
-                0x0000000000000dc4        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000dc4                launch_reason
+                0x0000000000000e2c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000e2c                launch_reason
  .text.wakeup_cancel
-                0x0000000000000dd0        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000dd0                wakeup_cancel
+                0x0000000000000e38        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000e38                wakeup_cancel
  .text.wakeup_cancel_all
-                0x0000000000000ddc        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000ddc                wakeup_cancel_all
+                0x0000000000000e44        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000e44                wakeup_cancel_all
  .text.wakeup_get_launch_event
-                0x0000000000000de8        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000de8                wakeup_get_launch_event
+                0x0000000000000e50        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000e50                wakeup_get_launch_event
  .text.wakeup_query
-                0x0000000000000df4        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000df4                wakeup_query
+                0x0000000000000e5c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000e5c                wakeup_query
  .text.wakeup_schedule
-                0x0000000000000e00        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000e00                wakeup_schedule
+                0x0000000000000e68        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000e68                wakeup_schedule
  .text.wakeup_service_subscribe
-                0x0000000000000e0c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000e0c                wakeup_service_subscribe
+                0x0000000000000e74        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000e74                wakeup_service_subscribe
  .text.window_set_background_color
-                0x0000000000000e18        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000e18                window_set_background_color
+                0x0000000000000e80        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000e80                window_set_background_color
  .text.localtime
-                0x0000000000000e24        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000e24                localtime
+                0x0000000000000e8c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000e8c                localtime
  .text.text_layer_create
-                0x0000000000000e30        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000e30                text_layer_create
+                0x0000000000000e98        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000e98                text_layer_create
  .text.text_layer_destroy
-                0x0000000000000e3c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000e3c                text_layer_destroy
+                0x0000000000000ea4        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000ea4                text_layer_destroy
  .text.text_layer_get_layer
-                0x0000000000000e48        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000e48                text_layer_get_layer
+                0x0000000000000eb0        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000eb0                text_layer_get_layer
  .text.text_layer_set_background_color
-                0x0000000000000e54        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000e54                text_layer_set_background_color
+                0x0000000000000ebc        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000ebc                text_layer_set_background_color
  .text.text_layer_set_font
-                0x0000000000000e60        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000e60                text_layer_set_font
+                0x0000000000000ec8        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000ec8                text_layer_set_font
  .text.text_layer_set_text
-                0x0000000000000e6c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000e6c                text_layer_set_text
+                0x0000000000000ed4        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000ed4                text_layer_set_text
  .text.text_layer_set_text_alignment
-                0x0000000000000e78        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000e78                text_layer_set_text_alignment
+                0x0000000000000ee0        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000ee0                text_layer_set_text_alignment
  .text.text_layer_set_text_color
-                0x0000000000000e84        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000e84                text_layer_set_text_color
- .text.time     0x0000000000000e90        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000e90                time
+                0x0000000000000eec        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000eec                text_layer_set_text_color
+ .text.time     0x0000000000000ef8        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000ef8                time
  .text.connection_service_peek_pebble_app_connection
-                0x0000000000000e9c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000e9c                connection_service_peek_pebble_app_connection
+                0x0000000000000f04        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000f04                connection_service_peek_pebble_app_connection
  .text.health_service_get_minute_history
-                0x0000000000000ea8        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000ea8                health_service_get_minute_history
+                0x0000000000000f10        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000f10                health_service_get_minute_history
  .text.health_service_metric_accessible
-                0x0000000000000eb4        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
-                0x0000000000000eb4                health_service_metric_accessible
+                0x0000000000000f1c        0xc /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+                0x0000000000000f1c                health_service_metric_accessible
  *(.rodata)
- .rodata        0x0000000000000ec0        0x8 src/modules/comm.c.12.o
+ .rodata        0x0000000000000f28        0x8 src/modules/comm.c.12.o
  *(.rodata*)
  .rodata.str1.1
-                0x0000000000000ec8       0xb6 src/config_all/config_schedule.c.12.o
+                0x0000000000000f30       0xb6 src/config_all/config_schedule.c.12.o
  .rodata.str1.1
-                0x0000000000000f7e       0x5f src/main.c.12.o
+                0x0000000000000fe6       0x79 src/main.c.12.o
  .rodata.str1.1
-                0x0000000000000fdd      0x130 src/modules/comm.c.12.o
-                                        0x133 (size before relaxing)
- *fill*         0x000000000000110d        0x3 
+                0x000000000000105f      0x11d src/modules/comm.c.12.o
+                                        0x120 (size before relaxing)
  .rodata.pinteract_vibe_seg
-                0x0000000000001110       0x1c src/modules/helper.c.12.o
+                0x000000000000117c       0x1c src/modules/helper.c.12.o
  .rodata.str1.1
-                0x000000000000112c       0x79 src/modules/helper.c.12.o
+                0x0000000000001198       0x79 src/modules/helper.c.12.o
 
-.glue_7         0x00000000000011a8        0x0
+.glue_7         0x0000000000001214        0x0
  .glue_7        0x0000000000000000        0x0 linker stubs
 
-.glue_7t        0x00000000000011a8        0x0
+.glue_7t        0x0000000000001214        0x0
  .glue_7t       0x0000000000000000        0x0 linker stubs
 
-.vfp11_veneer   0x00000000000011a8        0x0
+.vfp11_veneer   0x0000000000001214        0x0
  .vfp11_veneer  0x0000000000000000        0x0 linker stubs
 
-.v4_bx          0x00000000000011a8        0x0
+.v4_bx          0x0000000000001214        0x0
  .v4_bx         0x0000000000000000        0x0 linker stubs
 
-.iplt           0x00000000000011a8        0x0
+.iplt           0x0000000000001214        0x0
  .iplt          0x0000000000000000        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
 
-.rel.dyn        0x00000000000011a8        0x0
+.rel.dyn        0x0000000000001214        0x0
  .rel.iplt      0x0000000000000000        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
  .rel.got       0x0000000000000000        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
 
-.data           0x00000000000011a8       0x10
+.data           0x0000000000001214       0x10
  *(.data)
- .data          0x00000000000011a8        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crti.o
- .data          0x00000000000011a8        0x4 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
-                0x00000000000011a8                __dso_handle
- .data          0x00000000000011ac        0x0 src/config_all/config_schedule.c.12.o
- .data          0x00000000000011ac        0x0 src/main.c.12.o
- .data          0x00000000000011ac        0x0 src/modules/comm.c.12.o
- .data          0x00000000000011ac        0x0 src/modules/data.c.12.o
- .data          0x00000000000011ac        0x0 src/modules/helper.c.12.o
- .data          0x00000000000011ac        0x0 src/pinteract/pinteract_driver.c.12.o
- .data          0x00000000000011ac        0x0 src/pinteract/pinteract_priv_scrn.c.12.o
- .data          0x00000000000011ac        0x0 basalt/appinfo.auto.c.12.o
- .data          0x00000000000011ac        0x0 /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
- .data          0x00000000000011ac        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
- .data          0x00000000000011ac        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtn.o
+ .data          0x0000000000001214        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crti.o
+ .data          0x0000000000001214        0x4 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+                0x0000000000001214                __dso_handle
+ .data          0x0000000000001218        0x0 src/config_all/config_schedule.c.12.o
+ .data          0x0000000000001218        0x0 src/main.c.12.o
+ .data          0x0000000000001218        0x0 src/modules/comm.c.12.o
+ .data          0x0000000000001218        0x0 src/modules/data.c.12.o
+ .data          0x0000000000001218        0x0 src/modules/helper.c.12.o
+ .data          0x0000000000001218        0x0 src/pinteract/pinteract_driver.c.12.o
+ .data          0x0000000000001218        0x0 src/pinteract/pinteract_priv_scrn.c.12.o
+ .data          0x0000000000001218        0x0 basalt/appinfo.auto.c.12.o
+ .data          0x0000000000001218        0x0 /Users/Nate/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/basalt/lib/libpebble.a(tmp3WoB93pebble.o)
+ .data          0x0000000000001218        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
+ .data          0x0000000000001218        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtn.o
  *(.data.*)
  .data.s_tr_buf.7521
-                0x00000000000011ac        0x4 src/modules/comm.c.12.o
+                0x0000000000001218        0x4 src/modules/comm.c.12.o
  .data.rel.ro.local.pinteract_vibe_pat
-                0x00000000000011b0        0x8 src/modules/helper.c.12.o
+                0x000000000000121c        0x8 src/modules/helper.c.12.o
 
-.igot.plt       0x00000000000011b8        0x0
+.igot.plt       0x0000000000001224        0x0
  .igot.plt      0x0000000000000000        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
 
-.got            0x00000000000011b8       0x10
- .got           0x00000000000011b8       0x10 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+.got            0x0000000000001224       0x10
+ .got           0x0000000000001224       0x10 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
 
-.got.plt        0x00000000000011c8        0xc
- .got.plt       0x00000000000011c8        0xc /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
-                0x00000000000011c8                _GLOBAL_OFFSET_TABLE_
+.got.plt        0x0000000000001234        0xc
+ .got.plt       0x0000000000001234        0xc /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+                0x0000000000001234                _GLOBAL_OFFSET_TABLE_
 
-.bss            0x00000000000011d4       0x28
+.bss            0x0000000000001240       0x28
  *(.bss)
  *(.bss.*)
  .bss.s_transmit_countdown_text_layer
-                0x00000000000011d4        0x4 src/modules/comm.c.12.o
+                0x0000000000001240        0x4 src/modules/comm.c.12.o
  .bss.window_layer
-                0x00000000000011d8        0x4 src/modules/comm.c.12.o
+                0x0000000000001244        0x4 src/modules/comm.c.12.o
  .bss.countdown_active
-                0x00000000000011dc        0x1 src/modules/comm.c.12.o
- *fill*         0x00000000000011dd        0x1 
+                0x0000000000001248        0x1 src/modules/comm.c.12.o
+ *fill*         0x0000000000001249        0x1 
  .bss.retry_count
-                0x00000000000011de        0x2 src/modules/comm.c.12.o
+                0x000000000000124a        0x2 src/modules/comm.c.12.o
  .bss.s_transmit_text_layer
-                0x00000000000011e0        0x4 src/modules/comm.c.12.o
+                0x000000000000124c        0x4 src/modules/comm.c.12.o
  .bss.app_timer_push_to_server
-                0x00000000000011e4        0x4 src/modules/comm.c.12.o
+                0x0000000000001250        0x4 src/modules/comm.c.12.o
  .bss.s_transmit_phone_window
-                0x00000000000011e8        0x4 src/modules/comm.c.12.o
+                0x0000000000001254        0x4 src/modules/comm.c.12.o
  .bss.cur_countdown
-                0x00000000000011ec        0x2 src/modules/comm.c.12.o
- *fill*         0x00000000000011ee        0x2 
- COMMON         0x00000000000011f0        0xc src/modules/comm.c.12.o
-                0x00000000000011f0                prev_acti_upload_time_plus1sec
-                0x00000000000011f4                cur_app_key
-                0x00000000000011f8                attempt_acti_upload_time
+                0x0000000000001258        0x2 src/modules/comm.c.12.o
+ *fill*         0x000000000000125a        0x2 
+ COMMON         0x000000000000125c        0xc src/modules/comm.c.12.o
+                0x000000000000125c                prev_acti_upload_time_plus1sec
+                0x0000000000001260                cur_app_key
+                0x0000000000001264                attempt_acti_upload_time
 
 DISCARD
  libc.a(*)
@@ -1599,32 +1598,32 @@ OUTPUT(/Users/Nate/Documents/pk-priv/pebblewatch-pub/build/basalt/pebble-app.elf
  .comment       0x0000000000000000       0x4f basalt/appinfo.auto.c.12.o
  .comment       0x0000000000000000       0x4f /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
 
-.debug_info     0x0000000000000000     0x3e52
+.debug_info     0x0000000000000000     0x3f23
  .debug_info    0x0000000000000000      0xa89 src/config_all/config_schedule.c.12.o
- .debug_info    0x0000000000000a89      0x59f src/main.c.12.o
- .debug_info    0x0000000000001028     0x19a0 src/modules/comm.c.12.o
- .debug_info    0x00000000000029c8      0x3fc src/modules/data.c.12.o
- .debug_info    0x0000000000002dc4      0xc45 src/modules/helper.c.12.o
- .debug_info    0x0000000000003a09       0xa8 src/pinteract/pinteract_driver.c.12.o
- .debug_info    0x0000000000003ab1       0x58 src/pinteract/pinteract_priv_scrn.c.12.o
- .debug_info    0x0000000000003b09      0x349 basalt/appinfo.auto.c.12.o
+ .debug_info    0x0000000000000a89      0x5cb src/main.c.12.o
+ .debug_info    0x0000000000001054     0x1a45 src/modules/comm.c.12.o
+ .debug_info    0x0000000000002a99      0x3fc src/modules/data.c.12.o
+ .debug_info    0x0000000000002e95      0xc45 src/modules/helper.c.12.o
+ .debug_info    0x0000000000003ada       0xa8 src/pinteract/pinteract_driver.c.12.o
+ .debug_info    0x0000000000003b82       0x58 src/pinteract/pinteract_priv_scrn.c.12.o
+ .debug_info    0x0000000000003bda      0x349 basalt/appinfo.auto.c.12.o
 
-.debug_abbrev   0x0000000000000000      0xea0
+.debug_abbrev   0x0000000000000000      0xea4
  .debug_abbrev  0x0000000000000000      0x292 src/config_all/config_schedule.c.12.o
  .debug_abbrev  0x0000000000000292      0x1fb src/main.c.12.o
- .debug_abbrev  0x000000000000048d      0x3e9 src/modules/comm.c.12.o
- .debug_abbrev  0x0000000000000876      0x181 src/modules/data.c.12.o
- .debug_abbrev  0x00000000000009f7      0x36e src/modules/helper.c.12.o
- .debug_abbrev  0x0000000000000d65       0x53 src/pinteract/pinteract_driver.c.12.o
- .debug_abbrev  0x0000000000000db8       0x4a src/pinteract/pinteract_priv_scrn.c.12.o
- .debug_abbrev  0x0000000000000e02       0x9e basalt/appinfo.auto.c.12.o
+ .debug_abbrev  0x000000000000048d      0x3ed src/modules/comm.c.12.o
+ .debug_abbrev  0x000000000000087a      0x181 src/modules/data.c.12.o
+ .debug_abbrev  0x00000000000009fb      0x36e src/modules/helper.c.12.o
+ .debug_abbrev  0x0000000000000d69       0x53 src/pinteract/pinteract_driver.c.12.o
+ .debug_abbrev  0x0000000000000dbc       0x4a src/pinteract/pinteract_priv_scrn.c.12.o
+ .debug_abbrev  0x0000000000000e06       0x9e basalt/appinfo.auto.c.12.o
 
-.debug_loc      0x0000000000000000      0xfe3
+.debug_loc      0x0000000000000000     0x1030
  .debug_loc     0x0000000000000000      0x4ae src/config_all/config_schedule.c.12.o
- .debug_loc     0x00000000000004ae       0x2c src/main.c.12.o
- .debug_loc     0x00000000000004da      0x49f src/modules/comm.c.12.o
- .debug_loc     0x0000000000000979       0xc2 src/modules/data.c.12.o
- .debug_loc     0x0000000000000a3b      0x5a8 src/modules/helper.c.12.o
+ .debug_loc     0x00000000000004ae       0x20 src/main.c.12.o
+ .debug_loc     0x00000000000004ce      0x4f8 src/modules/comm.c.12.o
+ .debug_loc     0x00000000000009c6       0xc2 src/modules/data.c.12.o
+ .debug_loc     0x0000000000000a88      0x5a8 src/modules/helper.c.12.o
 
 .debug_aranges  0x0000000000000000      0x260
  .debug_aranges
@@ -1644,48 +1643,48 @@ OUTPUT(/Users/Nate/Documents/pk-priv/pebblewatch-pub/build/basalt/pebble-app.elf
  .debug_aranges
                 0x0000000000000248       0x18 basalt/appinfo.auto.c.12.o
 
-.debug_ranges   0x0000000000000000      0x298
+.debug_ranges   0x0000000000000000      0x2e0
  .debug_ranges  0x0000000000000000       0x80 src/config_all/config_schedule.c.12.o
  .debug_ranges  0x0000000000000080       0x28 src/main.c.12.o
- .debug_ranges  0x00000000000000a8       0xc0 src/modules/comm.c.12.o
- .debug_ranges  0x0000000000000168       0x30 src/modules/data.c.12.o
- .debug_ranges  0x0000000000000198       0xe0 src/modules/helper.c.12.o
- .debug_ranges  0x0000000000000278       0x10 src/pinteract/pinteract_driver.c.12.o
- .debug_ranges  0x0000000000000288       0x10 src/pinteract/pinteract_priv_scrn.c.12.o
+ .debug_ranges  0x00000000000000a8      0x108 src/modules/comm.c.12.o
+ .debug_ranges  0x00000000000001b0       0x30 src/modules/data.c.12.o
+ .debug_ranges  0x00000000000001e0       0xe0 src/modules/helper.c.12.o
+ .debug_ranges  0x00000000000002c0       0x10 src/pinteract/pinteract_driver.c.12.o
+ .debug_ranges  0x00000000000002d0       0x10 src/pinteract/pinteract_priv_scrn.c.12.o
 
-.debug_line     0x0000000000000000     0x1355
+.debug_line     0x0000000000000000     0x13a1
  .debug_line    0x0000000000000000      0x3b5 src/config_all/config_schedule.c.12.o
- .debug_line    0x00000000000003b5      0x291 src/main.c.12.o
- .debug_line    0x0000000000000646      0x467 src/modules/comm.c.12.o
- .debug_line    0x0000000000000aad      0x2ba src/modules/data.c.12.o
- .debug_line    0x0000000000000d67      0x3f4 src/modules/helper.c.12.o
- .debug_line    0x000000000000115b       0x51 src/pinteract/pinteract_driver.c.12.o
- .debug_line    0x00000000000011ac       0x54 src/pinteract/pinteract_priv_scrn.c.12.o
- .debug_line    0x0000000000001200      0x155 basalt/appinfo.auto.c.12.o
+ .debug_line    0x00000000000003b5      0x293 src/main.c.12.o
+ .debug_line    0x0000000000000648      0x4b1 src/modules/comm.c.12.o
+ .debug_line    0x0000000000000af9      0x2ba src/modules/data.c.12.o
+ .debug_line    0x0000000000000db3      0x3f4 src/modules/helper.c.12.o
+ .debug_line    0x00000000000011a7       0x51 src/pinteract/pinteract_driver.c.12.o
+ .debug_line    0x00000000000011f8       0x54 src/pinteract/pinteract_priv_scrn.c.12.o
+ .debug_line    0x000000000000124c      0x155 basalt/appinfo.auto.c.12.o
 
-.debug_str      0x0000000000000000     0x1c6f
+.debug_str      0x0000000000000000     0x1c94
  .debug_str     0x0000000000000000      0x5ce src/config_all/config_schedule.c.12.o
                                         0x65c (size before relaxing)
  .debug_str     0x00000000000005ce      0x19d src/main.c.12.o
                                         0x578 (size before relaxing)
- .debug_str     0x000000000000076b      0xd6b src/modules/comm.c.12.o
-                                       0x11cc (size before relaxing)
- .debug_str     0x00000000000014d6       0x4d src/modules/data.c.12.o
+ .debug_str     0x000000000000076b      0xd90 src/modules/comm.c.12.o
+                                       0x11f1 (size before relaxing)
+ .debug_str     0x00000000000014fb       0x4d src/modules/data.c.12.o
                                         0x42e (size before relaxing)
- .debug_str     0x0000000000001523      0x3c2 src/modules/helper.c.12.o
+ .debug_str     0x0000000000001548      0x3c2 src/modules/helper.c.12.o
                                         0x944 (size before relaxing)
- .debug_str     0x00000000000018e5       0x35 src/pinteract/pinteract_driver.c.12.o
+ .debug_str     0x000000000000190a       0x35 src/pinteract/pinteract_driver.c.12.o
                                         0x11c (size before relaxing)
- .debug_str     0x000000000000191a       0x3b src/pinteract/pinteract_priv_scrn.c.12.o
+ .debug_str     0x000000000000193f       0x3b src/pinteract/pinteract_priv_scrn.c.12.o
                                          0x8a (size before relaxing)
- .debug_str     0x0000000000001955      0x31a basalt/appinfo.auto.c.12.o
+ .debug_str     0x000000000000197a      0x31a basalt/appinfo.auto.c.12.o
                                         0x406 (size before relaxing)
 
-.debug_frame    0x0000000000000000      0x53c
+.debug_frame    0x0000000000000000      0x544
  .debug_frame   0x0000000000000000      0x124 src/config_all/config_schedule.c.12.o
- .debug_frame   0x0000000000000124       0x2c src/main.c.12.o
- .debug_frame   0x0000000000000150      0x160 src/modules/comm.c.12.o
- .debug_frame   0x00000000000002b0       0x88 src/modules/data.c.12.o
- .debug_frame   0x0000000000000338      0x1c4 src/modules/helper.c.12.o
- .debug_frame   0x00000000000004fc       0x20 src/pinteract/pinteract_driver.c.12.o
- .debug_frame   0x000000000000051c       0x20 src/pinteract/pinteract_priv_scrn.c.12.o
+ .debug_frame   0x0000000000000124       0x34 src/main.c.12.o
+ .debug_frame   0x0000000000000158      0x160 src/modules/comm.c.12.o
+ .debug_frame   0x00000000000002b8       0x88 src/modules/data.c.12.o
+ .debug_frame   0x0000000000000340      0x1c4 src/modules/helper.c.12.o
+ .debug_frame   0x0000000000000504       0x20 src/pinteract/pinteract_driver.c.12.o
+ .debug_frame   0x0000000000000524       0x20 src/pinteract/pinteract_priv_scrn.c.12.o
