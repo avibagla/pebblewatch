@@ -64,6 +64,7 @@ static void init() {
     // nevermind, just let the count be the key for the persistent storage.
     // initialize an array to 0s to be the key count for the
     reset_config_wakeup_persistent_storage();
+    demo_screens_open();
   }
 
 

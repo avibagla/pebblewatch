@@ -1,11 +1,11 @@
 #pragma once
 
 // Number of data items to obtain from the HealthService API, ie: minutes
-#define MAX_ENTRIES 60
+#define MAX_ENTRIES 60*12
 
 // Number of minutes between uploads, and the number of items read from
 // the HealthService minute data API.
-#define INTERVAL_MINUTES 15
+#define INTERVAL_MINUTES 60
 
 // Size of the incoming information for configuration, for example
 #define INCOMING_DATA_SIZE 10
@@ -24,6 +24,7 @@
 
 
 // +++++++ App State
+static const int16_t HEALTH_EVENTS_LAST_UPLOAD_TIME_PERSIST_KEY = 127;
 static const int16_t ACTI_LAST_UPLOAD_TIME_PERSIST_KEY = 128;
 static const int16_t PINTERACT_KEY_COUNT_PERSIST_KEY = 129;
 static const int16_t CONFIG_WAKEUP_IDS_PERSIST_KEY = 131;
@@ -91,13 +92,19 @@ static const int16_t CONFIG_WAKEUP_COOKIE = 1;
 /* +++++++++++++++ T +++++++++++++++ */
 /* +++++++++++++++ T +++++++++++++++ */
 
-// typedef struct {
-//   uint8_t steps;
-//   uint8_t orientation;
-//   uint16_t vmc;
-//   uint8_t is_invalid;
-//   uint8_t light;
-// } TrunHealthMinuteData;
+typedef struct {
+  uint8_t steps;
+  uint8_t orientation;
+  uint16_t vmc;
+  uint8_t is_invalid;
+  uint8_t light;
+}__attribute__((__packed__)) TrunHealthMinuteData;
+
+typedef struct{
+  int16_t health_activity;
+  time_t time_start;
+  time_t time_end;
+}__attribute__((__packed__)) HealthEventData;
 
 /* +++++++++++++++ VIBE PATTERNS +++++++++++++++ */
 

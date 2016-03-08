@@ -18,9 +18,14 @@ static const int16_t NUM_SEC_TRANSMIT_SERVER = 15;
 
 static void countdown_timer_handler(void *data);
 
+static void send_data_item(AppKey app_key);
 
+bool health_events_sent;
 AppKey cur_app_key;
-time_t prev_acti_upload_time_plus1sec;
+int num_entries;
+time_t prev_health_events_upload_time; // previous time that the
+time_t attempt_health_events_upload_time; // previous time that the
+time_t prev_acti_upload_time;
 time_t attempt_acti_upload_time;
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -106,9 +111,8 @@ static void transmit_phone_window_unload(Window *window) {
   // get rid of text layer
   text_layer_destroy(s_transmit_text_layer);
   // IF we get to the transmit count down timer, then we destroy those elements
-  if(countdown_active){
-    app_timer_cancel(app_timer_push_to_server);
-  }
+  // if(countdown_active){ app_timer_cancel(app_timer_push_to_server); }
+  app_timer_cancel(app_timer_push_to_server);
   text_layer_destroy(s_transmit_countdown_text_layer);
   // Destroy the banner layer
 
@@ -123,168 +127,9 @@ static void transmit_phone_window_unload(Window *window) {
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-static void send_data_item(AppKey app_key){
-
-  DictionaryIterator *out;
-  if(app_key == AppKeyActiData){
-    prev_acti_upload_time_plus1sec = persist_read_int(ACTI_LAST_UPLOAD_TIME_PERSIST_KEY);
-    attempt_acti_upload_time = time(NULL); // This is okay because the
-    // health_service_get_minute_history rewrites the time to be at the end of
-    // the health period
-    // prev_acti_upload_time_plus1sec = 1456591323;
-    // attempt_acti_upload_time = 1456591623; // This is okay because the
 
 
-    // malloc the data
-    int data_hmd_size = (sizeof(time_t)*2) + (sizeof(HealthMinuteData)*MAX_ENTRIES);
-    HealthMinuteData* data_hmd = (HealthMinuteData*) malloc(data_hmd_size );
-
-    // add the prev upload and new attempted upload time to the head.
-
-
-    // add the period data to the remainder of the block
-    // get the data from  prev_acti_upload_time_plus1sec to attempt_acti_upload_time
-    //  where attempt_acti_upload_time is prev_acti_upload_time_plus1sec * INTERVAL*60
-    // write the data block to the block to be sent over
-    APP_LOG(APP_LOG_LEVEL_ERROR,"try times prev %d :: attempt %d",
-      (int)prev_acti_upload_time_plus1sec, (int)attempt_acti_upload_time);
-
-
-    HealthServiceAccessibilityMask result = health_service_metric_accessible(
-      HealthMetricStepCount, prev_acti_upload_time_plus1sec, attempt_acti_upload_time);
-
-    if(result != HealthServiceAccessibilityMaskAvailable){
-      APP_LOG(APP_LOG_LEVEL_ERROR,"mask no available");
-    }
-
-
-    int num_entries =  health_service_get_minute_history(
-      (HealthMinuteData*) data_hmd,
-      MAX_ENTRIES, &prev_acti_upload_time_plus1sec, &attempt_acti_upload_time);
-
-
-
-    // if the number of retrieved records matched what is expected, send it
-    APP_LOG(APP_LOG_LEVEL_ERROR,"num_entries %d :: prev %d :: attempt %d",
-      (int) num_entries, (int)prev_acti_upload_time_plus1sec, (int)attempt_acti_upload_time);
-
-
-    // ONLY TRANSMIT IF BLOCK PROPER SIZE
-    if(num_entries >= 1){
-      // re-write the data so that we know the structure of the data exactly
-      int trun_hmd_size = 1+1+2+1+1;
-      int ofs = sizeof(time_t)*2;
-      uint8_t *data = (uint8_t*) malloc((sizeof(time_t)*2) + num_entries*trun_hmd_size );
-      for(int i = 0; i < num_entries; i++){
-        data[trun_hmd_size*i + 0 + ofs] = data_hmd[i].steps;
-        data[trun_hmd_size*i + 1+ ofs] = data_hmd[i].orientation;
-        data[trun_hmd_size*i + 2+ ofs] = (uint8_t) data_hmd[i].vmc;
-        data[trun_hmd_size*i + 3+ ofs] = (uint8_t) (data_hmd[i].vmc >> 8);
-        data[trun_hmd_size*i + 4+ ofs] = data_hmd[i].is_invalid;
-        data[trun_hmd_size*i + 5+ ofs] = data_hmd[i].light;
-      }
-      free(data_hmd);
-      // NOTE: if prev_acti_upload_time_plus1sec on entry to health_service_get_minute_history.
-      // is somewhere in the middle of a minute interval, then the function behaves
-      // as if the caller passed in the start of that minute.
-      write_time_to_array_head(prev_acti_upload_time_plus1sec, data+0);
-      // NOTE: if attempt_acti_upload_time on entry to health_service_get_minute_history.
-      // is somewhere in the middle of a minute interval, then the function behaves
-      // as if the caller passed in the end of that minute.
-      // HENCE, when we record the previous last upload time in order to
-      // setup for the next upload, we have to add one second to get the next minute
-      write_time_to_array_head(attempt_acti_upload_time, data+4);
-      if(app_message_outbox_begin(&out) == APP_MSG_OK){
-        // write data to outbox iterator
-        dict_write_data(out, AppKeyActiData, data,
-          (sizeof(time_t)*2) + (trun_hmd_size*num_entries));
-        // free malloced data
-        free(data);
-        dict_write_end(out);
-        if(app_message_outbox_send() == APP_MSG_OK){
-          // that if we sent the data, we mark it as the current key
-          cur_app_key = app_key;
-        }else{
-          APP_LOG(APP_LOG_LEVEL_ERROR, "Error sending message");
-        }
-      }else{
-        APP_LOG(APP_LOG_LEVEL_ERROR, "Error beginning message");
-        // free malloced data
-        free(data);
-      }
-    }else{
-      APP_LOG(APP_LOG_LEVEL_ERROR,
-        "num_entries not at least one, not sending");
-      // if fewer than expected entries, then we must skip down to the next
-      // level of data to send, the pinteracts. This shouldn't happen because
-      // the gate of data to send on the sent handler, but just in case
-      // free the malloced data first
-      free(data_hmd);
-      if(data_to_send_pinteract()){
-        send_data_item(AppKeyPinteractData);
-      }else if(connection_service_peek_pebble_app_connection()){
-        send_data_item(AppKeyPushToServer);
-      }
-    }
-    // AppKeyPinteractData
-  }else if(app_key == AppKeyPinteractData){
-    // get the address of the next element of the pinteract in pstorage
-
-    // get the size of the next pinteract element in pstorage
-    int pstorage_key = get_next_pinteract_element_key();
-    int data_size = get_data_size_of_pinteract_element(pstorage_key);
-    uint8_t *data = (uint8_t*) malloc(data_size);
-    // write the data from the pinteract into the data buffer
-    persist_read_data(pstorage_key, data, data_size);
-
-    if(app_message_outbox_begin(&out) == APP_MSG_OK){
-      dict_write_data(out, AppKeyPinteractData, data, data_size);
-      free(data);
-      dict_write_end(out);
-
-      if(app_message_outbox_send() == APP_MSG_OK){
-        // that if we sent the data, we mark it as the current key
-        cur_app_key = app_key;
-      }else{
-        APP_LOG(APP_LOG_LEVEL_ERROR, "Error sending message");
-      }
-    }else{
-      APP_LOG(APP_LOG_LEVEL_ERROR, "Error beginning message");
-      free(data);
-    }
-  // if AppKeyPushToServer
-  }else if(app_key == AppKeyPushToServer){
-    int msg_to_server = 0;
-    if(app_message_outbox_begin(&out) == APP_MSG_OK){
-      dict_write_int(out, AppKeyPushToServer,&msg_to_server, 4, true);
-      dict_write_end(out);
-      if(app_message_outbox_send() == APP_MSG_OK){
-        // that if we sent the data, we mark it as the current key
-        cur_app_key = app_key;
-      }else{
-        APP_LOG(APP_LOG_LEVEL_ERROR, "Error sending message");
-      }
-    }else{
-      APP_LOG(APP_LOG_LEVEL_ERROR, "Error beginning message");
-    }
-  }
-
-}
-
-static void outbox_sent_handler(DictionaryIterator *iter, void *context){
-  // reset the retry counter once we have a successful transmisstion
-  retry_count = 0;
-  // modify the data counts based on the message that was just sent
-  if(cur_app_key == AppKeyActiData){
-    // add one second to move it into the next minute
-    persist_write_int(ACTI_LAST_UPLOAD_TIME_PERSIST_KEY ,attempt_acti_upload_time);
-  }else if(cur_app_key == AppKeyPinteractData){
-    persist_write_int(PINTERACT_KEY_COUNT_PERSIST_KEY,
-      persist_read_int(PINTERACT_KEY_COUNT_PERSIST_KEY) - 1);
-  }else if(cur_app_key == AppKeyPushToServer){
-    return;
-  }
-
+static void send_data_router(){
   // attempt to send the data in order of importance, keep sending the respective
   // data until we don't have anymore of that datatype to send, where the datatype
   // data types are
@@ -292,31 +137,11 @@ static void outbox_sent_handler(DictionaryIterator *iter, void *context){
   // 2. pinteract -> patient interactino
   // 3. push to server flag
   // NOTE : once we have no more data, we close by default
-  if(data_to_send_acti() ){
+  if( num_entries >= 1){
     send_data_item(AppKeyActiData);
+  // }else if(!health_events_sent){
+  //   send_data_item(AppKeyHealthEventsData);
   }else if(data_to_send_pinteract()){
-    send_data_item(AppKeyPinteractData);
-  // test if the connection is active to see if we can infact push to the server
-  }else if( connection_service_peek_pebble_app_connection() && (cur_app_key != AppKeyPushToServer)){
-    send_data_item(AppKeyPushToServer);
-  }else{
-    countdown_active = false;
-    // once reach the end of the countdown, remove the window no matter what
-    close_transmit_window();
-  }
-}
-
-static void outbox_dropped_handler(DictionaryIterator *iterator, AppMessageResult reason, void *context){
-  // if we failed to send, we increment the retry count
-  retry_count++;
-  APP_LOG(APP_LOG_LEVEL_ERROR, "OUTBOUND MESSAGE DROPPED");
-  // close_transmit_window();
-
-  // attempt based on what type of data was attempting to be sent when failed
-  // NOTE : once we have no more data, we close by default
-  if((cur_app_key == AppKeyActiData) && (retry_count < MAX_RETRY)){
-    send_data_item(AppKeyActiData);
-  }else if((cur_app_key == AppKeyPinteractData) && (retry_count < MAX_RETRY) ){
     send_data_item(AppKeyPinteractData);
   // test if the connection is active to see if we can infact push to the server
   }else if( connection_service_peek_pebble_app_connection() ){
@@ -328,8 +153,252 @@ static void outbox_dropped_handler(DictionaryIterator *iterator, AppMessageResul
   }
 }
 
-static void inbox_received_handler(DictionaryIterator *iter, void *context) {
+static void health_events_iter_cb(HealthActivity activity, time_t time_start,
+  time_t time_end, void *context){
 
+  int16_t activity_int;
+  if(activity == HealthActivityNone){
+    activity_int = 0;
+  }else if(activity == HealthActivitySleep){
+    activity_int = 1;
+  }else if(activity == HealthActivityRestfulSleep){
+    activity_int = 2;
+  }
+  HealthEventData health_event_data = {
+    .HealthEventData = activity_int,
+    .time_start = time_start,
+    .time_end = time_end
+  };
+  // treat the first two bytes as a call on how many bytes are in the buffer
+  HealthEventData *buf = (HealthEventData*) context+sizeof(uint16_t);
+  uint16_t *index = (uint16_t*) context;
+  // add the data to the buffer
+  buf[*index] = health_event_data;
+  *index = *index + 1; // update the counter to the next. Note, this now is also a count
+}
+
+
+static void send_app_message_full(DictionaryIterator *out, AppKey app_key, uint8_t *data, int data_size){
+  if(app_message_outbox_begin(&out) == APP_MSG_OK){
+    dict_write_data(out, app_key, data, data_size);
+    free(data);
+    dict_write_end(out);
+
+    if(app_message_outbox_send() == APP_MSG_OK){
+      // that if we sent the data, we mark it as the current key
+      cur_app_key = app_key;
+    }else{
+      APP_LOG(APP_LOG_LEVEL_ERROR, "Error sending message");
+    }
+  }else{
+    free(data);
+    APP_LOG(APP_LOG_LEVEL_ERROR, "Error beginning message");
+  }
+}
+
+static void send_data_item(AppKey app_key){
+
+  DictionaryIterator *out;
+
+  // AppKeyActiData
+  if(app_key == AppKeyActiData){
+    prev_acti_upload_time = persist_read_int(ACTI_LAST_UPLOAD_TIME_PERSIST_KEY);
+    attempt_acti_upload_time = time(NULL); // This is okay because the
+    // health_service_get_minute_history rewrites the time to be at the end of
+    // the health period
+
+    // malloc the data
+    HealthMinuteData* data_hmd = (HealthMinuteData*) malloc(
+      (sizeof(time_t)*2) + (sizeof(HealthMinuteData)*MAX_ENTRIES) );
+
+    // add the period data to the remainder of the block
+    // get the data from  prev_acti_upload_time to attempt_acti_upload_time
+    //  where attempt_acti_upload_time is prev_acti_upload_time * INTERVAL*60
+    // write the data block to the block to be sent over
+    APP_LOG(APP_LOG_LEVEL_ERROR,"try times prev %d :: attempt %d",
+      (int)prev_acti_upload_time, (int)attempt_acti_upload_time);
+
+    num_entries =  health_service_get_minute_history( data_hmd,
+      MAX_ENTRIES, &prev_acti_upload_time, &attempt_acti_upload_time);
+
+    // if the number of retrieved records matched what is expected, send it
+    APP_LOG(APP_LOG_LEVEL_ERROR,"num_entries %d :: prev %d :: attempt %d",
+      (int) num_entries, (int)prev_acti_upload_time, (int)attempt_acti_upload_time);
+
+
+    // ONLY TRANSMIT IF BLOCK PROPER SIZE
+    if(num_entries >= 1){
+      // re-write the data so that we know the structure of the data exactly
+      int data_size = (sizeof(time_t)*2) + num_entries * sizeof(TrunHealthMinuteData)
+      uint8_t *data = (uint8_t*) malloc( data_size);
+      TrunHealthMinuteData* trun_data  = (TrunHealthMinuteData*) (data+(sizeof(time_t)*2));
+
+      for(int i = 0; i < num_entries; i++){
+        trun_data[i].steps = data_hmd[i].steps;
+        trun_data[i].orientation = data_hmd[i].orientation;
+        trun_data[i].vmc = data_hmd[i].vmc;
+        trun_data[i].is_invalid = data_hmd[i].is_invalid;
+        trun_data[i].light = data_hmd[i].light;
+        trun_data[i].steps = data_hmd[i].steps;
+      }
+
+      free(data_hmd);
+      // NOTE: if prev_acti_upload_time on entry to health_service_get_minute_history.
+      // is somewhere in the middle of a minute interval, then the function behaves
+      // as if the caller passed in the start of that minute.
+      write_time_to_array_head(prev_acti_upload_time, data+0);
+      // NOTE: if attempt_acti_upload_time on entry to health_service_get_minute_history.
+      // is somewhere in the middle of a minute interval, then the function behaves
+      // as if the caller passed in the end of that minute.
+      // HENCE, when we record the previous last upload time in order to
+      // setup for the next upload, we have to add one second to get the next minute
+      write_time_to_array_head(attempt_acti_upload_time, data+4);
+      // if(app_message_outbox_begin(&out) == APP_MSG_OK){
+      //   // write data to outbox iterator
+      //   // dict_write_data(out, AppKeyActiData, data, (sizeof(time_t)*2) + (trun_hmd_size*num_entries));
+      //   dict_write_data(out, AppKeyActiData, data, (sizeof(time_t)*2)
+      //     + (sizeof(TrunHealthMinuteData)*num_entries));
+      //   // free malloced data
+      //   free(data);
+      //   dict_write_end(out);
+      //   if(app_message_outbox_send() == APP_MSG_OK){
+      //     // that if we sent the data, we mark it as the current key
+      //     cur_app_key = app_key;
+      //   }else{
+      //     APP_LOG(APP_LOG_LEVEL_ERROR, "Error sending message");
+      //   }
+      // }else{
+      //   APP_LOG(APP_LOG_LEVEL_ERROR, "Error beginning message");
+      //   // free malloced data
+      //   free(data);
+      // }
+      send_app_message_full(out, AppKeyActiData, data, data_size);
+
+    }else{
+      APP_LOG(APP_LOG_LEVEL_ERROR,
+        "num_entries not at least one, not sending");
+      // if fewer than expected entries, then we must skip down to the next
+      // level of data to send, the pinteracts. This shouldn't happen because
+      // the gate of data to send on the sent handler, but just in case
+      // free the malloced data first
+      free(data_hmd);
+      send_data_router();
+    }
+
+    // add pebble event data here.
+    // AppKeyHealthEventsData
+  // }else if(app_key == AppKeyHealthEventsData){
+    // iterate over the health events and place them into an array the same size
+    // as the maximum
+    // prev_health_events_upload_time = persist_read_int(HEALTH_EVENTS_LAST_UPLOAD_TIME_PERSIST_KEY);
+    // HealthActivityMaskAll
+    // uint16_t* data = (int16_t*) malloc((sizeof(time_t)*2) + (sizeof(HealthMinuteData)*MAX_ENTRIES)  );
+    // data[0] = 0; // number of health events written to
+    // health_service_activities_iterate(HealthActivityMaskAll,
+    //  prev_health_events_upload_time, time(NULL), HealthIterationDirectionFuture,
+    //  health_events_iter_cb, (void*) data);
+    // int data_size = (data[0])*sizeof(HealthEventData) ;
+
+    // send data via appmessage
+    send_app_message_full(out, AppKeyHealthEventsData, (uint8_t*) data, data_size);
+
+  // AppKeyPinteractData
+  }else if(app_key == AppKeyPinteractData){
+    // get the address of the next element of the pinteract in pstorage
+
+    // get the size of the next pinteract element in pstorage
+    int pstorage_key = get_next_pinteract_element_key();
+    int data_size = get_data_size_of_pinteract_element(pstorage_key);
+    uint8_t *data = (uint8_t*) malloc(data_size);
+    // write the data from the pinteract into the data buffer
+    persist_read_data(pstorage_key, data, data_size);
+
+    // if(app_message_outbox_begin(&out) == APP_MSG_OK){
+    //   dict_write_data(out, AppKeyPinteractData, data, data_size);
+    //   free(data);
+    //   dict_write_end(out);
+    //
+    //   if(app_message_outbox_send() == APP_MSG_OK){
+    //     // that if we sent the data, we mark it as the current key
+    //     cur_app_key = app_key;
+    //   }else{
+    //     APP_LOG(APP_LOG_LEVEL_ERROR, "Error sending message");
+    //   }
+    // }else{
+    //   free(data);
+    //   APP_LOG(APP_LOG_LEVEL_ERROR, "Error beginning message");
+    // }
+    send_app_message_full(out, AppKeyPinteractData, data, data_size);
+
+  // if AppKeyPushToServer
+  }else if(app_key == AppKeyPushToServer){
+    int data_size = 4;
+    uint8_t *data = (uint8_t*) malloc(data_size);
+    data[0] = 0;
+    // if(app_message_outbox_begin(&out) == APP_MSG_OK){
+    //   dict_write_int(out, AppKeyPushToServer,&msg_to_server, 4, true);
+    //   dict_write_end(out);
+    //   if(app_message_outbox_send() == APP_MSG_OK){
+    //     // that if we sent the data, we mark it as the current key
+    //     cur_app_key = app_key;
+    //   }else{
+    //     APP_LOG(APP_LOG_LEVEL_ERROR, "Error sending message");
+    //   }
+    // }else{
+    //   APP_LOG(APP_LOG_LEVEL_ERROR, "Error beginning message");
+    // }
+    send_app_message_full(out, AppKeyPushToServer, data, data_size);
+  }
+
+}
+
+static void outbox_sent_handler(DictionaryIterator *iter, void *context){
+  APP_LOG(APP_LOG_LEVEL_ERROR, "OUTBOUND MESSAGE SEND");
+  // reset the retry counter once we have a successful transmisstion
+  retry_count = 0;
+  // modify the data counts based on the message that was just sent
+  if(cur_app_key == AppKeyActiData){
+    // add one second to move it into the next minute
+    persist_write_int(ACTI_LAST_UPLOAD_TIME_PERSIST_KEY ,attempt_acti_upload_time);
+  // }else if(cur_app_key == AppKeyHealthEventsData){
+  // health_events_sent = true;
+  // persist_write_int(HEALTH_EVENTS_LAST_UPLOAD_TIME_PERSIST_KEY,attempt_health_events_upload_time);
+  }else if(cur_app_key == AppKeyPinteractData){
+    persist_write_int(PINTERACT_KEY_COUNT_PERSIST_KEY,
+      persist_read_int(PINTERACT_KEY_COUNT_PERSIST_KEY) - 1);
+  }else if(cur_app_key == AppKeyPushToServer){
+    return;
+  }
+  // determine what data to attempt to send next
+  send_data_router();
+}
+
+static void outbox_dropped_handler(DictionaryIterator *iterator, AppMessageResult reason, void *context){
+  APP_LOG(APP_LOG_LEVEL_ERROR, "OUTBOUND MESSAGE DROPPED");
+  // if we failed to send, we increment the retry count
+  retry_count++;
+
+  // attempt based on what type of data was attempting to be sent when failed
+  // NOTE : once we have no more data, we close by default
+  if((cur_app_key == AppKeyActiData) && (retry_count < MAX_RETRY)){
+    send_data_item(AppKeyActiData);
+  // }else if( (cur_app_key == AppKeyHealthEventsData) && (retry_count < MAX_RETRY)){
+  //  send_data_item(AppKeyHealthEventsData);
+  // }
+  }else if((cur_app_key == AppKeyPinteractData) && (retry_count < MAX_RETRY) ){
+    send_data_item(AppKeyPinteractData);
+  // test if the connection is active to see if we can infact push to the server
+  }else if( connection_service_peek_pebble_app_connection() && (retry_count < MAX_RETRY)){
+    send_data_item(AppKeyPushToServer);
+  }else{
+    countdown_active = false;
+    // once reach the end of the countdown, remove the window no matter what
+    close_transmit_window();
+  }
+}
+
+static void inbox_received_handler(DictionaryIterator *iter, void *context) {
+  APP_LOG(APP_LOG_LEVEL_ERROR, "INBOUND MESSAGE RECIEVED");
   // see if the message sent is to say the phone is ready
   Tuple *js_ready_t = dict_find(iter, AppKeyJSReady);
   if(js_ready_t) {
@@ -337,13 +406,7 @@ static void inbox_received_handler(DictionaryIterator *iter, void *context) {
     // if there are acti periods to send, start with those
     // if there are no acti periods to send, send the pinteracts
     // if there are no acti or periods to send, send the server push
-    if(data_to_send_acti()){
-      send_data_item(AppKeyActiData);
-    }else if(data_to_send_pinteract()){
-      send_data_item(AppKeyPinteractData);
-    }else if (connection_service_peek_pebble_app_connection() ){
-      send_data_item(AppKeyPushToServer);
-    }
+    send_data_router();
   }
   // check to see if the message has been sent to the server
   Tuple *js_sent_t = dict_find(iter, AppKeySentToServer);
@@ -355,6 +418,8 @@ static void inbox_received_handler(DictionaryIterator *iter, void *context) {
 }
 
 void comm_begin_upload(){
+  num_entries = 1; // initialize
+  health_events_sent = false; // that haven't sent the health events yet
   // test if BT connection is up at all. If it is NOT, don't even try
   if(bluetooth_connection_service_peek()){
     app_message_register_inbox_received(inbox_received_handler);
@@ -362,7 +427,9 @@ void comm_begin_upload(){
     app_message_register_outbox_failed(outbox_dropped_handler);
     // NOTE : incoming data for configuration must match the size of the config
     app_message_open(INCOMING_DATA_SIZE, (sizeof(time_t)*2)
-      + (sizeof(HealthMinuteData)*MAX_ENTRIES));
+      + (sizeof(TrunHealthMinuteData)*MAX_ENTRIES));
+
+    // app_message_open(INCOMING_DATA_SIZE,app_message_outbox_size_maximum());
 
     s_transmit_phone_window = window_create();
     // app_message_open(app_message_inbox_size_maximum(),app_message_outbox_size_maximum());
@@ -375,5 +442,19 @@ void comm_begin_upload(){
     window_set_click_config_provider(s_transmit_phone_window,
                                      (ClickConfigProvider) click_config_provider);
     window_stack_push(s_transmit_phone_window, false);
+  }
+}
+
+void comm_begin_upload_no_window(){
+  num_entries = 1; // initialize
+  health_events_sent = false; // that haven't sent the health events yet
+  // test if BT connection is up at all. If it is NOT, don't even try
+  if(bluetooth_connection_service_peek()){
+    app_message_register_inbox_received(inbox_received_handler);
+    app_message_register_outbox_sent(outbox_sent_handler);
+    app_message_register_outbox_failed(outbox_dropped_handler);
+    // NOTE : incoming data for configuration must match the size of the config
+    app_message_open(INCOMING_DATA_SIZE, (sizeof(time_t)*2)
+      + (sizeof(TrunHealthMinuteData)*MAX_ENTRIES));
   }
 }

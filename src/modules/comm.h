@@ -14,14 +14,16 @@
 
 typedef enum{
   AppKeyJSReady = 0,
-  AppKeyActiData,
-  AppKeyPinteractData,
-  AppKeyPushToServer,
-  AppKeySentToServer
+  AppKeyActiData = 1,
+  AppKeyHealthEventsData = 2,
+  AppKeyConfigData = 3,
+  AppKeyPinteractData = 4,
+  AppKeyPushToServer = 5,
+  AppKeySentToServer = 6,
+  NumAppKeys
 } AppKey;
 
 
-// static void send_data_item(AppKey app_key);
-
-
 void comm_begin_upload();
+
+void comm_begin_upload_no_window();

@@ -1,4 +1,5 @@
-#include "helper.h"
+#include "modules/helper.h"
+#include "pinteract/pinteract.h"
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 /* ++++++++++++++++ STORAGE FUNCTIONS +++++++++++++++ */
@@ -222,7 +223,10 @@ void wakeup_main_response_handler(WakeupId wakeup_id, int32_t wakeup_cookie){
 
     // we assume that pinteract is the most important thing is to have the
     // pinteract, so we close all the windows in favor of opening the pinteract
-    window_stack_pop_all(false);
+    // window_stack_pop_all(false);
+
+    // get the pinteract code, pass it to the privacy screen to start pinteract
+    pinteract_priv_scrn(pinteract_code);
     // pinteract_driver(pinteract_code);
 
 

@@ -41,7 +41,7 @@ Pebble.addEventListener("ready", function(e) {
     removeAllKeys();
     listAllKeys();
   }
-  Pebble.sendAppMessage( { 'AppKeyJSReady': 0});
+  startPebbleWatchTransmission();
 
   // // check version
   // if(localStorage.getItem(WPKeyToLSKey('jsVersion')) != jsVersion.toString()){
@@ -179,75 +179,108 @@ function attemptToTransmitAllKeysLS(){
 
   /* ASYNC DATA POST REQUESTS, USING CLOSURES */
   // NOTE, only need to iterate over the keyArray
-  for(var i = 0; i < keyS3Array.length; i++){
+  console.log('keyS3Array.length: ' + keyS3Array.length)
+  // If there are no keys to send, then tell the pebble app to go ahead and shutdown
+  if(keyS3Array.length == 0){
+    closePebbleWatchApp();
+  // If there are keys, then try to transmit them all 
+  }else{
+    for(var i = 0; i < keyS3Array.length; i++){
+      // create the closure environment for each 'i' key index
+      (function(i){
+        // Declare all vars as local for async XMLHTTPRequest callback function
+        // otherwise, the vars will change over the course of the loop, and
+        // the removeKey will fail
 
-    // create the closure environment for each 'i' key index
-    (function(i){
-      // Declare all vars as local for async XMLHTTPRequest callback function
-      // otherwise, the vars will change over the course of the loop, and
-      // the removeKey will fail
+        /* >>> DECLARE MAJOR VARS AS LOCAL : REQUIRED : DO NOT TOUCH <<< */
+        // Could use 'key' as arg to closure function, but use i for illustration
+        var key = keyS3Array[i];
+        var dataJSONString = localStorage.getItem(key);
 
-      /* >>> DECLARE MAJOR VARS AS LOCAL : REQUIRED : DO NOT TOUCH <<< */
-      // Could use 'key' as arg to closure function, but use i for illustration
-      var key = keyS3Array[i];
-      var dataJSONString = localStorage.getItem(key);
+        // NOTE : These lines are from the old method of sending data in the url,
+        // unusable now due to the size of the data being sent up exceeds the
+        // 2048 character limit of url request strings
+          // var dataArray = new Uint8Array( (localStorage.getItem(key)).split(',').map(Number));
+          // var postUrl = hostUrl + '/' + baseRoute + '?' + encodeURIComponent(dataJSONString);
 
-      // NOTE : These lines are from the old method of sending data in the url,
-      // unusable now due to the size of the data being sent up exceeds the
-      // 2048 character limit of url request strings
-        // var dataArray = new Uint8Array( (localStorage.getItem(key)).split(',').map(Number));
-        // var postUrl = hostUrl + '/' + baseRoute + '?' + encodeURIComponent(dataJSONString);
+        var postUrl = hostUrl + '/' + baseRoute;
+        console.log('postUrl: ' + postUrl); // COMMENT OUT
 
-      var postUrl = hostUrl + '/' + baseRoute;
-      console.log('postUrl: ' + postUrl); // COMMENT OUT
+        // ++++++++++++++++++++
 
-      // ++++++++++++++++++++
+        reqS3Array[i] = new XMLHttpRequest();
 
-      reqS3Array[i] = new XMLHttpRequest();
+        /* >>> DECLARE MAJOR VARS AS LOCAL : REQUIRED : DO NOT TOUCH <<< */
+        reqS3Array[i].open("POST", postUrl, true);
+        // log the post that is sent
+        // console.log('posted Url: ' + postUrl);  // >> commented out to prevent data compromise
+        reqS3Array[i].onreadystatechange = function(oEvent){
+          // AND, since the lexical scope is within the overall function,
+          //  'key' and 'req' is constant
+          // gate that the request is finished and returned --> == 4
+          if(reqS3Array[i].readyState == 4){
+            // console.log('key :' + key); // >> commented out to prevent data compromise
+            // if request finished (readyState==4), check if successful
+            if( reqS3Array[i].status == 200 ){
+              // remove the key that was successfully pushed to server
+              localStorage.removeItem(key);
 
-      /* >>> DECLARE MAJOR VARS AS LOCAL : REQUIRED : DO NOT TOUCH <<< */
-      reqS3Array[i].open("POST", postUrl, true);
-      // log the post that is sent
-      // console.log('posted Url: ' + postUrl);  // >> commented out to prevent data compromise
-      reqS3Array[i].onreadystatechange = function(oEvent){
-        // AND, since the lexical scope is within the overall function,
-        //  'key' and 'req' is constant
-        // gate that the request is finished and returned --> == 4
-        if(reqS3Array[i].readyState == 4){
-          // console.log('key :' + key); // >> commented out to prevent data compromise
-          // if request finished (readyState==4), check if successful
-          if( reqS3Array[i].status == 200 ){
-            // remove the key that was successfully pushed to server
-            localStorage.removeItem(key);
-
-            console.log('Successful transmission '
-              + reqS3Array[i].statusText + ' & ' + reqS3Array[i].responseText);
-            requestPending = requestPending - 1; // decrement pending request count
-          }else{
-            // log errors
-            console.log('Error: ' + reqS3Array[i].statusText + ' & '
-              + reqS3Array[i].responseText);
-          }
-          // --> When completed should be 1 left (wp-jsVersion)
-          console.log(' # of keys remain : ' + localStorage.length);
-          // once all the requests have returned, signal the pebble to close
-          if(requestPending == 0){
-            Pebble.sendAppMessage( { 'AppKeySentToServer': 0});
+              console.log('Successful transmission '
+                + reqS3Array[i].statusText + ' & ' + reqS3Array[i].responseText);
+              requestPending = requestPending - 1; // decrement pending request count
+            }else{
+              // log errors
+              console.log('Error: ' + reqS3Array[i].statusText + ' & '
+                + reqS3Array[i].responseText);
+            }
+            // --> When completed should be 1 left (wp-jsVersion)
+            console.log(' # of keys remain : ' + localStorage.length);
+            // once all the requests have returned, signal the pebble to close
+            if(requestPending == 0){
+              closePebbleWatchApp();
+            }
           }
         }
-      }
-      requestPending = requestPending+ 1;
-      // send the formatted XMLHttpRequest
-      // reqS3Array[i].send();
-      reqS3Array[i].setRequestHeader("Content-Type", "application/json");
-      reqS3Array[i].send( dataJSONString );
-      // ++++++++++++++++++++
-      console.log('request ' + i + ' sent');
-    })(i); // we make this a self executing function
+        requestPending = requestPending+ 1;
+        // send the formatted XMLHttpRequest
+        // reqS3Array[i].send();
+        reqS3Array[i].setRequestHeader("Content-Type", "application/json");
+        reqS3Array[i].send( dataJSONString );
+        // ++++++++++++++++++++
+        console.log('request ' + i + ' sent');
+      })(i); // we make this a self executing function
+    }
   }
 }
 
 // CONVIENENCE FUNCTIONS
+function startPebbleWatchTransmission(){
+  Pebble.sendAppMessage( { 'AppKeyJSReady': 0},
+    function(e) {
+      console.log('Successfully delivered message with transactionId='
+        + e.data.transactionId);
+    },
+    function(e) {
+      Pebble.sendAppMessage( { 'AppKeyJSReady': 0});
+      console.log('Unable to deliver message with transactionId='
+        + e.data.transactionId
+        + ' Error is: ' + e.error.message);
+  });
+}
+
+function closePebbleWatchApp(){
+  Pebble.sendAppMessage( { 'AppKeySentToServer': 0},
+    function(e) {
+      console.log('Successfully delivered message with transactionId='
+        + e.data.transactionId);
+    },
+    function(e) {
+      Pebble.sendAppMessage( { 'AppKeySentToServer': 0});
+      console.log('Unable to deliver message with transactionId='
+        + e.data.transactionId
+        + ' Error is: ' + e.error.message);
+  });
+}
 
 function LSKeyToWPKey(key){
   return key.replace(/wp-/i,''); // remove the leading 'wp-' ONLY

@@ -17,17 +17,17 @@ int get_next_pinteract_element_key(){
 int get_data_size_of_pinteract_element(int pstorage_key){
   // get the head of the pinteract block, which will contain the size of the
   // whole block, so we just write the first two bytes into the
-  uint16_t pinteract_size[2];
-  persist_read_data(pstorage_key, pinteract_size, 4);
+  uint16_t pinteract_header[2];
+  persist_read_data(pstorage_key, pinteract_header, 4);
   //get the second first number element of the array, whcih
-  return pinteract_size[1];
+  return pinteract_header[1];
 }
 
 int get_pinteract_code_of_pinteract_element(int pstorage_key){
   // get the head of the pinteract block, which will contain the size of the
   // whole block, so we just write the first two bytes into the
-  uint16_t pinteract_size[2];
-  persist_read_data(pstorage_key, pinteract_size, 4);
+  uint16_t pinteract_header[2];
+  persist_read_data(pstorage_key, pinteract_header, 4);
   //get the second first number element of the array, whcih
-  return pinteract_size[0];
+  return pinteract_header[0];
 }
