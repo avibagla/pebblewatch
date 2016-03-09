@@ -24,9 +24,6 @@ static uint16_t get_cell_height_cb(struct MenuLayer *menu_layer, uint16_t sectio
 // we do not use the section header because the font size is only 14
 
 static void select_click_cb(struct MenuLayer *menu_layer, MenuIndex *cell_index, void *callback_context){
-
-  // close out the mood record menu entirely
-  window_stack_remove(s_survey_window, false);
   // write the data to the struct
   Pinteract11Data data = {
     .pinteract_code = 11,
@@ -44,6 +41,8 @@ static void select_click_cb(struct MenuLayer *menu_layer, MenuIndex *cell_index,
   persist_write_data(new_pinteract_count, &data, sizeof(Pinteract11Data) );
   // update the pinteract storage count
   persist_write_int(PINTERACT_KEY_COUNT_PERSIST_KEY, new_pinteract_count);
+  // close out the mood record menu entirely
+  window_stack_remove(s_survey_window, false);
 }
 
 

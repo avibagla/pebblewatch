@@ -20,13 +20,16 @@ static void countdown_timer_handler(void *data);
 
 static void send_data_item(AppKey app_key);
 
+static uint32_t OUTBOX_SIZE = (sizeof(time_t)*2) + (sizeof(HealthMinuteData)*MAX_ENTRIES);
 bool health_events_sent;
 AppKey cur_app_key;
 int num_entries;
-time_t prev_health_events_upload_time; // previous time that the
-time_t attempt_health_events_upload_time; // previous time that the
-time_t prev_acti_upload_time;
-time_t attempt_acti_upload_time;
+
+static int pinteract_count;
+static time_t prev_health_events_upload_time; // previous time that the
+static time_t attempt_health_events_upload_time; // previous time that the
+static time_t prev_acti_upload_time;
+static time_t attempt_acti_upload_time;
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -156,25 +159,31 @@ static void send_data_router(){
 static void health_events_iter_cb(HealthActivity activity, time_t time_start,
   time_t time_end, void *context){
 
-  int16_t activity_int;
-  if(activity == HealthActivityNone){
-    activity_int = 0;
-  }else if(activity == HealthActivitySleep){
-    activity_int = 1;
-  }else if(activity == HealthActivityRestfulSleep){
-    activity_int = 2;
-  }
-  HealthEventData health_event_data = {
-    .HealthEventData = activity_int,
-    .time_start = time_start,
-    .time_end = time_end
-  };
   // treat the first two bytes as a call on how many bytes are in the buffer
-  HealthEventData *buf = (HealthEventData*) context+sizeof(uint16_t);
-  uint16_t *index = (uint16_t*) context;
-  // add the data to the buffer
-  buf[*index] = health_event_data;
-  *index = *index + 1; // update the counter to the next. Note, this now is also a count
+  uint8_t *data = (uint8_t*) context;
+  uint16_t *n_bytes = (uint16_t*) context;
+  // if the number of bytes to be added
+  if((*n_bytes +sizeof(HealthEventData) )< OUTBOX_SIZE ){
+    int16_t activity_int;
+    if(activity == HealthActivityNone){
+      activity_int = 0;
+    }else if(activity == HealthActivitySleep){
+      activity_int = 1;
+    }else if(activity == HealthActivityRestfulSleep){
+      activity_int = 2;
+    }
+    HealthEventData health_event_data = {
+      .health_activity = activity_int,
+      .time_start = time_start,
+      .time_end = time_end
+    };
+
+    memcpy(data+ *n_bytes, &health_event_data ,sizeof(HealthEventData) );
+    *n_bytes = *n_bytes + sizeof(HealthEventData);
+    // we update the update time, gate on how many have been written to buffer,
+    // add 1 second here, assuming that iterate forward in time
+    attempt_health_events_upload_time = time_start + 1;
+  }
 }
 
 
@@ -197,8 +206,8 @@ static void send_app_message_full(DictionaryIterator *out, AppKey app_key, uint8
 }
 
 static void send_data_item(AppKey app_key){
-
-  DictionaryIterator *out;
+  // initialize the out write
+  DictionaryIterator *out = NULL;
 
   // AppKeyActiData
   if(app_key == AppKeyActiData){
@@ -206,10 +215,8 @@ static void send_data_item(AppKey app_key){
     attempt_acti_upload_time = time(NULL); // This is okay because the
     // health_service_get_minute_history rewrites the time to be at the end of
     // the health period
-
     // malloc the data
-    HealthMinuteData* data_hmd = (HealthMinuteData*) malloc(
-      (sizeof(time_t)*2) + (sizeof(HealthMinuteData)*MAX_ENTRIES) );
+    HealthMinuteData* data_hmd = (HealthMinuteData*) malloc(OUTBOX_SIZE);
 
     // add the period data to the remainder of the block
     // get the data from  prev_acti_upload_time to attempt_acti_upload_time
@@ -229,7 +236,7 @@ static void send_data_item(AppKey app_key){
     // ONLY TRANSMIT IF BLOCK PROPER SIZE
     if(num_entries >= 1){
       // re-write the data so that we know the structure of the data exactly
-      int data_size = (sizeof(time_t)*2) + num_entries * sizeof(TrunHealthMinuteData)
+      int data_size = (sizeof(time_t)*2) + num_entries * sizeof(TrunHealthMinuteData);
       uint8_t *data = (uint8_t*) malloc( data_size);
       TrunHealthMinuteData* trun_data  = (TrunHealthMinuteData*) (data+(sizeof(time_t)*2));
 
@@ -252,26 +259,8 @@ static void send_data_item(AppKey app_key){
       // as if the caller passed in the end of that minute.
       // HENCE, when we record the previous last upload time in order to
       // setup for the next upload, we have to add one second to get the next minute
-      write_time_to_array_head(attempt_acti_upload_time, data+4);
-      // if(app_message_outbox_begin(&out) == APP_MSG_OK){
-      //   // write data to outbox iterator
-      //   // dict_write_data(out, AppKeyActiData, data, (sizeof(time_t)*2) + (trun_hmd_size*num_entries));
-      //   dict_write_data(out, AppKeyActiData, data, (sizeof(time_t)*2)
-      //     + (sizeof(TrunHealthMinuteData)*num_entries));
-      //   // free malloced data
-      //   free(data);
-      //   dict_write_end(out);
-      //   if(app_message_outbox_send() == APP_MSG_OK){
-      //     // that if we sent the data, we mark it as the current key
-      //     cur_app_key = app_key;
-      //   }else{
-      //     APP_LOG(APP_LOG_LEVEL_ERROR, "Error sending message");
-      //   }
-      // }else{
-      //   APP_LOG(APP_LOG_LEVEL_ERROR, "Error beginning message");
-      //   // free malloced data
-      //   free(data);
-      // }
+      write_time_to_array_head(attempt_acti_upload_time, data+sizeof(time_t));
+
       send_app_message_full(out, AppKeyActiData, data, data_size);
 
     }else{
@@ -287,66 +276,57 @@ static void send_data_item(AppKey app_key){
 
     // add pebble event data here.
     // AppKeyHealthEventsData
-  // }else if(app_key == AppKeyHealthEventsData){
+    // }else if(app_key == AppKeyHealthEventsData){
     // iterate over the health events and place them into an array the same size
     // as the maximum
     // prev_health_events_upload_time = persist_read_int(HEALTH_EVENTS_LAST_UPLOAD_TIME_PERSIST_KEY);
     // HealthActivityMaskAll
-    // uint16_t* data = (int16_t*) malloc((sizeof(time_t)*2) + (sizeof(HealthMinuteData)*MAX_ENTRIES)  );
-    // data[0] = 0; // number of health events written to
+    // uint8_t* data = (int16_t*) malloc(OUTBOX_SIZE );
+    // first two bytes are the number of bytes in the buffer
+    // uint16_t* n_bytes = (uint16_t*) data;
+    // *n_bytes = 2;
     // health_service_activities_iterate(HealthActivityMaskAll,
     //  prev_health_events_upload_time, time(NULL), HealthIterationDirectionFuture,
     //  health_events_iter_cb, (void*) data);
-    // int data_size = (data[0])*sizeof(HealthEventData) ;
+
+    // int data_size = *n_bytes - 2 ; // get the size of the data set minus the first two
+    // byte counter
 
     // send data via appmessage
-    send_app_message_full(out, AppKeyHealthEventsData, (uint8_t*) data, data_size);
+    // send the pointer ahead by 2 bytes
+    // send_app_message_full(out, AppKeyHealthEventsData, data+sizeof(uint16_t), data_size);
 
   // AppKeyPinteractData
   }else if(app_key == AppKeyPinteractData){
     // get the address of the next element of the pinteract in pstorage
-
     // get the size of the next pinteract element in pstorage
-    int pstorage_key = get_next_pinteract_element_key();
-    int data_size = get_data_size_of_pinteract_element(pstorage_key);
-    uint8_t *data = (uint8_t*) malloc(data_size);
-    // write the data from the pinteract into the data buffer
-    persist_read_data(pstorage_key, data, data_size);
-
-    // if(app_message_outbox_begin(&out) == APP_MSG_OK){
-    //   dict_write_data(out, AppKeyPinteractData, data, data_size);
-    //   free(data);
-    //   dict_write_end(out);
-    //
-    //   if(app_message_outbox_send() == APP_MSG_OK){
-    //     // that if we sent the data, we mark it as the current key
-    //     cur_app_key = app_key;
-    //   }else{
-    //     APP_LOG(APP_LOG_LEVEL_ERROR, "Error sending message");
-    //   }
-    // }else{
-    //   free(data);
-    //   APP_LOG(APP_LOG_LEVEL_ERROR, "Error beginning message");
-    // }
-    send_app_message_full(out, AppKeyPinteractData, data, data_size);
+    uint8_t* data = (uint8_t*) malloc(OUTBOX_SIZE );
+    // first two bytes are the number of bytes in the buffer
+    uint16_t* n_bytes = (uint16_t*) data;
+    *n_bytes = 2;
+    // get the initial key count
+    pinteract_count = persist_read_int( PINTERACT_KEY_COUNT_PERSIST_KEY);
+    while( true){
+      uint32_t pinteract_data_size = get_data_size_of_pinteract_element(pinteract_count);
+      // test if
+      //  1. adding the pinteract to the data will cause it to overload the buffer
+      //  2. if we have any keys left, ie:  pinteract_key == 0 is out
+      if( ( (*n_bytes + pinteract_data_size) > OUTBOX_SIZE) || (pinteract_count == 0)){ break; }
+      // read the pinteract entry into the buffer
+      persist_read_data(pinteract_count, data + *n_bytes, pinteract_data_size);
+      *n_bytes = *n_bytes + pinteract_data_size; // update the number of valid bytes in buffer
+      pinteract_count--; // decrement the counter
+    }
+    // if we successful transmit the counter, then we update it at the sent handler
+    int data_size = *n_bytes - 2;
+    send_app_message_full(out, AppKeyPinteractData, data + sizeof(uint16_t), data_size);
 
   // if AppKeyPushToServer
   }else if(app_key == AppKeyPushToServer){
     int data_size = 4;
     uint8_t *data = (uint8_t*) malloc(data_size);
     data[0] = 0;
-    // if(app_message_outbox_begin(&out) == APP_MSG_OK){
-    //   dict_write_int(out, AppKeyPushToServer,&msg_to_server, 4, true);
-    //   dict_write_end(out);
-    //   if(app_message_outbox_send() == APP_MSG_OK){
-    //     // that if we sent the data, we mark it as the current key
-    //     cur_app_key = app_key;
-    //   }else{
-    //     APP_LOG(APP_LOG_LEVEL_ERROR, "Error sending message");
-    //   }
-    // }else{
-    //   APP_LOG(APP_LOG_LEVEL_ERROR, "Error beginning message");
-    // }
+
     send_app_message_full(out, AppKeyPushToServer, data, data_size);
   }
 
@@ -364,8 +344,8 @@ static void outbox_sent_handler(DictionaryIterator *iter, void *context){
   // health_events_sent = true;
   // persist_write_int(HEALTH_EVENTS_LAST_UPLOAD_TIME_PERSIST_KEY,attempt_health_events_upload_time);
   }else if(cur_app_key == AppKeyPinteractData){
-    persist_write_int(PINTERACT_KEY_COUNT_PERSIST_KEY,
-      persist_read_int(PINTERACT_KEY_COUNT_PERSIST_KEY) - 1);
+    // if send the data, then update with the current count of elements in the pstorage
+    persist_write_int(PINTERACT_KEY_COUNT_PERSIST_KEY,pinteract_count);
   }else if(cur_app_key == AppKeyPushToServer){
     return;
   }
@@ -426,8 +406,7 @@ void comm_begin_upload(){
     app_message_register_outbox_sent(outbox_sent_handler);
     app_message_register_outbox_failed(outbox_dropped_handler);
     // NOTE : incoming data for configuration must match the size of the config
-    app_message_open(INCOMING_DATA_SIZE, (sizeof(time_t)*2)
-      + (sizeof(TrunHealthMinuteData)*MAX_ENTRIES));
+    app_message_open(INCOMING_DATA_SIZE, OUTBOX_SIZE);
 
     // app_message_open(INCOMING_DATA_SIZE,app_message_outbox_size_maximum());
 
@@ -454,7 +433,57 @@ void comm_begin_upload_no_window(){
     app_message_register_outbox_sent(outbox_sent_handler);
     app_message_register_outbox_failed(outbox_dropped_handler);
     // NOTE : incoming data for configuration must match the size of the config
-    app_message_open(INCOMING_DATA_SIZE, (sizeof(time_t)*2)
-      + (sizeof(TrunHealthMinuteData)*MAX_ENTRIES));
+    app_message_open(INCOMING_DATA_SIZE, OUTBOX_SIZE);
   }
 }
+
+
+// if(app_message_outbox_begin(&out) == APP_MSG_OK){
+//   // write data to outbox iterator
+//   // dict_write_data(out, AppKeyActiData, data, (sizeof(time_t)*2) + (trun_hmd_size*num_entries));
+//   dict_write_data(out, AppKeyActiData, data, (sizeof(time_t)*2)
+//     + (sizeof(TrunHealthMinuteData)*num_entries));
+//   // free malloced data
+//   free(data);
+//   dict_write_end(out);
+//   if(app_message_outbox_send() == APP_MSG_OK){
+//     // that if we sent the data, we mark it as the current key
+//     cur_app_key = app_key;
+//   }else{
+//     APP_LOG(APP_LOG_LEVEL_ERROR, "Error sending message");
+//   }
+// }else{
+//   APP_LOG(APP_LOG_LEVEL_ERROR, "Error beginning message");
+//   // free malloced data
+//   free(data);
+// }
+
+// if(app_message_outbox_begin(&out) == APP_MSG_OK){
+//   dict_write_data(out, AppKeyPinteractData, data, data_size);
+//   free(data);
+//   dict_write_end(out);
+//
+//   if(app_message_outbox_send() == APP_MSG_OK){
+//     // that if we sent the data, we mark it as the current key
+//     cur_app_key = app_key;
+//   }else{
+//     APP_LOG(APP_LOG_LEVEL_ERROR, "Error sending message");
+//   }
+// }else{
+//   free(data);
+//   APP_LOG(APP_LOG_LEVEL_ERROR, "Error beginning message");
+// }
+
+
+// if(app_message_outbox_begin(&out) == APP_MSG_OK){
+//   dict_write_int(out, AppKeyPushToServer,&msg_to_server, 4, true);
+//   dict_write_end(out);
+//   if(app_message_outbox_send() == APP_MSG_OK){
+//     // that if we sent the data, we mark it as the current key
+//     cur_app_key = app_key;
+//   }else{
+//     APP_LOG(APP_LOG_LEVEL_ERROR, "Error sending message");
+//   }
+// }else{
+//   APP_LOG(APP_LOG_LEVEL_ERROR, "Error beginning message");
+// }

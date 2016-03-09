@@ -5,7 +5,7 @@
 
 // Number of minutes between uploads, and the number of items read from
 // the HealthService minute data API.
-#define INTERVAL_MINUTES 60
+#define INTERVAL_MINUTES 15
 
 // Size of the incoming information for configuration, for example
 #define INCOMING_DATA_SIZE 10

@@ -36,13 +36,13 @@ static void select_click_handler(ClickRecognizerRef recognizer, void *context){
   // that the window is undone,and that calling the next function doesn't
   // mess with the current interaction
 
+  close_priv_scrn_window();
+
   // write the pinteract context to the pinteract driver
   PinteractContext ctx = {
     .priv_scrn_time_open = time_t_srt_priv_scrn_lcl
   };
   pinteract_driver(pinteract_code_lcl, ctx);
-  close_priv_scrn_window();
-
 }
 
 static void back_click_handler(ClickRecognizerRef recognizer, void *context){
