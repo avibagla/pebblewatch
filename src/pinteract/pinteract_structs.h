@@ -34,8 +34,6 @@ typedef struct{
 
 
 
-#define NUM_DAYS_HISTORY 8
-
 typedef struct{
   int8_t mood_index;
 }__attribute__((__packed__)) Pinteract11State;

@@ -15,7 +15,7 @@
 typedef enum{
   AppKeyJSReady = 0,
   AppKeyActiData = 1,
-  AppKeyHealthEventsData = 2,
+  AppKeyHealthEventData = 2,
   AppKeyConfigData = 3,
   AppKeyPinteractData = 4,
   AppKeyPushToServer = 5,

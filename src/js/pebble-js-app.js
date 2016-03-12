@@ -67,6 +67,9 @@ Pebble.addEventListener('appmessage', function(e) {
   if(e.payload.AppKeyActiData != undefined){
     // if actigraphy data, then save to local storage
     saveNewToLocalStorage(e.payload.AppKeyActiData,'acti');
+  }else if(e.payload.AppKeyHealthEventData != undefined){
+    // if pinteract data, then save to local storage
+    saveNewToLocalStorage(e.payload.AppKeyHealthEventData,'healthevent');
   }else if(e.payload.AppKeyPinteractData != undefined){
     // if pinteract data, then save to local storage
     saveNewToLocalStorage(e.payload.AppKeyPinteractData,'pinteract');

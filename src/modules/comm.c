@@ -45,7 +45,9 @@ static time_t attempt_acti_upload_time;
 // WE have to assume that this is going to be alright, and that
 // the tick handlers will kill the window when it is time.
 
-static void close_transmit_window(){
+static void shutdown_comm(){
+  // desregister the callbacks LAST. Why?
+  app_message_deregister_callbacks();
   if(transmit_window_active){
     window_stack_remove(s_transmit_phone_window,false);
   }
@@ -79,7 +81,7 @@ static void countdown_timer_handler(void *data){
   }else{
     countdown_active = false;
     // once reach the end of the countdown, remove the window no matter what
-    close_transmit_window();
+    shutdown_comm();
   }
 }
 
@@ -123,9 +125,6 @@ static void transmit_phone_window_unload(Window *window) {
   app_timer_cancel(app_timer_push_to_server);
   text_layer_destroy(s_transmit_countdown_text_layer);
   // Destroy the banner layer
-
-  // desregister the callbacks LAST. Why?
-  app_message_deregister_callbacks();
 }
 
 
@@ -147,8 +146,8 @@ static void send_data_router(){
   // NOTE : once we have no more data, we close by default
   if( num_entries >= 1){
     send_data_item(AppKeyActiData);
-  // }else if(!health_events_sent){
-  //   send_data_item(AppKeyHealthEventsData);
+  }else if(!health_events_sent){
+    send_data_item(AppKeyHealthEventData);
   }else if(data_to_send_pinteract()){
     send_data_item(AppKeyPinteractData);
   // test if the connection is active to see if we can infact push to the server
@@ -157,11 +156,11 @@ static void send_data_router(){
   }else{
     countdown_active = false;
     // once reach the end of the countdown, remove the window no matter what
-    close_transmit_window();
+    shutdown_comm();
   }
 }
 
-static void health_events_iter_cb(HealthActivity activity, time_t time_start,
+static bool health_events_iter_cb(HealthActivity activity, time_t time_start,
   time_t time_end, void *context){
 
   // treat the first two bytes as a call on how many bytes are in the buffer
@@ -169,7 +168,7 @@ static void health_events_iter_cb(HealthActivity activity, time_t time_start,
   uint16_t *n_bytes = (uint16_t*) context;
   // if the number of bytes to be added
   if((*n_bytes +sizeof(HealthEventData) )< OUTBOX_SIZE ){
-    int16_t activity_int;
+    int16_t activity_int = -1; // if this is an unknown activity, mark as -1
     if(activity == HealthActivityNone){
       activity_int = 0;
     }else if(activity == HealthActivitySleep){
@@ -188,6 +187,11 @@ static void health_events_iter_cb(HealthActivity activity, time_t time_start,
     // we update the update time, gate on how many have been written to buffer,
     // add 1 second here, assuming that iterate forward in time
     attempt_health_events_upload_time = time_start + 1;
+    // if we have space in the outbox buffer, we get more health events
+    return true;
+  }else{
+    // if we have no more space in the outbox buffer, then we stop getting events
+    return false;
   }
 }
 
@@ -214,7 +218,7 @@ static void send_data_item(AppKey app_key){
   // initialize the out write
   DictionaryIterator *out = NULL;
 
-  // AppKeyActiData
+  // ++++++++++++++++++ AppKeyActiData ++++++++++++++++++
   if(app_key == AppKeyActiData){
     prev_acti_upload_time = persist_read_int(ACTI_LAST_UPLOAD_TIME_PERSIST_KEY);
     attempt_acti_upload_time = time(NULL); // This is okay because the
@@ -280,28 +284,25 @@ static void send_data_item(AppKey app_key){
     }
 
     // add pebble event data here.
-    // AppKeyHealthEventsData
-    // }else if(app_key == AppKeyHealthEventsData){
-    // iterate over the health events and place them into an array the same size
-    // as the maximum
-    // prev_health_events_upload_time = persist_read_int(HEALTH_EVENTS_LAST_UPLOAD_TIME_PERSIST_KEY);
-    // HealthActivityMaskAll
-    // uint8_t* data = (int16_t*) malloc(OUTBOX_SIZE );
-    // first two bytes are the number of bytes in the buffer
-    // uint16_t* n_bytes = (uint16_t*) data;
-    // *n_bytes = 2;
-    // health_service_activities_iterate(HealthActivityMaskAll,
-    //  prev_health_events_upload_time, time(NULL), HealthIterationDirectionFuture,
-    //  health_events_iter_cb, (void*) data);
 
-    // int data_size = *n_bytes - 2 ; // get the size of the data set minus the first two
-    // byte counter
+  // ++++++++++++++++++ AppKeyHealthEventData ++++++++++++++++++
+  }else if(app_key == AppKeyHealthEventData){
+    // iterate over the health events and place them into an array the same size as the maximum
+    prev_health_events_upload_time = persist_read_int(HEALTH_EVENTS_LAST_UPLOAD_TIME_PERSIST_KEY);
+    uint8_t* data = (uint8_t*) malloc(OUTBOX_SIZE );
+    // first two bytes are the number of bytes in the buffer
+    uint16_t* n_bytes = (uint16_t*) data;
+    *n_bytes = 2;
+    health_service_activities_iterate(HealthActivityMaskAll,
+     prev_health_events_upload_time, time(NULL), HealthIterationDirectionFuture,
+     health_events_iter_cb, (void*) data);
 
     // send data via appmessage
-    // send the pointer ahead by 2 bytes
-    // send_app_message_full(out, AppKeyHealthEventsData, data,2, data_size);
+    // NOTE, we DONT skip the first two bytes because we could find a count of
+    // the number of bytes that are SUPPOSED to be in the array useful
+    send_app_message_full(out, AppKeyHealthEventData, data,0, *n_bytes);
 
-  // AppKeyPinteractData
+  // ++++++++++++++++++ AppKeyPinteractData ++++++++++++++++++
   }else if(app_key == AppKeyPinteractData){
     // get the address of the next element of the pinteract in pstorage
     // get the size of the next pinteract element in pstorage
@@ -324,16 +325,16 @@ static void send_data_item(AppKey app_key){
       *n_bytes = *n_bytes + pinteract_data_size; // update the number of valid bytes in buffer
       pinteract_count--; // decrement the counter
     }
-    // if we successful transmit the counter, then we update it at the sent handler
-    int data_size = *n_bytes - 2;
-    send_app_message_full(out, AppKeyPinteractData, data,2, data_size);
+    // send data via appmessage
+    // NOTE, we DONT skip the first two bytes because we could find a count of
+    // the number of bytes that are SUPPOSED to be in the array useful
+    send_app_message_full(out, AppKeyPinteractData, data,0, *n_bytes);
 
-  // if AppKeyPushToServer
+  // ++++++++++++++++++ AppKeyPushToServer ++++++++++++++++++
   }else if(app_key == AppKeyPushToServer){
     int data_size = 4;
     uint8_t *data = (uint8_t*) malloc(data_size);
     data[0] = 0;
-
     send_app_message_full(out, AppKeyPushToServer, data, 0,data_size);
   }
 
@@ -347,9 +348,9 @@ static void outbox_sent_handler(DictionaryIterator *iter, void *context){
   if(cur_app_key == AppKeyActiData){
     // add one second to move it into the next minute
     persist_write_int(ACTI_LAST_UPLOAD_TIME_PERSIST_KEY ,attempt_acti_upload_time);
-  // }else if(cur_app_key == AppKeyHealthEventsData){
-  // health_events_sent = true;
-  // persist_write_int(HEALTH_EVENTS_LAST_UPLOAD_TIME_PERSIST_KEY,attempt_health_events_upload_time);
+  }else if(cur_app_key == AppKeyHealthEventData){
+    health_events_sent = true;
+    persist_write_int(HEALTH_EVENTS_LAST_UPLOAD_TIME_PERSIST_KEY,attempt_health_events_upload_time);
   }else if(cur_app_key == AppKeyPinteractData){
     // if send the data, then update with the current count of elements in the pstorage
     persist_write_int(PINTERACT_KEY_COUNT_PERSIST_KEY,pinteract_count);
@@ -369,9 +370,8 @@ static void outbox_dropped_handler(DictionaryIterator *iterator, AppMessageResul
   // NOTE : once we have no more data, we close by default
   if((cur_app_key == AppKeyActiData) && (retry_count < MAX_RETRY)){
     send_data_item(AppKeyActiData);
-  // }else if( (cur_app_key == AppKeyHealthEventsData) && (retry_count < MAX_RETRY)){
-  //  send_data_item(AppKeyHealthEventsData);
-  // }
+  }else if( (cur_app_key == AppKeyHealthEventData) && (retry_count < MAX_RETRY)){
+   send_data_item(AppKeyHealthEventData);
   }else if((cur_app_key == AppKeyPinteractData) && (retry_count < MAX_RETRY) ){
     send_data_item(AppKeyPinteractData);
   // test if the connection is active to see if we can infact push to the server
@@ -380,7 +380,7 @@ static void outbox_dropped_handler(DictionaryIterator *iterator, AppMessageResul
   }else{
     countdown_active = false;
     // once reach the end of the countdown, remove the window no matter what
-    close_transmit_window();
+    shutdown_comm();
   }
 }
 
@@ -400,7 +400,7 @@ static void inbox_received_handler(DictionaryIterator *iter, void *context) {
   if(js_sent_t){
     countdown_active = false;
     // once reach the end of the countdown, remove the window no matter what
-    close_transmit_window();
+    shutdown_comm();
   }
 }
 

@@ -62,6 +62,17 @@ void reset_config_wakeup_persistent_storage(){
   // APP_LOG(APP_LOG_LEVEL_ERROR, "config wakeup i=0, wakeup_id %d ", (int) wakeup_id);
 }
 
+void reset_pinteract_states(){
+
+  // initialize the pinteract states to -1
+  Pinteract11State pi11_init = { .mood_index= -1 };
+  Pinteract14State pi14_init = {.sleep_duration_min= -1, .sleep_quality_index = -1};
+  for(int16_t i = 0; i < NUM_DAYS_HISTORY; i++){
+    set_pinteract_state(11, (void*) &pi11_init,i);
+    set_pinteract_state(14, (void*) &pi14_init,i);
+  }
+}
+
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 /* +++++++++++++++ FORE APP MASTER TICK FUNCTIONS +++++++++++++++ */
@@ -251,8 +262,8 @@ void pinteract_state_roll_over_days_entry(time_t time_entry){
   }
 
   int diff_days = tm_entry->tm_yday - tm_last_entry->tm_yday;
-  // diff_days = (diff_days < NUM_DAYS_HISTORY) ? diff_days : NUM_DAYS_HISTORY;
-  diff_days = 1;
+  diff_days = (diff_days < NUM_DAYS_HISTORY) ? diff_days : NUM_DAYS_HISTORY;
+  // diff_days = 1;
   for(int i = 0; i < diff_days; i++){
     // move the previous 7 days back by 1
     for(int j = NUM_DAYS_HISTORY-1; j > 0 ; j--){
@@ -309,20 +320,6 @@ void wakeup_main_response_handler(WakeupId wakeup_id, int32_t wakeup_cookie){
     // get the pinteract code, pass it to the privacy screen to start pinteract
     pinteract_priv_scrn(pinteract_code);
     // pinteract_driver(pinteract_code);
-
-
-    // APP_LOG(APP_LOG_LEVEL_ERROR, "pinteract_code : %d", (int) pinteract_code );
-    // psleep(100); // a slight delay to let any concurrent transmissions finish
-      // their business.
-    // if(heap_bytes_free()<1500){
-      // pinteract_driver(pinteract_code);
-    // }else{
-    //   time_t wakeup_time_t = time(NULL) + 60*(up_delay_mins); // minutes;
-    //   reschedule_config_wakeup_index(
-    //     persist_read_int(ACTIVE_WAKEUP_CONFIG_I_PERSIST_KEY), wakeup_time_t);
-    //   persist_write_int(ACTIVE_WAKEUP_CONFIG_I_PERSIST_KEY,-1);
-    //   window_stack_pop_all(false);
-    // }
 
   }else if(( wakeup_cookie < NUM_TOTAL_WAKEUP) && ( wakeup_cookie >= NUM_CONFIG_WAKEUP) ){
     APP_LOG(APP_LOG_LEVEL_ERROR,"attempt to transmit from wakeup");

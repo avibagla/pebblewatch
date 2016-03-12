@@ -12,11 +12,11 @@
 
 void init_persistent_storage();
 
-
 void reset_pinteract_persistent_storage();
 
 void reset_config_wakeup_persistent_storage();
 
+void reset_pinteract_states();
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 /* +++++++++++++++ FORE APP MASTER TICK FUNCTIONS +++++++++++++++ */

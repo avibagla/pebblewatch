@@ -5,7 +5,7 @@
 
 // Number of minutes between uploads, and the number of items read from
 // the HealthService minute data API.
-#define INTERVAL_MINUTES 15
+#define INTERVAL_MINUTES 60
 
 // Size of the incoming information for configuration, for example
 #define INCOMING_DATA_SIZE 10
@@ -51,7 +51,7 @@ static const int16_t DAILY_SUMMARY_WEEKS_PERSIST_KEY = 220;
 // # DEFINED CONSTANTS
 static const uint32_t NUM_SEC_IN_DAY = 24*60*60;
 static const uint32_t NUM_SEC_IN_WEEK = 7*24*60*60;
-static const int32_t CUR_WP_VERSION = 15;
+static const int32_t CUR_WP_VERSION = 14;
 
 
 // +++++++ Memory Constraints
@@ -94,6 +94,7 @@ static const int16_t NUM_DAYS_DAILY_SUMMARY = 7; // we get a weeks work of data
 
 static const int16_t CONFIG_WAKEUP_COOKIE = 1;
 
+#define NUM_DAYS_HISTORY 8
 
 /* +++++++++++++++ T +++++++++++++++ */
 /* +++++++++++++++ T +++++++++++++++ */
