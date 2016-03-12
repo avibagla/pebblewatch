@@ -4,6 +4,8 @@
 #include "../constants.h"
 #include "../config_all/config_func.h"
 #include "comm.h"
+#include "../pinteract/pinteract.h"
+#include "../pinteract/pinteract_structs.h"
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 /* ++++++++++++++++ STORAGE FUNCTIONS +++++++++++++++ */
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
@@ -34,6 +36,20 @@ void fore_app_master_tick_timer_service_aux_subscribe(TimeUnits tick_units, Tick
 
 void fore_app_master_tick_timer_service_aux_unsubscribe(TimeUnits tick_units);
 
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* +++++++++++++++ CONVIENCE FUNCTIONS +++++++++++++++ */
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+
+
+ConfigGeneral get_config_general();
+
+PinteractStates get_pinteract_state_all();
+
+void set_pinteract_state(int16_t pi_i, void* state ,int16_t index);
+
+void pinteract_state_roll_over_days_entry(time_t time_entry);
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 /* +++++++++++++++ MAJOR OPERATIONS FUNCTIONS +++++++++++++++ */

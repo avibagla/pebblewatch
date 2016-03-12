@@ -33,14 +33,14 @@ Pebble App roject.
 static void init() {
   /* ++++++ CHECK IF FIRST TIME APP INSTALLED +++++ */
   // if first time installed
-  // if(!persist_exists(CUR_WP_VERSION_PERSIST_KEY)){
-    // write the current version of the app into persist storage
-    // persist_write_int(CUR_WP_VERSION_PERSIST_KEY, CUR_WP_VERSION);
-    // persist_write_int(PINTERACT_KEY_COUNT_PERSIST_KEY,0);
-    // persist_write_int(ACTI_LAST_UPLOAD_TIME_PERSIST_KEY,time());
-    // // nevermind, just let the count be the key for the persistent storage.
-    // // initialize an array to 0s to be the key count for the
-    // reset_config_wakeup_persistent_storage();
+  // if(persist_read_int(CUR_WP_VERSION_PERSIST_KEY) != CUR_WP_VERSION){
+  //   // write the current version of the app into persist storage
+  //   persist_write_int(CUR_WP_VERSION_PERSIST_KEY, CUR_WP_VERSION);
+  //   persist_write_int(PINTERACT_KEY_COUNT_PERSIST_KEY,0);
+  //   persist_write_int(ACTI_LAST_UPLOAD_TIME_PERSIST_KEY,0);
+  //   // nevermind, just let the count be the key for the persistent storage.
+  //   // initialize an array to 0s to be the key count for the
+  //   reset_config_wakeup_persistent_storage();
   // }
 
   /* ++++++ EVERY TIME THE APP STARTS  +++++ */
@@ -55,15 +55,28 @@ static void init() {
     APP_LOG(APP_LOG_LEVEL_ERROR, "app start: heap size: used %d , free %d",
         heap_bytes_used(), heap_bytes_free());
     APP_LOG(APP_LOG_LEVEL_ERROR, "HealthMinuteData size %d ",(int) sizeof(HealthMinuteData));
-    // display_main_dash();
 
-    // TEMPORARY!!!
-    persist_write_int(CUR_WP_VERSION_PERSIST_KEY, CUR_WP_VERSION);
     persist_write_int(PINTERACT_KEY_COUNT_PERSIST_KEY,0);
     persist_write_int(ACTI_LAST_UPLOAD_TIME_PERSIST_KEY,time(NULL));
     // nevermind, just let the count be the key for the persistent storage.
     // initialize an array to 0s to be the key count for the
     reset_config_wakeup_persistent_storage();
+
+
+    time_t time_entry = time(NULL);
+    set_pinteract_state(0, (void*) &time_entry,0);
+    // Pinteract11State pi11_init = {
+    //   .mood= 2
+    // };
+    // set_pinteract_state(11, (void*) &pi11_init,0);
+    // Pinteract14State pi14_init = {
+    //   .sleep_duration_min= 5*60,
+    //   .sleep_quality_index = 2
+    // };
+    // set_pinteract_state(14, (void*) &pi14_init,0);
+
+    // nevermind, just let the count be the key for the persistent storage.
+    // initialize an array to 0s to be the key count for the
     demo_screens_open();
   }
 

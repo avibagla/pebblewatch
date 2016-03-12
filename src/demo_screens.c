@@ -23,19 +23,21 @@ static uint16_t get_cell_height_cb(struct MenuLayer *menu_layer, uint16_t sectio
 static void select_click_cb(struct MenuLayer *menu_layer, MenuIndex *cell_index, void *callback_context){
 
   // close out the mood record menu entirely
-  window_stack_remove(s_survey_window, false);
 
   switch(cell_index->row){
     case 0:
       pinteract_priv_scrn(11);
     break;
     case 1:
+      pinteract_priv_scrn(14);
 
     break;
     case 2:
+      display_history_stem_graph(11);
 
     break;
     case 3:
+      comm_begin_upload_active_window();
 
     break;
     case 4:
@@ -52,13 +54,13 @@ static void draw_row_cb(GContext *ctx, const Layer *cell_layer, MenuIndex *cell_
       menu_cell_basic_draw(ctx, cell_layer, "Mood Today",NULL,NULL );
     break;
     case 1:
-      menu_cell_basic_draw(ctx, cell_layer, "Slot 1",NULL,NULL );
+      menu_cell_basic_draw(ctx, cell_layer, "Sleep Survey",NULL,NULL );
     break;
     case 2:
-      menu_cell_basic_draw(ctx, cell_layer, "Slot 2",NULL,NULL );
+      menu_cell_basic_draw(ctx, cell_layer, "Stem plot",NULL,NULL );
     break;
     case 3:
-      menu_cell_basic_draw(ctx, cell_layer, "Slot 3",NULL,NULL );
+      menu_cell_basic_draw(ctx, cell_layer, "Upload",NULL,NULL );
     break;
     case 4:
       menu_cell_basic_draw(ctx, cell_layer, "Slot 4",NULL,NULL );

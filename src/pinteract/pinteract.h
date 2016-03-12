@@ -3,6 +3,7 @@
 #include <pebble.h>
 #include "../config_all/config_func.h"
 #include "pinteract_structs.h"
+#include "../modules/helper.h"
 
 // STRUCTURE OF THE PINTERACT CONTORL FLOW
 // 1. call start screen
@@ -18,16 +19,17 @@
 
 
 typedef struct {
-  time_t priv_scrn_time_open;
+  time_t time_srt_priv_scrn;
 }PinteractContext;
 
 // note, we pass the privacy screen the pinteact_code that we want it to execute
 // when the user agrees to begin
 void pinteract_priv_scrn(int16_t pinteract_code);
 
-
 // note, we decouple the privacy screen and pinteract driver because not all
 // printeracts will require a privacy screen, but they will all need a driver.
 void pinteract_driver(int16_t pinteract_code, PinteractContext ctx);
 
 void pinteract_11(PinteractContext ctx);
+
+void pinteract_14(PinteractContext ctx);

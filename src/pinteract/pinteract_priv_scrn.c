@@ -40,7 +40,7 @@ static void select_click_handler(ClickRecognizerRef recognizer, void *context){
 
   // write the pinteract context to the pinteract driver
   PinteractContext ctx = {
-    .priv_scrn_time_open = time_t_srt_priv_scrn_lcl
+    .time_srt_priv_scrn = time_t_srt_priv_scrn_lcl
   };
   pinteract_driver(pinteract_code_lcl, ctx);
 }
@@ -190,15 +190,17 @@ static void main_window_unload(Window *window){
 }
 
 void pinteract_priv_scrn(int16_t pinteract_code){
-  pinteract_code_lcl = pinteract_code;
+  // if the window is on the stack, remove it
+  if(window_stack_contains_window(s_privacy_window)){
+    window_stack_remove(s_privacy_window, false);
+  }
 
+  pinteract_code_lcl = pinteract_code;
   // get the start time
   time_t_srt_priv_scrn_lcl = time(NULL);
-
   // set up the screen
   // create window
   s_privacy_window = window_create();
-
   // use global variables to this file for sanity
   // set the window handlers
   window_set_window_handlers(s_privacy_window, (WindowHandlers){
@@ -213,5 +215,4 @@ void pinteract_priv_scrn(int16_t pinteract_code){
 
   // vibrate to remind the person to input
   vibes_enqueue_custom_pattern(pinteract_vibe_pat);
-
 }

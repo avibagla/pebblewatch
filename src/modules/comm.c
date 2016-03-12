@@ -14,6 +14,7 @@ static AppTimer *app_timer_push_to_server;
 static uint16_t cur_countdown;
 static int16_t MAX_RETRY = 5;
 static bool countdown_active = false;
+static bool transmit_window_active = false;
 static const int16_t NUM_SEC_TRANSMIT_SERVER = 15;
 
 static void countdown_timer_handler(void *data);
@@ -25,6 +26,8 @@ bool health_events_sent;
 AppKey cur_app_key;
 int num_entries;
 
+// These variables contain information about the endpoints of upload on
+// acti, health_events, and pinteract data blocks.
 static int pinteract_count;
 static time_t prev_health_events_upload_time; // previous time that the
 static time_t attempt_health_events_upload_time; // previous time that the
@@ -43,7 +46,9 @@ static time_t attempt_acti_upload_time;
 // the tick handlers will kill the window when it is time.
 
 static void close_transmit_window(){
-  window_stack_remove(s_transmit_phone_window,false);
+  if(transmit_window_active){
+    window_stack_remove(s_transmit_phone_window,false);
+  }
 }
 
 static void select_click_handler(ClickRecognizerRef recognizer, void *context){}
@@ -187,9 +192,9 @@ static void health_events_iter_cb(HealthActivity activity, time_t time_start,
 }
 
 
-static void send_app_message_full(DictionaryIterator *out, AppKey app_key, uint8_t *data, int data_size){
+static void send_app_message_full(DictionaryIterator *out, AppKey app_key, uint8_t *data, int data_start, int data_size){
   if(app_message_outbox_begin(&out) == APP_MSG_OK){
-    dict_write_data(out, app_key, data, data_size);
+    dict_write_data(out, app_key, data+data_start, data_size);
     free(data);
     dict_write_end(out);
 
@@ -261,7 +266,7 @@ static void send_data_item(AppKey app_key){
       // setup for the next upload, we have to add one second to get the next minute
       write_time_to_array_head(attempt_acti_upload_time, data+sizeof(time_t));
 
-      send_app_message_full(out, AppKeyActiData, data, data_size);
+      send_app_message_full(out, AppKeyActiData, data, 0,data_size);
 
     }else{
       APP_LOG(APP_LOG_LEVEL_ERROR,
@@ -294,7 +299,7 @@ static void send_data_item(AppKey app_key){
 
     // send data via appmessage
     // send the pointer ahead by 2 bytes
-    // send_app_message_full(out, AppKeyHealthEventsData, data+sizeof(uint16_t), data_size);
+    // send_app_message_full(out, AppKeyHealthEventsData, data,2, data_size);
 
   // AppKeyPinteractData
   }else if(app_key == AppKeyPinteractData){
@@ -311,7 +316,9 @@ static void send_data_item(AppKey app_key){
       // test if
       //  1. adding the pinteract to the data will cause it to overload the buffer
       //  2. if we have any keys left, ie:  pinteract_key == 0 is out
-      if( ( (*n_bytes + pinteract_data_size) > OUTBOX_SIZE) || (pinteract_count == 0)){ break; }
+      if( ( (*n_bytes + pinteract_data_size) > OUTBOX_SIZE) || (pinteract_count == 0)){
+        break;
+      }
       // read the pinteract entry into the buffer
       persist_read_data(pinteract_count, data + *n_bytes, pinteract_data_size);
       *n_bytes = *n_bytes + pinteract_data_size; // update the number of valid bytes in buffer
@@ -319,7 +326,7 @@ static void send_data_item(AppKey app_key){
     }
     // if we successful transmit the counter, then we update it at the sent handler
     int data_size = *n_bytes - 2;
-    send_app_message_full(out, AppKeyPinteractData, data + sizeof(uint16_t), data_size);
+    send_app_message_full(out, AppKeyPinteractData, data,2, data_size);
 
   // if AppKeyPushToServer
   }else if(app_key == AppKeyPushToServer){
@@ -327,7 +334,7 @@ static void send_data_item(AppKey app_key){
     uint8_t *data = (uint8_t*) malloc(data_size);
     data[0] = 0;
 
-    send_app_message_full(out, AppKeyPushToServer, data, data_size);
+    send_app_message_full(out, AppKeyPushToServer, data, 0,data_size);
   }
 
 }
@@ -397,45 +404,75 @@ static void inbox_received_handler(DictionaryIterator *iter, void *context) {
   }
 }
 
-void comm_begin_upload(){
-  num_entries = 1; // initialize
-  health_events_sent = false; // that haven't sent the health events yet
-  // test if BT connection is up at all. If it is NOT, don't even try
-  if(bluetooth_connection_service_peek()){
+
+// for use when the
+void comm_begin_upload_active_window(){
+
+
+  // if JS app is running, then try to send the data
+  if(connection_service_peek_pebble_app_connection()){
+    APP_LOG(APP_LOG_LEVEL_ERROR, "num pinteract %d ",(int) persist_read_int( PINTERACT_KEY_COUNT_PERSIST_KEY));
+    num_entries = 1; // initialize
+    health_events_sent = false; // that haven't sent the health events yet
+    // test if BT connection is up at all. If it is NOT, don't even try
+
     app_message_register_inbox_received(inbox_received_handler);
     app_message_register_outbox_sent(outbox_sent_handler);
     app_message_register_outbox_failed(outbox_dropped_handler);
     // NOTE : incoming data for configuration must match the size of the config
     app_message_open(INCOMING_DATA_SIZE, OUTBOX_SIZE);
-
-    // app_message_open(INCOMING_DATA_SIZE,app_message_outbox_size_maximum());
-
-    s_transmit_phone_window = window_create();
-    // app_message_open(app_message_inbox_size_maximum(),app_message_outbox_size_maximum());
-
-    window_set_window_handlers(s_transmit_phone_window, (WindowHandlers) {
-      .load = transmit_phone_window_load,
-      .unload = transmit_phone_window_unload,
-    });
-
-    window_set_click_config_provider(s_transmit_phone_window,
-                                     (ClickConfigProvider) click_config_provider);
-    window_stack_push(s_transmit_phone_window, false);
+    send_data_router();
+    transmit_window_active = false;
   }
 }
 
-void comm_begin_upload_no_window(){
+
+
+void comm_begin_upload_inactive_window(){
   num_entries = 1; // initialize
   health_events_sent = false; // that haven't sent the health events yet
-  // test if BT connection is up at all. If it is NOT, don't even try
-  if(bluetooth_connection_service_peek()){
-    app_message_register_inbox_received(inbox_received_handler);
-    app_message_register_outbox_sent(outbox_sent_handler);
-    app_message_register_outbox_failed(outbox_dropped_handler);
-    // NOTE : incoming data for configuration must match the size of the config
-    app_message_open(INCOMING_DATA_SIZE, OUTBOX_SIZE);
-  }
+
+  app_message_register_inbox_received(inbox_received_handler);
+  app_message_register_outbox_sent(outbox_sent_handler);
+  app_message_register_outbox_failed(outbox_dropped_handler);
+  // NOTE : incoming data for configuration must match the size of the config
+  app_message_open(INCOMING_DATA_SIZE, OUTBOX_SIZE);
+
+  s_transmit_phone_window = window_create();
+  // app_message_open(app_message_inbox_size_maximum(),app_message_outbox_size_maximum());
+
+  window_set_window_handlers(s_transmit_phone_window, (WindowHandlers) {
+    .load = transmit_phone_window_load,
+    .unload = transmit_phone_window_unload,
+  });
+
+  window_set_click_config_provider(s_transmit_phone_window,
+                                   (ClickConfigProvider) click_config_provider);
+  window_stack_push(s_transmit_phone_window, false);
+  transmit_window_active = true;
 }
+
+// if(bluetooth_connection_service_peek()){
+//   app_message_register_inbox_received(inbox_received_handler);
+//   app_message_register_outbox_sent(outbox_sent_handler);
+//   app_message_register_outbox_failed(outbox_dropped_handler);
+//   // NOTE : incoming data for configuration must match the size of the config
+//   app_message_open(INCOMING_DATA_SIZE, OUTBOX_SIZE);
+//
+//   // app_message_open(INCOMING_DATA_SIZE,app_message_outbox_size_maximum());
+//
+//   s_transmit_phone_window = window_create();
+//   // app_message_open(app_message_inbox_size_maximum(),app_message_outbox_size_maximum());
+//
+//   window_set_window_handlers(s_transmit_phone_window, (WindowHandlers) {
+//     .load = transmit_phone_window_load,
+//     .unload = transmit_phone_window_unload,
+//   });
+//
+//   window_set_click_config_provider(s_transmit_phone_window,
+//                                    (ClickConfigProvider) click_config_provider);
+//   window_stack_push(s_transmit_phone_window, false);
+// }
 
 
 // if(app_message_outbox_begin(&out) == APP_MSG_OK){

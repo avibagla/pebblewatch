@@ -20,10 +20,25 @@ typedef enum{
   AppKeyPinteractData = 4,
   AppKeyPushToServer = 5,
   AppKeySentToServer = 6,
-  NumAppKeys
+  NumAppKeys = 7
 } AppKey;
 
 
-void comm_begin_upload();
+// ONLY NEEDED FOR TRANMISSION
+typedef struct {
+  uint8_t steps;
+  uint8_t orientation;
+  uint16_t vmc;
+  uint8_t is_invalid;
+  uint8_t light;
+}__attribute__((__packed__)) TrunHealthMinuteData;
 
-void comm_begin_upload_no_window();
+typedef struct{
+  int16_t health_activity;
+  time_t time_start;
+  time_t time_end;
+}__attribute__((__packed__)) HealthEventData;
+
+void comm_begin_upload_inactive_window();
+
+void comm_begin_upload_active_window();

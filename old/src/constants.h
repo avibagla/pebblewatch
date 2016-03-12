@@ -182,7 +182,7 @@ struct pinteract_state{
   int16_t pi_13;
   int16_t pi_140[NUM_DAYS_HISTORY];
   int8_t pi_141[NUM_DAYS_HISTORY];
-  int16_t pi_15;;
+  int16_t pi_15;
 }__attribute__((__packed__));
 
 struct acticlass_learn_alg_state{

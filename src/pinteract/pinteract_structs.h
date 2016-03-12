@@ -8,7 +8,7 @@ typedef struct{
   time_t time_srt_priv_scrn; // when the privacy screen first prompts the user
   time_t time_srt_pi; // when the user enters into the pinteract
   time_t time_end_pi; // when the user ends the pinteract
-  uint8_t mood_res; // the response to the pinteract
+  uint8_t mood; // the response to the pinteract
 }__attribute__((__packed__)) Pinteract11Data;
 
 typedef struct{
@@ -17,9 +17,9 @@ typedef struct{
   time_t time_srt_priv_scrn; // when the privacy screen first prompts the user
   time_t time_srt_pi; // when the user enters into the pinteract
   time_t time_end_pi; // when the user ends the pinteract
-  uint16_t sleep_duration_min_res; // the response to the pinteract
-  uint8_t sleep_quality_res; // the response to the pinteract
-}__attribute__((__packed__)) Pinteract12Data;
+  uint16_t sleep_duration_min; // the response to the pinteract
+  uint8_t sleep_quality; // the response to the pinteract
+}__attribute__((__packed__)) Pinteract14Data;
 
 
 typedef struct{
@@ -28,6 +28,25 @@ typedef struct{
   time_t time_srt_priv_scrn; // when the privacy screen first prompts the user
   time_t time_srt_pi; // when the user enters into the pinteract
   time_t time_end_pi; // when the user ends the pinteract
-  uint16_t sleep_srt_min_res; // the response to the pinteract
-  uint16_t sleep_end_min_res; // the response to the pinteract
-}__attribute__((__packed__)) Pinteract121Data;
+  uint16_t sleep_srt_min; // the response to the pinteract
+  uint16_t sleep_end_min; // the response to the pinteract
+}__attribute__((__packed__)) Pinteract15Data;
+
+
+
+#define NUM_DAYS_HISTORY 8
+
+typedef struct{
+  int8_t mood_index;
+}__attribute__((__packed__)) Pinteract11State;
+
+typedef struct{
+  int16_t sleep_duration_min;
+  int8_t sleep_quality_index;
+}__attribute__((__packed__)) Pinteract14State;
+
+typedef struct{
+  Pinteract11State pi_11[NUM_DAYS_HISTORY]; // can make this a uint8_t array for last 10 days
+  Pinteract14State pi_14[NUM_DAYS_HISTORY]; // minutes<<3, quality in lower 3 bits
+  time_t time_last_entry;
+}__attribute__((__packed__)) PinteractStates;

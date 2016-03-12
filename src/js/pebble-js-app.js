@@ -41,6 +41,7 @@ Pebble.addEventListener("ready", function(e) {
     removeAllKeys();
     listAllKeys();
   }
+
   startPebbleWatchTransmission();
 
   // // check version
@@ -183,7 +184,7 @@ function attemptToTransmitAllKeysLS(){
   // If there are no keys to send, then tell the pebble app to go ahead and shutdown
   if(keyS3Array.length == 0){
     closePebbleWatchApp();
-  // If there are keys, then try to transmit them all 
+  // If there are keys, then try to transmit them all
   }else{
     for(var i = 0; i < keyS3Array.length; i++){
       // create the closure environment for each 'i' key index
@@ -255,6 +256,7 @@ function attemptToTransmitAllKeysLS(){
 
 // CONVIENENCE FUNCTIONS
 function startPebbleWatchTransmission(){
+  console.log('attempt to transmit to pebble');
   Pebble.sendAppMessage( { 'AppKeyJSReady': 0},
     function(e) {
       console.log('Successfully delivered message with transactionId='

@@ -13,8 +13,8 @@ static const int32_t CONFIG_T_TO_TODAY_S = 13183;
 // configuration scheduling struct
 typedef struct {
   int16_t pinteract_code;
-  int srt;
-  int end;
+  time_t srt;
+  time_t end;
 } WakeupConfig;
 
 

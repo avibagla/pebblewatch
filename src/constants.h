@@ -29,6 +29,8 @@ static const int16_t ACTI_LAST_UPLOAD_TIME_PERSIST_KEY = 128;
 static const int16_t PINTERACT_KEY_COUNT_PERSIST_KEY = 129;
 static const int16_t CONFIG_WAKEUP_IDS_PERSIST_KEY = 131;
 static const int16_t ACTIVE_WAKEUP_CONFIG_I_PERSIST_KEY = 132;
+static const int16_t PINTERACT_STATE_PERSIST_KEY = 133;
+
 
 // +++++++ Configuration Data
 static const int16_t CONFIG_GENERAL_PERSIST_KEY = 180;
@@ -58,8 +60,13 @@ static const int32_t CUR_WP_VERSION = 15;
 
 /* +++++++++++++++ ENUMERATED TYPES +++++++++++++++ */
 
-#define NUM_DAYS_HISTORY 8
 
+typedef struct{
+  uint16_t height_cm;
+  uint16_t weight_kg;
+  bool pi11_active;
+  bool pi14_active;
+}__attribute__((__packed__)) ConfigGeneral;
 
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
@@ -92,19 +99,7 @@ static const int16_t CONFIG_WAKEUP_COOKIE = 1;
 /* +++++++++++++++ T +++++++++++++++ */
 /* +++++++++++++++ T +++++++++++++++ */
 
-typedef struct {
-  uint8_t steps;
-  uint8_t orientation;
-  uint16_t vmc;
-  uint8_t is_invalid;
-  uint8_t light;
-}__attribute__((__packed__)) TrunHealthMinuteData;
 
-typedef struct{
-  int16_t health_activity;
-  time_t time_start;
-  time_t time_end;
-}__attribute__((__packed__)) HealthEventData;
 
 /* +++++++++++++++ VIBE PATTERNS +++++++++++++++ */
 

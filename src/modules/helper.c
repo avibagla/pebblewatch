@@ -1,5 +1,5 @@
-#include "modules/helper.h"
-#include "pinteract/pinteract.h"
+#include "helper.h"
+
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 /* ++++++++++++++++ STORAGE FUNCTIONS +++++++++++++++ */
@@ -46,11 +46,11 @@ void reset_config_wakeup_persistent_storage(){
 
   // SUPER ROUGH, but good enough for user testing
   cs_ary[0].pinteract_code = 14;
-  cs_ary[0].srt = 540;
-  cs_ary[0].end = 600;
+  cs_ary[0].srt = 540*60;
+  cs_ary[0].end = 600*60;
   cs_ary[1].pinteract_code = 11;
-  cs_ary[1].srt = 1080;
-  cs_ary[1].end = 1140;
+  cs_ary[1].srt = 1080*60;
+  cs_ary[1].end = 1140*60;
 
   reset_config_wakeup_schedule();
   write_to_config_wakeup_persistant_storage(cs_ary, 2);
@@ -189,6 +189,87 @@ void fore_app_master_tick_timer_service_aux_unsubscribe(TimeUnits tick_units){
 
 
 
+ConfigGeneral get_config_general(){
+  ConfigGeneral cg;
+  persist_read_data(CONFIG_GENERAL_PERSIST_KEY,&cg,sizeof(cg));
+  return cg;
+}
+
+PinteractStates get_pinteract_state_all(){
+  PinteractStates pis;
+  persist_read_data(PINTERACT_STATE_PERSIST_KEY, &pis, sizeof(pis));
+  return pis;
+}
+
+// void set_pinteract_state_current(int16_t pi_i, void* state){
+//   PinteractStates pis = get_pinteract_state_all();
+//   switch(pi_i){
+//     case 0 :
+//       pis.time_last_entry = *((time_t*) state);
+//       break;
+//     case 11 :
+//       pis.pi_11[0].mood = ((Pinteract11State*) state)->mood;
+//       break;
+//     case 14 :
+//       pis.pi_14[0].sleep_duration_min = ((Pinteract14State*) state)->sleep_duration_min;
+//       pis.pi_14[0].sleep_quality = ((Pinteract14State*) state)->sleep_quality;
+//       break;
+//     default :
+//       break;
+//   }
+//   persist_write_data(PINTERACT_STATE_PERSIST_KEY, &pis, sizeof(pis));
+// }
+
+void set_pinteract_state(int16_t pi_i, void* state, int16_t index){
+  PinteractStates pis = get_pinteract_state_all();
+  switch(pi_i){
+    case 0 :
+      pis.time_last_entry = *((time_t*) state);
+      break;
+    case 11 :
+      pis.pi_11[index].mood_index = ((Pinteract11State*) state)->mood_index;
+      break;
+    case 14 :
+      pis.pi_14[index].sleep_duration_min = ((Pinteract14State*) state)->sleep_duration_min;
+      pis.pi_14[index].sleep_quality_index = ((Pinteract14State*) state)->sleep_quality_index;
+      break;
+    default :
+      break;
+  }
+  persist_write_data(PINTERACT_STATE_PERSIST_KEY, &pis, sizeof(pis));
+}
+
+void pinteract_state_roll_over_days_entry(time_t time_entry){
+  // get the
+  PinteractStates pis = get_pinteract_state_all();
+  struct tm* tm_last_entry = localtime(&pis.time_last_entry);
+  struct tm* tm_entry = localtime(&time_entry);
+  // to account for roll over in years
+  if(  tm_entry->tm_yday < tm_last_entry->tm_yday ){
+    // accounts for leap years
+    tm_entry->tm_yday = tm_entry->tm_yday + 364 + (tm_last_entry->tm_year%4 == 0);
+  }
+
+  int diff_days = tm_entry->tm_yday - tm_last_entry->tm_yday;
+  // diff_days = (diff_days < NUM_DAYS_HISTORY) ? diff_days : NUM_DAYS_HISTORY;
+  diff_days = 1;
+  for(int i = 0; i < diff_days; i++){
+    // move the previous 7 days back by 1
+    for(int j = NUM_DAYS_HISTORY-1; j > 0 ; j--){
+      pis.pi_11[j].mood_index = pis.pi_11[j-1].mood_index;
+      pis.pi_14[j].sleep_duration_min = pis.pi_14[j-1].sleep_duration_min;
+      pis.pi_14[j].sleep_quality_index = pis.pi_14[j-1].sleep_quality_index;
+    }
+    // set the current day to NULL
+    pis.pi_11[0].mood_index = -1;
+    pis.pi_14[0].sleep_duration_min = -1;
+    pis.pi_14[0].sleep_quality_index = -1;
+  }
+  pis.time_last_entry = time_entry;
+  persist_write_data(PINTERACT_STATE_PERSIST_KEY, &pis, sizeof(pis));
+}
+
+
 
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
@@ -245,7 +326,7 @@ void wakeup_main_response_handler(WakeupId wakeup_id, int32_t wakeup_cookie){
 
   }else if(( wakeup_cookie < NUM_TOTAL_WAKEUP) && ( wakeup_cookie >= NUM_CONFIG_WAKEUP) ){
     APP_LOG(APP_LOG_LEVEL_ERROR,"attempt to transmit from wakeup");
-    comm_begin_upload();
+    comm_begin_upload_inactive_window();
   }
 }
 
