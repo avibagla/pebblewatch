@@ -1,11 +1,14 @@
 #pragma once
 
 // Number of data items to obtain from the HealthService API, ie: minutes
-#define MAX_ENTRIES 1
+#define MAX_ENTRIES 60*12
 
 // Number of minutes between uploads, and the number of items read from
 // the HealthService minute data API.
-#define INTERVAL_MINUTES 1
+#define INTERVAL_MINUTES 60
+
+// Size of the incoming information for configuration, for example
+#define INCOMING_DATA_SIZE 10
 
 // Send squares test data instead of data from the HealthService minute
 // minute data API
@@ -21,15 +24,18 @@
 
 
 // +++++++ App State
+static const int16_t HEALTH_EVENTS_LAST_UPLOAD_TIME_PERSIST_KEY = 127;
 static const int16_t ACTI_LAST_UPLOAD_TIME_PERSIST_KEY = 128;
 static const int16_t PINTERACT_KEY_COUNT_PERSIST_KEY = 129;
-static const int16_t PINTERACT_KEY_LIST_PERSIST_KEY = 130;
 static const int16_t CONFIG_WAKEUP_IDS_PERSIST_KEY = 131;
 static const int16_t ACTIVE_WAKEUP_CONFIG_I_PERSIST_KEY = 132;
+static const int16_t PINTERACT_STATE_PERSIST_KEY = 133;
+
 
 // +++++++ Configuration Data
 static const int16_t CONFIG_GENERAL_PERSIST_KEY = 180;
 static const int16_t CONFIG_WAKEUP_PERSIST_KEY = 181;
+static const int32_t CUR_WP_VERSION_PERSIST_KEY = 182;
 
 
 // +++++++ Interaction Data
@@ -45,7 +51,7 @@ static const int16_t DAILY_SUMMARY_WEEKS_PERSIST_KEY = 220;
 // # DEFINED CONSTANTS
 static const uint32_t NUM_SEC_IN_DAY = 24*60*60;
 static const uint32_t NUM_SEC_IN_WEEK = 7*24*60*60;
-static const int32_t CUR_WP_VERSION = 15;
+static const int32_t CUR_WP_VERSION = 14;
 
 
 // +++++++ Memory Constraints
@@ -54,8 +60,13 @@ static const int32_t CUR_WP_VERSION = 15;
 
 /* +++++++++++++++ ENUMERATED TYPES +++++++++++++++ */
 
-#define NUM_DAYS_HISTORY 8
 
+typedef struct{
+  uint16_t height_cm;
+  uint16_t weight_kg;
+  bool pi11_active;
+  bool pi14_active;
+}__attribute__((__packed__)) ConfigGeneral;
 
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
@@ -67,7 +78,7 @@ static const int32_t CUR_WP_VERSION = 15;
 /* +++++++++++++++ VARIABLES +++++++++++++++ */
 
 // +++++++ pinteract variables/parameters
-static const uint16_t MAX_PINTERACT_PS_B_SIZE = PERSIST_DATA_MAX_LENGTH ;// assume it is uint16
+static const uint16_t PINTERACT_LIST_PS_B_SIZE = PERSIST_DATA_MAX_LENGTH ;// assume it is uint16
 static const uint16_t PINTERACT_PS_HEAD_B_SIZE = 6; // timestamp + counter
 static const uint16_t PINTERACT_RES_BUF_COUNTER_B_SIZE = 2;
 static const uint16_t PINTERACT_PS_B_COUNT_IND = 4; // byte counter
@@ -83,10 +94,13 @@ static const int16_t NUM_DAYS_DAILY_SUMMARY = 7; // we get a weeks work of data
 
 static const int16_t CONFIG_WAKEUP_COOKIE = 1;
 
+#define NUM_DAYS_HISTORY 8
 
 /* +++++++++++++++ T +++++++++++++++ */
 /* +++++++++++++++ T +++++++++++++++ */
 /* +++++++++++++++ T +++++++++++++++ */
+
+
 
 /* +++++++++++++++ VIBE PATTERNS +++++++++++++++ */
 

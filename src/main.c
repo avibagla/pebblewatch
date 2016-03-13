@@ -29,20 +29,25 @@ Pebble App roject.
 #include "main.h"
 
 
-
 static void init() {
   /* ++++++ CHECK IF FIRST TIME APP INSTALLED +++++ */
+  // if first time installed
+  if(persist_read_int(CUR_WP_VERSION_PERSIST_KEY) != CUR_WP_VERSION){
+    // write the current version of the app into persist storage
+    persist_write_int(CUR_WP_VERSION_PERSIST_KEY, CUR_WP_VERSION);
+    persist_write_int(PINTERACT_KEY_COUNT_PERSIST_KEY,0);
+    persist_write_int(ACTI_LAST_UPLOAD_TIME_PERSIST_KEY,0);
+    persist_write_int(HEALTH_EVENTS_LAST_UPLOAD_TIME_PERSIST_KEY,0);
+    // nevermind, just let the count be the key for the persistent storage.
 
+    reset_pinteract_states();
+    reset_config_wakeup_persistent_storage();
+  }
 
   /* ++++++ EVERY TIME THE APP STARTS  +++++ */
   // ALWAYS register the wakeup handler each time the app is opened so that,
   // when the app is closed again, that the wakeup handler will take place.
   wakeup_service_subscribe(wakeup_main_response_handler);
-
-  // CURRENTLY UNUSED AS OF VERSION 0.15
-  // !! Register the global tick timer function. ALL elements will use this
-  // and this tick timer alone!
-  // tick_timer_service_subscribe(SECOND_UNIT, fore_app_master_tick_timer_handler);
 
 
   /* ++++++ LAUNCH REASONS ++++++ */
@@ -50,7 +55,8 @@ static void init() {
   if(launch_reason() == APP_LAUNCH_USER){
     APP_LOG(APP_LOG_LEVEL_ERROR, "app start: heap size: used %d , free %d",
         heap_bytes_used(), heap_bytes_free());
-    // display_main_dash();
+    display_history_stem_graph(11);
+    // demo_screens_open();
   }
 
 
@@ -63,14 +69,15 @@ static void init() {
     int32_t wakeup_cookie;
     wakeup_get_launch_event(&wakeup_id, &wakeup_cookie);
     // APP_LOG(APP_LOG_LEVEL_ERROR, "wakeup_id %d  wakeup_cookie %d", (int) wakeup_id, (int) wakeup_cookie);
+    APP_LOG(APP_LOG_LEVEL_ERROR, "wakeup event, cookie %d",(int)wakeup_cookie);
     wakeup_main_response_handler(wakeup_id, wakeup_cookie);
   }
 }
 
 static void deinit() {
   //   app_message_deregister_callbacks();
-  tick_timer_service_unsubscribe();
-  APP_LOG(APP_LOG_LEVEL_ERROR, "Main Project K rem heap B: %d",(int) heap_bytes_free());
+  // tick_timer_service_unsubscribe();
+  APP_LOG(APP_LOG_LEVEL_ERROR, "Main Dash em heap B: %d",(int) heap_bytes_free());
 }
 
 int main(void) {

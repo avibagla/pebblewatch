@@ -14,14 +14,31 @@
 
 typedef enum{
   AppKeyJSReady = 0,
-  AppKeyActiData,
-  AppKeyPinteractData,
-  AppKeyPushToServer,
-  AppKeySentToServer
+  AppKeyActiData = 1,
+  AppKeyHealthEventData = 2,
+  AppKeyConfigData = 3,
+  AppKeyPinteractData = 4,
+  AppKeyPushToServer = 5,
+  AppKeySentToServer = 6,
+  NumAppKeys = 7
 } AppKey;
 
 
-// static void send_data_item(AppKey app_key);
+// ONLY NEEDED FOR TRANMISSION
+typedef struct {
+  uint8_t steps;
+  uint8_t orientation;
+  uint16_t vmc;
+  uint8_t is_invalid;
+  uint8_t light;
+}__attribute__((__packed__)) TrunHealthMinuteData;
 
+typedef struct{
+  int16_t health_activity;
+  time_t time_start;
+  time_t time_end;
+}__attribute__((__packed__)) HealthEventData;
 
-void comm_begin_upload();
+void comm_begin_upload_inactive_window();
+
+void comm_begin_upload_active_window();

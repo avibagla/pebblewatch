@@ -14,9 +14,11 @@
   "appKeys": {
     "AppKeyJSReady": 0,
     "AppKeyActiData": 1,
-    "AppKeyPinteractData": 2,
-    "AppKeyPushToServer": 3,
-    "AppKeySentToServer": 4
+    "AppKeyHealthEventData":2,
+    "AppKeyConfigData": 3,
+    "AppKeyPinteractData": 4,
+    "AppKeyPushToServer": 5,
+    "AppKeySentToServer": 6
   },
   "resources": {
     "media": [
@@ -84,7 +86,6 @@
     ]
   },
   "targetPlatforms": [
-    "aplite",
     "basalt",
     "chalk"
   ],

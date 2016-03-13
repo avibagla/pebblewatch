@@ -5,6 +5,8 @@
 #include "modules/helper.h"
 #include "modules/scheduler.h"
 #include "modules/comm.h"
+#include "demo_screens.h"
+#include "pinteract/pinteract_structs.h"
 
 // #include "config_all/config_func.h"
 // #include "display_all/display_func.h"
